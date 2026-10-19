@@ -1,0 +1,156 @@
+/* 五加一设计体系 · 唯一的语义变量源
+ * 所有组件与设计网站只允许引用这里的 --fp-* 变量。
+ * 产品主题（primary/on-primary/primary-soft/primary-ink）由 product-themes.css 生成覆盖。
+ */
+
+:root {
+  /* 色彩 · 背景与内容面 */
+  --fp-bg: #fbfaf8;
+  --fp-surface: #ffffff;
+  --fp-surface-muted: #f4f2ef;
+  --fp-surface-sunken: #eeebe7;
+
+  /* 色彩 · 文字 */
+  --fp-ink: #202124;
+  --fp-muted: #6b7075;
+  --fp-faint: #9aa0a6;
+
+  /* 色彩 · 边界 */
+  --fp-line: #e6e3df;
+  --fp-line-strong: #d3cfca;
+
+  /* 色彩 · 品牌识别（固定不随产品变化） */
+  --fp-brand: #fd8b07;
+  --fp-brand-soft: #fff2e2;
+  --fp-brand-ink: #914600;
+
+  /* 色彩 · 操作主题默认值（brand 产品） */
+  --fp-primary: #fd8b07;
+  --fp-on-primary: #202124;
+  --fp-primary-soft: #fff2e2;
+  --fp-primary-ink: #914600;
+
+  /* 色彩 · 语义状态 */
+  --fp-success: #27613e;
+  --fp-success-soft: #e9f3e9;
+  --fp-warning: #895500;
+  --fp-warning-soft: #fff2d7;
+  --fp-error: #b33131;
+  --fp-error-soft: #fff0ee;
+  --fp-info: #185abc;
+  --fp-info-soft: #e8f0fe;
+
+  /* 字体 */
+  --fp-font:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --fp-font-mono: "SF Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+
+  /* 字号（固定步进） */
+  --fp-text-2xs: 11px;
+  --fp-text-xs: 12px;
+  --fp-text-sm: 13px;
+  --fp-text-md: 14px;
+  --fp-text-base: 16px;
+  --fp-text-lg: 18px;
+  --fp-text-xl: 22px;
+  --fp-text-2xl: 28px;
+  --fp-text-3xl: 36px;
+  --fp-text-4xl: 48px;
+
+  /* 行高 */
+  --fp-leading-tight: 1.3;
+  --fp-leading-snug: 1.5;
+  --fp-leading-normal: 1.7;
+  --fp-leading-loose: 1.9;
+
+  /* 间距（4px 基数） */
+  --fp-space-1: 4px;
+  --fp-space-2: 8px;
+  --fp-space-3: 12px;
+  --fp-space-4: 16px;
+  --fp-space-5: 20px;
+  --fp-space-6: 24px;
+  --fp-space-7: 28px;
+  --fp-space-8: 32px;
+  --fp-space-10: 40px;
+  --fp-space-12: 48px;
+  --fp-space-16: 64px;
+
+  /* 圆角 */
+  --fp-radius-sm: 6px;
+  --fp-radius-md: 8px;
+  --fp-radius-lg: 12px;
+  --fp-radius-full: 999px;
+
+  /* 阴影（只表达浮层） */
+  --fp-shadow: 0 1px 2px rgb(32 33 36 / 6%), 0 4px 16px rgb(32 33 36 / 6%);
+  --fp-shadow-lg: 0 2px 6px rgb(32 33 36 / 7%), 0 20px 48px rgb(32 33 36 / 14%);
+  --fp-ring: 0 0 0 3px var(--fp-primary-soft);
+
+  /* 控件 */
+  --fp-control: 44px;
+  --fp-control-sm: 36px;
+  --fp-control-lg: 52px;
+  --fp-icon: 20px;
+
+  /* 动效 */
+  --fp-motion: 200ms;
+  --fp-motion-enter: 260ms;
+  --fp-ease: cubic-bezier(0.2, 0, 0, 1);
+  --fp-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --fp-bg: #141517;
+  --fp-surface: #1d1f22;
+  --fp-surface-muted: #26282c;
+  --fp-surface-sunken: #101113;
+
+  --fp-ink: #e8eaed;
+  --fp-muted: #a9adb4;
+  --fp-faint: #7c828a;
+
+  --fp-line: #34373c;
+  --fp-line-strong: #464a50;
+
+  --fp-brand: #fd8b07;
+  --fp-brand-soft: #422d18;
+  --fp-brand-ink: #ffc98f;
+
+  --fp-primary: #fd8b07;
+  --fp-on-primary: #ffffff;
+  --fp-primary-soft: #422d18;
+  --fp-primary-ink: #ffc98f;
+
+  --fp-success: #b1d9b5;
+  --fp-success-soft: #203b2a;
+  --fp-warning: #efd28d;
+  --fp-warning-soft: #3e341e;
+  --fp-error: #ffb4ab;
+  --fp-error-soft: #452522;
+  --fp-info: #c2d7fa;
+  --fp-info-soft: #263751;
+
+  --fp-shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 4px 16px rgb(0 0 0 / 30%);
+  --fp-shadow-lg: 0 2px 6px rgb(0 0 0 / 35%), 0 20px 48px rgb(0 0 0 / 45%);
+  --fp-ring: 0 0 0 3px var(--fp-primary-soft);
+
+  color-scheme: dark;
+}
+
+/* 高密度工作区容器 */
+[data-density="compact"] {
+  --fp-control: 36px;
+  --fp-control-sm: 30px;
+  --fp-control-lg: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fp-motion: 1ms;
+    --fp-motion-enter: 1ms;
+  }
+}

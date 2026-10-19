@@ -1,0 +1,540 @@
+/* 五加一设计系统 - 专业级重构 */
+
+:root {
+  /* 色彩 - 更专业的调色板 */
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --primary-active: #1D4ED8;
+  --primary-light: #EFF6FF;
+
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+
+  --error: #EF4444;
+  --error-light: #FEE2E2;
+  --success: #10B981;
+  --success-light: #D1FAE5;
+  --warning: #F59E0B;
+
+  /* 字体 */
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
+
+  /* 阴影 - 更真实的深度 */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* 圆角 */
+  --radius-sm: 0.375rem;
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* 过渡 */
+  --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== 按钮 ========== */
+.fp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.fp-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 1px 2px 0 rgb(59 130 246 / 0.5);
+}
+
+.fp-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 6px -1px rgb(59 130 246 / 0.4), 0 2px 4px -2px rgb(59 130 246 / 0.3);
+}
+
+.fp-primary:active {
+  background: var(--primary-active);
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px 0 rgb(59 130 246 / 0.5);
+}
+
+.fp-secondary {
+  background: white;
+  color: var(--gray-700);
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-xs);
+}
+
+.fp-secondary:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+  box-shadow: var(--shadow-sm);
+}
+
+.fp-secondary:active {
+  background: var(--gray-100);
+}
+
+.fp-ghost {
+  background: transparent;
+  color: var(--gray-700);
+}
+
+.fp-ghost:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.fp-ghost:active {
+  background: var(--gray-200);
+}
+
+.fp-danger {
+  background: var(--error);
+  color: white;
+  box-shadow: 0 1px 2px 0 rgb(239 68 68 / 0.5);
+}
+
+.fp-danger:hover {
+  background: #DC2626;
+  box-shadow: 0 4px 6px -1px rgb(239 68 68 / 0.4), 0 2px 4px -2px rgb(239 68 68 / 0.3);
+}
+
+.fp-sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 13px;
+}
+
+.fp-lg {
+  height: 2.75rem;
+  padding: 0 1.5rem;
+  font-size: 15px;
+}
+
+/* ========== 输入框 ========== */
+.fp-input {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  font: inherit;
+  font-size: 14px;
+  color: var(--gray-900);
+  transition: all var(--transition);
+}
+
+.fp-input::placeholder {
+  color: var(--gray-400);
+}
+
+.fp-input:hover:not(:focus) {
+  border-color: var(--gray-400);
+}
+
+.fp-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+.fp-input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.fp-input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgb(239 68 68 / 0.1);
+}
+
+textarea.fp-input {
+  height: auto;
+  min-height: 6rem;
+  padding: 0.625rem 0.75rem;
+  resize: vertical;
+}
+
+/* ========== 搜索输入框 ========== */
+.fp-search-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fp-search-input > .fp-input {
+  padding-left: 2.5rem;
+}
+
+.fp-search-input > span {
+  position: absolute;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  color: var(--gray-400);
+  pointer-events: none;
+}
+
+/* ========== 表单字段 ========== */
+.fp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.fp-field > label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.fp-field small {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.fp-error-text {
+  color: var(--error) !important;
+}
+
+/* ========== 筛选标签 ========== */
+.fp-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 2rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+  transition: all var(--transition);
+}
+
+.fp-chip:hover:not(.is-selected) {
+  border-color: var(--gray-300);
+  background: var(--gray-50);
+}
+
+.fp-chip button {
+  height: 100%;
+  padding: 0 0.875rem;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.fp-chip.is-selected {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+
+.fp-chip.is-selected button {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ========== 日历 ========== */
+.fp-calendar {
+  display: inline-block;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  max-width: 21rem;
+}
+
+.fp-calendar header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.fp-calendar h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.fp-calendar header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.fp-calendar header button:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.fp-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.125rem;
+  text-align: center;
+}
+
+.fp-calendar-grid > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.fp-calendar-grid button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.fp-calendar-grid button:hover:not([aria-pressed="true"]) {
+  background: var(--gray-100);
+}
+
+.fp-calendar-grid button[aria-pressed="true"] {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 1px 3px 0 rgb(59 130 246 / 0.5);
+}
+
+/* ========== 评分 ========== */
+.fp-rating {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.fp-rating button {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--gray-200);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.fp-rating button:hover {
+  color: #FBBF24;
+  transform: scale(1.1);
+}
+
+.fp-rating .is-active {
+  color: #FBBF24;
+}
+
+/* ========== 颜色选择器 ========== */
+.fp-color-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fp-color-picker input[type="color"] {
+  width: 3rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.fp-color-picker input[type="text"] {
+  width: 7rem;
+}
+
+/* ========== 其他组件 ========== */
+.fp-card {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.fp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 1.25rem;
+  padding: 0 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fp-tone-neutral {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.fp-tone-accent {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.fp-tone-success {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.fp-tone-warning {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.fp-tone-error {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+.fp-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
+}
+
+.fp-check input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.fp-switch-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.fp-switch {
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+  background: var(--gray-300);
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.fp-switch i {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition);
+}
+
+.fp-switch.is-on {
+  background: var(--primary);
+}
+
+.fp-switch.is-on i {
+  transform: translateX(1.25rem);
+}
+
+.fp-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fp-divider {
+  border: none;
+  border-top: 1px solid var(--gray-200);
+  margin: 1.25rem 0;
+}
+
+.fp-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
