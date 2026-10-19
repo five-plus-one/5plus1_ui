@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件预览</title>
+  <link rel="stylesheet" href="src/lib/styles-complete.css">
+</head>
+<body style="padding: 2rem;">
+  <h2 style="margin-bottom: 1.5rem;">组件预览测试</h2>
+
+  <!-- 搜索框 -->
+  <div style="margin-bottom: 2rem; max-width: 400px;">
+    <div class="fp-search-input">
+      <span>🔍</span>
+      <input type="text" class="fp-input" placeholder="搜索组件名称...">
+    </div>
+  </div>
+
+  <!-- 筛选标签 -->
+  <div style="margin-bottom: 2rem;">
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <span class="fp-chip is-selected">
+        <button type="button">全部</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">基础</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">表单</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">导航</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">反馈</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">数据展示</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">布局</button>
+      </span>
+      <span class="fp-chip">
+        <button type="button">业务模式</button>
+      </span>
+    </div>
+  </div>
+
+  <!-- 日历 -->
+  <div style="margin-bottom: 2rem;">
+    <div class="fp-calendar">
+      <header>
+        <button type="button">‹</button>
+        <h3>2026年10月</h3>
+        <button type="button">›</button>
+      </header>
+      <div class="fp-calendar-grid">
+        <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+        <button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+        <button>6</button><button>7</button><button>8</button><button>9</button><button>10</button>
+        <button>11</button><button>12</button><button>13</button><button>14</button><button>15</button>
+        <button>16</button><button>17</button><button>18</button><button>19</button><button aria-pressed="true">20</button>
+        <button>21</button><button>22</button><button>23</button><button>24</button><button>25</button>
+        <button>26</button><button>27</button><button>28</button><button>29</button><button>30</button><button>31</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 按钮 -->
+  <div style="margin-bottom: 2rem;">
+    <div class="fp-row">
+      <button class="fp-button fp-primary">主要按钮</button>
+      <button class="fp-button fp-secondary">次要按钮</button>
+      <button class="fp-button fp-ghost">幽灵按钮</button>
+      <button class="fp-button fp-danger">危险按钮</button>
+    </div>
+  </div>
+
+  <!-- 评分 -->
+  <div style="margin-bottom: 2rem;">
+    <div class="fp-rating">
+      <button class="is-active">★</button>
+      <button class="is-active">★</button>
+      <button class="is-active">★</button>
+      <button>★</button>
+      <button>★</button>
+    </div>
+  </div>
+
+  <!-- 颜色选择器 -->
+  <div style="margin-bottom: 2rem;">
+    <div class="fp-color-picker">
+      <input type="color" value="#56e348">
+      <input type="text" class="fp-input" value="#56e348">
+    </div>
+  </div>
+
+</body>
+</html>

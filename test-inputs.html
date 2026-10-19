@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单组件测试</title>
+  <link rel="stylesheet" href="src/lib/styles.css">
+  <style>
+    body { padding: 3rem; background: #f8fafc; }
+    .section { margin-bottom: 3rem; background: white; padding: 2rem; border-radius: 12px; }
+    h2 { margin: 0 0 1.5rem 0; font-size: 1.25rem; color: #1e293b; }
+  </style>
+</head>
+<body>
+
+<div class="section">
+  <h2>输入框</h2>
+  <div style="max-width: 400px;">
+    <div class="fp-field">
+      <label>用户名</label>
+      <input type="text" class="fp-input" placeholder="请输入用户名">
+    </div>
+    <br>
+    <div class="fp-field">
+      <label>密码</label>
+      <input type="password" class="fp-input" placeholder="请输入密码">
+      <small>至少8个字符</small>
+    </div>
+    <br>
+    <div class="fp-field">
+      <label>错误状态</label>
+      <input type="text" class="fp-input" aria-invalid="true" value="错误的输入">
+      <small class="fp-error-text">用户名已存在</small>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>搜索框</h2>
+  <div style="max-width: 400px;">
+    <div class="fp-search-input">
+      <span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </span>
+      <input type="text" class="fp-input" placeholder="搜索组件名称...">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

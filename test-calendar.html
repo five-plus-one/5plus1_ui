@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日历和标签测试</title>
+  <link rel="stylesheet" href="src/lib/styles.css">
+  <style>
+    body { padding: 3rem; background: #f8fafc; }
+    .section { margin-bottom: 3rem; background: white; padding: 2rem; border-radius: 12px; }
+    h2 { margin: 0 0 1.5rem 0; font-size: 1.25rem; color: #1e293b; }
+  </style>
+</head>
+<body>
+
+<div class="section">
+  <h2>筛选标签</h2>
+  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+    <span class="fp-chip is-selected">
+      <button type="button">全部</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">基础</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">表单</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">导航</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">反馈</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">数据展示</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">布局</button>
+    </span>
+    <span class="fp-chip">
+      <button type="button">业务模式</button>
+    </span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>日历组件</h2>
+  <div class="fp-calendar">
+    <header>
+      <button type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <h3>2026年10月</h3>
+      <button type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </header>
+    <div class="fp-calendar-grid">
+      <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+      <button>1</button><button>2</button><button>3</button><button>4</button><button>5</button>
+      <button>6</button><button>7</button><button>8</button><button>9</button><button>10</button>
+      <button>11</button><button>12</button><button>13</button><button>14</button><button>15</button>
+      <button>16</button><button>17</button><button>18</button><button>19</button><button aria-pressed="true">20</button>
+      <button>21</button><button>22</button><button>23</button><button>24</button><button>25</button>
+      <button>26</button><button>27</button><button>28</button><button>29</button><button>30</button><button>31</button>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>评分组件</h2>
+  <div class="fp-rating">
+    <button class="is-active">★</button>
+    <button class="is-active">★</button>
+    <button class="is-active">★</button>
+    <button>★</button>
+    <button>★</button>
+  </div>
+</div>
+
+<div class="section">
+  <h2>颜色选择器</h2>
+  <div class="fp-color-picker">
+    <input type="color" value="#56e348">
+    <input type="text" class="fp-input" value="#56e348">
+  </div>
+</div>
+
+</body>
+</html>
