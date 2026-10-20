@@ -79,3 +79,7 @@
 .fp-mermaid-preview { padding:24px; background:var(--fp-surface); min-height:100px; overflow:auto; text-align:center; }
 .fp-mermaid-preview svg { display:block; margin:auto; max-width:100%; height:auto; }
 .fp-mermaid-preview p { margin:0; color:var(--fp-muted); font-size:13px; }
+
+.fp-directive-node { transition:border-color 160ms ease, background-color 160ms ease; }
+.fp-directive-node[data-card-type="pitfall"] { border-color:color-mix(in srgb,var(--fp-danger,#c53929) 30%,var(--fp-line)); }
+.fp-directive-node[data-card-type="definition"],.fp-directive-node[data-card-type="concept"],.fp-directive-node[data-card-type="theorem"] { background:color-mix(in srgb,var(--fp-primary-soft) 32%,var(--fp-surface)); }

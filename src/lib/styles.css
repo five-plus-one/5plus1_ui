@@ -1035,7 +1035,7 @@ input[type="color"]::-webkit-color-swatch {
   display: grid;
   gap: 1px;
 }
-.fp-popup-menu > button {
+.fp-popup-menu button {
   display: flex;
   align-items: center;
   width: 100%;
@@ -1051,15 +1051,15 @@ input[type="color"]::-webkit-color-swatch {
   cursor: pointer;
   transition: background-color var(--fp-motion) var(--fp-ease);
 }
-.fp-popup-menu > button:hover,
-.fp-popup-menu > button:focus-visible {
+.fp-popup-menu button:hover,
+.fp-popup-menu button:focus-visible {
   background: var(--fp-surface-muted);
   outline: none;
 }
-.fp-popup-menu > button.fp-error-text {
+.fp-popup-menu button.fp-error-text {
   color: var(--fp-error);
 }
-.fp-popup-menu > button.fp-error-text:hover {
+.fp-popup-menu button.fp-error-text:hover {
   background: var(--fp-error-soft);
 }
 .fp-popover-content {
@@ -4706,3 +4706,65 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .fp-date-popup .fp-calendar-grid > button { width:auto; height:30px; min-height:30px; }
 .fp-date-popup .fp-calendar-grid > span { height:24px; }
 .fp-date-popup .fp-calendar > header { margin-bottom:8px; }
+
+/* Compact selection surfaces and shared movement. */
+.fp-member-search-kind button { position:relative; isolation:isolate; transition:color 160ms ease; }
+.fp-member-search-kind button[aria-pressed=true] { background:transparent; }
+.fp-choice-highlight { position:absolute; inset:0; z-index:-1; border-radius:6px; background:var(--fp-primary-soft); }
+.fp-tabs button,.fp-segmented .fp-tabs button { transition:color 160ms ease; }
+.fp-select-options { padding:5px; overflow:hidden!important; }
+.fp-select-scroll { max-height:224px; overflow-y:auto; overscroll-behavior:contain; }
+.fp-select-search { padding:3px 3px 7px; border-bottom:1px solid var(--fp-line); margin-bottom:4px; }
+.fp-select-search input { width:100%; min-height:32px; padding:5px 9px; background:var(--fp-surface-muted); color:var(--fp-ink); border:1px solid var(--fp-line); border-radius:5px; font:13px var(--fp-font); }
+.fp-select-empty { padding:10px; color:var(--fp-muted); font-size:13px; }
+.fp-context-host { min-width:0; }
+.fp-context-menu { min-width:196px; }
+.fp-context-menu button { display:flex; gap:9px; width:100%; align-items:center; }
+.fp-context-icon { width:16px; display:inline-flex; }
+.fp-context-menu button>span:nth-child(2) { flex:1; text-align:left; }
+.fp-context-menu kbd { font:11px var(--fp-font); color:var(--fp-muted); }
+.fp-context-separator { height:1px; margin:5px; background:var(--fp-line); }
+.fp-resource-explorer { border:1px solid var(--fp-line); border-radius:10px; overflow:hidden; background:var(--fp-surface); font-size:13px; }
+.fp-resource-explorer header { padding:14px 16px; display:grid; gap:14px; border-bottom:1px solid var(--fp-line); }
+.fp-resource-explorer button { font:inherit; color:var(--fp-ink); background:transparent; border:0; cursor:pointer; border-radius:5px; }
+.fp-resource-explorer button:disabled { opacity:.4; cursor:default; }
+.fp-resource-explorer button:hover { background:var(--fp-surface-muted); }
+.fp-resource-explorer nav { color:var(--fp-muted); }
+.fp-explorer-tools { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.fp-explorer-tools>button { width:30px; height:30px; display:grid; place-items:center; }
+.fp-explorer-tools>button[aria-pressed=true] { background:var(--fp-primary-soft); color:var(--fp-primary-ink); }
+.fp-explorer-search { display:flex; align-items:center; gap:7px; flex:1; min-width:120px; max-width:300px; padding:5px 9px; border:1px solid var(--fp-line); border-radius:6px; color:var(--fp-muted); }
+.fp-explorer-search input { width:100%; background:transparent; border:0; outline:0; color:var(--fp-ink); font:inherit; }
+.fp-explorer-content { min-height:240px; padding:8px; }
+.fp-explorer-item { display:flex; align-items:center; gap:12px; padding:9px; border-radius:6px; transition:background 140ms ease; }
+.fp-explorer-item:hover { background:var(--fp-surface-muted); }
+.fp-explorer-item[data-selected] { background:var(--fp-primary-soft); }
+.fp-explorer-item>input { accent-color:var(--fp-action); width:15px; height:15px; }
+.fp-explorer-name { display:flex; flex:1; min-width:0; align-items:center; gap:10px; text-align:left; }
+.fp-explorer-name span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.fp-explorer-name svg { flex-shrink:0; color:var(--fp-muted); }
+.fp-explorer-name img { width:36px; height:36px; object-fit:cover; border-radius:4px; }
+.fp-explorer-item small { width:76px; color:var(--fp-muted); }
+.fp-explorer-item time { width:90px; color:var(--fp-muted); font-size:12px; }
+.fp-explorer-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:8px; align-content:start; }
+.fp-explorer-grid .fp-explorer-item { position:relative; flex-direction:column; padding:18px 10px 12px; gap:8px; }
+.fp-explorer-grid .fp-explorer-name { flex-direction:column; width:100%; gap:14px; }
+.fp-explorer-grid .fp-explorer-name span { max-width:100%; }
+.fp-explorer-grid .fp-explorer-item>input { position:absolute; top:8px; left:8px; }
+.fp-explorer-grid .fp-dropdown { position:absolute; top:5px; right:5px; }
+.fp-explorer-grid time { display:none; }
+.fp-explorer-grid small { width:auto; }
+.fp-resource-explorer footer { display:flex; justify-content:space-between; padding:10px 16px; color:var(--fp-muted); border-top:1px solid var(--fp-line); }
+.fp-explorer-empty { color:var(--fp-muted); text-align:center; padding:64px 16px; }
+::view-transition-group(fp-formula-paragraph) { animation-duration:200ms; animation-timing-function:cubic-bezier(.2,0,0,1); }
+::view-transition-old(fp-formula-paragraph),::view-transition-new(fp-formula-paragraph) { animation-duration:160ms; height:100%; overflow:clip; }
+html[data-formula-transition]::view-transition-old(root),html[data-formula-transition]::view-transition-new(root) { animation:none; mix-blend-mode:normal; }
+@media(max-width:600px){.fp-explorer-item time{display:none}.fp-explorer-item small{width:58px}}
+@media(prefers-reduced-motion:reduce){.fp-member-search-kind button,.fp-tabs button,.fp-explorer-item{transition:none!important}}
+
+.fp-segmented .fp-tabs { isolation:isolate; }
+.fp-segmented .fp-tabs button { z-index:1; font-weight:500; }
+.fp-segmented .fp-tabs button[aria-selected="true"] { background:transparent; box-shadow:none; font-weight:500; }
+.fp-segmented .fp-tab-indicator { display:block; top:0; bottom:0; height:auto; border-radius:4px; background:var(--fp-surface); box-shadow:var(--fp-shadow); z-index:0; }
+
+.fp-context-menu button:disabled { opacity:.4; cursor:default; }

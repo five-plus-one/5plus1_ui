@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+
 import { AnimatedSize } from '../AnimatedSize';
-import { createPortal } from "react-dom";
+import { createPortal, flushSync } from "react-dom";
 import type { Editor } from "@tiptap/core";
 import type { MathfieldElement } from "mathlive";
 import { closeHistory } from "@tiptap/pm/history";
@@ -60,7 +60,14 @@ export function useMathEditor() {
     if (id && current.current?.id !== id) return;
     const previous = current.current;
     current.current = null;
-    setSession(null);
+    const paragraph = previous && !previous.display ? previous.host.closest<HTMLElement>('p, li, td') : null;
+    if (id && paragraph?.isConnected && document.startViewTransition && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      paragraph.style.viewTransitionName = 'fp-formula-paragraph';
+      document.documentElement.dataset.formulaTransition = 'true';
+      const transition = document.startViewTransition(() => flushSync(() => setSession(null)));
+      const cleanup = () => { paragraph.style.removeProperty('view-transition-name'); delete document.documentElement.dataset.formulaTransition; };
+      void transition.finished.then(cleanup,cleanup);
+    } else setSession(null);
     if (previous && !previous.editor.isDestroyed) separateHistory(previous.editor);
   }, []);
   const open = useCallback((editor: Editor, display: boolean, position?: number, range?: { from: number; to: number }) => {
@@ -87,7 +94,7 @@ export function useMathEditor() {
     current.current = next;
     setSession(next);
   }, [close]);
-  return { open, card: <AnimatePresence>{session ? <MathEditor key={session.id} session={session} onClose={close} /> : null}</AnimatePresence> };
+  return { open, card: session ? <MathEditor key={session.id} session={session} onClose={close} /> : null };
 }
 
 function MathEditor({ session, onClose: closeSession }: { session: MathSession; onClose: (id?: string) => void }) {
@@ -119,7 +126,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
     if (node.attrs.latex !== value) session.editor.view.dispatch(session.editor.state.tr.setNodeMarkup(pos, undefined, { ...node.attrs, latex: value }));
   }, [session]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     session.host.classList.add("is-math-editing");
     session.host.setAttribute("draggable", "false");
     const sync = () => {
@@ -141,7 +148,17 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
     session.editor.on("destroy", onClose);
     document.addEventListener("pointerdown", outside);
     return () => {
-      session.host.classList.remove("is-math-editing");
+      const host = session.host;
+      const from = host.getBoundingClientRect().height;
+      session.slot.style.display = 'none';
+      host.classList.remove("is-math-editing");
+      const to = host.getBoundingClientRect().height;
+      session.slot.style.removeProperty('display');
+      if (session.display && host.isConnected && host.animate && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+        const animation = host.animate([{height: `${from}px`, overflow: 'clip'}, {height: `${to}px`, overflow: 'clip'}], {duration: 200, easing: 'cubic-bezier(.2,0,0,1)'});
+        host.querySelector('.math-node-content')?.animate([{opacity: 0}, {opacity: 1}], {duration: 160});
+        animation.onfinish = () => animation.cancel();
+      }
       session.editor.off("transaction", sync);
       session.editor.off("destroy", onClose);
       document.removeEventListener("pointerdown", outside);
@@ -168,9 +185,10 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
         field.environmentPopoverPolicy = "off";
         field.maxMatrixCols = 10;
         field.setAttribute("aria-label", "公式内容");
+        const mounted = new Promise<void>(resolve => field.addEventListener('mount', () => resolve(), {once:true}));
         hostRef.current.append(field);
         cleanup = () => { field.remove(); fieldRef.current = null; };
-        await new Promise<void>(resolve => requestAnimationFrame(() => resolve()));
+        await mounted;
         if (!active) return;
         field.menuItems = [];
         field.setValue(draftRef.current, { silenceNotifications: true });

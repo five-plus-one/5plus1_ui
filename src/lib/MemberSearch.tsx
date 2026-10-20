@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, Users, UserRound, LoaderCircle } from 'lucide-react';
@@ -14,6 +15,7 @@ export interface MemberSearchProps {
 export function MemberSearch({ onSearch, onPick, disabled, excludedIds = [], debounceMs = 250 }: MemberSearchProps) {
   const [kind, setKind] = useState<MemberSearchKind>('user'), [query, setQuery] = useState(''), [items, setItems] = useState<MemberSearchResult[]>([]), [open, setOpen] = useState(false), [active, setActive] = useState(0), [status, setStatus] = useState<'idle'|'loading'|'ready'|'error'>('idle'), [error, setError] = useState('');
   const host = useRef<HTMLDivElement>(null), input = useRef<HTMLInputElement>(null), panel = useRef<HTMLDivElement>(null), latest = useRef(onSearch); latest.current = onSearch;
+  const reduced = useReducedMotion();
   const id = useId(), [position, setPosition] = useState({ left: 8, top: 8, width: 300, maxHeight: 280 });
   const results = items.filter(item => !excludedIds.includes(item.id));
   useEffect(() => {
@@ -32,7 +34,7 @@ export function MemberSearch({ onSearch, onPick, disabled, excludedIds = [], deb
   }, [open]);
   const pick = (item: MemberSearchResult) => { if (item.disabled) return; onPick(item,kind); setQuery(''); setOpen(false); input.current?.focus(); };
   return <div className="fp-member-search" ref={host}>
-    <div className="fp-member-search-kind" aria-label="搜索范围">{(['user','group'] as const).map(value => <button type="button" key={value} disabled={disabled} aria-pressed={kind===value} onClick={() => {setKind(value);setQuery('');setOpen(false);input.current?.focus();}}>{value==='user'?<UserRound size={14}/>:<Users size={14}/>}<span>{value==='user'?'用户':'用户组'}</span></button>)}</div>
+    <div className="fp-member-search-kind" aria-label="搜索范围">{(['user','group'] as const).map(value => <button type="button" key={value} disabled={disabled} aria-pressed={kind===value} onClick={() => {setKind(value);setQuery('');setOpen(false);input.current?.focus();}}>{kind===value && <motion.span className="fp-choice-highlight" layoutId={`${id}-kind`} transition={{duration:reduced?0:.18,ease:[.2,0,0,1]}} aria-hidden="true"/>}{value==='user'?<UserRound size={14}/>:<Users size={14}/>}<span>{value==='user'?'用户':'用户组'}</span></button>)}</div>
     <div className="fp-member-search-input"><Search size={16} aria-hidden="true"/><input ref={input} role="combobox" aria-label="搜索成员" aria-autocomplete="list" aria-expanded={open&&!!query.trim()} aria-controls={open&&query.trim()?id:undefined} aria-activedescendant={open&&results[active]?`${id}-${active}`:undefined} disabled={disabled} placeholder={kind==='user'?'搜索姓名、账号或邮箱':'搜索用户组名称'} value={query} onFocus={()=>setOpen(true)} onChange={event=>{setQuery(event.target.value);setOpen(true);}} onKeyDown={event=>{
       if(event.nativeEvent.isComposing)return;
       if(event.key==='Escape'){event.preventDefault();event.stopPropagation();setOpen(false);}

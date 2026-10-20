@@ -64,3 +64,15 @@ it('edits Mermaid source and serializes the updated graph into Markdown',async()
   await screen.findByRole('img',{name:'流程图'});expect(screen.getByRole('img',{name:'流程图'})).toHaveTextContent('验证');
   expect(screen.queryByRole('textbox',{name:'Mermaid 源码'})).not.toBeInTheDocument();
 });
+
+it('changes a directive type through the searchable menu and retains its title', async()=>{
+ let editor!:Editor;
+ render(<MarkdownEditor markdown={':::note{label="学习提示"}\n保留正文\n:::\n'} onReady={instance=>{editor=instance;}}/>);
+ await waitFor(()=>expect(editor).toBeDefined());
+ fireEvent.click(screen.getByRole('button',{name:'卡片类型'}));
+ fireEvent.change(screen.getByRole('textbox',{name:'搜索选项'}),{target:{value:'概念'}});
+ fireEvent.click(screen.getByRole('option',{name:'概念'}));
+ await waitFor(()=>expect(editor.getJSON().content?.find(n=>n.type==='directiveBlock')?.attrs?.name).toBe('concept'));
+ expect(screen.getByRole('button',{name:'卡片类型'})).toHaveTextContent('概念');
+ expect(screen.getByRole('textbox',{name:'卡片标题'})).toHaveValue('学习提示');
+});

@@ -52,8 +52,8 @@ function DirectiveView(props: NodeViewProps) {
     if (nested.current && !nested.current.isDestroyed && body !== published.current) { nested.current.commands.setContent(markdownToDocument(body), { emitUpdate: false }); published.current = body; }
   }, [node.attrs.body]);
   const name = String(node.attrs.name);
-  return <NodeViewWrapper className="fp-directive-node" contentEditable={false} data-selected={props.selected || undefined}>
-    <div className="fp-directive-heading" contentEditable={false}><SelectField label="卡片类型" value={name} disabled={!editor.isEditable} onChange={value => updateAttributes({ name: value })} options={DIRECTIVE_CARD_TYPES.map(([value, label]) => ({ value, label }))} />
+  return <NodeViewWrapper className="fp-directive-node" contentEditable={false} data-selected={props.selected || undefined} data-card-type={name}>
+    <div className="fp-directive-heading" contentEditable={false}><SelectField label="卡片类型" value={name} disabled={!editor.isEditable} onChange={value => { const title=readDirectiveTitle(node.attrs.attributes,name); updateAttributes({ name: value, attributes: writeDirectiveTitle(node.attrs.attributes,value,title) }); }} options={DIRECTIVE_CARD_TYPES.map(([value, label]) => ({ value, label }))} />
       {editor.isEditable && <span className="fp-directive-actions"><button type="button" aria-label={editing ? '完成卡片编辑' : '编辑卡片内容'} onClick={() => setEditing(value => !value)}>{editing ? <Check size={14} /> : <Pencil size={14} />}</button><button type="button" aria-label="删除卡片" onClick={deleteNode}><Trash2 size={14} /></button></span>}</div>
     <input aria-label="卡片标题" value={readDirectiveTitle(node.attrs.attributes, name)} disabled={!editor.isEditable} placeholder="添加标题" onChange={e => updateAttributes({ attributes: writeDirectiveTitle(node.attrs.attributes, name, e.target.value) })} />
     <MarkdownEditor markdown={String(node.attrs.body || '')} editable={editing && editor.isEditable} toolbar={editing} onReady={instance => { nested.current = instance; }} onChange={body => { published.current = body; updateAttributes({ body }); }} />

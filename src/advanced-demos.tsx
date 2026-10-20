@@ -25,10 +25,9 @@ export function ChatComposerDemo() {
   </div>;
 }
 export function MarkdownEditorDemo() {
-  const [source, setSource] = useState(false), [markdown, setMarkdown] = useState('# 从阅读到理解\n\n把资料变成自己的认识，从一个问题开始。你可以直接编辑这篇笔记。\n\n## 一个简单的例子\n\n向量长度 $\\sqrt{x^2+y^2}$ 描述了点到原点的距离。\n\n| 阶段 | 目标 |\n| --- | --- |\n| 阅读 | 找到关键概念 |\n| 练习 | 检查理解 |\n\n:::note{label="学习提示"}\n先用自己的话描述，再回到资料核对。\n:::\n');
-  return <div><div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}><U.Button variant="ghost" size="sm" onClick={() => setSource(v => !v)}>{source ? '收起 Markdown' : '查看 Markdown'}</U.Button></div>
+  const [markdown, setMarkdown] = useState('# 从阅读到理解\n\n把资料变成自己的认识，从一个问题开始。你可以直接编辑这篇笔记。\n\n## 一个简单的例子\n\n向量长度 $\\sqrt{x^2+y^2}$ 描述了点到原点的距离。\n\n| 阶段 | 目标 |\n| --- | --- |\n| 阅读 | 找到关键概念 |\n| 练习 | 检查理解 |\n\n:::note{label="学习提示"}\n先用自己的话描述，再回到资料核对。\n:::\n');
+  return <div>
     <U.MarkdownEditor markdown={markdown} onChange={setMarkdown} status="内容保留在本次预览中" onExport={text => { const url = URL.createObjectURL(new Blob([text], { type: 'text/markdown' })); const link = document.createElement('a'); link.href = url; link.download = '学习笔记.md'; link.click(); URL.revokeObjectURL(url); }} />
-    {source && <U.CodeBlock code={markdown} language="markdown" />}
   </div>;
 }
 export function WorkspaceLayoutDemo() {
@@ -48,4 +47,10 @@ export function ShareAccessDemo() {
   const [members,setMembers]=useState<U.AccessMember[]>([{id:'owner',name:'五加一',detail:'创建者',role:'edit',editable:false}]),[enabled,setEnabled]=useState(false),[access,setAccess]=useState('read');
   const directory=[{id:'lin',name:'林同学',detail:'lin@example.com'},{id:'chen',name:'陈同学',detail:'chen@example.com'},{id:'design',name:'设计协作组',detail:'5 位成员'}];
   return <div style={{maxWidth:480,margin:'auto',display:'grid',gap:24}}><U.MemberSearch excludedIds={members.map(member=>member.id)} onSearch={async (query,kind)=>directory.filter(item=>(kind==='group'?item.id==='design':item.id!=='design')&&(item.name.includes(query)||item.detail.includes(query)))} onPick={item=>setMembers(current=>[...current,{...item,role:'read'}])}/><U.MemberAccess canManage members={members} roles={[{value:'read',label:'可以阅读'},{value:'edit',label:'可以编辑'}]} onRoleChange={(id,role)=>setMembers(current=>current.map(item=>item.id===id?{...item,role}:item))} onRemove={id=>setMembers(current=>current.filter(item=>item.id!==id))}/><U.ShareLink enabled={enabled} onEnabledChange={setEnabled} access={access} onAccessChange={setAccess} url="https://fiveplus.one/share/design" /></div>;
+}
+
+export function ResourceExplorerDemo(){
+ const [folder,setFolder]=useState<string|null>(null),[selected,setSelected]=useState<string[]>([]),[message,setMessage]=useState('');
+ const [items,setItems]=useState<U.ExplorerResource[]>([{id:'course',name:'课程资料',kind:'folder'},{id:'notes',name:'学习笔记',kind:'folder'},{id:'pdf',name:'阅读与创造.pdf',kind:'file',size:2840000,modifiedAt:'2026-10-20'},{id:'slides',name:'设计协作.pptx',kind:'file',size:5120000,modifiedAt:'2026-10-19'},{id:'doc',parentId:'course',name:'课程提纲.docx',kind:'file',size:32000}]);
+ return <div><U.ResourceExplorer items={items} folderId={folder} onFolderChange={setFolder} selectedIds={selected} onSelectionChange={setSelected} onOpen={item=>setMessage(`已打开 ${item.name}`)} onCreateFolder={()=>setItems(current=>[...current,{id:crypto.randomUUID(),parentId:folder,name:'新建文件夹',kind:'folder'}])} onAction={(action,targets)=>{if(action==='delete'){setItems(current=>current.filter(item=>!targets.some(t=>t.id===item.id)));setSelected([]);}else setMessage(`${action==='share'?'分享':action==='download'?'下载':'重命名'}：${targets.map(i=>i.name).join('、')}`);}}/>{message&&<p role="status">{message}</p>}</div>;
 }

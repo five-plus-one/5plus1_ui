@@ -1625,3 +1625,6 @@ import "./editor/editor.css";
 import "./product-themes.css";
 
 export * from "./AnimatedSize";
+
+export * from "./ContextMenu";
+export * from "./ResourceExplorer";

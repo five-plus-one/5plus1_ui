@@ -1,8 +1,8 @@
 import { useId, useRef, useState, type SelectHTMLAttributes } from 'react';
 import { SelectField } from './SelectField';
 
-export function Select({options,...props}:SelectHTMLAttributes<HTMLSelectElement>&{options:{value:string;label:string}[]}){
-  const [inner,setInner]=useState(String(props.defaultValue??options[0]?.value??''));
+export function Select({options,defaultValue,...props}:SelectHTMLAttributes<HTMLSelectElement>&{options:{value:string;label:string}[]}){
+  const [inner,setInner]=useState(String(defaultValue??options[0]?.value??''));
   const selected=String(props.value??inner),native=useRef<HTMLSelectElement>(null);
   return <span className={props.className}><select {...props} hidden aria-hidden="true" tabIndex={-1} ref={native} value={selected} onChange={event=>{setInner(event.target.value);props.onChange?.(event);}}>{options.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}</select><SelectField label={props['aria-label']||props.title||'选择选项'} value={selected} disabled={props.disabled} options={options} onChange={value=>{setInner(value);if(native.current){native.current.value=value;native.current.dispatchEvent(new Event('change',{bubbles:true}));}}}/></span>;
 }

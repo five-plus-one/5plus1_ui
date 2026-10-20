@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as U from "./lib";
-import { ChatComposerDemo, MarkdownEditorDemo, WorkspaceLayoutDemo, ShareAccessDemo, UploadQueueDemo } from './advanced-demos';
+import { ResourceExplorerDemo, ChatComposerDemo, MarkdownEditorDemo, WorkspaceLayoutDemo, ShareAccessDemo, UploadQueueDemo } from './advanced-demos';
 import {
   Plus,
   ArrowUpRight,
@@ -32,6 +32,8 @@ export type Entry = {
   code: string;
 };
 const defs: Record<string, [string, string, string, string]> = {
+  ResourceExplorer: ['文件资源管理器','业务模式','浏览文件夹，搜索、排序并以列表或网格管理资料。','items；folderId；onFolderChange；selectedIds；onSelectionChange；onOpen；onAction?'],
+  ContextMenu: ['右键菜单','反馈','按当前位置提供文件、空白区域与选中内容的快捷操作。','items；children；label?；disabled?'],
   ChatComposer: ['对话输入框', 'AI 对话', '引用、附件与模型选择，集中在清晰轻巧的输入区。', 'value；onChange；onSend；onStop?；attachments?；onFiles?；tools?；onComposerInsetChange?'],
   MarkdownEditor: ['Markdown 富文本编辑', '业务模式', '文字、公式、表格与资料卡片，在同一篇笔记中编辑。', 'markdown?；documentKey?；onChange?；document?；provider?；onFiles?；resolveResourceUrl?'],
   WorkspaceLayout: ['多栏工作区', '布局', '自由调整目录、内容和讨论区域，保留熟悉的工作节奏。', 'panels: WorkspacePanel[]；ref: WorkspaceLayoutHandle；persistenceKey?；direction?'],
@@ -771,6 +773,8 @@ export function Demo({
     </U.Button>
   );
   const examples: Record<string, () => React.ReactNode> = {
+    ResourceExplorer: () => <ResourceExplorerDemo />,
+    ContextMenu: () => <U.ContextMenu items={[{id:'open',label:'打开',onSelect:()=>notify('已打开')},{id:'view',label:'视图',children:[{id:'list',label:'列表',onSelect:()=>notify('列表视图')},{id:'grid',label:'网格',onSelect:()=>notify('网格视图')}]},{id:'delete',label:'移到回收站',danger:true,separator:true,onSelect:()=>notify('已移到回收站')}]}><div style={{padding:48,border:'1px dashed var(--fp-line)',borderRadius:8}}>右键打开快捷操作，也可以使用 Shift + F10。</div></U.ContextMenu>,
     ChatComposer: () => <ChatComposerDemo />,
     MarkdownEditor: () => <MarkdownEditorDemo />,
     WorkspaceLayout: () => <WorkspaceLayoutDemo />,

@@ -1,6 +1,9 @@
 import { entries } from "./catalog";
 export function componentCode(name: string) {
   const examples: Record<string, string> = {
+    ContextMenu: '<ContextMenu items={[{id:"open",label:"打开",onSelect:()=>setMessage("已打开")}]}><div style={{padding:32}}>右键打开快捷操作</div></ContextMenu>',
+    ResourceExplorer: '<ResourceExplorer items={[{id:"folder",name:"课程资料",kind:"folder"},{id:"pdf",name:"讲义.pdf",kind:"file",size:2048}]} folderId={folder} onFolderChange={setFolder} selectedIds={selected} onSelectionChange={setSelected} onOpen={item=>setMessage(item.name)} />',
+
     SelectField: '<SelectField label="排序方式" value={text || "recent"} onChange={setText} options={[{value:"recent",label:"最近更新"},{value:"name",label:"名称"}]} />',
     MemberSearch: '<MemberSearch onSearch={async (query, kind, signal) => { const response = await fetch("/members?q=" + encodeURIComponent(query) + "&type=" + kind, {signal}); if (!response.ok) throw new Error("查找失败"); return response.json(); }} onPick={member => console.log(member)} />',
     ShareLink: '<ShareLink enabled={open} onEnabledChange={setOpen} access={text || "read"} onAccessChange={setText} url="https://example.com/share" />',
@@ -137,6 +140,7 @@ export function componentCode(name: string) {
   };
   const snippet = examples[name] || "";
   const state = [
+    ["setFolder", "  const [folder, setFolder] = useState<string | null>(null);"],
     ["enabled", "  const [enabled, setEnabled] = useState(true);"],
     ["setText", '  const [text, setText] = useState("");'],
     [
