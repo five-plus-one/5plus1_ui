@@ -1,0 +1,1048 @@
+{
+  "version": "0.5.0",
+  "release": "20261020-14",
+  "fileCount": 208,
+  "httpRedirect": "https://ui.five-plus-one.com/",
+  "files": [
+    {
+      "file": "assets/abnfDiagram-VCTEODGH-CPxj_fBn.js",
+      "status": 200,
+      "sha256": "1c0610cd7c45353481bc9511c12c11db15b25403f8f43ae9b88bbc396461a31c"
+    },
+    {
+      "file": "assets/AcylReactivity-BSWwdTkW.js",
+      "status": 200,
+      "sha256": "8d3bca818f5ee9d64023371e2d22fe85a41f6202a04b8238c7f391a03901a7f4"
+    },
+    {
+      "file": "assets/AmineBasicity-D-fCCi7t.js",
+      "status": 200,
+      "sha256": "f4d5166ec9a3879a94c7205463bf18dd8bf766a126a30dd2c40e30a0023bfeb0"
+    },
+    {
+      "file": "assets/arc-4rEoEbIE.js",
+      "status": 200,
+      "sha256": "b3d2ff12a4ad97bbbb0938ae7ed0ed0116bf9af93220c91e3bcb996e0563c2f2"
+    },
+    {
+      "file": "assets/architectureDiagram-5GKGNRK7-ibVx3WTU.js",
+      "status": 200,
+      "sha256": "aa3b0088f8f2acba8fe5ddc051ce6285344faf8eb018604a1a083671c5563b3e"
+    },
+    {
+      "file": "assets/BayesExplorer-C2ZHRabv.js",
+      "status": 200,
+      "sha256": "b86158ce33a0ec3784223f13164bf567852c42a5d0317b02225a3758b6017bf4"
+    },
+    {
+      "file": "assets/BinomialExplorer-D8C5cL37.js",
+      "status": 200,
+      "sha256": "8c78651a03224adb738531f8c81c8fe8c7a422de4294b7df13fad4a237f0d626"
+    },
+    {
+      "file": "assets/blockDiagram-I7D4REHJ-n9d6Qh8P.js",
+      "status": 200,
+      "sha256": "d3a16fa7e0fd3724a3f808ae7243d73434f6af56fad3da6640166cc57e674cd6"
+    },
+    {
+      "file": "assets/BoilingPointComparator-Dr9PmtRf.js",
+      "status": 200,
+      "sha256": "fd3ea9e44c82c0fc584eb898f2dc7357a9beb00e247b4b787133349f51ababfd"
+    },
+    {
+      "file": "assets/BondPolarityExplorer-Cp0r0BYc.js",
+      "status": 200,
+      "sha256": "2eaab284d0fbad45244c6d181c751144ef2f681a5d9e2b02ebb1a4a1ea77bd28"
+    },
+    {
+      "file": "assets/c4Diagram-7LVT6UL2-C650sjNb.js",
+      "status": 200,
+      "sha256": "d628249c91db83d059faefe6b8ce5713227b88a2fa19626f8d429e2e05cd1ce1"
+    },
+    {
+      "file": "assets/CarbocationStability-clI8TSf3.js",
+      "status": 200,
+      "sha256": "05e1760193181fe99143a45b853170fe47906d3d98546f748a2f0f4ac2ee70c3"
+    },
+    {
+      "file": "assets/CarbonylAddition-BrnLaWHv.js",
+      "status": 200,
+      "sha256": "9697f05f751c7d48cc4279a24bf07c7e748c2af32df3ed3774397d98f812c7fd"
+    },
+    {
+      "file": "assets/CDFVisualizer-sCuCXpZ3.js",
+      "status": 200,
+      "sha256": "3042b1e8020c7454d0668a32e7eeaa076181acb219aff5f58fe451e23669565b"
+    },
+    {
+      "file": "assets/ChairFlip-B2EsZZuC.js",
+      "status": 200,
+      "sha256": "93348cfc45fa0cc7020f2e38ea133484ed055e8571b0a55663f448f4d13707c2"
+    },
+    {
+      "file": "assets/channel-E-0tkv_z.js",
+      "status": 200,
+      "sha256": "7f3b8dc0989977418d1ce37db6ffb37b987a1ec15ff3bff04e911f3bc0b26b10"
+    },
+    {
+      "file": "assets/ChebyshevDemo-D0rrM45Q.js",
+      "status": 200,
+      "sha256": "e21cbfed6174f778fa9c7fc8f79e9205b8baf82a996014c0b1be566e09f1bb54"
+    },
+    {
+      "file": "assets/ChiralityMirror-FWpZQRpl.js",
+      "status": 200,
+      "sha256": "942de4e7e17bfb5aa21e71e66c2b7ee12dc24691c685fc85dc23047ccb790ebb"
+    },
+    {
+      "file": "assets/chunk-2Q5K7J3B-D4xFoIwK.js",
+      "status": 200,
+      "sha256": "2cfbb279a0601752fb874edf4482c1e630a68b0786cfd36b71f7354191884c05"
+    },
+    {
+      "file": "assets/chunk-5VM5RSS4-DrDNX-Tq.js",
+      "status": 200,
+      "sha256": "fc1061a8e5703d549b7a9d785b985a5b6a5a6057838e9534a5e4928b4ca427a4"
+    },
+    {
+      "file": "assets/chunk-F27PBJKO-BNCHHh9d.js",
+      "status": 200,
+      "sha256": "1d13335adb4684477975901b6f2a23c489d42b31e897a25258ed6a65cc157ad9"
+    },
+    {
+      "file": "assets/chunk-IMKFNOWR-DClHMlu9.js",
+      "status": 200,
+      "sha256": "5a7504bd2fd37be929ac6fe84e981c4eed3a9aba0b8ba8fcaccc82ce482e9ab5"
+    },
+    {
+      "file": "assets/chunk-JWPE2WC7-DN8vhhz_.js",
+      "status": 200,
+      "sha256": "cda69348efc48f1657a84280c8d15d55ccde1f8be2ecc4584b3f57e9261481e9"
+    },
+    {
+      "file": "assets/chunk-POPQ4Y6H-SQzX5xzm.js",
+      "status": 200,
+      "sha256": "6c3d87e168b4e0f3994a940d35d769cdd9843da9d48a0f4f8d42a832e5483f3a"
+    },
+    {
+      "file": "assets/chunk-SVP7TREG-eq7zbceq.js",
+      "status": 200,
+      "sha256": "1f9e6bd28c3b04af2e8fd4f91aa80aa0c150f5b6f590201fd0fc19e822b91f04"
+    },
+    {
+      "file": "assets/chunk-TICWLB2K-f1wqbUMI.js",
+      "status": 200,
+      "sha256": "2dccc97a0d7328e2070d11cc1389984eab606fb23ac3ff360b80955ae55a54a7"
+    },
+    {
+      "file": "assets/chunk-XXDRQBXY-CIpjL1Bv.js",
+      "status": 200,
+      "sha256": "9e349f2d307285d87b3ea63e0f2edd691b299462d1e57ffbb10ed65c3bd2835f"
+    },
+    {
+      "file": "assets/classDiagram-v2-VYDZK3BY-CMBpygKp.js",
+      "status": 200,
+      "sha256": "17863a83d224868186b7773c8077216b0811a049c6259d34e2ca3f79b9caa36c"
+    },
+    {
+      "file": "assets/classDiagram-ZZMXUADV-CMBpygKp.js",
+      "status": 200,
+      "sha256": "17863a83d224868186b7773c8077216b0811a049c6259d34e2ca3f79b9caa36c"
+    },
+    {
+      "file": "assets/ClassicalProbLab-BUql0wSJ.js",
+      "status": 200,
+      "sha256": "4a7f86e253c23ffffa84b3f3207966eba0877d189a15d132c92a531d9b12f90b"
+    },
+    {
+      "file": "assets/CLTSimulator-6GduWcOa.js",
+      "status": 200,
+      "sha256": "a95a88b2b7ad79082083ff8a4f131bbd111c32125ceea994f300009c3c468f8e"
+    },
+    {
+      "file": "assets/ConditionalExplorer-Hl7D-9D6.js",
+      "status": 200,
+      "sha256": "3319e6ac68bddcfdad6c950a8885d820e7e74c33b8498e56322a63f685ebe48c"
+    },
+    {
+      "file": "assets/ConfidenceIntervalExplorer-EUgGN6C8.js",
+      "status": 200,
+      "sha256": "0fa5a2fb0716e8f94c247f35f18237374e8e1d9ea160c757bf87a5f5feb29f34"
+    },
+    {
+      "file": "assets/ConvolutionDemo-BBJDbTet.js",
+      "status": 200,
+      "sha256": "bce6277f7777de2ebff63ee425d0a18b90d87981173c809e743e8959edcd36df"
+    },
+    {
+      "file": "assets/CorrelationExplorer-Pw2TLbQN.js",
+      "status": 200,
+      "sha256": "fe466241511e43ddecf5888ead382f0b7ef6f5b1042e5f29185d9ac6c569e7db"
+    },
+    {
+      "file": "assets/cose-bilkent-JH36ORCC-BPxOJ22I.js",
+      "status": 200,
+      "sha256": "103a2099ebedd60901f7bbb2a97a4a7ffdc1b8e33ee9039f3762911d6cd2e29c"
+    },
+    {
+      "file": "assets/CovMatrixDemo-CIDDkiqt.js",
+      "status": 200,
+      "sha256": "370fe926ecca58f1e5a75d74e985cc52103449dec5f76b1498242301ee5d2c54"
+    },
+    {
+      "file": "assets/cynefin-OW5HDTMX-DgU7Xvpf.js",
+      "status": 200,
+      "sha256": "fb3edd3d4ea9a722d5405c95ef48d1535d50499a7a27f4a45d75c5223a548400"
+    },
+    {
+      "file": "assets/cynefinDiagram-5FMLGOSQ-CkbivnEo.js",
+      "status": 200,
+      "sha256": "c8f0ef42308fe162fee9cd58d69a2f0d71b81665fe813b1c941fb07c02319de7"
+    },
+    {
+      "file": "assets/cytoscape.esm-DOzOoipD.js",
+      "status": 200,
+      "sha256": "67fcb18152f60f1dcabc32a0e6fbc607ffa6bb2690a7f89623fcc6051f4f9366"
+    },
+    {
+      "file": "assets/dagre-GXQ25YYZ-BmKI7VGq.js",
+      "status": 200,
+      "sha256": "97469776fb6ae8c975a3da3dd58b1269eefb80631a6b6f23cf60ef58bcad6567"
+    },
+    {
+      "file": "assets/defaultLocale-DX6XiGOO.js",
+      "status": 200,
+      "sha256": "0cefbd76f932c4eea4758d28169802589b1ad15b46607253de4bd82328998ece"
+    },
+    {
+      "file": "assets/diagram-S7CK7UJ4-CRJCO2C0.js",
+      "status": 200,
+      "sha256": "2f1a631f47ff77d326d9635330349d4bf629adf2600ef7b07271859000e2dc9c"
+    },
+    {
+      "file": "assets/diagram-UQ7AKVKN-BYJ7vlSm.js",
+      "status": 200,
+      "sha256": "8ffbf6aff59063c30b22d12dea834aed818e9e03be15d7dd69641e1044b9e33f"
+    },
+    {
+      "file": "assets/diagram-VSXAHHWV-BhQ3Bkbe.js",
+      "status": 200,
+      "sha256": "7a738c9632dddc482d5a57bffce92e91d592a2cd41b15ab233856d5838c81765"
+    },
+    {
+      "file": "assets/diagram-VX7I27RA-Cwb52rVC.js",
+      "status": 200,
+      "sha256": "f7d937157a2319258ab8186eb007df9b950df7b43ce8794dafdeaba72b1b8151"
+    },
+    {
+      "file": "assets/diagram-Z3DM3KII-kU84gtPA.js",
+      "status": 200,
+      "sha256": "8a80ece3fe9c6f2d937d17bacd05124b2dd301b623ba60c055ca867e78c81b54"
+    },
+    {
+      "file": "assets/DiazoniumNetwork-B259Y1_n.js",
+      "status": 200,
+      "sha256": "cf90b58edde15bf55da994579d9fe804c86c0937649a24eca7f81762b74f78ca"
+    },
+    {
+      "file": "assets/DieneAddition-CQ5-7mc1.js",
+      "status": 200,
+      "sha256": "0f629ba58bce150d28e17aaecc2fc21e5051fb1e93984dadd31379cefef8619b"
+    },
+    {
+      "file": "assets/DirectingEffect-B6mi8HA-.js",
+      "status": 200,
+      "sha256": "05a49abd8c44edb014310c9c919a7114b3b0aabf60765374df1dfe9fa62c8311"
+    },
+    {
+      "file": "assets/ebnfDiagram-PWID7BFC-Csky7T15.js",
+      "status": 200,
+      "sha256": "3fa0089fda27f41e45dbac3dfb1e11bd992b9c9d9c5cdf520dc95e03499261ef"
+    },
+    {
+      "file": "assets/ElectrostaticsLab-CUq8gPsL.js",
+      "status": 200,
+      "sha256": "7c02898bc646a837d93c7c5f92967c7f1eff194f583288863df93a2db95e29dc"
+    },
+    {
+      "file": "assets/EliminationZaitsev-CBd3lbZP.js",
+      "status": 200,
+      "sha256": "6fc853b964fb0a69f40d2a3034f5a7cb2a9190264845bd571288ec41e13314b4"
+    },
+    {
+      "file": "assets/EpoxideOpening-CHuTGz19.js",
+      "status": 200,
+      "sha256": "c86954a30cec4ca3864674dda801ebe050631990da80cc9b0841b27a744090f5"
+    },
+    {
+      "file": "assets/erDiagram-RLTQ6QDP-C5rBizkH.js",
+      "status": 200,
+      "sha256": "2ff96d3cd90acd76a201361be1bbc6942bb4f36a8c7ee69002d722d5c24a53a9"
+    },
+    {
+      "file": "assets/ErrorTypeDemo-BnEf9NZd.js",
+      "status": 200,
+      "sha256": "74fc23e70ed20fe76b9d76764ae48f4b650afe5b4c22f5d58b125417d00b2411"
+    },
+    {
+      "file": "assets/EstimatorComparator-DjWFyVY_.js",
+      "status": 200,
+      "sha256": "f26abc6b141c4a400e65ea4f8df8819ff46267492281b4df9dbc6d119ecef344"
+    },
+    {
+      "file": "assets/ExpectationExplorer-CsMlK8qE.js",
+      "status": 200,
+      "sha256": "f9520ff01b880d0484da6bfb3a66d8d67739bab77ec1e85830d7ba9a83073207"
+    },
+    {
+      "file": "assets/ExtensionLabs-CazJOGXN.js",
+      "status": 200,
+      "sha256": "b3f0f52ccdef26e761b9ff2af99c2ea5bd0c2e169185d456eea2dd23f2b6b402"
+    },
+    {
+      "file": "assets/FactorizationLabs-DPm5txSf.js",
+      "status": 200,
+      "sha256": "41375a3bf625bfa8b7aa45bb2511ec620fc20b2bed1ac9b8441d8ce63da18ea9"
+    },
+    {
+      "file": "assets/flowDiagram-HODETNUW-DVPhB-7L.js",
+      "status": 200,
+      "sha256": "96d695555a80a7cf7f414168c87021ad99c324c09f3ffd8c55b50ab0f41e328e"
+    },
+    {
+      "file": "assets/FrequencyConvergence-sXriTisw.js",
+      "status": 200,
+      "sha256": "c1a2e14b314612395c292d27ef78d2769aca84b4cc20789b3114b49f0018a40d"
+    },
+    {
+      "file": "assets/FuncDistDemo-BNNghykJ.js",
+      "status": 200,
+      "sha256": "0afbd7b0dbcb6beecee81b26df7d10105b4d6dfc0a55c37cd3e455ee6498af92"
+    },
+    {
+      "file": "assets/ganttDiagram-EL5Y4UJY-BTbZccrf.js",
+      "status": 200,
+      "sha256": "9c14ee7bd3a3b5fbc13f0e8d217d27b6c2982f0a90898680363cfa699a12afda"
+    },
+    {
+      "file": "assets/gitGraphDiagram-WWUBYQGX-BtsWspK-.js",
+      "status": 200,
+      "sha256": "4f7281891a2195502156c50fe4d830b2d0f38e8479d6ae5f28eba017a2f3b252"
+    },
+    {
+      "file": "assets/HypTestDemo-BVtWa3QK.js",
+      "status": 200,
+      "sha256": "0b37541ad767c211d2e68993a1a019ccf0fb8e77fefbb9c7950550394e020639"
+    },
+    {
+      "file": "assets/IndependenceChecker-D2MO9Ft1.js",
+      "status": 200,
+      "sha256": "0c4e8ea8556e22ce9a7b57b57e0f7f77c4f7c054031832feb1497fbcb72d2bd1"
+    },
+    {
+      "file": "assets/index-BOFjlEhw.js",
+      "status": 200,
+      "sha256": "f285386eab72dd7cad4d81587dc7be8d40510fcfd284eb66413b5314a1526281"
+    },
+    {
+      "file": "assets/index-Cg941LFQ.css",
+      "status": 200,
+      "sha256": "45dd442e42b72879dd7d0b33fe81738d82a19abc83c778c232d5968c5b131fef"
+    },
+    {
+      "file": "assets/infoDiagram-27XIBGKW-Dsm6SMEE.js",
+      "status": 200,
+      "sha256": "4194e8cc8b537ce3d4d59a24d40597efba7ac07434205f221b973a41bfab31b3"
+    },
+    {
+      "file": "assets/init-Gi6I4Gst.js",
+      "status": 200,
+      "sha256": "379fa880c14ad48f43b0c23ff56b30b2b808e8460fd9f9cad8bf7cb278c5b814"
+    },
+    {
+      "file": "assets/ishikawaDiagram-5VMMS53U-BDJ3g3B6.js",
+      "status": 200,
+      "sha256": "cc818963cf1d9d6f6c92fa85a0fbfc252d507e464cd41e132c6ac29b5e47d348"
+    },
+    {
+      "file": "assets/IUPACNamingPractice-80nC87H8.js",
+      "status": 200,
+      "sha256": "29afdfe09963bb07e4f8ae85cc75cf430125f19160cf6b9335a436f07fef4da4"
+    },
+    {
+      "file": "assets/JointDistExplorer-C4QC-3Tf.js",
+      "status": 200,
+      "sha256": "80b6a42a87678589ce6ba36f3e98eaf5afe8038a87b753bb53b9a12c866f8528"
+    },
+    {
+      "file": "assets/journeyDiagram-3NMN7TZE-DNQ7X89o.js",
+      "status": 200,
+      "sha256": "110e25acbe05364cdde21f226bafaf7696cce78df86c797716042abe5ee92923"
+    },
+    {
+      "file": "assets/kanban-definition-UXKFOSKX-DrvAp4D-.js",
+      "status": 200,
+      "sha256": "e1c2059e94e5fcb436f7b4b9697b52633bb34652630560d107fbd1f0d7dac3ea"
+    },
+    {
+      "file": "assets/KaTeX_AMS-Regular-BQhdFMY1.woff2",
+      "status": 200,
+      "sha256": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308"
+    },
+    {
+      "file": "assets/KaTeX_AMS-Regular-DMm9YOAa.woff",
+      "status": 200,
+      "sha256": "30da91e84c893f875e252689faebdc590b2871145e8adc7f9a9d4dbd8ce0b251"
+    },
+    {
+      "file": "assets/KaTeX_AMS-Regular-DRggAlZN.ttf",
+      "status": 200,
+      "sha256": "68534840bcfdd2bffb6f0e8deb48684dd01e7f04ea2813267577afb906de1d13"
+    },
+    {
+      "file": "assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf",
+      "status": 200,
+      "sha256": "07d8e303ce4fc12b4bb54f1004170dd190a1f3db45d400fe68060df3e0897268"
+    },
+    {
+      "file": "assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff",
+      "status": 200,
+      "sha256": "1ae6bd7475590e97e7f145a89e09ccde322f7a6bc0b91607b1c8b8ee28290fed"
+    },
+    {
+      "file": "assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2",
+      "status": 200,
+      "sha256": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c"
+    },
+    {
+      "file": "assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff",
+      "status": 200,
+      "sha256": "3398dd02302557a793f2863f88e02d96ce10df2abffa07c8e9fa90775116e65c"
+    },
+    {
+      "file": "assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2",
+      "status": 200,
+      "sha256": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b"
+    },
+    {
+      "file": "assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf",
+      "status": 200,
+      "sha256": "ed0b74372feefcbb9c0666b2e210da37b7e49fa7fbbf3eeb11db5f693dacfbb7"
+    },
+    {
+      "file": "assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf",
+      "status": 200,
+      "sha256": "9163df9c7122432e6495b4229fa9071cf9ae86a758ae5efc4924ec2e1a6dbce1"
+    },
+    {
+      "file": "assets/KaTeX_Fraktur-Bold-BsDP51OF.woff",
+      "status": 200,
+      "sha256": "9be7ceb88004ab8ad124082246fbfcca4091e36385d4ec6ed1df67375dad50fb"
+    },
+    {
+      "file": "assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2",
+      "status": 200,
+      "sha256": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f"
+    },
+    {
+      "file": "assets/KaTeX_Fraktur-Regular-CB_wures.ttf",
+      "status": 200,
+      "sha256": "1e6f9579e90e2cac37f8f60a597c436e075c114385652b7cbeb0dec0421291b3"
+    },
+    {
+      "file": "assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2",
+      "status": 200,
+      "sha256": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc"
+    },
+    {
+      "file": "assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff",
+      "status": 200,
+      "sha256": "5e28753be717dac97f559f49bc10be9cf3c124ddcabda6659d11cb68febc6463"
+    },
+    {
+      "file": "assets/KaTeX_Main-Bold-Cx986IdX.woff2",
+      "status": 200,
+      "sha256": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021"
+    },
+    {
+      "file": "assets/KaTeX_Main-Bold-Jm3AIy58.woff",
+      "status": 200,
+      "sha256": "c76c5d696297d51b9cb1639c7da4334f0e7dec81b42b11213b5e25ef671bb822"
+    },
+    {
+      "file": "assets/KaTeX_Main-Bold-waoOVXN0.ttf",
+      "status": 200,
+      "sha256": "138ac28d1663b3037e9c5f52371fa5c63d8324f4a38d22cd573e6ea3a3fd0cf8"
+    },
+    {
+      "file": "assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2",
+      "status": 200,
+      "sha256": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b"
+    },
+    {
+      "file": "assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf",
+      "status": 200,
+      "sha256": "70ee1f64a20f2048c21940ef46d0144fd215baa953ca69afd1e31e98544f708f"
+    },
+    {
+      "file": "assets/KaTeX_Main-BoldItalic-SpSLRI95.woff",
+      "status": 200,
+      "sha256": "a6f7ec0d846ac7ad975adb8959c37ed49b94acbc4ae436db9ce9e20287e4a64c"
+    },
+    {
+      "file": "assets/KaTeX_Main-Italic-3WenGoN9.ttf",
+      "status": 200,
+      "sha256": "0d85ae7cc30f23790a7f1a58c4a112fdca8aae769b6ba11429af1d98b1b6cb3a"
+    },
+    {
+      "file": "assets/KaTeX_Main-Italic-BMLOBm91.woff",
+      "status": 200,
+      "sha256": "f1d6ef86f3b11a528bd5185199bd2443ecb2b0dead96d88674b5a2c12be24bdf"
+    },
+    {
+      "file": "assets/KaTeX_Main-Italic-NWA7e6Wa.woff2",
+      "status": 200,
+      "sha256": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267"
+    },
+    {
+      "file": "assets/KaTeX_Main-Regular-B22Nviop.woff2",
+      "status": 200,
+      "sha256": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866"
+    },
+    {
+      "file": "assets/KaTeX_Main-Regular-Dr94JaBh.woff",
+      "status": 200,
+      "sha256": "c6368d87e8a1a3a5d337623d83d8dc4b868f242a9ad476237d6f8d1e0f168cdc"
+    },
+    {
+      "file": "assets/KaTeX_Main-Regular-ypZvNtVU.ttf",
+      "status": 200,
+      "sha256": "d0332f52868370fd83ae7fa46470f90c8f2eab2fcf12bc4f88080b340c95a830"
+    },
+    {
+      "file": "assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf",
+      "status": 200,
+      "sha256": "f9377ab0271cda59af24bcffbd46a4d0c8a3572ffafdbb38de2ad5ea7b0d5ee5"
+    },
+    {
+      "file": "assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2",
+      "status": 200,
+      "sha256": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1"
+    },
+    {
+      "file": "assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff",
+      "status": 200,
+      "sha256": "850c0af5c2238497febaf5e461d880bf458c341f42f4f330f1b1ab5698b1998e"
+    },
+    {
+      "file": "assets/KaTeX_Math-Italic-DA0__PXp.woff",
+      "status": 200,
+      "sha256": "8a8d244581371912b8f3f5a23e2437cb2a59cd9bcaebb0346e722c05737a2571"
+    },
+    {
+      "file": "assets/KaTeX_Math-Italic-flOr_0UB.ttf",
+      "status": 200,
+      "sha256": "08ce98e51b04d58945a301e639e02b6998af29fdfd61a7b8afdd07bbfc479d4a"
+    },
+    {
+      "file": "assets/KaTeX_Math-Italic-t53AETM-.woff2",
+      "status": 200,
+      "sha256": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf",
+      "status": 200,
+      "sha256": "1ece03f79f95277d57dc7f6b435a74e1379b0d46104a8530286b60ff49369ea0"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2",
+      "status": 200,
+      "sha256": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff",
+      "status": 200,
+      "sha256": "ece03cfd83e22c212cdef66feb8442d25a083beb988db3f1883f3f9738d750ba"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2",
+      "status": 200,
+      "sha256": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Italic-DN2j7dab.woff",
+      "status": 200,
+      "sha256": "91ee67500cc0129aa0ace3ac5c61ff1692102f0f31d02b69347fba35dcb75bf2"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf",
+      "status": 200,
+      "sha256": "3931dd81faed86ba021bb2bbdc36f5bed9a38d6b4f4077aca59b265aa1b02083"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf",
+      "status": 200,
+      "sha256": "f36ea897e19f4a2e571d1e900e4e3710e438deb05a842486045ba0a3e616a4ad"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff",
+      "status": 200,
+      "sha256": "11e4dc8a6471ff6d6ee561d53d10fde8f7489e798257ff449c5d37c197435605"
+    },
+    {
+      "file": "assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2",
+      "status": 200,
+      "sha256": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342"
+    },
+    {
+      "file": "assets/KaTeX_Script-Regular-C5JkGWo-.ttf",
+      "status": 200,
+      "sha256": "1c67f068fea8bb09bf099c088b1cf64bd27516a6e07f4684344873564bb66a67"
+    },
+    {
+      "file": "assets/KaTeX_Script-Regular-D3wIWfF6.woff2",
+      "status": 200,
+      "sha256": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b"
+    },
+    {
+      "file": "assets/KaTeX_Script-Regular-D5yQViql.woff",
+      "status": 200,
+      "sha256": "d96cdf2b3bdd4d64a8fd5f74a4c467f123a8a73931cd435889f08ffaf9bf947a"
+    },
+    {
+      "file": "assets/KaTeX_Size1-Regular-C195tn64.woff",
+      "status": 200,
+      "sha256": "c943cc986384f59e86bea5fd7dc50a9c4dfe567a7c05eb40d6790720dead97c9"
+    },
+    {
+      "file": "assets/KaTeX_Size1-Regular-Dbsnue_I.ttf",
+      "status": 200,
+      "sha256": "95b6d2f1a50173bfedb8c63e1d1c99b10427d0a4df4201cb44513b226951a22b"
+    },
+    {
+      "file": "assets/KaTeX_Size1-Regular-mCD8mA8B.woff2",
+      "status": 200,
+      "sha256": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe"
+    },
+    {
+      "file": "assets/KaTeX_Size2-Regular-B7gKUWhC.ttf",
+      "status": 200,
+      "sha256": "a6b2099fb555c60e3a0db3a08842ebf1d732c6eb4e4bf44913613bed4fc4e39b"
+    },
+    {
+      "file": "assets/KaTeX_Size2-Regular-Dy4dx90m.woff2",
+      "status": 200,
+      "sha256": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd"
+    },
+    {
+      "file": "assets/KaTeX_Size2-Regular-oD1tc_U0.woff",
+      "status": 200,
+      "sha256": "2014c523c3210bcc166648c4d4cc57f05b747df07a24277bf71c51e67dc79e3d"
+    },
+    {
+      "file": "assets/KaTeX_Size3-Regular-CTq5MqoE.woff",
+      "status": 200,
+      "sha256": "6ab6b62e9b62dae2c00dd90f791bd10950be0ecc3490d7d6045f51c2e8fe0949"
+    },
+    {
+      "file": "assets/KaTeX_Size3-Regular-DgpXs0kz.ttf",
+      "status": 200,
+      "sha256": "500e04d54f0d51666332c9d2089aa803be22aa878eca539e59fa53c6e522b082"
+    },
+    {
+      "file": "assets/KaTeX_Size4-Regular-BF-4gkZK.woff",
+      "status": 200,
+      "sha256": "99f9c6750b489c9462bf04900bd3f939df9b829339daaaaa99ef5495cdddea58"
+    },
+    {
+      "file": "assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2",
+      "status": 200,
+      "sha256": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0"
+    },
+    {
+      "file": "assets/KaTeX_Size4-Regular-DWFBv043.ttf",
+      "status": 200,
+      "sha256": "c647367d1dd4e162468717d020e1fc0f1dc5c26ebfdffbe55261713bf88c5877"
+    },
+    {
+      "file": "assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff",
+      "status": 200,
+      "sha256": "e14fed02b1aba7ce9f5afd5844b5d0321b22351febc720e0de8b8723527609f7"
+    },
+    {
+      "file": "assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2",
+      "status": 200,
+      "sha256": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b"
+    },
+    {
+      "file": "assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf",
+      "status": 200,
+      "sha256": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa"
+    },
+    {
+      "file": "assets/Labs-CP5yrw_h.js",
+      "status": 200,
+      "sha256": "ee7f7ae9e3a84d4c7ac7662a46e3d69bde0025cc23f586b18e3e80eaa8fb08c4"
+    },
+    {
+      "file": "assets/layout-Bo6tDLnJ.js",
+      "status": 200,
+      "sha256": "9b6f04ae8e0766ef91022ce397b35f7c5bb073a0911d71ff74b741afad34f40e"
+    },
+    {
+      "file": "assets/LearningSelect-DN9--XkR.js",
+      "status": 200,
+      "sha256": "a9f116f5c5945ee0dca26a953f7387da5386bfae2c31517f08c9ea4d0da39524"
+    },
+    {
+      "file": "assets/linear-SMY0IjDF.js",
+      "status": 200,
+      "sha256": "02d317d1f4bb628e3118f864d067d281596b8c5292595134f70967cb73404bf1"
+    },
+    {
+      "file": "assets/LLNSimulator-B3YuP1G2.js",
+      "status": 200,
+      "sha256": "5c1d1fa840d1a0a018bda28351aedc0b2f742ae113082662ce02c50c20a28c1f"
+    },
+    {
+      "file": "assets/LogicRelationsLabs-IhNMTk3g.js",
+      "status": 200,
+      "sha256": "bede21587cdff422631a296a20060c3e56ccf01e678433195790fc0a22f4f774"
+    },
+    {
+      "file": "assets/MarginalExplorer-DBiEvvlv.js",
+      "status": 200,
+      "sha256": "fcd2bf2ba87fec63391cc0a1f4944f9919abc307b23644bc65a3f895b1505abe"
+    },
+    {
+      "file": "assets/MarkovnikovPredictor-CXP_WrdK.js",
+      "status": 200,
+      "sha256": "7901d64324842354723923ad0f47b11cfded6e51610be267a08fbaf7c3c17f5c"
+    },
+    {
+      "file": "assets/mathlive-fonts-DAqrXozc.css",
+      "status": 200,
+      "sha256": "62f92d3a34bc48355e1df573e6b62449b6669f6f368cd8f0697ae4dc5ec5e562"
+    },
+    {
+      "file": "assets/mathlive.min-6m_7uANB.js",
+      "status": 200,
+      "sha256": "a24a04948096ade7136c4a8b1621d70ffb8707d53dd25be5ecb3a5214e2e4f63"
+    },
+    {
+      "file": "assets/MeanTestExplorer-CUh7TRqZ.js",
+      "status": 200,
+      "sha256": "f6b18f17d9aaacdda14c8b8afa3c76cbe79fd9b72b4fc6c5a4a6f384c39fa4de"
+    },
+    {
+      "file": "assets/mermaid.core-uTlLoe-P.js",
+      "status": 200,
+      "sha256": "0fcd28a084b2683322056d4e2eebe992b665d755dfb7409afde9b63f140473d6"
+    },
+    {
+      "file": "assets/mindmap-definition-YA3MSWOX-exTlJTt0.js",
+      "status": 200,
+      "sha256": "6381f0603e8a9cb7bf6855f1d8a801695a427b8179b7979bdd853f9607b326be"
+    },
+    {
+      "file": "assets/MLEExplorer-9FjSVxZ8.js",
+      "status": 200,
+      "sha256": "ba3be51e2dc1179e4d516656f53405ed93e935a90d0bb4f016b9d331624eb0be"
+    },
+    {
+      "file": "assets/MomentEstimator-D3jY1pvR.js",
+      "status": 200,
+      "sha256": "1a39dd7c7453fa1b5a600397f63d1d59c69cdd669e32dff9db45e24d412e0857"
+    },
+    {
+      "file": "assets/NewmanProjection-YKqN43Gk.js",
+      "status": 200,
+      "sha256": "84b26d63e6d1a3c0766ef0c24185b5dd8cc4a72d471538870a20dc6aa71bf787"
+    },
+    {
+      "file": "assets/NormalSamplingDemo-CE_SguCa.js",
+      "status": 200,
+      "sha256": "cbcde20a8279d76e082a899b0ac73301d878cfae70c136af026eb41c4b3527ec"
+    },
+    {
+      "file": "assets/ordinal-Cboi1Yqb.js",
+      "status": 200,
+      "sha256": "71be569ce2355b7f256a834b3a4c11668fe80a880b3587c1b3b14e9e5dedf478"
+    },
+    {
+      "file": "assets/PDFExplorer-CGV_e6OF.js",
+      "status": 200,
+      "sha256": "94c527fd09b91192172dd57cc3522c03341f33fbdbb2e4341747fe0eff98c2e5"
+    },
+    {
+      "file": "assets/pegDiagram-XKGWAZYB-U67p6Btl.js",
+      "status": 200,
+      "sha256": "639eeb0541f866c2f790ef07746af088403674a617d898ecaf44123d5ed2465e"
+    },
+    {
+      "file": "assets/pieDiagram-E7YTZNPT-Byj0QCJD.js",
+      "status": 200,
+      "sha256": "d5fb50f190e44a351d2db7a617d07f01962f57f7e7eb30a8126e46c2598961c1"
+    },
+    {
+      "file": "assets/quadrantDiagram-AXDQQJYC-Cwfiiyga.js",
+      "status": 200,
+      "sha256": "e95631809a9976bb900571578c65b1a5abcdf7c82dfd09b8628531d92f2511de"
+    },
+    {
+      "file": "assets/QuantileExplorer-Dxozeosd.js",
+      "status": 200,
+      "sha256": "0336659ef456228fe4c04e5722e1cc93d183520a989b3ec5e2e02a1d9db57866"
+    },
+    {
+      "file": "assets/railroadDiagram-O6MQD6OU-x-FAPAC8.js",
+      "status": 200,
+      "sha256": "3cc6ddad595c29f8ab4205cccd7ed2d1a15297691cc2bf1830a6ee75054166f9"
+    },
+    {
+      "file": "assets/ReliabilityExplorer-D4EnMzRz.js",
+      "status": 200,
+      "sha256": "3715408e008f7f0f62304fe903fc07529ab2f532c6f3bcb0b65cc9112a071abf"
+    },
+    {
+      "file": "assets/requirementDiagram-BXWQKSXE-BvBMLJke.js",
+      "status": 200,
+      "sha256": "78aded6c5995a26b597c297754aeb0a694e566729a1f0cc7364c3815c972ace9"
+    },
+    {
+      "file": "assets/ReviewLabs-Cqq5QMg6.js",
+      "status": 200,
+      "sha256": "a6cff989bd0b5e9e9c5a7fea6eb6528302eb33a98340caa361622f27b43f1d83"
+    },
+    {
+      "file": "assets/RSConfigPractice-DZtlWqzn.js",
+      "status": 200,
+      "sha256": "0c0cf51a186c8f736247a8236c82afdfd93fe94be7b68777da07f1d6fa41e4cb"
+    },
+    {
+      "file": "assets/RVMapper-DwYlBD2H.js",
+      "status": 200,
+      "sha256": "dc0f86b9443f9c3c8c35112615f56f30470b80ed8df0d30314e627c752800cdb"
+    },
+    {
+      "file": "assets/SampleSpaceBuilder-BVt4aLZh.js",
+      "status": 200,
+      "sha256": "a7c82bd85f5135c676ea30d3e2049ab604b811af2c48e0059e1d2675b4c2f122"
+    },
+    {
+      "file": "assets/SamplingDistExplorer-BFgS1Y92.js",
+      "status": 200,
+      "sha256": "1b1890093e80c2fb1101194b0e8332ee94fa742138acf624e6ea0a5f6b853baa"
+    },
+    {
+      "file": "assets/sankeyDiagram-P5KCCOFB-Cv7Zpjdx.js",
+      "status": 200,
+      "sha256": "6fb842f43a03772cf3e75d44e24b4e9663994b8023e477affeb7bf2a4f7e4e30"
+    },
+    {
+      "file": "assets/sequenceDiagram-WJ2MYXX4-CXUtWOfG.js",
+      "status": 200,
+      "sha256": "b62894f98e054a1983f98743c81bc8eb9021b016e32389ae2154d4f83176a822"
+    },
+    {
+      "file": "assets/sizeCapture-INFHLROL-Cwo0tf3V.js",
+      "status": 200,
+      "sha256": "90341afa530fc60e9abbac919d94512dd3a4913488c5aeb3e041553a8120aef8"
+    },
+    {
+      "file": "assets/SN1SN2Compare-DkNsyAvf.js",
+      "status": 200,
+      "sha256": "5a9249afb72f9714ba84d0927a0e49bb974c3f40b12f13b682833ff8cb9e6609"
+    },
+    {
+      "file": "assets/stateDiagram-D77RDMKH-zKZib2ay.js",
+      "status": 200,
+      "sha256": "d79f08ab3fa43642a42ab188e866a441b90bb8f58f1a924d1d32434159e5db66"
+    },
+    {
+      "file": "assets/stateDiagram-v2-MP3YSRHH-Ba6gq0jU.js",
+      "status": 200,
+      "sha256": "2916c0e6c7b6b2003f7c9be6b54d123f43f3ebf61fdf031e7794840316bbde1d"
+    },
+    {
+      "file": "assets/StatisticCalculator-GKCxgWEU.js",
+      "status": 200,
+      "sha256": "a38b7b216878a062e3191f47451b8f91a16be431776b538c67b1ad4c03a2cf41"
+    },
+    {
+      "file": "assets/StructureLabs-BnptXJa1.js",
+      "status": 200,
+      "sha256": "fd716f1298a2f6cafba418e9aee20a9c6d71b1e1d6ed0e12698e7b058de06519"
+    },
+    {
+      "file": "assets/swimlanes-42K2YHIH-u6XwkyvL.js",
+      "status": 200,
+      "sha256": "7f67b7c1138719182051ad6aced65679ea5f1a8aed4d3185696ddb64ee1dc61b"
+    },
+    {
+      "file": "assets/swimlanesDiagram-VR7AAH4N-BTQRnUJq.js",
+      "status": 200,
+      "sha256": "6a004ebccbe6a5cf3088f3d30d870377aeebf73d1c325008c97c61d3278894ed"
+    },
+    {
+      "file": "assets/theme-DY9LBKzN.js",
+      "status": 200,
+      "sha256": "1ba1bff15e8735e12f06b3fa2ff885c67fe7b9f9252992db98cfba05e335734e"
+    },
+    {
+      "file": "assets/timeline-definition-24CTP7MA-CfHPpBhJ.js",
+      "status": 200,
+      "sha256": "2a14c2473375b2e584a8c6b9889b7da76764514afcf55d8aafc1c14efcfb1201"
+    },
+    {
+      "file": "assets/VarianceExplorer-CSPhuUCJ.js",
+      "status": 200,
+      "sha256": "541589e777898640f6625a26e41523240fe890cce6168d812e194bf6cc89a814"
+    },
+    {
+      "file": "assets/VarianceTestExplorer-Cy8mRKyZ.js",
+      "status": 200,
+      "sha256": "c693cd8756a7707c6d1ab063862e3bb468676196f9b4454c30065c46d30dbc53"
+    },
+    {
+      "file": "assets/vennDiagram-4TSXK5OY-BtJ1xUQM.js",
+      "status": 200,
+      "sha256": "110f4c0bca7ca2ff97ad507fdd9e4fa65e01ac8cfd85dc5884d0d4eba3057374"
+    },
+    {
+      "file": "assets/VennPlayground-D6gc1BYZ.js",
+      "status": 200,
+      "sha256": "600abbaf31028758dcc62dc50c7ffaeda119eb7071c5217e26cab59328572489"
+    },
+    {
+      "file": "assets/wardleyDiagram-VM6X3IG4-B0udrfUk.js",
+      "status": 200,
+      "sha256": "42bfa144559de3ec79011db76da1df8e9b4d63706b508571c21b37de1de53040"
+    },
+    {
+      "file": "assets/xychartDiagram-S5SC5T6Z-choo6EtQ.js",
+      "status": 200,
+      "sha256": "726f97e52b40f797d497c0f5140d15268bd786e0bef3dfa3420d0ca00ba291d7"
+    },
+    {
+      "file": "brand-scene.svg",
+      "status": 200,
+      "sha256": "61016a7419159fc7b7f1635f610dafc96020b72350e294d5f97feb3b3372a6e2"
+    },
+    {
+      "file": "docs/research/ui-ux-research-2026-10-19.md",
+      "status": 200,
+      "sha256": "0e1a02eb181988d7c531a6d55da8d38c38daa820c27d9607048031c6675b7b24"
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "cb9d9f545d1e0112a15659c3ae327fde651051a9b9f39338983f51b44bd8f1f8"
+    },
+    {
+      "file": "samples/design.docx",
+      "status": 200,
+      "sha256": "59eb9d525b75e40f94718b75383d0d0ce7102730e256bdf4d0891b81cefce129"
+    },
+    {
+      "file": "samples/design.pdf",
+      "status": 200,
+      "sha256": "1894518e8ac25faedd8fb9a62fbe838acf87888d1bb3c2b949506393c6ffc865"
+    },
+    {
+      "file": "samples/design.pptx",
+      "status": 200,
+      "sha256": "17a4f1138c80b2385aff98104b616dc6a843de6f6c883056d2679b54d11e18b9"
+    },
+    {
+      "file": "samples/design.xlsx",
+      "status": 200,
+      "sha256": "58d79e82ab8978eaab57e0ebd57db9794677f52ad87c75be3d21a9740c8015d7"
+    },
+    {
+      "file": "samples/docx-page-1.svg",
+      "status": 200,
+      "sha256": "09285d65dc4b7405b8644a11a9e0ca53e461db9d831784806da7afaae1c6663e"
+    },
+    {
+      "file": "samples/docx-page-2.svg",
+      "status": 200,
+      "sha256": "27dcb40d85e5870c187c8fcddfd5e9a741c6ace1d90f026b58bb7b92313bf953"
+    },
+    {
+      "file": "samples/docx-page-3.svg",
+      "status": 200,
+      "sha256": "a6b99dd6f67cd1e074b5c4548e116c14d9c2f1b1a8269d6456596be9e0910192"
+    },
+    {
+      "file": "samples/docx.json",
+      "status": 200,
+      "sha256": "6ab4cde54d372ef5e6c3552ac29241ae8be1ca60e95346fef5cd4907a12c6571"
+    },
+    {
+      "file": "samples/pdf-page-1.svg",
+      "status": 200,
+      "sha256": "b14d04048a22f237f67e2fb2e71f93a2ae1a0d67d23ccc245fe85075cd5e7bdd"
+    },
+    {
+      "file": "samples/pdf-page-2.svg",
+      "status": 200,
+      "sha256": "e280a2adfae7abdef85252228048a6ff404fda837e416c304ef7b8e260402e95"
+    },
+    {
+      "file": "samples/pdf-page-3.svg",
+      "status": 200,
+      "sha256": "183107511831bf43f8c564f014239cf1c1d676dad72c23ff1249119c56adf2ba"
+    },
+    {
+      "file": "samples/pdf.json",
+      "status": 200,
+      "sha256": "a2fe260e11d38da615ae3db29cd826e5029520e7a9924c7af87bcc55bec3f112"
+    },
+    {
+      "file": "samples/pptx-page-1.svg",
+      "status": 200,
+      "sha256": "1e01fe0f5120476d269552f12793cadb6f321864cdbe489db00224c55d3282e1"
+    },
+    {
+      "file": "samples/pptx-page-2.svg",
+      "status": 200,
+      "sha256": "803d3498b23c3268d8599bc6f7fea2815e6625cc07f49a1af502e65aee1e916a"
+    },
+    {
+      "file": "samples/pptx-page-3.svg",
+      "status": 200,
+      "sha256": "1fba9d6e59c1547629ecf188e061c47df4a91260c36a4bf18807368c9abc5b83"
+    },
+    {
+      "file": "samples/pptx.json",
+      "status": 200,
+      "sha256": "735e8f1beb7a5965a58f4c246c66a1ee6bbbc6b61317f8c226a5a98be1211298"
+    },
+    {
+      "file": "samples/reading.wav",
+      "status": 200,
+      "sha256": "57ef8eb61e062d13df4109d249c8a6422eb62a5245bf8ac8fe180f10e171d21f"
+    },
+    {
+      "file": "samples/xlsx-page-1.svg",
+      "status": 200,
+      "sha256": "8c011631d8a82ea91762eb7ce1ac89cc68440812a47d940ed6c9bf7106c9844a"
+    },
+    {
+      "file": "samples/xlsx-page-2.svg",
+      "status": 200,
+      "sha256": "af0611f54853f99103350d78c4a822085d7f8b6a271d64d53e7166a7fc26116b"
+    },
+    {
+      "file": "samples/xlsx-page-3.svg",
+      "status": 200,
+      "sha256": "565dcc5e6e86d085453b4e8750fc6f014745cd1faecd5f6fcfff99275e6a6c65"
+    },
+    {
+      "file": "samples/xlsx.json",
+      "status": 200,
+      "sha256": "6e9dbe327fdb4df0c754a1e7af307606d45896f7de6aef8c137ca14bef98a9d2"
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 # 课栈组件接入指南
 
-适用版本：@fiveplusone/ui 0.3.5。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
+适用版本：@fiveplusone/ui 0.5.0。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
 
 ## 安装与主题
 
-组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.3.5.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
+组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.5.0.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
 
 运行依赖为 React 19、Tiptap 3.32、Yjs 13.6、react-resizable-panels 2.x。接入时检查依赖树，确保 React、Yjs、Tiptap core/pm 使用同一实例和兼容版本；锁定依赖后验证历史文档与协作。
 
@@ -30,7 +30,7 @@ markdown 提供初始内容；切换笔记更新 documentKey，同一文档外�
 
 协作模式传入 document:Y.Doc、provider、user，从共享文档加载，不使用初始 Markdown 重置房间。editable 控制视图，服务端仍需验证权限；握手检查 schema 版本。上线前使用真实历史文档验证附件、公式、表格、卡片、代码往返及并发编辑。
 
-renderDirective 注入课栈专用卡片视图，默认卡片可编辑嵌套 Markdown。课栈全部专用指令渲染器、版本面板、保存冲突和本地恢复仍需业务层接入。extensions 追加不同名称扩展，已有节点的变更统一调整 schema，避免重复注册。
+renderDirective 注入课栈专用卡片视图，默认卡片可编辑嵌套 Markdown。默认指令覆盖阅读卡片、画布和学科实验；保存会话、版本面板和冲突处理可组合 NoteEditorWorkspace，持久化、授权及本地恢复策略由业务层接入。extensions 追加不同名称扩展，已有节点的变更统一调整 schema，避免重复注册。
 
 configureMathPreferences 可注入账户范围存储，默认本地存储。上传、鉴权和跨设备同步由宿主提供。
 
@@ -47,3 +47,8 @@ MemberAccess 受控展示 members/roles；canManage、成员 editable、busyIds 
 ## 推广验收
 
 先接主题和基础控件，再接布局、文件树、预览、对话与编辑器。逐批验证深浅主题、窄屏、键盘、弹层关闭和焦点、真实权限与失败恢复。编辑器额外验证断线重连、历史内容、并发和保存冲突；对话验证长历史、流式增量和恢复。覆盖原有完整用户任务后再切换默认入口。
+
+
+## 完整工作区与逐文件清单
+
+账户与平台管理、模型与技能设置、课程发布、编辑保存会话、课堂讲稿、画布与学科实验的调用契约见 [课栈工作区接入契约](kezhan-workspace-contracts.md)。全部源文件对应关系见 [组件与共享视图对应表](kezhan-component-map-2026-10-20.md)。

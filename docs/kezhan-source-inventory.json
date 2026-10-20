@@ -33,6 +33,8 @@
   },
   "unmappedComponents": [],
   "staleMappings": [],
+  "unmappedApplication": [],
+  "changedExtractedSources": [],
   "libraryImportCount": 0,
   "sources": [
     {
@@ -1979,77 +1981,77 @@
       "lines": 63,
       "sha256": "e4112a4b915406a8eea8d786797233dd3710e7673941ccb0a199d9c0f5cdd50e",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/dynamic.tsx",
       "lines": 7,
       "sha256": "f5e392d8400e05137e930313f4aa3e40c65352d4571268ed689d0fb34a9ecf39",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/Link.tsx",
       "lines": 9,
       "sha256": "8b03dd286fe5a76c0867f558da5c84ffb5852aa293b82aa1da6c871130a49767",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/main.tsx",
       "lines": 78,
       "sha256": "e72813bc7a39167855daa6d08cbf958c279d587f92bb536555a6219234e09207",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/navigation.tsx",
       "lines": 12,
       "sha256": "59085e87e1a2e2d1712d19b18ad48d63b9195413f22d59dd6ff3e22eb285debd",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/ReleaseNotice.tsx",
       "lines": 7,
       "sha256": "ac3d5bb5b3954bb748a2ed473f6403337bc4be78d0d2ca314bd834ccb1273dcb",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/SharedPage.tsx",
       "lines": 69,
       "sha256": "b036c20062dc15d54789367c5cf8a69e788e8683272540bfae57d304ceb59270",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "frontend/WorkspaceCache.tsx",
       "lines": 23,
       "sha256": "c2f83558b7eb845322a12f544a2f507756b9a31e208cc82ad46d1b7a8517f861",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "lib/content/componentRegistry.tsx",
       "lines": 50,
       "sha256": "b7453de02c4553559492cf6582f3c8bf00dd7be3312468edc696dd1ce06db8cc",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "lib/markdown/noteComponents.tsx",
       "lines": 32,
       "sha256": "a9c91e3813025ef07bb831bd4f14a93f87f4bb2b8a56ef6735501cd00acfcd7e",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     },
     {
       "source": "lib/utils/xmlParser.tsx",
       "lines": 392,
       "sha256": "9e78c570c6ebb5199c8702976c8635173a8b11151eb791a38010e44524674c37",
       "importsLibrary": false,
-      "mappingPresent": false
+      "mappingPresent": true
     }
   ]
 }

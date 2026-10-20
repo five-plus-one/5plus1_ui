@@ -1,0 +1,1507 @@
+[
+  {
+    "page": "CommerceWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 126,
+    "width": 372
+  },
+  {
+    "page": "SkillsWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 82,
+    "width": 378
+  },
+  {
+    "page": "DirectoryWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 130,
+    "width": 372
+  },
+  {
+    "page": "UserDetailsWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 76,
+    "width": 372
+  },
+  {
+    "page": "AISettingsWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 183,
+    "width": 372
+  },
+  {
+    "page": "NotebookManagerWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 80,
+    "width": 378
+  },
+  {
+    "page": "CourseContentWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 130,
+    "width": 378
+  },
+  {
+    "page": "BrowserWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 109,
+    "width": 378
+  },
+  {
+    "page": "NotebookPublishing",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 112,
+    "width": 378
+  },
+  {
+    "page": "AppearanceWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 303,
+    "width": 372
+  },
+  {
+    "page": "CanvasWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 104,
+    "width": 372
+  },
+  {
+    "page": "NoteEditorWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 116,
+    "width": 378
+  },
+  {
+    "page": "LectureWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 123,
+    "width": 372
+  },
+  {
+    "page": "SharedReadingPage",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 86,
+    "width": 372
+  },
+  {
+    "page": "AdministratorDirectory",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 133,
+    "width": 372
+  },
+  {
+    "page": "CapacityDirectory",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 76,
+    "width": 378
+  },
+  {
+    "page": "PlatformReset",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 67,
+    "width": 378
+  },
+  {
+    "page": "PlatformWorkspace",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 160,
+    "width": 372
+  },
+  {
+    "page": "BrowserPreferences",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 68,
+    "width": 372
+  },
+  {
+    "page": "ExperimentLibrary",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 1574,
+    "width": 372
+  },
+  {
+    "page": "LearningExperiment",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 251,
+    "width": 372
+  },
+  {
+    "page": "LearningSourceView",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 72,
+    "width": 372
+  },
+  {
+    "page": "ReleaseNotice",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 36,
+    "width": 378
+  },
+  {
+    "page": "FollowUpQuestions",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 49,
+    "width": 378
+  },
+  {
+    "page": "LearningRecords",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 84,
+    "width": 378
+  },
+  {
+    "page": "AnchoredPanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "SurfaceBoundary",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 34,
+    "width": 378
+  },
+  {
+    "page": "DirectiveFields",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 16,
+    "width": 378
+  },
+  {
+    "page": "ShareAccessPanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 69,
+    "width": 378
+  },
+  {
+    "page": "ChatPreferencesPanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 39,
+    "width": 378
+  },
+  {
+    "page": "ResourceWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 53,
+    "width": 378
+  },
+  {
+    "page": "RecycleBin",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 59,
+    "width": 378
+  },
+  {
+    "page": "ReviewDashboard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 53,
+    "width": 378
+  },
+  {
+    "page": "QuizWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 53,
+    "width": 378
+  },
+  {
+    "page": "SelectionActions",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 18,
+    "width": 378
+  },
+  {
+    "page": "TaskProgress",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 29,
+    "width": 378
+  },
+  {
+    "page": "WorkspaceEmpty",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 48,
+    "width": 378
+  },
+  {
+    "page": "RunWorkspace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 82,
+    "width": 378
+  },
+  {
+    "page": "RecordingPlayback",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 72,
+    "width": 378
+  },
+  {
+    "page": "RecallContent",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 27,
+    "width": 378
+  },
+  {
+    "page": "HistoryLocationMap",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 30,
+    "width": 378
+  },
+  {
+    "page": "ReadingTimeline",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 34,
+    "width": 378
+  },
+  {
+    "page": "AccountLayout",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 37,
+    "width": 378
+  },
+  {
+    "page": "LoginForm",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 44,
+    "width": 378
+  },
+  {
+    "page": "UserProfile",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 51,
+    "width": 378
+  },
+  {
+    "page": "CreditAdjustment",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 58,
+    "width": 378
+  },
+  {
+    "page": "InvitationList",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 39,
+    "width": 378
+  },
+  {
+    "page": "DirectoryPicker",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 25,
+    "width": 378
+  },
+  {
+    "page": "PlanPicker",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 83,
+    "width": 372
+  },
+  {
+    "page": "FloatingWindow",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 44,
+    "width": 378
+  },
+  {
+    "page": "MarkdownContent",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 244,
+    "width": 372
+  },
+  {
+    "page": "ShortcutSettings",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 35,
+    "width": 378
+  },
+  {
+    "page": "BrowserSurface",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 48,
+    "width": 378
+  },
+  {
+    "page": "ImportPanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 43,
+    "width": 378
+  },
+  {
+    "page": "AudioPlayer",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 30,
+    "width": 378
+  },
+  {
+    "page": "WorkspaceTabs",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 27,
+    "width": 378
+  },
+  {
+    "page": "SearchResults",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 21,
+    "width": 378
+  },
+  {
+    "page": "VersionHistory",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 82,
+    "width": 378
+  },
+  {
+    "page": "VersionDiff",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 45,
+    "width": 378
+  },
+  {
+    "page": "SaveConflict",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 90,
+    "width": 378
+  },
+  {
+    "page": "BacklinksPanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 37,
+    "width": 378
+  },
+  {
+    "page": "ImagePasteOptions",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 54,
+    "width": 378
+  },
+  {
+    "page": "EventCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 54,
+    "width": 378
+  },
+  {
+    "page": "Figure",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 25,
+    "width": 378
+  },
+  {
+    "page": "MemoryCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 40,
+    "width": 378
+  },
+  {
+    "page": "HistoryMap",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 54,
+    "width": 378
+  },
+  {
+    "page": "LearningAnimation",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 30,
+    "width": 378
+  },
+  {
+    "page": "NoteLink",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 25,
+    "width": 378
+  },
+  {
+    "page": "VennDiagram",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 27,
+    "width": 378
+  },
+  {
+    "page": "ManagementTable",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 47,
+    "width": 378
+  },
+  {
+    "page": "LedgerView",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 84,
+    "width": 378
+  },
+  {
+    "page": "CreditsOverview",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 38,
+    "width": 378
+  },
+  {
+    "page": "CapacityOverview",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 57,
+    "width": 378
+  },
+  {
+    "page": "PermissionSummary",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 50,
+    "width": 378
+  },
+  {
+    "page": "SettingsForm",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 60,
+    "width": 378
+  },
+  {
+    "page": "SetupWizard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 47,
+    "width": 378
+  },
+  {
+    "page": "ProductNavigation",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 16,
+    "width": 378
+  },
+  {
+    "page": "Bookshelf",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 40,
+    "width": 372
+  },
+  {
+    "page": "MobileTopBar",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 17,
+    "width": 378
+  },
+  {
+    "page": "MessageContentView",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 89,
+    "width": 378
+  },
+  {
+    "page": "ArtifactCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 34,
+    "width": 378
+  },
+  {
+    "page": "ArtifactPreview",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 57,
+    "width": 378
+  },
+  {
+    "page": "SkillsPanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 39,
+    "width": 378
+  },
+  {
+    "page": "GraphView",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 124,
+    "width": 372
+  },
+  {
+    "page": "CanvasWorkbench",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 49,
+    "width": 378
+  },
+  {
+    "page": "ClassroomTimeline",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 50,
+    "width": 378
+  },
+  {
+    "page": "LectureDock",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 48,
+    "width": 378
+  },
+  {
+    "page": "QuizScoring",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 69,
+    "width": 378
+  },
+  {
+    "page": "QuizSummary",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 50,
+    "width": 378
+  },
+  {
+    "page": "ResourceExplorer",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 85,
+    "width": 372
+  },
+  {
+    "page": "ContextMenu",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 35,
+    "width": 378
+  },
+  {
+    "page": "ChatComposer",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 63,
+    "width": 378
+  },
+  {
+    "page": "MarkdownEditor",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 234,
+    "width": 372
+  },
+  {
+    "page": "WorkspaceLayout",
+    "nativePickers": [],
+    "scroll": 372,
+    "textLength": 88,
+    "width": 372
+  },
+  {
+    "page": "SelectField",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 11,
+    "width": 378
+  },
+  {
+    "page": "MemberSearch",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 64,
+    "width": 378
+  },
+  {
+    "page": "ShareLink",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 64,
+    "width": 378
+  },
+  {
+    "page": "AttachmentPicker",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 72,
+    "width": 378
+  },
+  {
+    "page": "UploadQueue",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 44,
+    "width": 378
+  },
+  {
+    "page": "MemberAccess",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 35,
+    "width": 378
+  },
+  {
+    "page": "Button",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 23,
+    "width": 378
+  },
+  {
+    "page": "IconButton",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 7,
+    "width": 378
+  },
+  {
+    "page": "Link",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 13,
+    "width": 378
+  },
+  {
+    "page": "Badge",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 26,
+    "width": 378
+  },
+  {
+    "page": "Chip",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "Avatar",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 11,
+    "width": 378
+  },
+  {
+    "page": "AvatarGroup",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "Divider",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 17,
+    "width": 378
+  },
+  {
+    "page": "Kbd",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 15,
+    "width": 378
+  },
+  {
+    "page": "VisuallyHidden",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 21,
+    "width": 378
+  },
+  {
+    "page": "Input",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 6,
+    "width": 378
+  },
+  {
+    "page": "Textarea",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 7,
+    "width": 378
+  },
+  {
+    "page": "Field",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 28,
+    "width": 378
+  },
+  {
+    "page": "Checkbox",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 13,
+    "width": 378
+  },
+  {
+    "page": "Radio",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 16,
+    "width": 378
+  },
+  {
+    "page": "Switch",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 12,
+    "width": 378
+  },
+  {
+    "page": "Select",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 11,
+    "width": 378
+  },
+  {
+    "page": "Combobox",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 13,
+    "width": 378
+  },
+  {
+    "page": "MultiSelect",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 25,
+    "width": 378
+  },
+  {
+    "page": "PasswordInput",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 10,
+    "width": 378
+  },
+  {
+    "page": "NumberInput",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 11,
+    "width": 378
+  },
+  {
+    "page": "Slider",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 18,
+    "width": 378
+  },
+  {
+    "page": "DatePicker",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 7,
+    "width": 378
+  },
+  {
+    "page": "TimePicker",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 7,
+    "width": 378
+  },
+  {
+    "page": "Calendar",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 119,
+    "width": 378
+  },
+  {
+    "page": "ColorPicker",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 19,
+    "width": 378
+  },
+  {
+    "page": "Rating",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 15,
+    "width": 378
+  },
+  {
+    "page": "SearchInput",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 9,
+    "width": 378
+  },
+  {
+    "page": "FileUpload",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 33,
+    "width": 378
+  },
+  {
+    "page": "Tabs",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 29,
+    "width": 378
+  },
+  {
+    "page": "SegmentedControl",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 16,
+    "width": 378
+  },
+  {
+    "page": "Breadcrumbs",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 21,
+    "width": 378
+  },
+  {
+    "page": "Pagination",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 19,
+    "width": 378
+  },
+  {
+    "page": "Steps",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 26,
+    "width": 378
+  },
+  {
+    "page": "Navigation",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 17,
+    "width": 378
+  },
+  {
+    "page": "Tree",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 37,
+    "width": 378
+  },
+  {
+    "page": "Dropdown",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 12,
+    "width": 378
+  },
+  {
+    "page": "CommandMenu",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 18,
+    "width": 378
+  },
+  {
+    "page": "Alert",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 30,
+    "width": 378
+  },
+  {
+    "page": "Banner",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 32,
+    "width": 378
+  },
+  {
+    "page": "Toast",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 12,
+    "width": 378
+  },
+  {
+    "page": "Dialog",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 11,
+    "width": 378
+  },
+  {
+    "page": "ConfirmDialog",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "Drawer",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 12,
+    "width": 378
+  },
+  {
+    "page": "Popover",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "Tooltip",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "Progress",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 17,
+    "width": 378
+  },
+  {
+    "page": "Spinner",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "Skeleton",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 6,
+    "width": 378
+  },
+  {
+    "page": "EmptyState",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 43,
+    "width": 378
+  },
+  {
+    "page": "ErrorState",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 41,
+    "width": 378
+  },
+  {
+    "page": "Card",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 44,
+    "width": 378
+  },
+  {
+    "page": "Table",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 59,
+    "width": 378
+  },
+  {
+    "page": "DescriptionList",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 50,
+    "width": 378
+  },
+  {
+    "page": "Timeline",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 61,
+    "width": 378
+  },
+  {
+    "page": "Stat",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 36,
+    "width": 378
+  },
+  {
+    "page": "Meter",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 20,
+    "width": 378
+  },
+  {
+    "page": "BarChart",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 39,
+    "width": 378
+  },
+  {
+    "page": "Accordion",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 121,
+    "width": 378
+  },
+  {
+    "page": "CodeBlock",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 60,
+    "width": 378
+  },
+  {
+    "page": "ImagePreview",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 9,
+    "width": 378
+  },
+  {
+    "page": "NotificationList",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 31,
+    "width": 378
+  },
+  {
+    "page": "Container",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 19,
+    "width": 378
+  },
+  {
+    "page": "Stack",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 16,
+    "width": 378
+  },
+  {
+    "page": "Grid",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 17,
+    "width": 378
+  },
+  {
+    "page": "ScrollArea",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 214,
+    "width": 378
+  },
+  {
+    "page": "AspectRatio",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "ResizablePanel",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 45,
+    "width": 378
+  },
+  {
+    "page": "PageHeader",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 44,
+    "width": 378
+  },
+  {
+    "page": "Toolbar",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 12,
+    "width": 378
+  },
+  {
+    "page": "Footer",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 25,
+    "width": 378
+  },
+  {
+    "page": "Callout",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 47,
+    "width": 378
+  },
+  {
+    "page": "Citation",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 43,
+    "width": 378
+  },
+  {
+    "page": "AIMessage",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 50,
+    "width": 378
+  },
+  {
+    "page": "AIComposer",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 23,
+    "width": 378
+  },
+  {
+    "page": "TaskStatus",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 64,
+    "width": 378
+  },
+  {
+    "page": "ResultCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 53,
+    "width": 378
+  },
+  {
+    "page": "FileCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 38,
+    "width": 378
+  },
+  {
+    "page": "MessageList",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 88,
+    "width": 378
+  },
+  {
+    "page": "CollapseTransition",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 52,
+    "width": 378
+  },
+  {
+    "page": "AgentTrace",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 91,
+    "width": 378
+  },
+  {
+    "page": "FlipCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 111,
+    "width": 378
+  },
+  {
+    "page": "SelectionToolbar",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 41,
+    "width": 378
+  },
+  {
+    "page": "SyncStatus",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 58,
+    "width": 378
+  },
+  {
+    "page": "ModelSelector",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 14,
+    "width": 378
+  },
+  {
+    "page": "TokenDashboard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 18,
+    "width": 378
+  },
+  {
+    "page": "CollapsibleSection",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 77,
+    "width": 378
+  },
+  {
+    "page": "AttachmentGrid",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 8,
+    "width": 378
+  },
+  {
+    "page": "QuizQuestion",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 183,
+    "width": 378
+  },
+  {
+    "page": "EmbedFallback",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 120,
+    "width": 378
+  },
+  {
+    "page": "MediaLightbox",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 44,
+    "width": 378
+  },
+  {
+    "page": "SettingsSection",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 38,
+    "width": 378
+  },
+  {
+    "page": "ChatEmptyState",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 116,
+    "width": 378
+  },
+  {
+    "page": "SourceFold",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 98,
+    "width": 378
+  },
+  {
+    "page": "SessionHistory",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 67,
+    "width": 378
+  },
+  {
+    "page": "ContentImage",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 27,
+    "width": 378
+  },
+  {
+    "page": "WindowChrome",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 48,
+    "width": 378
+  },
+  {
+    "page": "FilterSelect",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 20,
+    "width": 378
+  },
+  {
+    "page": "AcademicYearSwitcher",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 24,
+    "width": 378
+  },
+  {
+    "page": "KeyPoint",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 45,
+    "width": 378
+  },
+  {
+    "page": "ConceptCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 58,
+    "width": 378
+  },
+  {
+    "page": "CompareTable",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 54,
+    "width": 378
+  },
+  {
+    "page": "CauseEffect",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 40,
+    "width": 378
+  },
+  {
+    "page": "Derivation",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 76,
+    "width": 378
+  },
+  {
+    "page": "CitationList",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 108,
+    "width": 378
+  },
+  {
+    "page": "ApprovalCard",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 104,
+    "width": 378
+  },
+  {
+    "page": "TocTree",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 61,
+    "width": 378
+  },
+  {
+    "page": "SiblingFiles",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 60,
+    "width": 378
+  },
+  {
+    "page": "FormulaSteps",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 57,
+    "width": 378
+  },
+  {
+    "page": "DistributionChart",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 43,
+    "width": 378
+  },
+  {
+    "page": "VideoPlayer",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 25,
+    "width": 378
+  },
+  {
+    "page": "ShortcutHelp",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 38,
+    "width": 378
+  },
+  {
+    "page": "BottomNav",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 32,
+    "width": 378
+  },
+  {
+    "page": "ImageGallery",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 49,
+    "width": 378
+  },
+  {
+    "page": "WindowTaskbar",
+    "nativePickers": [],
+    "scroll": 378,
+    "textLength": 31,
+    "width": 378
+  }
+]

@@ -1,285 +1,408 @@
-# 课栈组件接入对应表
+# 课栈组件与共享视图对应表
 
-2026-10-20，组件库 0.4.1。登记课栈 components 下 277 个非测试 TSX 源文件。完整范围另含 frontend 的 8 个及 lib 的 3 个 TSX 文件，见 kezhan-source-inventory.json。
+版本：0.5.0。源清单共 277 个组件文件，另有 11 个应用及内容注册文件。
 
-本表的组件列是候选接入入口。文件有映射、存在插槽或有相近组件，都不能证明原功能已经抽取完毕。状态列区分通用外壳、部分视图、宿主上下文和本轮专项验收。详见 [抽取与设计复核](kezhan-ui-0.4.1-review.md)。
+本表记录组件库提供的展示层、专用交互和宿主调用契约。自动测试与浏览器抽查覆盖范围见 [交付验证](kezhan-ui-0.5.0-acceptance.md)。课栈应用的生产接入另行验收；路径对应不等于全部业务状态的端到端验收。
 
-| 课栈源文件 | 候选组件 | 当前状态 | 接入与能力差距 |
-| --- | --- | --- | --- |
-| `components/account/AccountCenter.tsx` | `AccountLayout`、`ProductNavigation`、`UserProfile` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/CommerceManager.tsx` | `PlanPicker`、`SettingsForm` | 部分视图可用，完整界面待抽取与验收 | PlanPicker 仅选择方案；充值规则、服务价格、会员编辑、支付配置、模型价格同步与覆盖编辑仍需专用视图。 |
-| `components/account/CreditsPanel.tsx` | `CreditsOverview`、`LedgerView`、`CapacityOverview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/DirectoryManager.tsx` | `ManagementTable`、`MemberSearch`、`MemberAccess` | 部分视图可用，完整界面待抽取与验收 | 成员和用户组管理、组内成员增删、候选搜索与授权明细尚未形成完整管理视图。 |
-| `components/account/ImportLocalStudy.tsx` | `ImportPanel`、`DirectoryPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/LedgerView.tsx` | `LedgerView` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/LoginScreen.tsx` | `LoginForm` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/NotebookManager.tsx` | `ManagementTable`、`VersionHistory`、`VersionDiff`、`ImportPanel` | 部分视图可用，完整界面待抽取与验收 | 笔记本发布状态、来源更新、清单预检、草稿预览、发布与历史恢复组合界面仍需提取。 |
-| `components/account/ShareCurrentNotebook.tsx` | `ShareAccessPanel`、`MemberSearch`、`MemberAccess`、`ShareLink`、`PermissionSummary`、`DirectoryPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/ShareNotebook.tsx` | `ShareAccessPanel`、`MemberSearch`、`MemberAccess`、`ShareLink`、`PermissionSummary`、`DirectoryPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/UserCreditsEditor.tsx` | `CreditAdjustment` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/account/UserDetails.tsx` | `UserProfile`、`CreditAdjustment`、`CapacityOverview`、`PermissionSummary` | 部分视图可用，完整界面待抽取与验收 | 个人资料已有展示；容量调整、管理员状态和组成员编辑仍需完整组合视图。 |
-| `components/admin/AdminCenter.tsx` | `AccountLayout`、`ProductNavigation`、`UserProfile` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/admin/AdministratorManager.tsx` | `ManagementTable`、`SettingsForm`、`AsyncAction` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/admin/CapacityManager.tsx` | `ManagementTable`、`SettingsForm`、`AsyncAction` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/admin/PlatformSettingsManager.tsx` | `ManagementTable`、`SettingsForm`、`AsyncAction` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/admin/SystemManager.tsx` | `ManagementTable`、`SettingsForm`、`AsyncAction` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/agent/AgentRunTrace.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/agent/AgentWorkspace.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/browser/BrowserSettingsButton.tsx` | `BrowserSurface`、`SettingsForm`、`EmbedFallback` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/browser/BrowserTab.tsx` | `BrowserSurface`、`SettingsForm`、`EmbedFallback` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/browser/EmbedFallback.tsx` | `EmbedFallback` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/canvas/CanvasBlockRenderer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/CanvasControls.tsx` | `CanvasWorkbench`、`VersionHistory`、`VersionDiff`、`ErrorState` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/CanvasDiagnosticPanel.tsx` | `CanvasWorkbench`、`VersionHistory`、`VersionDiff`、`ErrorState` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/CanvasDirective.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/CanvasFrame.tsx` | `CanvasWorkbench`、`VersionHistory`、`VersionDiff`、`ErrorState` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/CanvasFullscreenPortal.tsx` | `CanvasWorkbench`、`VersionHistory`、`VersionDiff`、`ErrorState` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/CanvasRevisionPanel.tsx` | `CanvasWorkbench`、`VersionHistory`、`VersionDiff`、`ErrorState` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/DiagramCanvas.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/FunctionPlot.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/PlotDirective.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/RawSvgViewer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/renderers/HtmlRenderer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/renderers/MoleculeRenderer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/renderers/MultiPlotRenderer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/renderers/PlotRenderer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/renderers/RawSvgRenderer.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/canvas/SvgCanvas.tsx` | `CanvasWorkbench`、`MarkdownContent` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/chat/AgentFoldHeader.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/AgentTrace.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/AgentTraceStep.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ArtifactCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ArtifactViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/AttachmentThumbnails.tsx` | `MediaLightbox`、`AttachmentGrid`、`ContentImage` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/BillingDashboard.tsx` | `CreditsOverview`、`LedgerView`、`CapacityOverview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatEmptyState.tsx` | `WorkspaceEmpty`、`AIMessage` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatHistoryOverlay.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatImage.tsx` | `MediaLightbox`、`AttachmentGrid`、`ContentImage` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatInput.tsx` | `ChatComposer`、`ModelSelector`、`ChatPreferencesPanel` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatMessage.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatMessageVisualizations.tsx` | `SourceFold`、`MessageContentView`、`CanvasWorkbench` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatPanel.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatPanelHeader.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatQuizCard.tsx` | `AttachmentGrid`、`QuizWorkspace`、`QuizQuestion` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ChatSettings.tsx` | `ChatPreferencesPanel`、`SkillsPanel`、`ModelSelector`、`SelectField` | 部分视图可用，完整界面待抽取与验收 | 模型/API 分组增改删、协议与思考参数、图像模型、默认提示、工具默认值和数据导入导出仍缺完整设置面板。 |
-| `components/chat/ChatThread.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/DocumentCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/DocumentViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/FloatingChatBody.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/FloatingChatLayer.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/FloatingChatWindow.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/FollowUpQuestions.tsx` | `WorkspaceEmpty`、`AIMessage` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ImageGenCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ImageGenViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ImageStrip.tsx` | `MediaLightbox`、`AttachmentGrid`、`ContentImage` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/MessageContent.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ModelMenu.tsx` | `ChatPreferencesPanel`、`SkillsPanel`、`ModelSelector`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/NoteCitationCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/NoteCitationViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/NoteImageGallery.tsx` | `AttachmentGrid`、`QuizWorkspace`、`QuizQuestion` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ProcessingSteps.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ReasoningTraceStep.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/SkillsManager.tsx` | `SkillsPanel` | 部分视图可用，完整界面待抽取与验收 | SkillsPanel 仅列出技能与启停；技能文件导入、正文和描述编辑、删除、体积信息仍需提取。 |
-| `components/chat/SourcePreviewViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/SourceTraceViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ThinkingMenu.tsx` | `ChatPreferencesPanel`、`SkillsPanel`、`ModelSelector`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/TokenDashboard.tsx` | `TokenDashboard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ToolCallDashboard.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/ToolTraceStep.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/VizErrorBoundary.tsx` | `ErrorState` | 已有共享组件，完整能力待验收 | 业务异常边界与错误采集保留课栈，错误展示复用组件库。 |
-| `components/chat/VizFold.tsx` | `SourceFold`、`MessageContentView`、`CanvasWorkbench` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/chat/WebSourceFold.tsx` | `SourceFold`、`MessageContentView`、`CanvasWorkbench` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/examples/ExampleTab.tsx` | `Bookshelf`、`ProductNavigation`、`MarkdownContent` | 已有共享组件，完整能力待验收 | 例题内容、课程目录与打开路由保留课栈。 |
-| `components/icons/AgentIcons.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 已有共享组件，完整能力待验收 | 图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。 |
-| `components/icons/ModelBrandIcons.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 已有共享组件，完整能力待验收 | 图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。 |
-| `components/icons/PencilSparklesIcon.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 已有共享组件，完整能力待验收 | 图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。 |
-| `components/interactives/chemistry/ch01/BondPolarityExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch02/IUPACNamingPractice.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch03/BoilingPointComparator.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch04/ChairFlip.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch04/NewmanProjection.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch05/CarbocationStability.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch06/MarkovnikovPredictor.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch07/DieneAddition.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch08/DirectingEffect.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch09/ChiralityMirror.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch09/RSConfigPractice.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch10/EliminationZaitsev.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch10/SN1SN2Compare.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch11/EpoxideOpening.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch12/CarbonylAddition.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch13/AcylReactivity.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch14/AmineBasicity.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/chemistry/ch14/DiazoniumNetwork.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/CustomInteractive.tsx` | `Bookshelf`、`CanvasWorkbench`、`RunWorkspace`、`ImportPanel`、`DirectoryPicker` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/discrete-math/LogicRelationsLabs.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/discrete-math/StructureLabs.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/InteractivePlatform.tsx` | `Bookshelf`、`CanvasWorkbench`、`RunWorkspace`、`ImportPanel`、`DirectoryPicker` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/InteractiveStudio.tsx` | `Bookshelf`、`CanvasWorkbench`、`RunWorkspace`、`ImportPanel`、`DirectoryPicker` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/InteractiveTab.tsx` | `Bookshelf`、`CanvasWorkbench`、`RunWorkspace`、`ImportPanel`、`DirectoryPicker` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/LabWorkbench.tsx` | `Bookshelf`、`CanvasWorkbench`、`RunWorkspace`、`ImportPanel`、`DirectoryPicker` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/numerical-methods/ExtensionLabs.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/numerical-methods/FactorizationLabs.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/numerical-methods/Labs.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/numerical-methods/RecordingPlayer.tsx` | `RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/numerical-methods/SourceViewer.tsx` | `CanvasWorkbench`、`CodeBlock` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/physics/ElectrostaticsLab.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch01/BayesExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch01/ClassicalProbLab.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch01/FrequencyConvergence.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch01/ReliabilityExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch01/SampleSpaceBuilder.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch01/VennPlayground.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch02/BinomialExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch02/CDFVisualizer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch02/FuncDistDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch02/PDFExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch02/RVMapper.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch03/ConditionalExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch03/ConvolutionDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch03/IndependenceChecker.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch03/JointDistExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch03/MarginalExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch04/CorrelationExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch04/CovMatrixDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch04/ExpectationExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch04/VarianceExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch05/ChebyshevDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch05/CLTSimulator.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch05/LLNSimulator.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch06/NormalSamplingDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch06/QuantileExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch06/SamplingDistExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch06/StatisticCalculator.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch07/ConfidenceIntervalExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch07/EstimatorComparator.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch07/MLEExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch07/MomentEstimator.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch08/ErrorTypeDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch08/HypTestDemo.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch08/MeanTestExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ch08/VarianceTestExplorer.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/probability/ReviewLabs.tsx` | `CanvasWorkbench`、`Input`、`Slider`、`SelectField`、`Switch`、`QuizQuestion`、`RecordingPlayback` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/interactives/SaveInteractiveButton.tsx` | `AsyncAction`、`DirectoryPicker` | 共用外壳已提供，专用界面待抽取与验收 | 计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。 |
-| `components/keyboard/KeyboardShortcutProvider.tsx` | `ShortcutProvider`、`useShortcut` | 已有共享组件，完整能力待验收 | 快捷键注册与可配置界面已提供；宿主连接操作、作用域与持久化。 |
-| `components/keyboard/ShortcutHelpOverlay.tsx` | `ShortcutHelp`、`ShortcutSettings`、`ShortcutProvider` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/AcademicYearSwitcher.tsx` | `AcademicYearSwitcher` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/AccessContext.tsx` |  | 宿主上下文保留，相关视图单独接入 | 此文件承担宿主上下文或同步状态，不作为展示组件完成项计数。 |
-| `components/layout/AppearanceSettingsControls.tsx` | `SelectField`、`ColorPicker` | 部分视图可用，完整界面待抽取与验收 | 基础主题控件可用；字体、字号及各内容区外观继承设置尚未形成完整配置视图。 |
-| `components/layout/AppShell.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/BookshelfFilter.tsx` | `Bookshelf`、`SearchInput`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/BrandLogo.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 已有共享组件，完整能力待验收 | 图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。 |
-| `components/layout/FileTree.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/FileTreeItem.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/GlobalSettings.tsx` | `SettingsForm`、`ShortcutSettings` | 部分视图可用，完整界面待抽取与验收 | 基础控件可复用；实际各分区、外观继承和应用范围需专项组合。 |
-| `components/layout/HomeBookshelf.tsx` | `Bookshelf`、`SearchInput`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/KeyboardShortcutsSettings.tsx` | `ShortcutHelp`、`ShortcutSettings`、`ShortcutProvider` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/MobileBottomNav.tsx` | `ProductNavigation`、`BottomNav` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/MobileChapterPicker.tsx` | `SelectField`、`TocTree` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/MobileProductNav.tsx` | `ProductNavigation`、`BottomNav` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/MobileTopBar.tsx` | `MobileTopBar` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/MobileViewport.tsx` | `Container`、`BottomNav`、`MobileTopBar` | 已有共享组件，完整能力待验收 | 视口、安全区和页面路由由宿主保留。 |
-| `components/layout/NewTabPlaceholder.tsx` | `WorkspaceEmpty` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/NotePane.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/NoteSplitPane.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/NoteTabStrip.tsx` | `WorkspaceTabs` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/ProductSwitcher.tsx` | `ProductNavigation`、`BottomNav` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/RightPanel.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/RuntimeCatalogProvider.tsx` |  | 宿主上下文保留，相关视图单独接入 | 此文件承担宿主上下文或同步状态，不作为展示组件完成项计数。 |
-| `components/layout/SettingsSection.tsx` | `SettingsForm`、`SettingsSection`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/SharedNoteToolbar.tsx` | `Toolbar`、`SelectionActions`、`ShareAccessPanel` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/SiblingFilesPanel.tsx` | `SiblingFiles` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/SubjectSidebar.tsx` | `ProductNavigation`、`BottomNav` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/TocTree.tsx` | `TocTree` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/layout/WorkspaceActivity.tsx` | `TaskProgress`、`TaskStatus`、`NotificationList` | 宿主上下文保留，相关视图单独接入 | 此文件承担宿主上下文或同步状态，不作为展示组件完成项计数。 |
-| `components/layout/WorkspaceTreeContextMenu.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/AnimatedInlineCard.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/AttachmentPicker.tsx` | `AttachmentPicker`、`ResourcePreview`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/AttachmentView.tsx` | `AttachmentPicker`、`ResourcePreview`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/BacklinksPanel.tsx` | `BacklinksPanel` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/CodeBlockLanguageSelect.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/ContentPageClient.tsx` | `MarkdownContent`、`LazyVisible` | 已有共享组件，完整能力待验收 | 服务端读取、流式传输、资源授权和专用渲染器由宿主连接。 |
-| `components/notes/DirectiveBlockView.tsx` | `MarkdownEditor`、`DirectiveFields`、`moveEditorBlock`、`deleteEditorBlock` | 已有共享组件，完整能力待验收 | 本地草稿、保存版本与编辑文档身份由宿主连接；节点与通用交互在组件库。 |
-| `components/notes/DynamicRecording.tsx` | `RecordingPlayback` | 已有共享组件，完整能力待验收 | 录制事件生成、时钟推进与沙箱场景由课栈连接；回放视图和关键帧导航在组件库。 |
-| `components/notes/GraphView.tsx` | `GraphView` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/ImageConversionView.tsx` | `ImagePasteOptions`、`MarkdownEditor`、`UploadPlaceholder`、`ImageConversion` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/ImagePasteDialog.tsx` | `ImagePasteOptions`、`MarkdownEditor`、`UploadPlaceholder`、`ImageConversion` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/ImportVaultDialog.tsx` | `ImportPanel`、`DirectoryPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/MathEditor.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/MathShortcutSettings.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/MathSymbolPalette.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/MemberSearch.tsx` | `ShareAccessPanel`、`MemberSearch`、`MemberAccess`、`ShareLink`、`PermissionSummary`、`DirectoryPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/MermaidCodeBlockView.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/MermaidEditor.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/NoteAttachmentCard.tsx` | `AttachmentPicker`、`ResourcePreview`、`FileCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/NoteLink.tsx` | `NoteLink` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/NoteRenderer.tsx` | `MarkdownContent` | 部分视图可用，完整界面待抽取与验收 | 公式、表格、卡片已提供；双链、标题锚点、内联颜色/高亮及全部专用指令的阅读等价性仍需对照。 |
-| `components/notes/NoteRendererServer.tsx` | `MarkdownContent` | 部分视图可用，完整界面待抽取与验收 | 服务端与客户端渲染一致性、专用指令和授权资源仍需宿主集成验证。 |
-| `components/notes/NoteSkeleton.tsx` | `Skeleton`、`TaskProgress` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/NoteToolbar.tsx` | `Toolbar`、`SelectionActions`、`ShareAccessPanel` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/NoteWorkspaceActions.tsx` | `Toolbar`、`SelectionActions`、`ShareAccessPanel` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/ProgressiveNoteRenderer.tsx` | `MarkdownContent`、`LazyVisible` | 已有共享组件，完整能力待验收 | 服务端读取、流式传输、资源授权和专用渲染器由宿主连接。 |
-| `components/notes/SelectionPopover.tsx` | `SelectionToolbar`、`SelectionActions`、`ColorPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/ToolbarColorPicker.tsx` | `SelectionToolbar`、`SelectionActions`、`ColorPicker` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/UploadPlaceholderView.tsx` | `ImagePasteOptions`、`MarkdownEditor`、`UploadPlaceholder`、`ImageConversion` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/UploadQueue.tsx` | `UploadQueue` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/notes/VisualNoteEditor.tsx` | `MarkdownEditor`、`VersionHistory`、`VersionDiff`、`SaveConflict` | 部分视图可用，完整界面待抽取与验收 | 核心富文本及协作接口可用；保存导航、真实版本恢复、块拖动和既有扩展文档完整往返需产品集成验收。 |
-| `components/quiz/QuizMarkdown.tsx` | `MarkdownContent`、`LazyVisible` | 已有共享组件，完整能力待验收 | 服务端读取、流式传输、资源授权和专用渲染器由宿主连接。 |
-| `components/quiz/QuizQuestion.tsx` | `QuizQuestion` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/quiz/QuizScoring.tsx` | `QuizScoring` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/quiz/QuizSummary.tsx` | `QuizSummary` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/quiz/QuizTab.tsx` | `QuizWorkspace`、`QuizQuestion`、`MarkdownContent` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/resources/ResourceCenter.tsx` | `ResourceWorkspace`、`ResourceExplorer`、`ResourcePreview`、`RecycleBin` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/resources/ResourcePreview.tsx` | `ResourcePreview`、`PdfPreview`、`AudioPlayer`、`VideoPlayer` | 已有共享组件，完整能力待验收 | 转换服务、鉴权源和真实预览文件由宿主提供。 |
-| `components/review/CollapsibleSection.tsx` | `CollapsibleSection`、`CollapseTransition` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/review/FlipCard.tsx` | `FlipCard`、`RecallContent` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/review/RecordPreviewLayer.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/review/RecordPreviewWindow.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/review/ReviewPage.tsx` | `ReviewDashboard`、`MemoryCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/search/GlobalSearchButton.tsx` | `SearchResults`、`CommandMenu` | 已有共享组件，完整能力待验收 | 搜索权限、远程与本地合并、定位路由由课栈提供。 |
-| `components/setup/SetupWizard.tsx` | `SetupWizard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/ChoiceMenu.tsx` | `SelectField`、`Popup` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/CodeBlock.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/ContentImage.tsx` | `ContentImage` | 本轮视图验收通过，待课栈接入 | 本轮验证失败占位、更换地址恢复及宿主错误回调。 |
-| `components/shared/directives/Callout.tsx` | `Callout`、`MarkdownContent` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/CauseEffect.tsx` | `CauseEffect` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/CompareTable.tsx` | `CompareTable` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/ConceptCard.tsx` | `ConceptCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/Derivation.tsx` | `Derivation`、`FormulaSteps` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/EventCard.tsx` | `EventCard` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/Figure.tsx` | `Figure`、`ContentImage` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/HistoryMap.tsx` | `HistoryLocationMap`、`HistoryMap` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/KeyPoint.tsx` | `KeyPoint` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/LearningAnimation.tsx` | `LearningAnimation`、`VideoPlayer` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/MediaEmbed.tsx` | `VideoPlayer`、`AudioPlayer`、`EmbedFallback` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/MemoryCard.tsx` | `MemoryCard`、`RecallContent` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/directives/Timeline.tsx` | `ReadingTimeline`、`Timeline` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/FloatingPanel.tsx` | `Popup` | 部分视图可用，完整界面待抽取与验收 | 源组件是锚点定位的受控浮层，需补齐外部 anchor/open 控制契约；FloatingWindow 是拖动窗口，不能直接替代。 |
-| `components/shared/HorizontalScrollbar.tsx` | `HorizontalScrollbar` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/ImageLightbox.tsx` | `MediaLightbox` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/MermaidBlock.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/MessageContextMenu.tsx` | `ContextMenu`、`SelectionActions` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/PdfPreview.tsx` | `ResourcePreview`、`PdfPreview`、`AudioPlayer`、`VideoPlayer` | 已有共享组件，完整能力待验收 | 转换服务、鉴权源和真实预览文件由宿主提供。 |
-| `components/shared/ResizeLoader.tsx` | `Skeleton`、`TaskProgress` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/SubjectIcon.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 已有共享组件，完整能力待验收 | 图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。 |
-| `components/shared/SurfaceBoundary.tsx` | `SurfaceBoundary` | 本轮视图验收通过，待课栈接入 | 本轮提供局部异常恢复、重新挂载和 resetKey 切换；错误诊断交给 onError。验证见 window-recovery.test.tsx。 |
-| `components/shared/TaskDialog.tsx` | `Dialog`、`TaskProgress` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/TreeDisclosure.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/shared/WorkspaceLoading.tsx` | `Skeleton`、`TaskProgress` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/ui/AnimatedCollapse.tsx` | `CollapseTransition`、`AnimatedSize` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/ui/LazyVisible.tsx` | `LazyVisible` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/ui/Tip.tsx` | `Tooltip` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/ui/Tooltip.tsx` | `Tooltip` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/video/ClassroomProgress.tsx` | `ClassroomTimeline`、`Progress` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/video/InlinePlayer.tsx` | `VideoPlayer`、`LectureDock`、`ClassroomTimeline` | 已有共享组件，完整能力待验收 | 授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。 |
-| `components/video/LectureDock.tsx` | `LectureDock` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/video/LecturePlayer.tsx` | `VideoPlayer`、`LectureDock`、`ClassroomTimeline` | 已有共享组件，完整能力待验收 | 授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。 |
-| `components/video/PipPlayer.tsx` | `VideoPlayer`、`FloatingWindow`、`LectureDock` | 部分视图可用，完整界面待抽取与验收 | 播放及窗口已有独立组件；画中画几何、鉴权刷新、时间恢复、字幕与课堂联动仍需组合验收。 |
-| `components/video/VideoTab.tsx` | `VideoPlayer`、`LectureDock`、`ClassroomTimeline` | 已有共享组件，完整能力待验收 | 授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。 |
-| `components/visualizations/primitives/DistributionChart.tsx` | `DistributionChart` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/visualizations/primitives/FormulaSteps.tsx` | `Derivation`、`FormulaSteps` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/visualizations/primitives/VennDiagram.tsx` | `VennDiagram` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/visualizations/primitives/VideoPlayer.tsx` | `VideoPlayer`、`LectureDock`、`ClassroomTimeline` | 已有共享组件，完整能力待验收 | 授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。 |
-| `components/window/OverflowMenu.tsx` | `WindowTaskbar`、`Dropdown` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
-| `components/window/WindowChrome.tsx` | `WindowChrome` | 本轮视图验收通过，待课栈接入 | 标题在左，操作位于右侧，关闭按钮在最右；验证键盘、拖动隔离和窄容器位置。外部打开操作通过 actions 接入。 |
-| `components/window/WindowTaskbar.tsx` | `WindowTaskbar`、`Dropdown` | 已有共享组件，完整能力待验收 | 业务数据、授权和持久化由课栈连接。 |
+## account
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/account/AccountCenter.tsx` | `AccountLayout`、`ProductNavigation`、`UserProfile` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/CommerceManager.tsx` | `CommerceWorkspace` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/CreditsPanel.tsx` | `CreditsOverview`、`LedgerView`、`CapacityOverview` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/DirectoryManager.tsx` | `DirectoryWorkspace` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/ImportLocalStudy.tsx` | `ImportPanel`、`DirectoryPicker` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/LedgerView.tsx` | `LedgerView` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/LoginScreen.tsx` | `LoginForm` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/NotebookManager.tsx` | `NotebookManagerWorkspace`、`NotebookPublishing` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/ShareCurrentNotebook.tsx` | `ShareAccessPanel`、`MemberSearch`、`MemberAccess`、`ShareLink`、`PermissionSummary`、`DirectoryPicker` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/ShareNotebook.tsx` | `ShareAccessPanel`、`MemberSearch`、`MemberAccess`、`ShareLink`、`PermissionSummary`、`DirectoryPicker` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/UserCreditsEditor.tsx` | `CreditAdjustment` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+| `components/account/UserDetails.tsx` | `UserDetailsWorkspace`、`CapacityEditor`、`AdministratorAccess` | 宿主提供账户、计费与存储数据；组件接收受控值和异步保存回调。 |
+
+## admin
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/admin/AdminCenter.tsx` | `AccountLayout`、`ProductNavigation`、`UserProfile` | 宿主执行权限校验、平台配置持久化和重置；组件处理输入、确认、忙碌状态和错误反馈。 |
+| `components/admin/AdministratorManager.tsx` | `AdministratorDirectory` | 宿主执行权限校验、平台配置持久化和重置；组件处理输入、确认、忙碌状态和错误反馈。 |
+| `components/admin/CapacityManager.tsx` | `CapacityDirectory` | 宿主执行权限校验、平台配置持久化和重置；组件处理输入、确认、忙碌状态和错误反馈。 |
+| `components/admin/PlatformSettingsManager.tsx` | `PlatformWorkspace` | 宿主执行权限校验、平台配置持久化和重置；组件处理输入、确认、忙碌状态和错误反馈。 |
+| `components/admin/SystemManager.tsx` | `PlatformReset` | 宿主执行权限校验、平台配置持久化和重置；组件处理输入、确认、忙碌状态和错误反馈。 |
+
+## agent
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/agent/AgentRunTrace.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主提供任务会话、消息与动作；组件处理布局、任务进度与消息展示。 |
+| `components/agent/AgentWorkspace.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 宿主提供任务会话、消息与动作；组件处理布局、任务进度与消息展示。 |
+
+## browser
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/browser/BrowserSettingsButton.tsx` | `BrowserPreferences` | 宿主提供浏览历史、授权与实际网页容器；组件处理网址、收藏、设置及回退界面。 |
+| `components/browser/BrowserTab.tsx` | `BrowserWorkspace`、`BrowserPreferences` | 宿主提供浏览历史、授权与实际网页容器；组件处理网址、收藏、设置及回退界面。 |
+| `components/browser/EmbedFallback.tsx` | `EmbedFallback` | 宿主提供浏览历史、授权与实际网页容器；组件处理网址、收藏、设置及回退界面。 |
+
+## canvas
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/canvas/CanvasBlockRenderer.tsx` | `CanvasWorkspace`；`src/lib/canvas/CanvasBlockRenderer.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/CanvasControls.tsx` | `CanvasWorkspace`；`src/lib/canvas/CanvasControls.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/CanvasDiagnosticPanel.tsx` | `CanvasWorkspace` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/CanvasDirective.tsx` | `CanvasWorkspace`；`src/lib/canvas/CanvasDirective.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/CanvasFrame.tsx` | `CanvasWorkspace`；`src/lib/canvas/CanvasFrame.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/CanvasFullscreenPortal.tsx` | `CanvasWorkspace`；`src/lib/canvas/CanvasFullscreenPortal.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/CanvasRevisionPanel.tsx` | `CanvasWorkspace` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/DiagramCanvas.tsx` | `CanvasWorkspace`；`src/lib/canvas/DiagramCanvas.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/FunctionPlot.tsx` | `CanvasWorkspace`；`src/lib/canvas/FunctionPlot.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/PlotDirective.tsx` | `CanvasWorkspace`；`src/lib/canvas/PlotDirective.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/RawSvgViewer.tsx` | `CanvasWorkspace`；`src/lib/canvas/RawSvgViewer.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/renderers/HtmlRenderer.tsx` | `CanvasWorkspace`；`src/lib/canvas/renderers/HtmlRenderer.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/renderers/MoleculeRenderer.tsx` | `CanvasWorkspace` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/renderers/MultiPlotRenderer.tsx` | `CanvasWorkspace`；`src/lib/canvas/renderers/MultiPlotRenderer.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/renderers/PlotRenderer.tsx` | `CanvasWorkspace`；`src/lib/canvas/renderers/PlotRenderer.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/renderers/RawSvgRenderer.tsx` | `CanvasWorkspace`；`src/lib/canvas/renderers/RawSvgRenderer.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+| `components/canvas/SvgCanvas.tsx` | `CanvasWorkspace`；`src/lib/canvas/SvgCanvas.tsx` | 通用渲染、参数、修改指令、版本预览、采用、诊断与全屏已提取；宿主提供生成服务和分子渲染器。 |
+
+## chat
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/chat/AgentFoldHeader.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/AgentTrace.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/AgentTraceStep.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ArtifactCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ArtifactViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/AttachmentThumbnails.tsx` | `MediaLightbox`、`AttachmentGrid`、`ContentImage` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/BillingDashboard.tsx` | `CreditsOverview`、`LedgerView`、`CapacityOverview` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatEmptyState.tsx` | `WorkspaceEmpty`、`AIMessage` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatHistoryOverlay.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatImage.tsx` | `MediaLightbox`、`AttachmentGrid`、`ContentImage` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatInput.tsx` | `ChatComposer`、`ModelSelector`、`ChatPreferencesPanel` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatMessage.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatMessageVisualizations.tsx` | `MessageContentView`、`CanvasWorkspace` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatPanel.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatPanelHeader.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatQuizCard.tsx` | `AttachmentGrid`、`QuizWorkspace`、`QuizQuestion` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatSettings.tsx` | `AISettingsWorkspace` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ChatThread.tsx` | `RunWorkspace`、`ProductNavigation`、`SessionHistory`、`MessageList`、`ChatComposer` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/DocumentCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/DocumentViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/FloatingChatBody.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/FloatingChatLayer.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/FloatingChatWindow.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/FollowUpQuestions.tsx` | `FollowUpQuestions` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ImageGenCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ImageGenViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ImageStrip.tsx` | `MediaLightbox`、`AttachmentGrid`、`ContentImage` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/MessageContent.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ModelMenu.tsx` | `ChatPreferencesPanel`、`SkillsPanel`、`ModelSelector`、`SelectField` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/NoteCitationCard.tsx` | `ArtifactCard`、`Citation`、`FileCard` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/NoteCitationViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/NoteImageGallery.tsx` | `AttachmentGrid`、`QuizWorkspace`、`QuizQuestion` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ProcessingSteps.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ReasoningTraceStep.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/SkillsManager.tsx` | `SkillsWorkspace` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/SourcePreviewViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/SourceTraceViewer.tsx` | `ArtifactPreview`、`MarkdownContent`、`ResourcePreview`、`FloatingWindow` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ThinkingMenu.tsx` | `ChatPreferencesPanel`、`SkillsPanel`、`ModelSelector`、`SelectField` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/TokenDashboard.tsx` | `TokenDashboard` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ToolCallDashboard.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/ToolTraceStep.tsx` | `MessageContentView`、`AgentTrace`、`MarkdownContent`、`ContextMenu` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/VizErrorBoundary.tsx` | `ErrorState` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/VizFold.tsx` | `SourceFold`、`CanvasWorkspace` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+| `components/chat/WebSourceFold.tsx` | `SourceFold`、`MessageContentView`、`CanvasWorkbench` | 宿主维护会话、流式数据、模型调用及业务动作；组件承担输入、消息、设置、引用与媒体展示。 |
+
+## examples
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/examples/ExampleTab.tsx` | `Bookshelf`、`ProductNavigation`、`MarkdownContent` | 课程示例数据与导航由宿主注入，共享书架和阅读视图。 |
+
+## icons
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/icons/AgentIcons.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 使用共享图标与产品色；模型或学科品牌资源通过图标插槽注入。 |
+| `components/icons/ModelBrandIcons.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 使用共享图标与产品色；模型或学科品牌资源通过图标插槽注入。 |
+| `components/icons/PencilSparklesIcon.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 使用共享图标与产品色；模型或学科品牌资源通过图标插槽注入。 |
+
+## interactives
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/interactives/chemistry/ch01/BondPolarityExplorer.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch01/BondPolarityExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch02/IUPACNamingPractice.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch02/IUPACNamingPractice.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch03/BoilingPointComparator.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch03/BoilingPointComparator.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch04/ChairFlip.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch04/ChairFlip.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch04/NewmanProjection.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch04/NewmanProjection.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch05/CarbocationStability.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch05/CarbocationStability.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch06/MarkovnikovPredictor.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch06/MarkovnikovPredictor.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch07/DieneAddition.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch07/DieneAddition.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch08/DirectingEffect.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch08/DirectingEffect.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch09/ChiralityMirror.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch09/ChiralityMirror.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch09/RSConfigPractice.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch09/RSConfigPractice.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch10/EliminationZaitsev.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch10/EliminationZaitsev.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch10/SN1SN2Compare.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch10/SN1SN2Compare.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch11/EpoxideOpening.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch11/EpoxideOpening.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch12/CarbonylAddition.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch12/CarbonylAddition.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch13/AcylReactivity.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch13/AcylReactivity.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch14/AmineBasicity.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch14/AmineBasicity.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/chemistry/ch14/DiazoniumNetwork.tsx` | `LearningExperiment`；`src/lib/learning/chemistry/ch14/DiazoniumNetwork.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/CustomInteractive.tsx` | `CanvasWorkspace` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/discrete-math/LogicRelationsLabs.tsx` | `LearningExperiment`；`src/lib/learning/discrete-math/LogicRelationsLabs.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/discrete-math/StructureLabs.tsx` | `LearningExperiment`；`src/lib/learning/discrete-math/StructureLabs.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/InteractivePlatform.tsx` | `ExperimentLibrary`、`CanvasWorkspace` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/InteractiveStudio.tsx` | `ExperimentLibrary`、`CanvasWorkspace` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/InteractiveTab.tsx` | `ExperimentLibrary`、`LearningExperiment` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/LabWorkbench.tsx` | `ExperimentLibrary`、`LearningExperiment` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/numerical-methods/ExtensionLabs.tsx` | `LearningExperiment`；`src/lib/learning/numerical-methods/ExtensionLabs.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/numerical-methods/FactorizationLabs.tsx` | `LearningExperiment`；`src/lib/learning/numerical-methods/FactorizationLabs.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/numerical-methods/Labs.tsx` | `LearningExperiment`；`src/lib/learning/numerical-methods/Labs.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/numerical-methods/RecordingPlayer.tsx` | `LectureWorkspace`、`RecordingPlayback` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/numerical-methods/SourceViewer.tsx` | `LearningSourceView` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/physics/ElectrostaticsLab.tsx` | `LearningExperiment`；`src/lib/learning/physics/ElectrostaticsLab.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch01/BayesExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch01/BayesExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch01/ClassicalProbLab.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch01/ClassicalProbLab.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch01/FrequencyConvergence.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch01/FrequencyConvergence.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch01/ReliabilityExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch01/ReliabilityExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch01/SampleSpaceBuilder.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch01/SampleSpaceBuilder.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch01/VennPlayground.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch01/VennPlayground.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch02/BinomialExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch02/BinomialExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch02/CDFVisualizer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch02/CDFVisualizer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch02/FuncDistDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch02/FuncDistDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch02/PDFExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch02/PDFExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch02/RVMapper.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch02/RVMapper.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch03/ConditionalExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch03/ConditionalExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch03/ConvolutionDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch03/ConvolutionDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch03/IndependenceChecker.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch03/IndependenceChecker.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch03/JointDistExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch03/JointDistExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch03/MarginalExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch03/MarginalExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch04/CorrelationExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch04/CorrelationExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch04/CovMatrixDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch04/CovMatrixDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch04/ExpectationExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch04/ExpectationExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch04/VarianceExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch04/VarianceExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch05/ChebyshevDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch05/ChebyshevDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch05/CLTSimulator.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch05/CLTSimulator.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch05/LLNSimulator.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch05/LLNSimulator.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch06/NormalSamplingDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch06/NormalSamplingDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch06/QuantileExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch06/QuantileExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch06/SamplingDistExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch06/SamplingDistExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch06/StatisticCalculator.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch06/StatisticCalculator.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch07/ConfidenceIntervalExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch07/ConfidenceIntervalExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch07/EstimatorComparator.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch07/EstimatorComparator.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch07/MLEExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch07/MLEExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch07/MomentEstimator.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch07/MomentEstimator.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch08/ErrorTypeDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch08/ErrorTypeDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch08/HypTestDemo.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch08/HypTestDemo.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch08/MeanTestExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch08/MeanTestExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ch08/VarianceTestExplorer.tsx` | `LearningExperiment`；`src/lib/learning/probability/ch08/VarianceTestExplorer.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/probability/ReviewLabs.tsx` | `LearningExperiment`；`src/lib/learning/probability/ReviewLabs.tsx` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+| `components/interactives/SaveInteractiveButton.tsx` | `AsyncAction`、`DirectoryPicker` | 实验参数与计算视图已提取；课程原件、录音、存储和生成请求通过宿主回调接入。 |
+
+## keyboard
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/keyboard/KeyboardShortcutProvider.tsx` | `ShortcutProvider`、`useShortcut` | 快捷键注册、范围控制、帮助和可配置组合键为共享层；业务命令由宿主注册。 |
+| `components/keyboard/ShortcutHelpOverlay.tsx` | `ShortcutHelp`、`ShortcutSettings`、`ShortcutProvider` | 快捷键注册、范围控制、帮助和可配置组合键为共享层；业务命令由宿主注册。 |
+
+## layout
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/layout/AcademicYearSwitcher.tsx` | `AcademicYearSwitcher` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/AccessContext.tsx` | 宿主上下文 | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/AppearanceSettingsControls.tsx` | `AppearanceWorkspace`、`appearanceStyles`、`resolveContentTypography` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/AppShell.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/BookshelfFilter.tsx` | `Bookshelf`、`SearchInput`、`SelectField` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/BrandLogo.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/FileTree.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/FileTreeItem.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/GlobalSettings.tsx` | `LearningRecords`、`AppearanceWorkspace`、`ShortcutSettings` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/HomeBookshelf.tsx` | `Bookshelf`、`SearchInput`、`SelectField` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/KeyboardShortcutsSettings.tsx` | `ShortcutHelp`、`ShortcutSettings`、`ShortcutProvider` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/MobileBottomNav.tsx` | `ProductNavigation`、`BottomNav` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/MobileChapterPicker.tsx` | `SelectField`、`TocTree` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/MobileProductNav.tsx` | `ProductNavigation`、`BottomNav` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/MobileTopBar.tsx` | `MobileTopBar` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/MobileViewport.tsx` | `Container`、`BottomNav`、`MobileTopBar` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/NewTabPlaceholder.tsx` | `WorkspaceEmpty` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/NotePane.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/NoteSplitPane.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/NoteTabStrip.tsx` | `WorkspaceTabs` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/ProductSwitcher.tsx` | `ProductNavigation`、`BottomNav` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/RightPanel.tsx` | `WorkspaceLayout`、`WorkspaceTabs`、`RunWorkspace` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/RuntimeCatalogProvider.tsx` | 宿主上下文 | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/SettingsSection.tsx` | `SettingsForm`、`SettingsSection`、`SelectField` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/SharedNoteToolbar.tsx` | `Toolbar`、`SelectionActions`、`ShareAccessPanel` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/SiblingFilesPanel.tsx` | `SiblingFiles` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/SubjectSidebar.tsx` | `ProductNavigation`、`BottomNav` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/TocTree.tsx` | `TocTree` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/WorkspaceActivity.tsx` | `TaskProgress`、`TaskStatus`、`NotificationList` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+| `components/layout/WorkspaceTreeContextMenu.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 布局、导航、文件树及外观视图共享；账户权限、课程目录和路由状态由宿主连接。 |
+
+## notes
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/notes/AnimatedInlineCard.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/AttachmentPicker.tsx` | `AttachmentPicker`、`ResourcePreview`、`FileCard` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/AttachmentView.tsx` | `AttachmentPicker`、`ResourcePreview`、`FileCard` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/BacklinksPanel.tsx` | `BacklinksPanel` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/CodeBlockLanguageSelect.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/ContentPageClient.tsx` | `CourseContentWorkspace`、`MarkdownContent`、`LazyVisible` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/DirectiveBlockView.tsx` | `MarkdownEditor`、`DirectiveFields`、`moveEditorBlock`、`deleteEditorBlock` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/DynamicRecording.tsx` | `RecordingPlayback` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/GraphView.tsx` | `GraphView` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/ImageConversionView.tsx` | `ImagePasteOptions`、`MarkdownEditor`、`UploadPlaceholder`、`ImageConversion` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/ImagePasteDialog.tsx` | `ImagePasteOptions`、`MarkdownEditor`、`UploadPlaceholder`、`ImageConversion` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/ImportVaultDialog.tsx` | `ImportPanel`、`DirectoryPicker` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/MathEditor.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/MathShortcutSettings.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/MathSymbolPalette.tsx` | `MarkdownEditor`、`useMathEditor`、`configureMathPreferences`、`ShortcutSettings` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/MemberSearch.tsx` | `ShareAccessPanel`、`MemberSearch`、`MemberAccess`、`ShareLink`、`PermissionSummary`、`DirectoryPicker` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/MermaidCodeBlockView.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/MermaidEditor.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteAttachmentCard.tsx` | `AttachmentPicker`、`ResourcePreview`、`FileCard` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteLink.tsx` | `NoteLink` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteRenderer.tsx` | `MarkdownContent`、`LearningExperiment`、`CanvasWorkspace` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteRendererServer.tsx` | `MarkdownContent`、`LearningExperiment`、`CanvasWorkspace` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteSkeleton.tsx` | `Skeleton`、`TaskProgress` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteToolbar.tsx` | `Toolbar`、`SelectionActions`、`ShareAccessPanel` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/NoteWorkspaceActions.tsx` | `Toolbar`、`SelectionActions`、`ShareAccessPanel` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/ProgressiveNoteRenderer.tsx` | `MarkdownContent`、`LazyVisible` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/SelectionPopover.tsx` | `SelectionToolbar`、`SelectionActions`、`ColorPicker` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/ToolbarColorPicker.tsx` | `SelectionToolbar`、`SelectionActions`、`ColorPicker` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/UploadPlaceholderView.tsx` | `ImagePasteOptions`、`MarkdownEditor`、`UploadPlaceholder`、`ImageConversion` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/UploadQueue.tsx` | `UploadQueue` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+| `components/notes/VisualNoteEditor.tsx` | `NoteEditorWorkspace`、`MarkdownEditor` | Markdown 编辑、阅读、引用、版本与保存会话共享；宿主提供文档、授权资源和版本持久化。 |
+
+## quiz
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/quiz/QuizMarkdown.tsx` | `MarkdownContent`、`LazyVisible` | 问题、作答、评分与复盘视图共享；题库、评分规则及学习记录持久化由宿主注入。 |
+| `components/quiz/QuizQuestion.tsx` | `QuizQuestion` | 问题、作答、评分与复盘视图共享；题库、评分规则及学习记录持久化由宿主注入。 |
+| `components/quiz/QuizScoring.tsx` | `QuizScoring` | 问题、作答、评分与复盘视图共享；题库、评分规则及学习记录持久化由宿主注入。 |
+| `components/quiz/QuizSummary.tsx` | `QuizSummary` | 问题、作答、评分与复盘视图共享；题库、评分规则及学习记录持久化由宿主注入。 |
+| `components/quiz/QuizTab.tsx` | `QuizWorkspace`、`QuizQuestion`、`MarkdownContent` | 问题、作答、评分与复盘视图共享；题库、评分规则及学习记录持久化由宿主注入。 |
+
+## resources
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/resources/ResourceCenter.tsx` | `ResourceWorkspace`、`ResourceExplorer`、`ResourcePreview`、`RecycleBin` | 文件树、资源管理和预览视图共享；鉴权、Office 转换、存储和回收站操作由宿主回调执行。 |
+| `components/resources/ResourcePreview.tsx` | `ResourcePreview`、`PdfPreview`、`AudioPlayer`、`VideoPlayer` | 文件树、资源管理和预览视图共享；鉴权、Office 转换、存储和回收站操作由宿主回调执行。 |
+
+## review
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/review/CollapsibleSection.tsx` | `CollapsibleSection`、`CollapseTransition` | 复习记录、翻卡、预览与统计视图共享；复习算法、计划与持久化由宿主连接。 |
+| `components/review/FlipCard.tsx` | `FlipCard`、`RecallContent` | 复习记录、翻卡、预览与统计视图共享；复习算法、计划与持久化由宿主连接。 |
+| `components/review/RecordPreviewLayer.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 复习记录、翻卡、预览与统计视图共享；复习算法、计划与持久化由宿主连接。 |
+| `components/review/RecordPreviewWindow.tsx` | `FloatingWindow`、`WindowChrome`、`WindowTaskbar`、`ArtifactPreview` | 复习记录、翻卡、预览与统计视图共享；复习算法、计划与持久化由宿主连接。 |
+| `components/review/ReviewPage.tsx` | `ReviewDashboard`、`MemoryCard` | 复习记录、翻卡、预览与统计视图共享；复习算法、计划与持久化由宿主连接。 |
+
+## search
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/search/GlobalSearchButton.tsx` | `SearchResults`、`CommandMenu` | 搜索输入、命令菜单和结果视图共享；实际索引、查询与导航回调由宿主提供。 |
+
+## setup
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/setup/SetupWizard.tsx` | `SetupWizard` | 设置步骤、表单和反馈共享；站点初始化及账户创建由宿主服务执行。 |
+
+## shared
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/shared/ChoiceMenu.tsx` | `SelectField`、`Popup` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/CodeBlock.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/ContentImage.tsx` | `ContentImage` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/Callout.tsx` | `Callout`、`MarkdownContent` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/CauseEffect.tsx` | `CauseEffect` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/CompareTable.tsx` | `CompareTable` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/ConceptCard.tsx` | `ConceptCard` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/Derivation.tsx` | `Derivation`、`FormulaSteps` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/EventCard.tsx` | `EventCard` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/Figure.tsx` | `Figure`、`ContentImage` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/HistoryMap.tsx` | `HistoryLocationMap`、`HistoryMap` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/KeyPoint.tsx` | `KeyPoint` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/LearningAnimation.tsx` | `LearningAnimation`、`VideoPlayer` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/MediaEmbed.tsx` | `VideoPlayer`、`AudioPlayer`、`EmbedFallback` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/MemoryCard.tsx` | `MemoryCard`、`RecallContent` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/directives/Timeline.tsx` | `ReadingTimeline`、`Timeline` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/FloatingPanel.tsx` | `AnchoredPanel` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/HorizontalScrollbar.tsx` | `HorizontalScrollbar` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/ImageLightbox.tsx` | `MediaLightbox` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/MermaidBlock.tsx` | `MermaidPreview`、`CodeBlock`、`MarkdownEditor`、`SelectField` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/MessageContextMenu.tsx` | `ContextMenu`、`SelectionActions` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/PdfPreview.tsx` | `ResourcePreview`、`PdfPreview`、`AudioPlayer`、`VideoPlayer` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/ResizeLoader.tsx` | `Skeleton`、`TaskProgress` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/SubjectIcon.tsx` | `IconButton`、`ModelSelector`、`ProductNavigation` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/SurfaceBoundary.tsx` | `SurfaceBoundary` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/TaskDialog.tsx` | `Dialog`、`TaskProgress` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/TreeDisclosure.tsx` | `FileTree`、`ContextMenu`、`CollapseTransition` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+| `components/shared/WorkspaceLoading.tsx` | `Skeleton`、`TaskProgress` | 共享展示与交互组件；资源鉴权和业务动作通过显式回调传入。 |
+
+## ui
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/ui/AnimatedCollapse.tsx` | `CollapseTransition`、`AnimatedSize` | 共享过渡、可见性和提示组件；支持减少动态效果的系统偏好。 |
+| `components/ui/LazyVisible.tsx` | `LazyVisible` | 共享过渡、可见性和提示组件；支持减少动态效果的系统偏好。 |
+| `components/ui/Tip.tsx` | `Tooltip` | 共享过渡、可见性和提示组件；支持减少动态效果的系统偏好。 |
+| `components/ui/Tooltip.tsx` | `Tooltip` | 共享过渡、可见性和提示组件；支持减少动态效果的系统偏好。 |
+
+## video
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/video/ClassroomProgress.tsx` | `ClassroomTimeline`、`Progress` | 播放控制、常用快捷键、字幕、原生画中画和讲稿笔记联动共享；播放授权和学习进度由宿主维护。 |
+| `components/video/InlinePlayer.tsx` | `VideoPlayer`、`AudioPlayer`、`LectureWorkspace` | 播放控制、常用快捷键、字幕、原生画中画和讲稿笔记联动共享；播放授权和学习进度由宿主维护。 |
+| `components/video/LectureDock.tsx` | `LectureDock` | 播放控制、常用快捷键、字幕、原生画中画和讲稿笔记联动共享；播放授权和学习进度由宿主维护。 |
+| `components/video/LecturePlayer.tsx` | `VideoPlayer`、`AudioPlayer`、`LectureWorkspace` | 播放控制、常用快捷键、字幕、原生画中画和讲稿笔记联动共享；播放授权和学习进度由宿主维护。 |
+| `components/video/PipPlayer.tsx` | `VideoPlayer`、`FloatingWindow`、`LectureDock` | 播放控制、常用快捷键、字幕、原生画中画和讲稿笔记联动共享；播放授权和学习进度由宿主维护。 |
+| `components/video/VideoTab.tsx` | `LectureWorkspace`、`VideoPlayer` | 播放控制、常用快捷键、字幕、原生画中画和讲稿笔记联动共享；播放授权和学习进度由宿主维护。 |
+
+## visualizations
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/visualizations/primitives/DistributionChart.tsx` | `LearningExperiment`；`src/lib/learning/visualizations/DistributionChart.tsx` | 图形和可视化展示共享，数据、课堂控制及业务动作由宿主连接。 |
+| `components/visualizations/primitives/FormulaSteps.tsx` | `LearningExperiment`；`src/lib/learning/visualizations/FormulaSteps.tsx` | 图形和可视化展示共享，数据、课堂控制及业务动作由宿主连接。 |
+| `components/visualizations/primitives/VennDiagram.tsx` | `LearningExperiment`；`src/lib/learning/visualizations/VennDiagram.tsx` | 图形和可视化展示共享，数据、课堂控制及业务动作由宿主连接。 |
+| `components/visualizations/primitives/VideoPlayer.tsx` | `VideoPlayer`、`LectureDock`、`ClassroomTimeline` | 图形和可视化展示共享，数据、课堂控制及业务动作由宿主连接。 |
+
+## window
+
+| 课栈源文件 | 共享组件 / 专用视图 | 调用契约 |
+| --- | --- | --- |
+| `components/window/OverflowMenu.tsx` | `WindowTaskbar`、`Dropdown` | 窗口标题、右上角关闭、边界限制、全屏和任务栏为共享层；宿主维护窗口会话。 |
+| `components/window/WindowChrome.tsx` | `WindowChrome` | 窗口标题、右上角关闭、边界限制、全屏和任务栏为共享层；宿主维护窗口会话。 |
+| `components/window/WindowTaskbar.tsx` | `WindowTaskbar`、`Dropdown` | 窗口标题、右上角关闭、边界限制、全屏和任务栏为共享层；宿主维护窗口会话。 |
+
+## 应用入口与内容注册
+
+| 源文件 | 共享组件 | 边界 |
+| --- | --- | --- |
+| `frontend/SharedPage.tsx` | SharedReadingPage | 分享目录、阅读权限状态、引用复制、标题目录和手机抽屉。授权与实际笔记加载由宿主提供。 |
+| `frontend/ReleaseNotice.tsx` | ReleaseNotice、useReleaseUpdate | 版本检查、通知、暂缓、更新前保存守卫；版本标识与刷新回调由宿主提供。 |
+| `frontend/App.tsx` | 宿主应用 | 宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。 |
+| `frontend/dynamic.tsx` | 宿主应用 | 宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。 |
+| `frontend/Link.tsx` | 宿主应用 | 宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。 |
+| `frontend/main.tsx` | 宿主应用 | 宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。 |
+| `frontend/navigation.tsx` | 宿主应用 | 宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。 |
+| `frontend/WorkspaceCache.tsx` | 宿主应用 | 宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。 |
+| `lib/content/componentRegistry.tsx` | LearningExperiment、getLearningExperiment、learningExperiments | 登记全部学科实验；课程专属原件通过 LearningSourceView 或 renderSource 接入。 |
+| `lib/markdown/noteComponents.tsx` | MarkdownContent | Markdown 指令、公式、图片与标题映射；宿主提供内部资源解析。 |
+| `lib/utils/xmlParser.tsx` | MarkdownContent、LearningExperiment、CanvasWorkspace | XML/工具响应转 Markdown 的业务解析保留宿主；解析后的笔记、实验和画布使用共享视图。 |

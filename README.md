@@ -4,7 +4,7 @@
 
 设计站：[ui.five-plus-one.com](https://ui.five-plus-one.com)。
 
-组件目录包含 189 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
+组件目录包含 215 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
 
 - [UI UX 设计调研](docs/research/ui-ux-research-2026-10-19.md)
 
@@ -19,7 +19,7 @@ npm run dev
 
 访问 http://127.0.0.1:5178/ 。`npm run build` 构建设计网站和带类型声明的组件包；`npm test` 执行回归测试。
 
-在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.4.1.tgz`：
+在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.5.0.tgz`：
 
 ```tsx
 import { Button, Card } from '@fiveplusone/ui';
@@ -34,6 +34,12 @@ export function Welcome() {
 
 ## 工作区能力
 
+- CommerceWorkspace / DirectoryWorkspace / PlatformWorkspace：会员计费、用户组、站点和平台管理。
+- AISettingsWorkspace / SkillsWorkspace：完整模型配置、技能导入与编辑。
+- NotebookManagerWorkspace / NotebookPublishing：课程来源、预览、发布与历史。
+- NoteEditorWorkspace / CourseContentWorkspace / SharedReadingPage：保存会话、阅读、例题、练习与分享。
+- CanvasWorkspace / ExperimentLibrary / LearningExperiment：画布修订、真实学科实验与课程原件。
+- LectureWorkspace：音视频、逐词讲稿、章节跳转和 Markdown 课堂笔记。
 - WorkspaceLayout：多栏拖动、折叠、宽度保存、嵌套分屏和命令式控制。
 - ChatComposer / MessageList：受控草稿、附件、引用、中文输入、虚拟列表和流式粘底。
 - MarkdownEditor：课栈 Markdown 节点、工具栏、公式与矩阵、表格、代码、卡片和 Yjs 协作。
@@ -51,6 +57,8 @@ Office 转换依赖接入项目的预览服务；跨设备协作依赖鉴权、�
 - [设计规范](docs/design/design-system.md)
 - [接入与课栈适配](docs/design/integration.md)
 - [课栈迁移接口与验收](docs/kezhan-migration-guide.md)
+- [0.5.0 组件抽取与交付验证](docs/kezhan-ui-0.5.0-acceptance.md)
+- [课栈工作区接入契约](docs/kezhan-workspace-contracts.md)
 - [0.4.1 抽取与设计复核](docs/kezhan-ui-0.4.1-review.md)
 - [0.4.0 交付与验收](docs/kezhan-ui-0.4.0-acceptance.md)
 - [课栈组件来源映射](docs/kezhan-component-map-2026-10-20.md)
