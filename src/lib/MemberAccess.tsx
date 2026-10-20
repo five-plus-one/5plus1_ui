@@ -1,5 +1,6 @@
 import { useId, useRef, useState } from 'react';
 import { UserPlus, X } from 'lucide-react';
+import { SelectField } from './SelectField';
 
 export interface AccessMember { id: string; name: string; detail?: string; role: string; editable?: boolean }
 export interface AccessRole { value: string; label: string; description?: string }
@@ -22,7 +23,7 @@ export function MemberAccess({ members, roles, canManage = false, busyIds = [], 
     <ul className="fp-access-members">{members.map(member => <li key={member.id}>
       <span className="fp-access-avatar" aria-hidden="true">{member.name.slice(0, 1)}</span>
       <span className="fp-access-identity"><strong>{member.name}</strong>{member.detail && <small>{member.detail}</small>}</span>
-      {canManage && member.editable !== false && onRoleChange ? <select aria-label={`${member.name}的权限`} value={member.role} disabled={busyIds.includes(member.id)} onChange={event => onRoleChange(member.id, event.target.value)}>{roles.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}</select> : <span className="fp-access-role">{roles.find(option => option.value === member.role)?.label || member.role}</span>}
+      {canManage && member.editable !== false && onRoleChange ? <SelectField label={`${member.name}的权限`} value={member.role} disabled={busyIds.includes(member.id)} onChange={value => onRoleChange(member.id, value)} options={roles} /> : <span className="fp-access-role">{roles.find(option => option.value === member.role)?.label || member.role}</span>}
       {canManage && member.editable !== false && onRemove && <button type="button" className="fp-access-remove" aria-label={`移除${member.name}`} disabled={busyIds.includes(member.id)} onClick={() => onRemove(member.id)}><X size={15} /></button>}
     </li>)}</ul>
     {!members.length && <p className="fp-access-help">还没有其他成员。</p>}
@@ -34,7 +35,7 @@ export function MemberAccess({ members, roles, canManage = false, busyIds = [], 
       finally { guard.current = false; setBusy(false); }
     }}>
       <label htmlFor={id}>邀请成员</label><div className="fp-access-invite-fields"><input id={id} type="email" required placeholder="输入邮箱地址" value={address} disabled={busy} onChange={event => setAddress(event.target.value)} />
-        <select aria-label="邀请权限" value={role} disabled={busy} onChange={event => setRole(event.target.value)}>{roles.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}</select>
+        <SelectField label="邀请权限" value={role} disabled={busy} onChange={setRole} options={roles} />
         <button type="submit" disabled={busy || !address.trim() || !role}><UserPlus size={15} aria-hidden="true" />{busy ? '正在邀请…' : '邀请'}</button></div>
       {roles.find(option => option.value === role)?.description && <p className="fp-access-help">{roles.find(option => option.value === role)?.description}</p>}
       {message && <p className="fp-access-help" role="status">{message}</p>}

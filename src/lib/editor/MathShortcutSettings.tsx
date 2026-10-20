@@ -1,4 +1,5 @@
 "use client";
+import { SelectField } from "../SelectField";
 import { useState } from "react";
 import { mathStorage as localStorage } from "./mathPreferences";
 import { defaultMathShortcuts, shortcutStorageKey, validateShortcuts, type MathShortcut } from "./mathShortcuts";
@@ -14,7 +15,7 @@ export default function MathShortcutSettings({ rules, onSave, onClose }: { rules
       <input type="checkbox" aria-label={`启用规则 ${index + 1}`} checked={rule.enabled} onChange={e => change(index, { enabled: e.target.checked })}/>
       <input aria-label={`触发词 ${index + 1}`} value={rule.trigger} onChange={e => change(index, { trigger: e.target.value })}/>
       <input aria-label={`替换公式 ${index + 1}`} readOnly={rule.kind === "matrix"} value={rule.kind === "matrix" ? "接行数 x 列数，例如 3x4（1–10）" : rule.replacement} onChange={e => change(index, { replacement: e.target.value })}/>
-      <select aria-label={`触发方式 ${index + 1}`} disabled={rule.kind === "matrix"} value={rule.mode} onChange={e => change(index, { mode: e.target.value as MathShortcut["mode"] })}><option value="auto">自动</option><option value="tab">Tab</option></select>
+      <SelectField label={`触发方式 ${index+1}`} disabled={rule.kind === 'matrix'} value={rule.mode} onChange={value => change(index,{mode:value as MathShortcut['mode']})} options={[{value:'auto',label:'自动'},{value:'tab',label:'Tab'}]} />
       <button type="button" aria-label={`删除规则 ${index + 1}`} onClick={() => setDraft(value => value.filter((_, i) => i !== index))}>×</button>
     </div>)}</div>
     {error && <p role="alert">{error}</p>}

@@ -126,3 +126,11 @@
 .fp-markdown-editor .note-math-card,
 .fp-markdown-editor .note-insert-dialog { animation: none; }
 .fp-markdown-editor .tiptap-mathematics-render[data-type="inline-math"]:not(.is-math-editing) > .math-node-content { display: inline; overflow: visible; vertical-align: baseline; }
+/* Formula editing keeps the reading position stable. */
+.fp-markdown-editor .is-math-editing > .math-node-content { display: inline !important; }
+.fp-markdown-editor .tiptap-mathematics-render.is-math-editing[data-type="inline-math"] { display:inline-block; width:auto; padding:0; margin:0; }
+.fp-markdown-editor .tiptap-mathematics-render.is-math-editing[data-type="block-math"] { display:block; width:auto; padding:8px 4px; margin:12px 0; }
+.fp-markdown-editor .math-node-editor-slot { display:block; height:0; }
+.fp-markdown-editor .note-math-card { box-shadow:var(--fp-shadow-lg); }
+.fp-markdown-editor .note-math-writing { min-height:108px; }
+.fp-markdown-editor .note-math-status { min-height:20px; }

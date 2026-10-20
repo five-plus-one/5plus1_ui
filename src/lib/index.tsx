@@ -1,3 +1,5 @@
+import { CollapseTransition } from './CollapseTransition';
+import { ChevronDown } from 'lucide-react';
 import React, {
   useState,
   useRef,
@@ -430,20 +432,11 @@ export function Accordion({
 }: {
   items: { title: string; content: ReactNode }[];
 }) {
-  return (
-    <div className="fp-accordion">
-      {items.map((i) => (
-        <details key={i.title}>
-          <summary>
-            {i.title}
-            <span>＋</span>
-          </summary>
-          <div>{i.content}</div>
-        </details>
-      ))}
-    </div>
-  );
+  const [open, setOpen] = React.useState<Set<number>>(new Set());
+  const id = React.useId();
+  return <div className="fp-accordion">{items.map((item,index)=><div className="fp-accordion-item" key={item.title}><button className="fp-accordion-trigger" type="button" aria-expanded={open.has(index)} aria-controls={`${id}-${index}`} onClick={()=>setOpen(previous=>{const next=new Set(previous);if(next.has(index))next.delete(index);else next.add(index);return next;})}>{item.title}<span aria-hidden="true">＋</span></button><CollapseTransition isOpen={open.has(index)}><div id={`${id}-${index}`} className="fp-accordion-content">{item.content}</div></CollapseTransition></div>)}</div>;
 }
+
 export function Breadcrumbs({
   items,
 }: {
@@ -938,23 +931,13 @@ export function Tree({
 }: {
   items: { label: string; children?: string[] }[];
 }) {
-  return (
-    <div className="fp-tree">
-      {items.map((i) =>
-        i.children ? (
-          <details key={i.label} open>
-            <summary>{i.label}</summary>
-            {i.children.map((c) => (
-              <div key={c}>{c}</div>
-            ))}
-          </details>
-        ) : (
-          <div key={i.label}>{i.label}</div>
-        ),
-      )}
-    </div>
-  );
+  return <div className="fp-tree">{items.map(item=><TreeBranch key={item.label} item={item}/>)}</div>;
 }
+function TreeBranch({item}:{item:{label:string;children?:string[]}}){
+ const [open,setOpen]=React.useState(true);const id=React.useId();
+ return item.children?<div><button type="button" className="fp-tree-branch" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(value=>!value)}><ChevronDown size={14} style={{transform:open?'rotate(0)':'rotate(-90deg)'}}/>{item.label}</button><CollapseTransition isOpen={open}><div id={id}>{item.children.map(child=><div className="fp-tree-leaf" key={child}>{child}</div>)}</div></CollapseTransition></div>:<div className="fp-tree-leaf">{item.label}</div>;
+}
+
 export function Navigation({
   items,
   value,
@@ -1651,6 +1634,11 @@ export * from "./workspace/CollaborativeEditor";
 export { MessageList, MessageBubble, type Message, type MessageListProps } from "./MessageList";
 export * from "./ChatComposer";
 export * from "./MemberAccess";
+export * from "./SelectField";
+export * from "./MemberSearch";
+export * from "./ShareLink";
+export * from "./AttachmentPicker";
+export * from "./UploadQueue";
 export * from "./editor/MarkdownEditor";
 export { markdownToDocument, documentToMarkdown, baseEditorExtensions, NOTE_SCHEMA_VERSION } from "./editor/schema";
 export { configureMathPreferences, type MathPreferenceStorage } from "./editor/mathPreferences";

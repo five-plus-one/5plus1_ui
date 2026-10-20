@@ -63,3 +63,19 @@
 .fp-directive-node button, .fp-attachment-node button { display: inline-flex; align-items: center; border: 0; background: transparent; color: var(--fp-muted); font: inherit; font-size: var(--fp-text-xs); cursor: pointer; }
 .fp-attachment-node { display: flex; align-items: center; gap: 12px; padding: 12px; margin: 16px 0; border: 1px solid var(--fp-line); border-radius: var(--fp-radius-sm); font-size: var(--fp-text-sm); }.fp-attachment-node > span { flex: 1; }
 @media (pointer:coarse) { .fp-markdown-editor .note-editor-topbar button, .fp-editor-menu button { min-height: 44px; min-width: 44px; } }
+
+.fp-editor-prose:focus-visible { outline:none; box-shadow:none; }
+.fp-markdown-editor:focus-within { border-color:var(--fp-line-strong); }
+.fp-directive-node { border-left-width:1px; background:var(--fp-surface-muted); padding:14px 16px; }
+.fp-directive-node .fp-select-field .fp-popup-trigger { border:0; background:transparent; min-height:28px; padding:2px 4px; color:var(--fp-muted); }
+.fp-code-node,.fp-mermaid-node { border:1px solid var(--fp-line); border-radius:var(--fp-radius-md); margin:20px 0; overflow:clip; background:var(--fp-surface-muted); }
+.fp-code-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 12px; border-bottom:1px solid var(--fp-line); color:var(--fp-muted); font-size:12px; line-height:20px; }
+.fp-code-header > span,.fp-code-header > div { display:flex; align-items:center; gap:8px; }
+.fp-code-header button { display:inline-flex; gap:5px; align-items:center; min-height:28px; border:0; border-radius:5px; color:var(--fp-muted); background:transparent; font:inherit; cursor:pointer; padding:4px 7px; }
+.fp-code-header button:hover { background:var(--fp-line); color:var(--fp-ink); }
+.fp-code-node pre,.fp-mermaid-node pre { margin:0; border-radius:0; }
+.fp-mermaid-source { padding:12px; display:grid; gap:10px; }
+.fp-mermaid-source textarea { display:block; width:100%; min-height:160px; resize:vertical; border:1px solid var(--fp-line); border-radius:6px; padding:12px; font:13px/1.7 var(--fp-font-mono); color:var(--fp-ink); background:var(--fp-surface); }
+.fp-mermaid-preview { padding:24px; background:var(--fp-surface); min-height:100px; overflow:auto; text-align:center; }
+.fp-mermaid-preview svg { display:block; margin:auto; max-width:100%; height:auto; }
+.fp-mermaid-preview p { margin:0; color:var(--fp-muted); font-size:13px; }

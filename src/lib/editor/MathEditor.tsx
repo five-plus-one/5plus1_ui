@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { createPortal } from "react-dom";
 import type { Editor } from "@tiptap/core";
@@ -14,6 +14,7 @@ import MathSymbolPalette from "./MathSymbolPalette";
 import MathShortcutSettings from "./MathShortcutSettings";
 import { installMathShortcuts, readShortcuts } from "./mathShortcuts";
 import { mathPreferencesChanged, refreshMathPreferences } from "./mathPreferences";
+import { SelectField } from "../SelectField";
 import type { MathNodeHost } from "./LazyMathExtensions";
 
 
@@ -135,7 +136,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       }
     };
     const outside = (event: PointerEvent) => {
-      if (!session.host.contains(event.target as Node)) onClose();
+      if (!session.host.contains(event.target as Node) && !(event.target as Element).closest?.(".fp-popup-panel")) onClose();
     };
     session.editor.on("transaction", sync);
     session.editor.on("destroy", onClose);
@@ -244,7 +245,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
     if (!editor.isDestroyed) {
       const end = Math.min(pos + (remove ? 0 : node?.nodeSize ?? 0), editor.state.doc.content.size);
       editor.view.dispatch(editor.state.tr.setSelection(Selection.near(editor.state.doc.resolve(end), 1)));
-      editor.commands.focus();
+      editor.commands.focus(undefined, { scrollIntoView: false });
     }
   };
   const insert = (template: string) => {
@@ -266,7 +267,13 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
     }
   };
 
-  return createPortal(<motion.div className="note-math-card inline-card-expansion" initial={{ height: session.collapsedHeight, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: session.collapsedHeight, opacity: 0 }} transition={{ duration: reduced ? 0 : .24, ease: [.22, 1, .36, 1] }} ref={panelRef} role="group" aria-label={session.display ? "编辑独立公式" : "编辑行内公式"} tabIndex={-1}
+  const [position, setPosition] = useState({ left: 16, top: 16 });
+  useLayoutEffect(() => {
+    const place = () => { const box = session.host.getBoundingClientRect(); setPosition({ left: Math.max(12, Math.min(box.left, window.innerWidth - Math.min(560, window.innerWidth - 24) - 12)), top: Math.max(12, Math.min(box.bottom + 8, window.innerHeight - 320)) }); };
+    place(); window.addEventListener('resize', place); window.addEventListener('scroll', place, true);
+    return () => { window.removeEventListener('resize', place); window.removeEventListener('scroll', place, true); };
+  }, [session]);
+  return createPortal(<motion.div className="note-math-card inline-card-expansion" style={{ position: 'fixed', ...position, width: 'min(560px, calc(100vw - 24px))', maxHeight: 'calc(100dvh - 32px)', overflowY: 'auto', zIndex: 1100, transformOrigin: 'top left' }} initial={{ opacity: 0, scale: .98, y: -4 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: .98, y: -4 }} transition={{ duration: reduced ? 0 : .18, ease: [.22, 1, .36, 1] }} ref={panelRef} role="group" aria-label={session.display ? "编辑独立公式" : "编辑行内公式"} tabIndex={-1}
     onPointerDown={event => event.stopPropagation()} onClick={event => event.stopPropagation()} onDoubleClick={event => event.stopPropagation()} onContextMenu={event => event.stopPropagation()}
     onKeyDownCapture={event => {
       if (event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) return;
@@ -302,10 +309,10 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       </div>
       {matrixOpen && <div className="note-matrix-builder" role="group" aria-label="矩阵设置">
         <div className="note-matrix-settings">
-          <label>行<select aria-label="矩阵行数" value={matrixRows} onChange={e => setMatrixRows(Number(e.target.value))}>{Array.from({ length: 10 }, (_, i) => <option key={i + 1}>{i + 1}</option>)}</select></label>
+          <label>行<SelectField label="矩阵行数" value={String(matrixRows)} onChange={value => setMatrixRows(Number(value))} options={Array.from({length:10},(_,i)=>({value:String(i+1),label:String(i+1)}))} /></label>
           <span aria-hidden="true">×</span>
-          <label>列<select aria-label="矩阵列数" value={matrixColumns} onChange={e => setMatrixColumns(Number(e.target.value))}>{Array.from({ length: 10 }, (_, i) => <option key={i + 1}>{i + 1}</option>)}</select></label>
-          <label>括号<select aria-label="矩阵括号" value={matrixStyle} onChange={e => setMatrixStyle(e.target.value as MatrixStyle)}>{matrixStyles.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+          <label>列<SelectField label="矩阵列数" value={String(matrixColumns)} onChange={value => setMatrixColumns(Number(value))} options={Array.from({length:10},(_,i)=>({value:String(i+1),label:String(i+1)}))} /></label>
+          <label>括号<SelectField label="矩阵括号" value={matrixStyle} onChange={value => setMatrixStyle(value as MatrixStyle)} options={matrixStyles.map(([value,label])=>({value,label}))} /></label>
           <button type="button" className="note-matrix-insert" disabled={status === "loading" && !sourceOpen} onMouseDown={e => e.preventDefault()} onClick={() => { insert(matrixTemplate(matrixRows, matrixColumns, matrixStyle)); setMatrixOpen(false); }}>插入 {matrixRows} × {matrixColumns}</button>
         </div>
         <div className="note-matrix-presets"><span>常用</span>{[[1, 3], [3, 1], [2, 2], [3, 3], [4, 4], [3, 4]].map(([rows, cols]) => <button key={`${rows}-${cols}`} type="button" aria-pressed={matrixRows === rows && matrixColumns === cols} onClick={() => { setMatrixRows(rows); setMatrixColumns(cols); }}>{rows} × {cols}</button>)}</div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as U from "./lib";
-import { ChatComposerDemo, MarkdownEditorDemo, WorkspaceLayoutDemo } from './advanced-demos';
+import { ChatComposerDemo, MarkdownEditorDemo, WorkspaceLayoutDemo, ShareAccessDemo, UploadQueueDemo } from './advanced-demos';
 import {
   Plus,
   ArrowUpRight,
@@ -35,6 +35,11 @@ const defs: Record<string, [string, string, string, string]> = {
   ChatComposer: ['对话输入框', 'AI 对话', '引用、附件与模型选择，集中在清晰轻巧的输入区。', 'value；onChange；onSend；onStop?；attachments?；onFiles?；tools?；onComposerInsetChange?'],
   MarkdownEditor: ['Markdown 富文本编辑', '业务模式', '文字、公式、表格与资料卡片，在同一篇笔记中编辑。', 'markdown?；documentKey?；onChange?；document?；provider?；onFiles?；resolveResourceUrl?'],
   WorkspaceLayout: ['多栏工作区', '布局', '自由调整目录、内容和讨论区域，保留熟悉的工作节奏。', 'panels: WorkspacePanel[]；ref: WorkspaceLayoutHandle；persistenceKey?；direction?'],
+  SelectField: ['选择器', '表单', '统一主题、键盘导航与关闭行为的单项选择。', 'value；onChange；options；label；disabled?'],
+  MemberSearch: ['成员搜索', '账户管理', '查找用户或用户组，为资料添加协作成员。', 'onSearch(query,kind,signal)；onPick；excludedIds?；disabled?'],
+  ShareLink: ['链接分享', '账户管理', '控制链接访问权限，复制分享地址。', 'enabled；onEnabledChange；url?；access；onAccessChange；onCopy?'],
+  AttachmentPicker: ['资料选择', '业务模式', '搜索资料并选择需要添加的附件。', 'items；selectedIds；onChange；onConfirm；onSearch?；onLoadMore?'],
+  UploadQueue: ['上传队列', '业务模式', '查看上传与整理进度，重试或取消任务。', 'tasks；onCancel?；onRetry?；onDismiss?'],
   MemberAccess: ['成员与权限', '账户管理', '查看成员、选择访问权限与邀请协作者。', 'members；roles；canManage?；onRoleChange?；onRemove?；onInvite?；busyIds?；error?'],
   Button: [
     "按钮",
@@ -769,6 +774,11 @@ export function Demo({
     ChatComposer: () => <ChatComposerDemo />,
     MarkdownEditor: () => <MarkdownEditorDemo />,
     WorkspaceLayout: () => <WorkspaceLayoutDemo />,
+    AttachmentPicker: () => <U.AttachmentPicker items={[{id:'guide',name:'设计协作手册.pdf',detail:'PDF · 1.2 MB'},{id:'notes',name:'课堂笔记.md',detail:'Markdown · 最近更新'}]} selectedIds={multi.filter(id => ['guide','notes'].includes(id))} onChange={setMulti} onConfirm={()=>notify('资料已添加')} />,
+    UploadQueue: () => <UploadQueueDemo />,
+    SelectField: () => <U.SelectField label="排序方式" value={v === 'notes' ? 'recent' : v} onChange={setV} options={[{value:'recent',label:'最近更新'},{value:'name',label:'名称'},{value:'created',label:'创建时间'}]} />,
+    MemberSearch: () => <ShareAccessDemo />,
+    ShareLink: () => <ShareAccessDemo />,
     MemberAccess: () => <U.MemberAccess members={[{id:'owner',name:'五加一',detail:'创建者',role:'owner',editable:false},{id:'reader',name:'林同学',role:'read'}]} roles={[{value:'owner',label:'所有者'},{value:'read',label:'可以阅读'},{value:'edit',label:'可以编辑'}]} />,
     Button: () => (
       <U.Stack direction="row">

@@ -1,5 +1,6 @@
 "use client";
 
+import { SelectField } from "../SelectField";
 import { CODE_BLOCK_LANGUAGES } from "./codeBlockLanguage";
 
 export type CodeBlockLanguageSelectProps = {
@@ -16,24 +17,7 @@ export type CodeBlockLanguageSelectProps = {
  */
 export function CodeBlockLanguageSelect({ language, onChange, className }: CodeBlockLanguageSelectProps) {
   const current = language ?? "";
-  return (
-    <select
-      className={["code-block-language-select", className].filter(Boolean).join(" ")}
-      aria-label="代码块语言"
-      value={current}
-      onChange={(event) => {
-        const next = event.target.value;
-        onChange(next ? next : null);
-      }}
-    >
-      <option value="">无语言</option>
-      {CODE_BLOCK_LANGUAGES.map((item) => (
-        <option key={item.value} value={item.value}>
-          {item.label}
-        </option>
-      ))}
-    </select>
-  );
+  return <SelectField label="代码块语言" className={className} value={current} onChange={value => onChange(value || null)} options={[{value:'',label:'无语言'},...CODE_BLOCK_LANGUAGES]} />;
 }
 
 export default CodeBlockLanguageSelect;

@@ -1,6 +1,16 @@
 import { useRef, useState } from 'react';
 import * as U from './lib';
 
+export function UploadQueueDemo() {
+  const [tasks, setTasks] = useState<U.UploadTask[]>([
+    { id: 'one', name: '课堂讲义.pdf', status: 'uploading', progress: 66 },
+    { id: 'two', name: '课程笔记.docx', status: 'error', error: '网络连接中断' },
+  ]);
+  const remove = (id: string) => setTasks(items => items.filter(item => item.id !== id));
+  return <U.UploadQueue tasks={tasks} onCancel={remove} onDismiss={remove}
+    onRetry={id => setTasks(items => items.map(item => item.id === id ? { ...item, status: 'uploading', progress: 0, error: undefined } : item))} />;
+}
+
 export function ChatComposerDemo() {
   const [value, setValue] = useState(''), [model, setModel] = useState('fast'), [loading, setLoading] = useState(false), [quote, setQuote] = useState('如何将一个复杂的问题拆成容易理解的步骤？');
   const [attachments, setAttachments] = useState<U.ComposerAttachment[]>([]);
@@ -32,4 +42,10 @@ export function WorkspaceLayoutDemo() {
       { id: 'chat', label: '讨论', defaultSize: 28, minSize: 20, content: <div style={{ padding: 12 }}><U.MessageList messages={[{ id: 'intro', role: 'assistant', content: '有什么想一起讨论的？' }]} /></div> },
     ]} /></div>
   </div>;
+}
+
+export function ShareAccessDemo() {
+  const [members,setMembers]=useState<U.AccessMember[]>([{id:'owner',name:'五加一',detail:'创建者',role:'edit',editable:false}]),[enabled,setEnabled]=useState(false),[access,setAccess]=useState('read');
+  const directory=[{id:'lin',name:'林同学',detail:'lin@example.com'},{id:'chen',name:'陈同学',detail:'chen@example.com'},{id:'design',name:'设计协作组',detail:'5 位成员'}];
+  return <div style={{maxWidth:480,margin:'auto',display:'grid',gap:24}}><U.MemberSearch excludedIds={members.map(member=>member.id)} onSearch={async (query,kind)=>directory.filter(item=>(kind==='group'?item.id==='design':item.id!=='design')&&(item.name.includes(query)||item.detail.includes(query)))} onPick={item=>setMembers(current=>[...current,{...item,role:'read'}])}/><U.MemberAccess canManage members={members} roles={[{value:'read',label:'可以阅读'},{value:'edit',label:'可以编辑'}]} onRoleChange={(id,role)=>setMembers(current=>current.map(item=>item.id===id?{...item,role}:item))} onRemove={id=>setMembers(current=>current.filter(item=>item.id!==id))}/><U.ShareLink enabled={enabled} onEnabledChange={setEnabled} access={access} onAccessChange={setAccess} url="https://fiveplus.one/share/design" /></div>;
 }

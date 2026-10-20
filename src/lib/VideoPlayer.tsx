@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useRef, useState, type Ref } from "react";
+import { SelectField } from "./SelectField";
 import { Play, Pause, Volume2, VolumeX, Maximize, PictureInPicture } from "lucide-react";
 
 export interface VideoPlayerProps {
@@ -136,7 +137,7 @@ export function VideoPlayer({
         )}
       </div>
       <div className="fp-video-controls">
-        <select aria-label="播放速度" value={rate} onChange={e => { if (video.current) video.current.playbackRate = Number(e.target.value); }}>{[.5, .75, 1, 1.25, 1.5, 2].map(speed => <option key={speed} value={speed}>{speed}×</option>)}</select>
+        <SelectField label="播放速度" value={String(rate)} onChange={value=>{if(video.current)video.current.playbackRate=Number(value);}} options={[.5,.75,1,1.25,1.5,2].map(speed=>({value:String(speed),label:`${speed}×`}))} />
         <button
           type="button"
           aria-label={playing ? "暂停" : "播放"}

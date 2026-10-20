@@ -48,7 +48,7 @@ export default function NoteToolbar({ editor, onHistory, onAttachment, onVideo, 
     if (!menu) return;
     const outside = (event: PointerEvent) => {
       const target = event.target as Node;
-      if (!topRef.current?.contains(target) && !popRef.current?.contains(target)) setMenu(null);
+      if (!topRef.current?.contains(target) && !popRef.current?.contains(target) && !(target as Element).closest?.(".fp-popup-panel")) setMenu(null);
     };
     const escape = (event: KeyboardEvent) => { if (event.key === "Escape") { setMenu(null); moreRef.current?.focus(); } };
     const resize = () => setMenu(null);

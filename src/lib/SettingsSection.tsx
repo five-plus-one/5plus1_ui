@@ -42,7 +42,7 @@ export function SettingsSection({
         </span>
         <ChevronDown size={16} className="fp-settings-chevron" />
       </button>
-      <div className="fp-settings-body">
+      <div className="fp-settings-body" inert={!open} aria-hidden={!open}>
         <div className="fp-settings-inner">{children}</div>
       </div>
     </section>

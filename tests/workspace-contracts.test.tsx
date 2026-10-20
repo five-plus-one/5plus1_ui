@@ -18,7 +18,8 @@ it('retains an invitation on failure and delegates controlled permissions', asyn
   const invite = vi.fn().mockRejectedValueOnce(new Error('暂时无法发送')).mockResolvedValueOnce(undefined), role = vi.fn();
   render(<MemberAccess canManage members={[{ id: 'owner', name: '所有者', role: 'edit', editable: false }, { id: 'reader', name: '小林', role: 'read' }]} roles={[{ value: 'read', label: '可阅读' }, { value: 'edit', label: '可编辑' }]} onInvite={invite} onRoleChange={role} />);
   expect(screen.queryByLabelText('所有者的权限')).not.toBeInTheDocument();
-  fireEvent.change(screen.getByLabelText('小林的权限'), { target: { value: 'edit' } });
+  fireEvent.click(screen.getByRole('button', { name: '小林的权限' }));
+  fireEvent.click(screen.getByRole('option', { name: '可编辑' }));
   expect(role).toHaveBeenCalledWith('reader', 'edit');
   fireEvent.change(screen.getByLabelText('邀请成员'), { target: { value: 'reader@example.com' } });
   fireEvent.click(screen.getByRole('button', { name: '邀请' }));
@@ -71,7 +72,7 @@ it('supports controlled tree expansion and middle-click without selecting a file
   const view = render(<FileTree items={items} expandedIds={[]} onToggle={toggle} onSelect={select} onMiddleClick={middle} onPrefetch={prefetch} />);
   fireEvent.click(screen.getByRole('treeitem'));
   expect(toggle).toHaveBeenCalledWith('root', true);
-  expect(screen.queryByText('笔记')).not.toBeInTheDocument();
+  expect(screen.queryByRole('treeitem', { name: '笔记' })).not.toBeInTheDocument();
   view.rerender(<FileTree items={items} expandedIds={['root']} onSelect={select} onMiddleClick={middle} onPrefetch={prefetch} />);
   fireEvent.mouseEnter(screen.getByText('笔记'));
   fireEvent(screen.getByText('笔记'), new MouseEvent('auxclick', { button: 1, bubbles: true }));

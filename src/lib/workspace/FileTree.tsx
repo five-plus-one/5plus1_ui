@@ -7,6 +7,7 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 import { Dropdown } from "../Popup";
+import { CollapseTransition } from '../CollapseTransition';
 export type FileTreeNode = {
   id: string;
   name: string;
@@ -204,8 +205,8 @@ export function FileTree({
             </span>
           )}
         </div>
-        {node.kind === "folder" && expanded.has(node.id) && (
-          <div role="group">{render(node.children || [], depth + 1)}</div>
+        {node.kind === "folder" && (
+          <CollapseTransition isOpen={expanded.has(node.id)}><div role="group">{render(node.children || [], depth + 1)}</div></CollapseTransition>
         )}
       </div>
     ));

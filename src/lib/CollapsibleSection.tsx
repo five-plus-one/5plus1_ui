@@ -38,7 +38,7 @@ export function CollapsibleSection({
         <span className="fp-collapsible-label">{label}</span>
         {meta != null && <span className="fp-collapsible-meta">{meta}</span>}
       </button>
-      <div id={id} className="fp-collapsible-body" data-open={open || undefined}>
+      <div id={id} className="fp-collapsible-body" inert={!open} aria-hidden={!open} data-open={open || undefined}>
         <div className="fp-collapsible-inner">{children}</div>
       </div>
     </div>

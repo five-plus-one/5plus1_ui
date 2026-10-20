@@ -5,6 +5,7 @@
  */
 
 import { useId } from 'react';
+import { SelectField } from './SelectField';
 
 export interface FilterOption {
   value: string;
@@ -42,32 +43,11 @@ export function FilterSelect({
   return (
     <div className="fp-filter">
       {label && (
-        <label htmlFor={selectId} className="fp-filter-label">
+        <span id={selectId} className="fp-filter-label">
           {label}
-        </label>
+        </span>
       )}
-      <select
-        id={selectId}
-        className="fp-input fp-filter-select"
-        value={value}
-        disabled={disabled}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-        {groups.map((g) => (
-          <optgroup key={g.label} label={g.label}>
-            {g.options.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </optgroup>
-        ))}
-      </select>
+      <SelectField label={label || '筛选'} value={value} onChange={onChange} disabled={disabled} options={[...options,...groups.flatMap(group=>group.options.map(option=>({...option,group:group.label})))]} />
     </div>
   );
 }

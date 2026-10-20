@@ -5,6 +5,7 @@
  * 避免为每种块重复实现一份展开/收起。
  */
 
+import { CollapseTransition } from "./CollapseTransition";
 import { useId, useState, type ReactNode } from "react";
 import { BookOpen, ChevronRight, ArrowDown } from "lucide-react";
 
@@ -55,7 +56,7 @@ export function ConceptCard({
         <span className="fp-concept-hint">{open ? "点击收起" : "点击展开"}</span>
         <ChevronRight size={16} className="fp-concept-chevron" />
       </button>
-      <div id={id} className="fp-concept-body" data-open={open || undefined}>
+      <div id={id} className="fp-concept-body" inert={!open} aria-hidden={!open} data-open={open || undefined}>
         <div className="fp-concept-inner">{children}</div>
       </div>
     </section>
@@ -152,13 +153,6 @@ export function Derivation({
   children,
   defaultOpen = false,
 }: DerivationProps) {
-  return (
-    <details className="fp-derivation" open={defaultOpen}>
-      <summary>
-        <ChevronRight size={15} className="fp-derivation-chevron" />
-        {label}
-      </summary>
-      <div className="fp-derivation-body">{children}</div>
-    </details>
-  );
+  const [open,setOpen]=useState(defaultOpen);const id=useId();
+  return <section className="fp-derivation" data-open={open||undefined}><button type="button" className="fp-derivation-trigger" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(value=>!value)}><ChevronRight size={15} className="fp-derivation-chevron"/>{label}</button><CollapseTransition isOpen={open}><div id={id} className="fp-derivation-body">{children}</div></CollapseTransition></section>;
 }

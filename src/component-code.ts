@@ -1,6 +1,11 @@
 import { entries } from "./catalog";
 export function componentCode(name: string) {
   const examples: Record<string, string> = {
+    SelectField: '<SelectField label="排序方式" value={text || "recent"} onChange={setText} options={[{value:"recent",label:"最近更新"},{value:"name",label:"名称"}]} />',
+    MemberSearch: '<MemberSearch onSearch={async (query, kind, signal) => { const response = await fetch("/members?q=" + encodeURIComponent(query) + "&type=" + kind, {signal}); if (!response.ok) throw new Error("查找失败"); return response.json(); }} onPick={member => console.log(member)} />',
+    ShareLink: '<ShareLink enabled={open} onEnabledChange={setOpen} access={text || "read"} onAccessChange={setText} url="https://example.com/share" />',
+    AttachmentPicker: '<AttachmentPicker items={[{id:"1",name:"课堂讲义.pdf"}]} selectedIds={[]} onChange={ids => console.log(ids)} onConfirm={async ids => console.log(ids)} />',
+    UploadQueue: '<UploadQueue tasks={[{id:"1",name:"课堂讲义.pdf",status:"uploading",progress:60}]} onCancel={id => console.log(id)} />',
     MemberAccess: '<MemberAccess members={[{id: "me", name: "五加一", role: "edit"}]} roles={[{value: "read", label: "可以阅读"}, {value: "edit", label: "可以编辑"}]} />',
     ChatComposer: '<ChatComposer value={text} onChange={setText} onSend={async message => { console.log(message); setText(""); }} />',
     MarkdownEditor: '<MarkdownEditor markdown="## 学习笔记\\n\\n写下你的理解。" onChange={(markdown, document) => console.log(markdown, document)} />',

@@ -96,8 +96,8 @@ function App() {
     // 通知所有 iframe embed 页面同步主题
     document.querySelectorAll("iframe.device-canvas").forEach((iframe) => {
       (iframe as HTMLIFrameElement).contentWindow?.postMessage(
-        { type: "theme-change", theme },
-        "*",
+        { type: "theme-change", theme, product: document.documentElement.dataset.product },
+        location.origin,
       );
     });
   }, [theme]);
@@ -106,7 +106,10 @@ function App() {
     delete document.documentElement.dataset.accent;
     document.documentElement.dataset.product = product;
     localStorage.setItem("fp-product", accent);
-  }, [accent, path]);
+    const sync = () => document.querySelectorAll<HTMLIFrameElement>('iframe.device-canvas').forEach(frame => frame.contentWindow?.postMessage({type:'theme-change',theme,product},location.origin));
+    sync(); const ready = (event: MessageEvent) => { if (event.origin === location.origin && event.data?.type === 'embed-ready') sync(); };
+    window.addEventListener('message', ready); return () => window.removeEventListener('message', ready);
+  }, [accent, path, theme]);
   useEffect(() => {
     let f = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -139,7 +142,7 @@ function App() {
           <span>
             五加一<span>Design</span>
           </span>
-          <U.Badge>0.2</U.Badge>
+          <U.Badge>0.3</U.Badge>
         </a>
         <button className="site-search" onClick={() => setSearch(true)}>
           <Search size={15} />
@@ -212,10 +215,7 @@ function App() {
             <strong>{current.label}</strong>
           </div>
           <div>
-            <span className="topbar-note">
-              <i />
-              五加一设计系统
-            </span>
+            <U.SelectField label="切换主题颜色" value={accent} onChange={setAccent} options={Object.entries(U.productThemes).map(([value, theme]) => ({value, label: theme.name, color:theme.primary}))} />
             <U.IconButton
               label={theme === "light" ? "切换深色外观" : "切换浅色外观"}
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -759,6 +759,7 @@ function Embed({ path, notify }: { path: string; notify: (s: string) => void }) 
     const syncTheme = (e: MessageEvent) => {
       if (e.origin === location.origin && e.source === window.parent && e.data?.type === "theme-change" && ['light', 'dark'].includes(e.data.theme)) {
         document.documentElement.setAttribute("data-theme", e.data.theme);
+        if (Object.keys(U.productThemes).includes(e.data.product)) document.documentElement.dataset.product = e.data.product;
       }
     };
     window.addEventListener("message", syncTheme);
@@ -910,7 +911,7 @@ function Start() {
       <U.CodeBlock
         language="shell"
         code={
-          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.2.0.tgz"
+          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.3.0.tgz"
         }
       />
       <h2 className="doc-heading">2. 从一个按钮开始</h2>

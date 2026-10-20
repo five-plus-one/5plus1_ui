@@ -8,6 +8,8 @@ import Placeholder from '@tiptap/extension-placeholder';
 import type { HocuspocusProvider } from '@hocuspocus/provider';
 import type * as Y from 'yjs';
 import { FileText, Trash2, Pencil, Check } from 'lucide-react';
+import { SelectField } from '../SelectField';
+import { VisualCodeBlock } from './VisualCodeBlock';
 import NoteToolbar from './NoteToolbar';
 import { baseEditorExtensions, documentToMarkdown, markdownToDocument } from './schema';
 import { DirectiveBlock, DIRECTIVE_CARD_TYPES, readDirectiveTitle, writeDirectiveTitle } from './directiveBlock';
@@ -50,7 +52,7 @@ function DirectiveView(props: NodeViewProps) {
   }, [node.attrs.body]);
   const name = String(node.attrs.name);
   return <NodeViewWrapper className="fp-directive-node" contentEditable={false} data-selected={props.selected || undefined}>
-    <div className="fp-directive-heading" contentEditable={false}><select aria-label="卡片类型" value={name} disabled={!editor.isEditable} onChange={e => updateAttributes({ name: e.target.value })}>{DIRECTIVE_CARD_TYPES.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
+    <div className="fp-directive-heading" contentEditable={false}><SelectField label="卡片类型" value={name} disabled={!editor.isEditable} onChange={value => updateAttributes({ name: value })} options={DIRECTIVE_CARD_TYPES.map(([value, label]) => ({ value, label }))} />
       {editor.isEditable && <span className="fp-directive-actions"><button type="button" aria-label={editing ? '完成卡片编辑' : '编辑卡片内容'} onClick={() => setEditing(value => !value)}>{editing ? <Check size={14} /> : <Pencil size={14} />}</button><button type="button" aria-label="删除卡片" onClick={deleteNode}><Trash2 size={14} /></button></span>}</div>
     <input aria-label="卡片标题" value={readDirectiveTitle(node.attrs.attributes, name)} disabled={!editor.isEditable} placeholder="添加标题" onChange={e => updateAttributes({ attributes: writeDirectiveTitle(node.attrs.attributes, name, e.target.value) })} />
     <MarkdownEditor markdown={String(node.attrs.body || '')} editable={editing && editor.isEditable} toolbar={editing} onReady={instance => { nested.current = instance; }} onChange={body => { published.current = body; updateAttributes({ body }); }} />
@@ -103,6 +105,7 @@ export function MarkdownEditor(props: MarkdownEditorProps) {
         DirectiveBlock.extend({ addNodeView: () => ReactNodeViewRenderer(view => latest.current.renderDirective ? <NodeViewWrapper>{latest.current.renderDirective(view)}</NodeViewWrapper> : <DirectiveView {...view} />) }),
         createLazyMathExtensions({ onInlineClick: (_latex, position) => instanceRef.current && mathRef.current.open(instanceRef.current, false, position), onBlockClick: (_latex, position) => instanceRef.current && mathRef.current.open(instanceRef.current, true, position) }),
         Attachment.extend({ addNodeView: () => ReactNodeViewRenderer(({ node, editor: instance, deleteNode }) => <NodeViewWrapper className="fp-attachment-node"><FileText size={20} /><span>{String(node.attrs.name)}</span>{latest.current.onOpenAttachment && <button type="button" onClick={() => latest.current.onOpenAttachment?.({ name: node.attrs.name, url: node.attrs.url, mediaType: node.attrs.mediaType })}>查看附件</button>}{instance.isEditable && <button type="button" aria-label="删除附件" onClick={deleteNode}><Trash2 size={14} /></button>}</NodeViewWrapper>) }),
+        VisualCodeBlock,
       ).map(extension => extension.name === 'image' ? extension.configure({ resolveUrl: (url: string) => latest.current.resolveResourceUrl?.(url) || url }) : extension),
       Placeholder.configure({ placeholder }),
       ...(document ? [Collaboration.configure({ document })] : []),

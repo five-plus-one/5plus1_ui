@@ -51,7 +51,7 @@ export function SourceFold({
           {cached ? " · 缓存" : ""}
         </span>
       </button>
-      <div className="fp-source-body" data-open={open || undefined}>
+      <div className="fp-source-body" inert={!open} aria-hidden={!open} data-open={open || undefined}>
         <ul className="fp-source-list">
           {sources.map((s, i) => (
             <li key={`${s.url}:${i}`}>

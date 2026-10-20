@@ -69,7 +69,7 @@ export function AgentTrace({
           {durationMs ? ` · ${(durationMs / 1000).toFixed(1)}s` : ""}
         </span>
       </button>
-      <div className="fp-trace-body" data-open={open || undefined}>
+      <div className="fp-trace-body" inert={!open} aria-hidden={!open} data-open={open || undefined}>
         <ol className="fp-trace-steps">
           {steps.map((step) => (
             <li key={step.id} data-status={step.status}>

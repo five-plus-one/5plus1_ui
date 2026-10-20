@@ -4,7 +4,7 @@
  */
 
 import type { ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import { Popup } from "./Popup";
 
 export interface TaskbarWindow {
   id: string;
@@ -47,20 +47,7 @@ export function WindowTaskbar({
         </button>
       ))}
       {overflow.length > 0 && (
-        <details className="fp-taskbar-more">
-          <summary aria-label={`还有 ${overflow.length} 个窗口`}>
-            <ChevronDown size={14} />
-            +{overflow.length}
-          </summary>
-          <div className="fp-taskbar-more-list">
-            {overflow.map((w) => (
-              <button key={w.id} type="button" onClick={() => onSelect(w.id)}>
-                {w.icon}
-                {w.title}
-              </button>
-            ))}
-          </div>
-        </details>
+        <Popup label={`还有 ${overflow.length} 个窗口`} menu trigger={<span>+{overflow.length}</span>}>{close=>overflow.map(window=><button type="button" role="menuitem" key={window.id} onClick={()=>{close();onSelect(window.id);}}>{window.icon}{window.title}</button>)}</Popup>
       )}
     </div>
   );
