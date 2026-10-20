@@ -2,7 +2,7 @@
 
 ## 基础
 
-从 `@fiveplusone/ui` 导入组件，入口引入一次 `@fiveplusone/ui/styles.css`。公开属性以包内 TypeScript 声明为准。设计网站提供 126 项组件目录。0.3.4 工作区接口见 [课栈接入指南](../kezhan-migration-guide.md)。样式采用 `fp-` 前缀；全局焦点规则需要与宿主共同检查。
+从 `@fiveplusone/ui` 导入组件，入口引入一次 `@fiveplusone/ui/styles.css`。公开属性以包内 TypeScript 声明为准。设计网站提供 126 项组件目录。0.3.5 工作区接口见 [课栈接入指南](../kezhan-migration-guide.md)。样式采用 `fp-` 前缀；全局焦点规则需要与宿主共同检查。
 
 ## 资料预览
 
