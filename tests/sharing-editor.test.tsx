@@ -76,6 +76,7 @@ it('changes a directive type through the searchable menu and retains its title',
  fireEvent.click(screen.getByRole('option',{name:'概念'}));
  await waitFor(()=>expect(editor.getJSON().content?.find(n=>n.type==='directiveBlock')?.attrs?.name).toBe('concept'));
  expect(screen.getByRole('button',{name:'卡片类型'})).toHaveTextContent('概念');
+ fireEvent.click(screen.getByRole('button',{name:'编辑卡片内容'}));
  expect(screen.getByRole('textbox',{name:'卡片标题'})).toHaveValue('学习提示');
 });
 

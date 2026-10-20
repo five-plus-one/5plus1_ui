@@ -23,6 +23,11 @@ if (!HTMLDialogElement.prototype.showModal) {
 }
 
 describe("组件目录", () => {
+  it('可见选择和日期输入使用统一控件',()=>{
+    const failures:string[]=[];
+    for(const entry of entries){const {container,unmount}=render(<Demo name={entry.name} notify={()=>{}}/>);if(container.querySelector('select:not([hidden]),input[type="date"]:not([hidden]),input[type="datetime-local"],input[type="month"],input[type="week"],input[type="time"]'))failures.push(entry.name);unmount();}
+    expect(failures).toEqual([]);
+  });
   it('每个示例的按钮都明确声明表单行为',()=>{
     const failures:string[]=[];
     for(const entry of entries){const {container,unmount}=render(<Demo name={entry.name} notify={()=>{}}/>);if(container.querySelector('button:not([type])'))failures.push(entry.name);unmount();}
