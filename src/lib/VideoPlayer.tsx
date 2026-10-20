@@ -22,6 +22,8 @@ export interface VideoPlayerProps {
   onPlaybackRateChange?: (rate: number) => void;
   onPlaybackError?: (error: string) => void;
   tracks?: { src: string; label: string; language: string; default?: boolean }[];
+  /** 仅在播放器内获得焦点时响应快捷键 */
+  keyboardShortcuts?: boolean;
 }
 
 function formatTime(seconds: number) {
@@ -44,7 +46,9 @@ export function VideoPlayer({
   onPlaybackRateChange,
   onPlaybackError,
   tracks = [],
+  keyboardShortcuts = true,
 }: VideoPlayerProps) {
+  const host = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(startAt);
@@ -96,8 +100,46 @@ export function VideoPlayer({
     }
   };
 
+  const fullscreen = async () => {
+    try {
+      if (document.fullscreenElement === host.current) await document.exitFullscreen();
+      else await host.current?.requestFullscreen?.();
+    } catch { reportError('暂时无法进入全屏，请重试'); }
+  };
+
+  const seek = (next: number) => {
+    const el = video.current;
+    if (!el || !Number.isFinite(el.duration) || el.duration <= 0) return;
+    el.currentTime = Math.max(0, Math.min(el.duration, next));
+    setTime(el.currentTime);
+  };
+
   return (
-    <div className="fp-video">
+    <div className="fp-video" ref={host} tabIndex={0} role="region" aria-label={title ? `${title}视频播放器` : '视频播放器'}
+      aria-keyshortcuts={keyboardShortcuts ? 'Space k j l ArrowLeft ArrowRight ArrowUp ArrowDown m f Home End' : undefined}
+      onKeyDown={event => {
+        if (!keyboardShortcuts || event.defaultPrevented || event.nativeEvent.isComposing || event.ctrlKey || event.altKey || event.metaKey) return;
+        if ((event.target as HTMLElement).closest('input,textarea,select,button,[contenteditable="true"],[role="combobox"],[role="menu"]')) return;
+        const el = video.current;
+        if (!el) return;
+        const key = event.key.toLowerCase();
+        if (![' ', 'k', 'j', 'l', 'arrowleft', 'arrowright', 'arrowup', 'arrowdown', 'm', 'f', 'home', 'end', ',', '.'].includes(key) && !/^[0-9]$/.test(key)) return;
+        event.preventDefault(); event.stopPropagation();
+        if (event.repeat && [' ', 'k', 'm', 'f'].includes(key)) return;
+        if (key === ' ' || key === 'k') toggle();
+        else if (key === 'j' || key === 'arrowleft') seek(el.currentTime - (key === 'j' ? 10 : 5));
+        else if (key === 'l' || key === 'arrowright') seek(el.currentTime + (key === 'l' ? 10 : 5));
+        else if (key === 'home') seek(0);
+        else if (key === 'end') seek(el.duration);
+        else if (/^[0-9]$/.test(key)) seek(el.duration * Number(key) / 10);
+        else if (key === 'arrowup' || key === 'arrowdown') {
+          el.volume = Math.max(0, Math.min(1, el.volume + (key === 'arrowup' ? .05 : -.05)));
+          if (key === 'arrowup') el.muted = false;
+          setVolume(el.volume); setMuted(el.muted);
+        } else if (key === 'm') { el.muted = !el.muted; setMuted(el.muted); }
+        else if (key === 'f') void fullscreen();
+        else if (el.paused) seek(el.currentTime + (key === '.' ? 1 / 30 : -1 / 30));
+      }}>
       <div className="fp-video-stage">
         <video
           ref={element => { video.current = element; if (typeof videoRef === 'function') videoRef(element); else if (videoRef) videoRef.current = element; }}
@@ -105,7 +147,7 @@ export function VideoPlayer({
           poster={poster}
           playsInline
           preload="metadata"
-          onClick={toggle}
+          onClick={() => { host.current?.focus({ preventScroll: true }); toggle(); }}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
           onLoadedMetadata={(e) => { setDuration(e.currentTarget.duration); e.currentTarget.currentTime = Math.max(0, Math.min(startAt, e.currentTarget.duration || startAt)); }}
@@ -130,7 +172,7 @@ export function VideoPlayer({
             type="button"
             className="fp-video-bigplay"
             aria-label="播放"
-            onClick={toggle}
+            onClick={() => { host.current?.focus({ preventScroll: true }); toggle(); }}
           >
             <Play size={26} fill="currentColor" />
           </button>
@@ -141,6 +183,7 @@ export function VideoPlayer({
         <button
           type="button"
           aria-label={playing ? "暂停" : "播放"}
+          title="播放／暂停（空格或 K）"
           onClick={toggle}
         >
           {playing ? <Pause size={16} /> : <Play size={16} />}
@@ -170,6 +213,7 @@ export function VideoPlayer({
         <button
           type="button"
           aria-label={muted ? "取消静音" : "静音"}
+          title="静音（M）"
           onClick={() => {
             const el = video.current;
             if (!el) return;
@@ -199,12 +243,8 @@ export function VideoPlayer({
         <button
           type="button"
           aria-label="全屏"
-          onClick={() => {
-            const host = video.current?.parentElement?.parentElement;
-            if (!host) return;
-            if (document.fullscreenElement) void document.exitFullscreen();
-            else void host.requestFullscreen?.();
-          }}
+          title="全屏（F）"
+          onClick={() => void fullscreen()}
         >
           <Maximize size={16} />
         </button>

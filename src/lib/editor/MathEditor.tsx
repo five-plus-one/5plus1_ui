@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { AnimatedSize } from '../AnimatedSize';
-import { createPortal, flushSync } from "react-dom";
+import { createPortal } from "react-dom";
 import type { Editor } from "@tiptap/core";
 import type { MathfieldElement } from "mathlive";
 import { closeHistory } from "@tiptap/pm/history";
@@ -60,14 +60,7 @@ export function useMathEditor() {
     if (id && current.current?.id !== id) return;
     const previous = current.current;
     current.current = null;
-    const paragraph = previous && !previous.display ? previous.host.closest<HTMLElement>('p, li, td') : null;
-    if (id && paragraph?.isConnected && document.startViewTransition && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
-      paragraph.style.viewTransitionName = 'fp-formula-paragraph';
-      document.documentElement.dataset.formulaTransition = 'true';
-      const transition = document.startViewTransition(() => flushSync(() => setSession(null)));
-      const cleanup = () => { paragraph.style.removeProperty('view-transition-name'); delete document.documentElement.dataset.formulaTransition; };
-      void transition.finished.then(cleanup,cleanup);
-    } else setSession(null);
+    setSession(null);
     if (previous && !previous.editor.isDestroyed) separateHistory(previous.editor);
   }, []);
   const open = useCallback((editor: Editor, display: boolean, position?: number, range?: { from: number; to: number }) => {
@@ -149,15 +142,38 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
     document.addEventListener("pointerdown", outside);
     return () => {
       const host = session.host;
-      const from = host.getBoundingClientRect().height;
+      const target = session.display ? host : host.closest<HTMLElement>('p, li, td') || host;
+      const before = target.getBoundingClientRect();
+      const snapshot = target.cloneNode(true) as HTMLElement;
+      snapshot.querySelectorAll('math-field').forEach(field => {
+        const content = host.querySelector('.math-node-content')?.cloneNode(true) as HTMLElement | undefined;
+        if (content) { content.style.display = 'block'; field.replaceWith(content); } else field.remove();
+      });
       session.slot.style.display = 'none';
       host.classList.remove("is-math-editing");
-      const to = host.getBoundingClientRect().height;
+      const after = target.getBoundingClientRect();
       session.slot.style.removeProperty('display');
-      if (session.display && host.isConnected && host.animate && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
-        const animation = host.animate([{height: `${from}px`, overflow: 'clip'}, {height: `${to}px`, overflow: 'clip'}], {duration: 200, easing: 'cubic-bezier(.2,0,0,1)'});
-        host.querySelector('.math-node-content')?.animate([{opacity: 0}, {opacity: 1}], {duration: 160});
-        animation.onfinish = () => animation.cancel();
+      if (target.isConnected && target.animate && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+        const overlay = document.createElement('div');
+        overlay.className = 'fp-markdown-editor fp-formula-closing';
+        overlay.inert = true;
+        overlay.setAttribute('aria-hidden','true');
+        Object.assign(overlay.style,{position:'absolute',left:`${before.left+window.scrollX}px`,top:`${before.top+window.scrollY}px`,width:`${before.width}px`,height:`${before.height}px`,overflow:'clip',pointerEvents:'none',zIndex:'20'});
+        snapshot.style.margin = '0';
+        snapshot.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
+        const content = document.createElement('div');
+        content.className = 'fp-editor-prose';
+        Object.assign(content.style,{padding:'0',minHeight:'0'});
+        content.append(snapshot);
+        overlay.append(content);
+        document.body.append(overlay);
+        const duration = 220, easing = 'cubic-bezier(.2,0,0,1)';
+        const contraction = target.animate([{height:`${before.height}px`,overflow:'clip'},{height:`${after.height}px`,overflow:'clip'}],{duration,easing});
+        target.animate([{opacity:0},{opacity:0,offset:.35},{opacity:1}],{duration,easing});
+        const closing = overlay.animate([{height:`${before.height}px`,opacity:1},{height:`${after.height}px`,opacity:0}],{duration,easing});
+        const cleanup = () => {overlay.remove();contraction.cancel();};
+        closing.onfinish = cleanup;
+        closing.oncancel = cleanup;
       }
       session.editor.off("transaction", sync);
       session.editor.off("destroy", onClose);

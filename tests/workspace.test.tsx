@@ -125,3 +125,19 @@ it("renders text files as text rather than interpreting markup", async () => {
   expect(view.container.querySelector("script")).toBeNull();
 });
 
+
+it('offers file tree actions from a row context menu',()=>{
+ const rename=vi.fn(),select=vi.fn();render(<FileTree items={[{id:'doc',name:'讲义.pdf',kind:'file'}]} onSelect={select} onRename={rename}/>);
+ fireEvent.contextMenu(screen.getByRole('treeitem'),{clientX:20,clientY:20});
+ fireEvent.click(screen.getByRole('menuitem',{name:'重命名'}));expect(rename).toHaveBeenCalledWith(expect.objectContaining({id:'doc'}));expect(select).not.toHaveBeenCalled();
+});
+it('shares formulas, tables and cards through the full Markdown editor schema',async()=>{
+ const document=new Y.Doc(),editors:import('@tiptap/core').Editor[]=[];
+ const view=render(<><CollaborativeEditor document={document} user={{id:'one',name:'甲',color:'#356348'}} onReady={editor=>editors.push(editor)}/><CollaborativeEditor document={document} user={{id:'two',name:'乙',color:'#a64d18'}} onReady={editor=>editors.push(editor)}/></>);
+ await waitFor(()=>expect(editors).toHaveLength(2));
+ act(()=>{editors[0].commands.setContent({type:'doc',content:[{type:'paragraph',content:[{type:'inlineMath',attrs:{latex:'x^2'}}]},{type:'directiveBlock',attrs:{name:'note',attributes:'label="重点"',body:'协作内容'}},{type:'table',content:[{type:'tableRow',content:[{type:'tableCell',content:[{type:'paragraph',content:[{type:'text',text:'共同整理'}]}]}]}]}]});});
+ await waitFor(()=>expect(editors[1].getJSON().content?.slice(0,3).map(node=>node.type)).toEqual(['paragraph','directiveBlock','table']));
+ expect(editors[1].getJSON().content?.[0].content?.[0].attrs?.latex).toBe('x^2');
+ expect(view.container.querySelectorAll('[aria-label="笔记编辑工具"]')).toHaveLength(2);
+ view.unmount();document.destroy();
+});

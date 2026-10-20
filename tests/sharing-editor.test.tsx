@@ -76,3 +76,14 @@ it('changes a directive type through the searchable menu and retains its title',
  expect(screen.getByRole('button',{name:'卡片类型'})).toHaveTextContent('概念');
  expect(screen.getByRole('textbox',{name:'卡片标题'})).toHaveValue('学习提示');
 });
+
+it('provides table commands from the editor context menu while preserving the selected cell',async()=>{
+ let editor!:Editor;
+ render(<MarkdownEditor markdown={'| 章节 | 目标 |\n| --- | --- |\n| 阅读 | 理解 |'} onReady={instance=>{editor=instance;}}/>);
+ await waitFor(()=>expect(editor).toBeDefined());
+ act(()=>editor.commands.setTextSelection(3));
+ fireEvent.keyDown(editor.view.dom,{key:'F10',shiftKey:true});
+ fireEvent.click(screen.getByRole('menuitem',{name:'表格操作'}));
+ fireEvent.click(screen.getByRole('menuitem',{name:'向下插入行'}));
+ expect(editor.getJSON().content?.[0].content).toHaveLength(3);
+});

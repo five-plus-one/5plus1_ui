@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState, type ReactNode } from "react";
 import PdfPreview from "./PdfPreview";
 import { Download } from "lucide-react";
 import { AnimatedSize } from '../AnimatedSize';
+import { VideoPlayer } from '../VideoPlayer';
 export type PreviewResource = {
   name: string;
   url: string;
@@ -70,13 +71,7 @@ export function ResourcePreview({
         <img className="fp-preview-image" src={url} alt={name} />
       ) : mediaType.startsWith("video/") ? (
         <>
-          <video
-            controls
-            playsInline
-            preload="metadata"
-            src={url}
-            aria-label={name}
-          />
+          <VideoPlayer src={url} title={name} />
           {renderVideoExtra}
         </>
       ) : mediaType.startsWith("audio/") ? (

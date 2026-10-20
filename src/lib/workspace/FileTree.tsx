@@ -6,6 +6,7 @@ import {
   FileText,
   MoreHorizontal,
 } from "lucide-react";
+import { ContextMenu } from '../ContextMenu';
 import { Dropdown } from "../Popup";
 import { CollapseTransition } from '../CollapseTransition';
 export type FileTreeNode = {
@@ -126,7 +127,12 @@ export function FileTree({
   }
   function render(nodes: FileTreeNode[], depth = 0) {
     return nodes.map((node) => (
-      <div role="none" key={`${namespace}/${node.id}`}>
+      <ContextMenu key={`${namespace}/${node.id}`} tabIndex={-1} label={`${node.name}的操作`} items={[
+        {id:'open',label:node.kind==='folder'?(expanded.has(node.id)?'收起文件夹':'展开文件夹'):'打开',onSelect:()=>{if(node.kind==='folder')toggle(node.id);else onSelect(node);}},
+        ...(node.kind==='folder'&&onCreate?[{id:'create',label:'新建文件',onSelect:()=>onCreate(node)}]:[]),
+        ...(onRename?[{id:'rename',label:'重命名',onSelect:()=>onRename(node)}]:[]),
+        ...(onRemove?[{id:'remove',label:'移除',danger:true,separator:true,onSelect:()=>onRemove(node)}]:[]),
+      ]}><div role="none">
         <div
           role="treeitem"
           aria-level={depth + 1}
@@ -208,7 +214,7 @@ export function FileTree({
         {node.kind === "folder" && (
           <CollapseTransition isOpen={expanded.has(node.id)}><div role="group">{render(node.children || [], depth + 1)}</div></CollapseTransition>
         )}
-      </div>
+      </div></ContextMenu>
     ));
   }
   return (

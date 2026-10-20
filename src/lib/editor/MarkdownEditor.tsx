@@ -11,6 +11,7 @@ import { FileText, Trash2, Pencil, Check } from 'lucide-react';
 import { SelectField } from '../SelectField';
 import { VisualCodeBlock } from './VisualCodeBlock';
 import { insertMermaidCard } from './mermaid';
+import { EditorContextMenu } from './EditorContextMenu';
 import NoteToolbar from './NoteToolbar';
 import { baseEditorExtensions, documentToMarkdown, markdownToDocument } from './schema';
 import { DirectiveBlock, DIRECTIVE_CARD_TYPES, readDirectiveTitle, writeDirectiveTitle } from './directiveBlock';
@@ -22,6 +23,8 @@ import { applyMarks, type FormatPainterMode, type PainterMark } from './formatPa
 export interface MarkdownEditorProps {
   /** Initial Markdown. Change documentKey when switching documents; use the Editor handle for external updates. */
   markdown?: string;
+  content?: JSONContent | string;
+  baseExtensions?: Extensions;
   documentKey?: string;
   document?: Y.Doc;
   provider?: HocuspocusProvider;
@@ -103,18 +106,18 @@ export function MarkdownEditor(props: MarkdownEditorProps) {
     immediatelyRender: false,
     editable,
     extensions: [
-      ...baseEditorExtensions(!document, undefined,
+      ...(props.baseExtensions || baseEditorExtensions(!document, undefined,
         DirectiveBlock.extend({ addNodeView: () => ReactNodeViewRenderer(view => latest.current.renderDirective ? <NodeViewWrapper>{latest.current.renderDirective(view)}</NodeViewWrapper> : <DirectiveView {...view} />) }),
         createLazyMathExtensions({ onInlineClick: (_latex, position) => instanceRef.current && mathRef.current.open(instanceRef.current, false, position), onBlockClick: (_latex, position) => instanceRef.current && mathRef.current.open(instanceRef.current, true, position) }),
         Attachment.extend({ addNodeView: () => ReactNodeViewRenderer(({ node, editor: instance, deleteNode }) => <NodeViewWrapper className="fp-attachment-node"><FileText size={20} /><span>{String(node.attrs.name)}</span>{latest.current.onOpenAttachment && <button type="button" onClick={() => latest.current.onOpenAttachment?.({ name: node.attrs.name, url: node.attrs.url, mediaType: node.attrs.mediaType })}>查看附件</button>}{instance.isEditable && <button type="button" aria-label="删除附件" onClick={deleteNode}><Trash2 size={14} /></button>}</NodeViewWrapper>) }),
         VisualCodeBlock,
-      ).map(extension => extension.name === 'image' ? extension.configure({ resolveUrl: (url: string) => latest.current.resolveResourceUrl?.(url) || url }) : extension),
+      )).map(extension => extension.name === 'image' ? extension.configure({ resolveUrl: (url: string) => latest.current.resolveResourceUrl?.(url) || url }) : extension),
       Placeholder.configure({ placeholder }),
       ...(document ? [Collaboration.configure({ document })] : []),
       ...(provider && user ? [CollaborationCaret.configure({ provider, user })] : []),
       ...extensions,
     ],
-    content: document ? undefined : markdownToDocument(markdown),
+    content: document ? undefined : props.content ?? markdownToDocument(markdown),
     onCreate: ({ editor }) => latest.current.onReady?.(editor),
     onUpdate: ({ editor }) => { latest.current.onChange?.(documentToMarkdown(editor.getJSON()), editor.getJSON()); updateQuick(editor); },
     onSelectionUpdate: ({ editor }) => updateQuick(editor),
@@ -145,7 +148,7 @@ export function MarkdownEditor(props: MarkdownEditorProps) {
       onAttachment={() => latest.current.onAttachment?.(editor, 'file')} onVideo={() => latest.current.onAttachment?.(editor, 'video')}
       onInsertCard={() => { editor.chain().focus().insertContent({ type: 'directiveBlock', attrs: { name: 'note', attributes: '', body: '' } }).run(); }}
       onMath={display => math.open(editor, display)} formatPainterMode={painterMode} onFormatPainterMode={setPainterMode} formatPainterMarks={painterMarks} onFormatPainterMarks={setPainterMarks} />}
-    <EditorContent editor={editor} />
+    <EditorContextMenu editor={editor}><EditorContent editor={editor} /></EditorContextMenu>
     {math.card}
     {quick && editor && createPortal(<div className="fp-editor-menu fp-editor-quick" role="listbox" aria-label="插入内容" style={{ left: quick.left, top: quick.top, maxHeight: 280 }}>
       {choices(quick.query).map(([id, label, detail], index) => <button type="button" role="option" aria-selected={index === quick.active} tabIndex={-1} key={id} onMouseDown={event => event.preventDefault()} onClick={() => runQuick(id)}><strong>{label}</strong><small>{detail}</small></button>)}

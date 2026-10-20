@@ -46,7 +46,7 @@ export const workspaceEntries: Entry[] = [
     description: "让多个想法在同一篇内容中相遇，编辑与协作自然衔接。",
     usage:
       "沿用课栈的 Tiptap、Yjs 和 Hocuspocus 技术，编辑器通过会话属性接入同步。",
-    api: "document?: Y.Doc；provider?: HocuspocusProvider；user: {id,name,color}；content?；baseExtensions?；extensions?；editable?；status?；onChange?；onReady?",
+    api: "document?: Y.Doc；provider?: HocuspocusProvider；user: {id,name,color}；markdown?；content?；extensions?；editable?；status?；onChange?；onReady?",
     code: "const {session, status} = useCollaboration({ url, room, token, user });\nreturn session && <CollaborativeEditor {...session} user={user} status={status} />;",
   },
   {
@@ -418,7 +418,7 @@ export function WorkspaceGallery({
               </U.Alert>
               <U.CodeBlock
                 code={
-                  'const user = { id: "u1", name: "五加一", color: "#356348" };\nconst { session, status } = useCollaboration({\n  url: "wss://your-host/collaboration",\n  room: "notebook/document-id",\n  token: getSessionToken,\n  user,\n});\n\nreturn session && (\n  <CollaborativeEditor document={session.document}\n    provider={session.provider} user={user} status={status}\n    baseExtensions={yourDocumentExtensions} />\n);'
+                  'const user = { id: "u1", name: "五加一", color: "#356348" };\nconst { session, status } = useCollaboration({\n  url: "wss://your-host/collaboration",\n  room: "notebook/document-id",\n  token: getSessionToken,\n  user,\n});\n\nreturn session && (\n  <CollaborativeEditor document={session.document}\n    provider={session.provider} user={user} status={status}\n    extensions={yourExtraExtensions} />\n);'
                 }
               />
             </>

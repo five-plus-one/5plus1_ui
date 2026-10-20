@@ -2,9 +2,9 @@ import { useEffect, useLayoutEffect, useRef, useState, useId, type ReactNode } f
 import { createPortal } from 'react-dom';
 import { ChevronRight, Check } from 'lucide-react';
 export interface ContextMenuItem { id: string; label: string; icon?: ReactNode; shortcut?: string; disabled?: boolean; danger?: boolean; checked?: boolean; separator?: boolean; children?: ContextMenuItem[]; onSelect?: () => void }
-export interface ContextMenuProps { children: ReactNode; items: ContextMenuItem[]; label?: string; disabled?: boolean }
+export interface ContextMenuProps { children: ReactNode; items: ContextMenuItem[] | (() => ContextMenuItem[]); label?: string; disabled?: boolean; tabIndex?: number; onOpen?: (event: React.MouseEvent | React.KeyboardEvent) => boolean | void }
 /** Pointer and keyboard context actions share the same focus and dismissal contract. */
-export function ContextMenu({ children, items, label = '快捷操作', disabled }: ContextMenuProps) {
+export function ContextMenu({ children, items, label = '快捷操作', disabled, tabIndex = 0, onOpen }: ContextMenuProps) {
   const host = useRef<HTMLDivElement>(null), panel = useRef<HTMLDivElement>(null), previous = useRef<HTMLElement | null>(null);
   const [point, setPoint] = useState<{x:number;y:number}|null>(null), [path, setPath] = useState<string[]>([]);
   const id = useId();
@@ -27,9 +27,9 @@ export function ContextMenu({ children, items, label = '快捷操作', disabled 
     window.addEventListener('scroll',outside,true);
     return () => { document.removeEventListener('pointerdown',outside,true); document.removeEventListener('keydown',escape,true);window.removeEventListener('resize',dismiss);window.removeEventListener('blur',dismiss);window.removeEventListener('scroll',outside,true); };
   },[point]);
-  let visible=items;
+  let visible=typeof items === 'function' ? items() : items;
   for(const key of path) visible=visible.find(item=>item.id===key)?.children || [];
-  return <div ref={host} className="fp-context-host" tabIndex={0} onContextMenu={e=>{if(disabled)return;e.preventDefault();e.stopPropagation();open(e.clientX,e.clientY);}} onKeyDown={e=>{if(disabled)return;if(e.key==='ContextMenu'||(e.shiftKey&&e.key==='F10')){e.preventDefault();const box=host.current!.getBoundingClientRect();open(box.left+16,box.top+16);}}}>
+  return <div ref={host} className="fp-context-host" tabIndex={tabIndex} onContextMenu={e=>{if(disabled||onOpen?.(e)===false)return;e.preventDefault();e.stopPropagation();open(e.clientX,e.clientY);}} onKeyDown={e=>{if(disabled)return;if(e.key==='ContextMenu'||(e.shiftKey&&e.key==='F10')){if(onOpen?.(e)===false)return;e.preventDefault();e.stopPropagation();const box=host.current!.getBoundingClientRect();open(box.left+16,box.top+16);}}}>
     {children}{point&&createPortal(<div ref={panel} id={id} role="menu" aria-label={label} className="fp-popup-panel fp-popup-menu fp-context-menu" style={{position:'fixed',left:point.x,top:point.y,maxHeight:'calc(100vh - 16px)',overflowY:'auto'}} onContextMenu={e=>e.preventDefault()} onKeyDown={e=>{
       const buttons=Array.from(panel.current?.querySelectorAll<HTMLButtonElement>('[role="menuitem"]:not(:disabled)')||[]), index=buttons.indexOf(document.activeElement as HTMLButtonElement);
       const next=e.key==='ArrowDown'?(index+1)%buttons.length:e.key==='ArrowUp'?(index-1+buttons.length)%buttons.length:e.key==='Home'?0:e.key==='End'?buttons.length-1:-1;
