@@ -19,7 +19,7 @@ npm run dev
 
 访问 http://127.0.0.1:5178/ 。`npm run build` 构建设计网站和带类型声明的组件包；`npm test` 执行回归测试。
 
-在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.3.0.tgz`：
+在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.3.1.tgz`：
 
 ```tsx
 import { Button, Card } from '@fiveplusone/ui';

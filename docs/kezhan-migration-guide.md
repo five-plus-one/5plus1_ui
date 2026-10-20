@@ -1,10 +1,10 @@
 # 课栈组件接入指南
 
-适用版本：@fiveplusone/ui 0.3.0。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
+适用版本：@fiveplusone/ui 0.3.1。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
 
 ## 安装与主题
 
-组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.3.0.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
+组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.3.1.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
 
 运行依赖为 React 19、Tiptap 3.32、Yjs 13.6、react-resizable-panels 2.x。接入时检查依赖树，确保 React、Yjs、Tiptap core/pm 使用同一实例和兼容版本；锁定依赖后验证历史文档与协作。
 
