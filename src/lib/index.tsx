@@ -1,5 +1,5 @@
-import { CollapseTransition } from './CollapseTransition';
-import { ChevronDown } from 'lucide-react';
+import { CollapseTransition } from "./CollapseTransition";
+import { ChevronDown } from "lucide-react";
 import React, {
   useState,
   useRef,
@@ -12,6 +12,26 @@ import React, {
 } from "react";
 import { createPortal } from "react-dom";
 import "./styles.css";
+import "./product-patterns.css";
+export * from "./AudioPlayer";
+export * from "./SearchResults";
+export * from "./workspace/WorkspaceTabs";
+export * from "./editor/EditorPanels";
+export * from "./ReadingBlocks";
+export * from "./ManagementViews";
+export * from "./WorkspaceNavigation";
+export * from "./ConversationViews";
+export * from "./LearningWorkspace";
+export * from "./MarkdownContent";
+export * from "./WorkspaceUtilities";
+export * from "./AccountViews";
+export { MermaidPreview } from "./editor/VisualCodeBlock";
+export {
+  UploadPlaceholder,
+  appendUploadPlaceholder,
+} from "./editor/uploadPlaceholder";
+export { ImageConversion } from "./editor/imageConversion";
+export { moveEditorBlock, deleteEditorBlock } from "./editor/blockOperations";
 export const cx = (...s: (string | false | undefined)[]) =>
   s.filter(Boolean).join(" ");
 export function Button({
@@ -132,7 +152,8 @@ export function Switch({
   disabled?: boolean;
 }) {
   return (
-    <button type="button"
+    <button
+      type="button"
       className="fp-switch-label"
       role="switch"
       aria-checked={checked}
@@ -146,7 +167,7 @@ export function Switch({
     </button>
   );
 }
-export { Select, Combobox } from './ChoiceInputs';
+export { Select, Combobox } from "./ChoiceInputs";
 export function Slider({
   label,
   min = 0,
@@ -164,9 +185,7 @@ export function Slider({
   let lo = Number(min);
   let hi = Number(max);
   let fill =
-    current === undefined || hi === lo
-      ? 0
-      : ((current - lo) / (hi - lo)) * 100;
+    current === undefined || hi === lo ? 0 : ((current - lo) / (hi - lo)) * 100;
   return (
     <label className={cx("fp-slider", className)}>
       {label}
@@ -385,7 +404,8 @@ export function Tabs({
       }}
     >
       {items.map((i) => (
-        <button type="button"
+        <button
+          type="button"
           role="tab"
           aria-selected={i.value === value}
           tabIndex={i.value === value ? 0 : -1}
@@ -420,7 +440,36 @@ export function Accordion({
 }) {
   const [open, setOpen] = React.useState<Set<number>>(new Set());
   const id = React.useId();
-  return <div className="fp-accordion">{items.map((item,index)=><div className="fp-accordion-item" key={item.title}><button className="fp-accordion-trigger" type="button" aria-expanded={open.has(index)} aria-controls={`${id}-${index}`} onClick={()=>setOpen(previous=>{const next=new Set(previous);if(next.has(index))next.delete(index);else next.add(index);return next;})}>{item.title}<span aria-hidden="true">＋</span></button><CollapseTransition isOpen={open.has(index)}><div id={`${id}-${index}`} className="fp-accordion-content">{item.content}</div></CollapseTransition></div>)}</div>;
+  return (
+    <div className="fp-accordion">
+      {items.map((item, index) => (
+        <div className="fp-accordion-item" key={item.title}>
+          <button
+            className="fp-accordion-trigger"
+            type="button"
+            aria-expanded={open.has(index)}
+            aria-controls={`${id}-${index}`}
+            onClick={() =>
+              setOpen((previous) => {
+                const next = new Set(previous);
+                if (next.has(index)) next.delete(index);
+                else next.add(index);
+                return next;
+              })
+            }
+          >
+            {item.title}
+            <span aria-hidden="true">＋</span>
+          </button>
+          <CollapseTransition isOpen={open.has(index)}>
+            <div id={`${id}-${index}`} className="fp-accordion-content">
+              {item.content}
+            </div>
+          </CollapseTransition>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function Breadcrumbs({
@@ -512,10 +561,24 @@ export function Tooltip({
     </span>
   );
 }
-export { Dropdown, Popover } from "./Popup";
+export { Popup, Dropdown, Popover, type PopupProps } from "./Popup";
 export const brandLogoUrl = "https://go.r-l.ink/ico";
-export function BrandLogo({size=32, decorative=false}:{size?:number;decorative?:boolean}) {
-  return <img src={brandLogoUrl} alt={decorative ? "" : "五加一"} width={size} height={size} className="fp-brand-logo" />;
+export function BrandLogo({
+  size = 32,
+  decorative = false,
+}: {
+  size?: number;
+  decorative?: boolean;
+}) {
+  return (
+    <img
+      src={brandLogoUrl}
+      alt={decorative ? "" : "五加一"}
+      width={size}
+      height={size}
+      className="fp-brand-logo"
+    />
+  );
 }
 export function Dialog({
   open,
@@ -804,7 +867,7 @@ export function NumberInput({
     </div>
   );
 }
-export { DatePicker, TimePicker, ColorPicker } from './StyledInputs';
+export { DatePicker, TimePicker, ColorPicker } from "./StyledInputs";
 export function Rating({
   value,
   onChange,
@@ -815,7 +878,8 @@ export function Rating({
   return (
     <div className="fp-rating" role="group" aria-label="评价">
       {[1, 2, 3, 4, 5].map((i) => (
-        <button type="button"
+        <button
+          type="button"
           key={i}
           aria-label={`${i} 星`}
           aria-pressed={i === value}
@@ -890,11 +954,49 @@ export function Tree({
 }: {
   items: { label: string; children?: string[] }[];
 }) {
-  return <div className="fp-tree">{items.map(item=><TreeBranch key={item.label} item={item}/>)}</div>;
+  return (
+    <div className="fp-tree">
+      {items.map((item) => (
+        <TreeBranch key={item.label} item={item} />
+      ))}
+    </div>
+  );
 }
-function TreeBranch({item}:{item:{label:string;children?:string[]}}){
- const [open,setOpen]=React.useState(true);const id=React.useId();
- return item.children?<div><button type="button" className="fp-tree-branch" aria-expanded={open} aria-controls={id} onClick={()=>setOpen(value=>!value)}><ChevronDown size={14} style={{transform:open?'rotate(0)':'rotate(-90deg)'}}/>{item.label}</button><CollapseTransition isOpen={open}><div id={id}>{item.children.map(child=><div className="fp-tree-leaf" key={child}>{child}</div>)}</div></CollapseTransition></div>:<div className="fp-tree-leaf">{item.label}</div>;
+function TreeBranch({
+  item,
+}: {
+  item: { label: string; children?: string[] };
+}) {
+  const [open, setOpen] = React.useState(true);
+  const id = React.useId();
+  return item.children ? (
+    <div>
+      <button
+        type="button"
+        className="fp-tree-branch"
+        aria-expanded={open}
+        aria-controls={id}
+        onClick={() => setOpen((value) => !value)}
+      >
+        <ChevronDown
+          size={14}
+          style={{ transform: open ? "rotate(0)" : "rotate(-90deg)" }}
+        />
+        {item.label}
+      </button>
+      <CollapseTransition isOpen={open}>
+        <div id={id}>
+          {item.children.map((child) => (
+            <div className="fp-tree-leaf" key={child}>
+              {child}
+            </div>
+          ))}
+        </div>
+      </CollapseTransition>
+    </div>
+  ) : (
+    <div className="fp-tree-leaf">{item.label}</div>
+  );
 }
 
 export function Navigation({
@@ -909,7 +1011,8 @@ export function Navigation({
   return (
     <nav className="fp-navigation">
       {items.map((i) => (
-        <button type="button"
+        <button
+          type="button"
           key={i.value}
           aria-current={value === i.value ? "page" : undefined}
           onClick={() => onChange(i.value)}
@@ -1296,7 +1399,8 @@ export function Calendar({
         {Array.from({ length: days }, (_, i) => {
           let date = `${year}-${String(m + 1).padStart(2, "0")}-${String(i + 1).padStart(2, "0")}`;
           return (
-            <button type="button"
+            <button
+              type="button"
               key={date}
               aria-label={date}
               aria-pressed={value === date}
@@ -1454,7 +1558,8 @@ export function CommandMenu({
         />
         <div className="fp-command-results">
           {filtered.map((i, n) => (
-            <button type="button"
+            <button
+              type="button"
               key={i.label}
               className={n === active ? "is-active" : ""}
               onClick={() => {
@@ -1519,7 +1624,8 @@ export function ImagePreview({ src, alt }: { src: string; alt: string }) {
   let [open, setOpen] = useState(false);
   return (
     <>
-      <button type="button"
+      <button
+        type="button"
         className="fp-image-button"
         onClick={() => setOpen(true)}
         aria-label={`放大${alt}`}
@@ -1561,7 +1667,12 @@ export * from "./workspace/ResourcePreview";
 export * from "./workspace/FileTree";
 export * from "./workspace/WorkspaceLayout";
 export * from "./workspace/CollaborativeEditor";
-export { MessageList, MessageBubble, type Message, type MessageListProps } from "./MessageList";
+export {
+  MessageList,
+  MessageBubble,
+  type Message,
+  type MessageListProps,
+} from "./MessageList";
 export * from "./ChatComposer";
 export * from "./MemberAccess";
 export * from "./SelectField";
@@ -1570,30 +1681,93 @@ export * from "./ShareLink";
 export * from "./AttachmentPicker";
 export * from "./UploadQueue";
 export * from "./editor/MarkdownEditor";
-export { markdownToDocument, documentToMarkdown, baseEditorExtensions, NOTE_SCHEMA_VERSION } from "./editor/schema";
-export { configureMathPreferences, type MathPreferenceStorage } from "./editor/mathPreferences";
+export {
+  markdownToDocument,
+  documentToMarkdown,
+  baseEditorExtensions,
+  NOTE_SCHEMA_VERSION,
+} from "./editor/schema";
+export {
+  configureMathPreferences,
+  type MathPreferenceStorage,
+} from "./editor/mathPreferences";
 export { Attachment } from "./editor/attachment";
 export { DirectiveBlock } from "./editor/directiveBlock";
-export { CollapseTransition, type CollapseTransitionProps } from "./CollapseTransition";
-export { AgentTrace, type AgentTraceProps, type TraceStep, type TraceStatus } from "./AgentTrace";
+export {
+  CollapseTransition,
+  type CollapseTransitionProps,
+} from "./CollapseTransition";
+export {
+  AgentTrace,
+  type AgentTraceProps,
+  type TraceStep,
+  type TraceStatus,
+} from "./AgentTrace";
 export { FlipCard, type FlipCardProps, type FlipCardKind } from "./FlipCard";
-export { SelectionToolbar, type SelectionToolbarProps, type SelectionAction } from "./SelectionToolbar";
-export { SyncStatus, type SyncStatusProps, type PendingSync } from "./SyncStatus";
-export { ModelSelector, type ModelSelectorProps, type ModelInfo, type ModelGroup } from "./ModelSelector";
-export { TokenDashboard, TokenDashboardAuto, type TokenDashboardProps } from "./TokenDashboard";
-export { CollapsibleSection, type CollapsibleSectionProps } from "./CollapsibleSection";
-export { AttachmentGrid, type AttachmentGridProps, type AttachmentItem } from "./AttachmentGrid";
-export { QuizQuestion, type QuizQuestionProps, type QuizOption, type QuizDifficulty } from "./QuizQuestion";
+export {
+  SelectionToolbar,
+  type SelectionToolbarProps,
+  type SelectionAction,
+} from "./SelectionToolbar";
+export {
+  SyncStatus,
+  type SyncStatusProps,
+  type PendingSync,
+} from "./SyncStatus";
+export {
+  ModelSelector,
+  type ModelSelectorProps,
+  type ModelInfo,
+  type ModelGroup,
+} from "./ModelSelector";
+export {
+  TokenDashboard,
+  TokenDashboardAuto,
+  type TokenDashboardProps,
+} from "./TokenDashboard";
+export {
+  CollapsibleSection,
+  type CollapsibleSectionProps,
+} from "./CollapsibleSection";
+export {
+  AttachmentGrid,
+  type AttachmentGridProps,
+  type AttachmentItem,
+} from "./AttachmentGrid";
+export {
+  QuizQuestion,
+  type QuizQuestionProps,
+  type QuizOption,
+  type QuizDifficulty,
+} from "./QuizQuestion";
 export { EmbedFallback, type EmbedFallbackProps } from "./EmbedFallback";
 export { MediaLightbox, type MediaLightboxProps } from "./MediaLightbox";
 export { SettingsSection, type SettingsSectionProps } from "./SettingsSection";
 export { ChatEmptyState, type ChatEmptyStateProps } from "./ChatEmptyState";
-export { SourceFold, type SourceFoldProps, type SourceItem } from "./SourceFold";
-export { SessionHistory, type SessionHistoryProps, type SessionGroup, type SessionItem } from "./SessionHistory";
+export {
+  SourceFold,
+  type SourceFoldProps,
+  type SourceItem,
+} from "./SourceFold";
+export {
+  SessionHistory,
+  type SessionHistoryProps,
+  type SessionGroup,
+  type SessionItem,
+} from "./SessionHistory";
 export { ContentImage, type ContentImageProps } from "./ContentImage";
 export { WindowChrome, type WindowChromeProps } from "./WindowChrome";
-export { FilterSelect, type FilterSelectProps, type FilterOption, type FilterGroup } from "./FilterSelect";
-export { AcademicYearSwitcher, type AcademicYearSwitcherProps, type AcademicYear } from "./AcademicYearSwitcher";
+export {
+  FilterSelect,
+  type FilterSelectProps,
+  type FilterOption,
+  type FilterGroup,
+} from "./FilterSelect";
+export {
+  AcademicYearSwitcher,
+  type AcademicYearSwitcherProps,
+  type AcademicYear,
+} from "./AcademicYearSwitcher";
 export {
   KeyPoint,
   ConceptCard,
@@ -1607,17 +1781,47 @@ export {
   type CauseEffectItem,
   type DerivationProps,
 } from "./NoteBlocks";
-export { CitationList, type CitationListProps, type CitationHit } from "./CitationList";
+export {
+  CitationList,
+  type CitationListProps,
+  type CitationHit,
+} from "./CitationList";
 export { ApprovalCard, type ApprovalCardProps } from "./ApprovalCard";
 export { TocTree, type TocTreeProps, type TocItemNode } from "./TocTree";
-export { SiblingFiles, type SiblingFilesProps, type SiblingItem, type SiblingStatus } from "./SiblingFiles";
+export {
+  SiblingFiles,
+  type SiblingFilesProps,
+  type SiblingItem,
+  type SiblingStatus,
+} from "./SiblingFiles";
 export { FormulaSteps, type FormulaStepsProps } from "./FormulaSteps";
-export { DistributionChart, type DistributionChartProps, type DistributionKind } from "./DistributionChart";
+export {
+  DistributionChart,
+  type DistributionChartProps,
+  type DistributionKind,
+} from "./DistributionChart";
 export { VideoPlayer, type VideoPlayerProps } from "./VideoPlayer";
-export { ShortcutHelp, type ShortcutHelpProps, type ShortcutCategory, type ShortcutItem } from "./ShortcutHelp";
-export { BottomNav, type BottomNavProps, type BottomNavItem } from "./BottomNav";
-export { ImageGallery, type ImageGalleryProps, type GalleryImage } from "./ImageGallery";
-export { WindowTaskbar, type WindowTaskbarProps, type TaskbarWindow } from "./WindowTaskbar";
+export {
+  ShortcutHelp,
+  type ShortcutHelpProps,
+  type ShortcutCategory,
+  type ShortcutItem,
+} from "./ShortcutHelp";
+export {
+  BottomNav,
+  type BottomNavProps,
+  type BottomNavItem,
+} from "./BottomNav";
+export {
+  ImageGallery,
+  type ImageGalleryProps,
+  type GalleryImage,
+} from "./ImageGallery";
+export {
+  WindowTaskbar,
+  type WindowTaskbarProps,
+  type TaskbarWindow,
+} from "./WindowTaskbar";
 export * from "./themes";
 import "./workspace/preview.css";
 import "./workspace/workspace.css";
@@ -1629,3 +1833,15 @@ export * from "./AnimatedSize";
 
 export * from "./ContextMenu";
 export * from "./ResourceExplorer";
+
+export * from "./TaskViews";
+
+export * from "./ProductCompositions";
+
+export {
+  DirectiveFields,
+  parseDirectiveAttributes,
+  setDirectiveAttribute,
+} from "./editor/DirectiveFields";
+
+export { useMathEditor } from "./editor/MathEditor";

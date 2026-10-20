@@ -14,8 +14,14 @@ export type CalloutType = (typeof CALLOUT_TYPES)[number];
 export const CALLOUTS = new Set<string>(CALLOUT_TYPES);
 
 const DIRECTIVE_ALIASES: Record<string, string> = {
-  intuition: "insight", technique: "tip", comparison: "compare",
-  summary: "keypoint", question: "note", task: "note",
+  "cause-effect": "causeeffect",
+  "learning-animation": "learninganimation",
+  intuition: "insight",
+  technique: "tip",
+  comparison: "compare",
+  summary: "keypoint",
+  question: "note",
+  task: "note",
 };
 
 export function canonicalDirectiveName(name: string) {
@@ -81,5 +87,7 @@ export function resolveObsidianCallout(type: string): CalloutType {
 /** quote/cite 等明确不转 callout 的类型。 */
 export function isSkippedObsidianCallout(type: string): boolean {
   const key = type.toLowerCase();
-  return key in OBSIDIAN_CALLOUT_ALIASES && OBSIDIAN_CALLOUT_ALIASES[key] === null;
+  return (
+    key in OBSIDIAN_CALLOUT_ALIASES && OBSIDIAN_CALLOUT_ALIASES[key] === null
+  );
 }

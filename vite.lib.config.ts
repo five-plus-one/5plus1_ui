@@ -28,7 +28,7 @@ export default defineConfig({
     lib: { entry: "src/lib/index.tsx", formats: ["es"], fileName: "index" },
     rollupOptions: {
       external: (id) =>
-        dependencies.some((dep) => id === dep || id.startsWith(dep + "/")),
+        !id.endsWith(".css") && dependencies.some((dep) => id === dep || id.startsWith(dep + "/")),
     },
   },
 });

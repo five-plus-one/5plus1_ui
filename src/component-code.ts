@@ -1,19 +1,35 @@
+import { catalogExamples } from "./catalog-examples";
 import { entries } from "./catalog";
+import { patternExamples } from "./pattern-examples";
 export function componentCode(name: string) {
+  if (patternExamples[name]) return patternExamples[name];
+  if (catalogExamples[name]) return catalogExamples[name];
   const examples: Record<string, string> = {
-    ContextMenu: '<ContextMenu items={[{id:"open",label:"打开",onSelect:()=>setMessage("已打开")}]}><div style={{padding:32}}>右键打开快捷操作</div></ContextMenu>',
-    ResourceExplorer: '<ResourceExplorer items={[{id:"folder",name:"课程资料",kind:"folder"},{id:"pdf",name:"讲义.pdf",kind:"file",size:2048}]} folderId={folder} onFolderChange={setFolder} selectedIds={selected} onSelectionChange={setSelected} onOpen={item=>setMessage(item.name)} />',
+    ContextMenu:
+      '<ContextMenu items={[{id:"open",label:"打开",onSelect:()=>setMessage("已打开")}]}><div style={{padding:32}}>右键打开快捷操作</div></ContextMenu>',
+    ResourceExplorer:
+      '<ResourceExplorer items={[{id:"folder",name:"课程资料",kind:"folder"},{id:"pdf",name:"讲义.pdf",kind:"file",size:2048}]} folderId={folder} onFolderChange={setFolder} selectedIds={selected} onSelectionChange={setSelected} onOpen={item=>setMessage(item.name)} />',
 
-    SelectField: '<SelectField label="排序方式" value={text || "recent"} onChange={setText} options={[{value:"recent",label:"最近更新"},{value:"name",label:"名称"}]} />',
-    MemberSearch: '<MemberSearch onSearch={async (query, kind, signal) => { const response = await fetch("/members?q=" + encodeURIComponent(query) + "&type=" + kind, {signal}); if (!response.ok) throw new Error("查找失败"); return response.json(); }} onPick={member => console.log(member)} />',
-    ShareLink: '<ShareLink enabled={open} onEnabledChange={setOpen} access={text || "read"} onAccessChange={setText} url="https://example.com/share" />',
-    AttachmentPicker: '<AttachmentPicker items={[{id:"1",name:"课堂讲义.pdf"}]} selectedIds={[]} onChange={ids => console.log(ids)} onConfirm={async ids => console.log(ids)} />',
-    UploadQueue: '<UploadQueue tasks={[{id:"1",name:"课堂讲义.pdf",status:"uploading",progress:60}]} onCancel={id => console.log(id)} />',
-    MemberAccess: '<MemberAccess members={[{id: "me", name: "五加一", role: "edit"}]} roles={[{value: "read", label: "可以阅读"}, {value: "edit", label: "可以编辑"}]} />',
-    ChatComposer: '<ChatComposer value={text} onChange={setText} onSend={async message => { console.log(message); setText(""); }} />',
-    MarkdownEditor: '<MarkdownEditor markdown="## 学习笔记\\n\\n写下你的理解。" onChange={(markdown, document) => console.log(markdown, document)} />',
-    WorkspaceLayout: '<div style={{height: 480}}><WorkspaceLayout panels={[\n  {id: "files", label: "目录", content: <p>课程资料</p>, defaultSize: 20, collapsible: true},\n  {id: "note", label: "笔记", content: <p>学习笔记</p>, defaultSize: 50},\n  {id: "chat", label: "讨论", content: <p>讨论</p>, defaultSize: 30},\n]} persistenceKey="my-product:workspace" /></div>',
-    ModelSelector: '<ModelSelector value={text || "fast"} onChange={setText} groups={[{name: "通用模型", models: [{id: "fast", label: "快速版", contextWindow: 128000}, {id: "deep", label: "深度版", contextWindow: 200000}]}]} />',
+    SelectField:
+      '<SelectField label="排序方式" value={text || "recent"} onChange={setText} options={[{value:"recent",label:"最近更新"},{value:"name",label:"名称"}]} />',
+    MemberSearch:
+      '<MemberSearch onSearch={async (query, kind, signal) => { const response = await fetch("/members?q=" + encodeURIComponent(query) + "&type=" + kind, {signal}); if (!response.ok) throw new Error("查找失败"); return response.json(); }} onPick={member => console.log(member)} />',
+    ShareLink:
+      '<ShareLink enabled={open} onEnabledChange={setOpen} access={text || "read"} onAccessChange={setText} url="https://example.com/share" />',
+    AttachmentPicker:
+      '<AttachmentPicker items={[{id:"1",name:"课堂讲义.pdf"}]} selectedIds={[]} onChange={ids => console.log(ids)} onConfirm={async ids => console.log(ids)} />',
+    UploadQueue:
+      '<UploadQueue tasks={[{id:"1",name:"课堂讲义.pdf",status:"uploading",progress:60}]} onCancel={id => console.log(id)} />',
+    MemberAccess:
+      '<MemberAccess members={[{id: "me", name: "五加一", role: "edit"}]} roles={[{value: "read", label: "可以阅读"}, {value: "edit", label: "可以编辑"}]} />',
+    ChatComposer:
+      '<ChatComposer value={text} onChange={setText} onSend={async message => { console.log(message); setText(""); }} />',
+    MarkdownEditor:
+      '<MarkdownEditor markdown="## 学习笔记\\n\\n写下你的理解。" onChange={(markdown, document) => console.log(markdown, document)} />',
+    WorkspaceLayout:
+      '<div style={{height: 480}}><WorkspaceLayout panels={[\n  {id: "files", label: "目录", content: <p>课程资料</p>, defaultSize: 20, collapsible: true},\n  {id: "note", label: "笔记", content: <p>学习笔记</p>, defaultSize: 50},\n  {id: "chat", label: "讨论", content: <p>讨论</p>, defaultSize: 30},\n]} persistenceKey="my-product:workspace" /></div>',
+    ModelSelector:
+      '<ModelSelector value={text || "fast"} onChange={setText} groups={[{name: "通用模型", models: [{id: "fast", label: "快速版", contextWindow: 128000}, {id: "deep", label: "深度版", contextWindow: 200000}]}]} />',
     Button: '<Button onClick={() => setMessage("已保存")}>保存笔记</Button>',
     IconButton:
       '<IconButton label="更多操作" onClick={() => setOpen(true)}>＋</IconButton>',
@@ -140,7 +156,10 @@ export function componentCode(name: string) {
   };
   const snippet = examples[name] || "";
   const state = [
-    ["setFolder", "  const [folder, setFolder] = useState<string | null>(null);"],
+    [
+      "setFolder",
+      "  const [folder, setFolder] = useState<string | null>(null);",
+    ],
     ["enabled", "  const [enabled, setEnabled] = useState(true);"],
     ["setText", '  const [text, setText] = useState("");'],
     [

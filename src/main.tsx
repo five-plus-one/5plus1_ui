@@ -96,19 +96,48 @@ function App() {
     // 通知所有 iframe embed 页面同步主题
     document.querySelectorAll("iframe.device-canvas").forEach((iframe) => {
       (iframe as HTMLIFrameElement).contentWindow?.postMessage(
-        { type: "theme-change", theme, product: document.documentElement.dataset.product },
+        {
+          type: "theme-change",
+          theme,
+          product: document.documentElement.dataset.product,
+        },
         location.origin,
       );
     });
   }, [theme]);
   useEffect(() => {
-    const product = path === "/examples/workspace" ? "kezhan" : path === "/examples/marker" ? "marker" : path === "/examples/account" ? "onepass" : path === "/examples/brand" ? "brand" : accent;
+    const product =
+      path === "/examples/workspace"
+        ? "kezhan"
+        : path === "/examples/marker"
+          ? "marker"
+          : path === "/examples/account"
+            ? "onepass"
+            : path === "/examples/brand"
+              ? "brand"
+              : accent;
     delete document.documentElement.dataset.accent;
     document.documentElement.dataset.product = product;
     localStorage.setItem("fp-product", accent);
-    const sync = () => document.querySelectorAll<HTMLIFrameElement>('iframe.device-canvas').forEach(frame => frame.contentWindow?.postMessage({type:'theme-change',theme,product},location.origin));
-    sync(); const ready = (event: MessageEvent) => { if (event.origin === location.origin && event.data?.type === 'embed-ready') sync(); };
-    window.addEventListener('message', ready); return () => window.removeEventListener('message', ready);
+    const sync = () =>
+      document
+        .querySelectorAll<HTMLIFrameElement>("iframe.device-canvas")
+        .forEach((frame) =>
+          frame.contentWindow?.postMessage(
+            { type: "theme-change", theme, product },
+            location.origin,
+          ),
+        );
+    sync();
+    const ready = (event: MessageEvent) => {
+      if (
+        event.origin === location.origin &&
+        event.data?.type === "embed-ready"
+      )
+        sync();
+    };
+    window.addEventListener("message", ready);
+    return () => window.removeEventListener("message", ready);
   }, [accent, path, theme]);
   useEffect(() => {
     let f = (e: KeyboardEvent) => {
@@ -122,7 +151,13 @@ function App() {
   }, []);
   let current =
     nav.find((n) => n.id !== "/" && path.startsWith(n.id)) || nav[0];
-  if (path.startsWith('/embed/')) return <><Embed path={path} notify={notify} />{toast && <U.Toast message={toast} onClose={() => setToast('')} />}</>;
+  if (path.startsWith("/embed/"))
+    return (
+      <>
+        <Embed path={path} notify={notify} />
+        {toast && <U.Toast message={toast} onClose={() => setToast("")} />}
+      </>
+    );
   return (
     <>
       <a
@@ -142,7 +177,7 @@ function App() {
           <span>
             五加一<span>Design</span>
           </span>
-          <U.Badge>0.3</U.Badge>
+          <U.Badge>0.4</U.Badge>
         </a>
         <button className="site-search" onClick={() => setSearch(true)}>
           <Search size={15} />
@@ -215,7 +250,18 @@ function App() {
             <strong>{current.label}</strong>
           </div>
           <div>
-            <U.SelectField label="切换主题颜色" value={accent} onChange={setAccent} options={Object.entries(U.productThemes).map(([value, theme]) => ({value, label: theme.name, color:theme.primary}))} />
+            <U.SelectField
+              label="切换主题颜色"
+              value={accent}
+              onChange={setAccent}
+              options={Object.entries(U.productThemes).map(
+                ([value, theme]) => ({
+                  value,
+                  label: theme.name,
+                  color: theme.primary,
+                }),
+              )}
+            />
             <U.IconButton
               label={theme === "light" ? "切换深色外观" : "切换浅色外观"}
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -444,7 +490,7 @@ function Components({
             />
             <span>
               {device === "desktop"
-                ? "≥ 1280px"
+                ? "自适应"
                 : device === "tablet"
                   ? "768px"
                   : "390px"}
@@ -548,7 +594,12 @@ function Components({
               <Miniature name={e.name} group={e.group} />
             </div>
             <div>
-              <h3><a href={"#/components/" + e.name}>{e.zh}<ArrowUpRight size={15} /></a></h3>
+              <h3>
+                <a href={"#/components/" + e.name}>
+                  {e.zh}
+                  <ArrowUpRight size={15} />
+                </a>
+              </h3>
               <span>{e.name}</span>
               <p>{e.description}</p>
             </div>
@@ -565,7 +616,11 @@ function Components({
   );
 }
 function Miniature({ name }: { name: string; group: string }) {
-  return <div className="catalog-specimen" inert aria-hidden="true"><Demo name={name} notify={() => {}} /></div>;
+  return (
+    <div className="catalog-specimen" inert aria-hidden="true">
+      <Demo name={name} notify={() => {}} />
+    </div>
+  );
 }
 function Foundations({
   accent,
@@ -605,9 +660,16 @@ function Foundations({
             </div>
             <div className="product-theme-picker">
               {Object.entries(U.productThemes).map(([id, palette]) => (
-                <button key={id} aria-pressed={accent === id} onClick={() => setAccent(id)}>
-                  <span style={{background: palette.primary}} />
-                  <span>{palette.name}<small>{palette.primary}</small></span>
+                <button
+                  key={id}
+                  aria-pressed={accent === id}
+                  onClick={() => setAccent(id)}
+                >
+                  <span style={{ background: palette.primary }} />
+                  <span>
+                    {palette.name}
+                    <small>{palette.primary}</small>
+                  </span>
                   {accent === id && <Check size={15} />}
                 </button>
               ))}
@@ -752,14 +814,26 @@ function Foundations({
     </div>
   );
 }
-function Embed({ path, notify }: { path: string; notify: (s: string) => void }) {
+function Embed({
+  path,
+  notify,
+}: {
+  path: string;
+  notify: (s: string) => void;
+}) {
   let name = path.split("/")[2]?.split("?")[0] || "";
   let entry = allEntries.find((e) => e.name === name);
   useEffect(() => {
     const syncTheme = (e: MessageEvent) => {
-      if (e.origin === location.origin && e.source === window.parent && e.data?.type === "theme-change" && ['light', 'dark'].includes(e.data.theme)) {
+      if (
+        e.origin === location.origin &&
+        e.source === window.parent &&
+        e.data?.type === "theme-change" &&
+        ["light", "dark"].includes(e.data.theme)
+      ) {
         document.documentElement.setAttribute("data-theme", e.data.theme);
-        if (Object.keys(U.productThemes).includes(e.data.product)) document.documentElement.dataset.product = e.data.product;
+        if (Object.keys(U.productThemes).includes(e.data.product))
+          document.documentElement.dataset.product = e.data.product;
       }
     };
     window.addEventListener("message", syncTheme);
@@ -911,7 +985,7 @@ function Start() {
       <U.CodeBlock
         language="shell"
         code={
-          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.3.2.tgz"
+          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.4.0.tgz"
         }
       />
       <h2 className="doc-heading">2. 从一个按钮开始</h2>

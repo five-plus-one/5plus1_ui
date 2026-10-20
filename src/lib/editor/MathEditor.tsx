@@ -1,38 +1,79 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
-import { AnimatedSize } from '../AnimatedSize';
+import { AnimatedSize } from "../AnimatedSize";
 import { createPortal } from "react-dom";
 import type { Editor } from "@tiptap/core";
 import type { MathfieldElement } from "mathlive";
 import { closeHistory } from "@tiptap/pm/history";
 import { Selection } from "@tiptap/pm/state";
 import { yUndoPluginKey } from "@tiptap/y-tiptap";
-import { Check, Code2, Keyboard, Trash2, Grid2X2, Settings2, CornerDownLeft } from "lucide-react";
+import {
+  Check,
+  Code2,
+  Keyboard,
+  Trash2,
+  Grid2X2,
+  Settings2,
+  CornerDownLeft,
+} from "lucide-react";
 import { matrixStyles, matrixTemplate, type MatrixStyle } from "./mathKeyboard";
 import MathSymbolPalette from "./MathSymbolPalette";
 import MathShortcutSettings from "./MathShortcutSettings";
 import { installMathShortcuts, readShortcuts } from "./mathShortcuts";
-import { mathPreferencesChanged, refreshMathPreferences } from "./mathPreferences";
+import {
+  mathPreferencesChanged,
+  refreshMathPreferences,
+} from "./mathPreferences";
 import { SelectField } from "../SelectField";
-import { animateFormulaTransition, cancelFormulaTransition } from './formulaTransition';
+import {
+  animateFormulaTransition,
+  cancelFormulaTransition,
+} from "./formulaTransition";
 import type { MathNodeHost } from "./LazyMathExtensions";
 
-
 const templates = [
-  ["分数", "\\frac{#0}{#?}"], ["根号", "\\sqrt{#0}"],
-  ["上标", "#0^{#?}"], ["下标", "#0_{#?}"],
-  ["积分", "\\int_{#?}^{#?} #? \\,d#?"], ["求和", "\\sum_{#?}^{#?} #?"],
+  ["分数", "\\frac{#0}{#?}"],
+  ["根号", "\\sqrt{#0}"],
+  ["上标", "#0^{#?}"],
+  ["下标", "#0_{#?}"],
+  ["积分", "\\int_{#?}^{#?} #? \\,d#?"],
+  ["求和", "\\sum_{#?}^{#?} #?"],
 ] as const;
 
-type MathSession = { id: string; editor: Editor; display: boolean; host: MathNodeHost; slot: HTMLElement; original: string; collapsedHeight: number };
+type MathSession = {
+  id: string;
+  editor: Editor;
+  display: boolean;
+  host: MathNodeHost;
+  slot: HTMLElement;
+  original: string;
+  collapsedHeight: number;
+};
 type MathOpener = (editor: Editor, display: boolean, position?: number) => void;
-const nestedTargets = new WeakMap<Editor, { editor: Editor; open: MathOpener }>();
-export function bindNestedMathEditor(parent: Editor, editor: Editor, open: MathOpener) {
+const nestedTargets = new WeakMap<
+  Editor,
+  { editor: Editor; open: MathOpener }
+>();
+export function bindNestedMathEditor(
+  parent: Editor,
+  editor: Editor,
+  open: MathOpener,
+) {
   const activate = () => nestedTargets.set(parent, { editor, open });
   const reset = (event: PointerEvent) => {
-    if (!(event.target instanceof Element) || !event.target.closest(".visual-directive-editor")) nestedTargets.delete(parent);
+    if (
+      !(event.target instanceof Element) ||
+      !event.target.closest(".visual-directive-editor")
+    )
+      nestedTargets.delete(parent);
   };
   editor.on("focus", activate);
   parent.view.dom.addEventListener("pointerdown", reset, true);
@@ -40,12 +81,22 @@ export function bindNestedMathEditor(parent: Editor, editor: Editor, open: MathO
   return () => {
     editor.off("focus", activate);
     parent.view.dom.removeEventListener("pointerdown", reset, true);
-    if (nestedTargets.get(parent)?.editor === editor) nestedTargets.delete(parent);
+    if (nestedTargets.get(parent)?.editor === editor)
+      nestedTargets.delete(parent);
   };
 }
-export function openActiveMathEditor(parent: Editor, display: boolean, fallback: MathOpener) {
+export function openActiveMathEditor(
+  parent: Editor,
+  display: boolean,
+  fallback: MathOpener,
+) {
   const target = nestedTargets.get(parent);
-  if (target && !target.editor.isDestroyed && target.editor.view.dom.isConnected) target.open(target.editor, display);
+  if (
+    target &&
+    !target.editor.isDestroyed &&
+    target.editor.view.dom.isConnected
+  )
+    target.open(target.editor, display);
   else fallback(parent, display);
 }
 
@@ -62,42 +113,97 @@ export function useMathEditor() {
     const previous = current.current;
     current.current = null;
     setSession(null);
-    if (previous && !previous.editor.isDestroyed) separateHistory(previous.editor);
+    if (previous && !previous.editor.isDestroyed)
+      separateHistory(previous.editor);
   }, []);
-  const open = useCallback((editor: Editor, display: boolean, position?: number, range?: { from: number; to: number }) => {
-    if (!editor.isEditable) return;
-    if (position === undefined) {
+  const open = useCallback(
+    (
+      editor: Editor,
+      display: boolean,
+      position?: number,
+      range?: { from: number; to: number },
+    ) => {
+      if (!editor.isEditable) return;
+      if (position === undefined) {
+        separateHistory(editor);
+        const target = range ?? editor.state.selection;
+        editor
+          .chain()
+          .insertContentAt(
+            { from: target.from, to: target.to },
+            {
+              type: display ? "blockMath" : "inlineMath",
+              attrs: { latex: "" },
+            },
+          )
+          .command(({ tr }) => {
+            tr.mapping.maps
+              .at(-1)
+              ?.forEach((_oldStart, _oldEnd, start, end) => {
+                tr.doc.nodesBetween(start, end, (node, pos) => {
+                  if (
+                    node.type.name === (display ? "blockMath" : "inlineMath")
+                  ) {
+                    position = pos;
+                    return false;
+                  }
+                });
+              });
+            return true;
+          })
+          .run();
+      }
+      if (position === undefined) return;
+      const host = editor.view.nodeDOM(position) as MathNodeHost | null;
+      const slot = host?.querySelector<HTMLElement>(".math-node-editor-slot");
+      if (!host?.mathPosition || !slot || current.current?.host === host)
+        return;
+      close();
       separateHistory(editor);
-      const target = range ?? editor.state.selection;
-      editor.chain().insertContentAt({ from: target.from, to: target.to }, { type: display ? "blockMath" : "inlineMath", attrs: { latex: "" } }).command(({ tr }) => {
-        tr.mapping.maps.at(-1)?.forEach((_oldStart, _oldEnd, start, end) => {
-          tr.doc.nodesBetween(start, end, (node, pos) => {
-            if (node.type.name === (display ? "blockMath" : "inlineMath")) { position = pos; return false; }
-          });
-        });
-        return true;
-      }).run();
-    }
-    if (position === undefined) return;
-    const host = editor.view.nodeDOM(position) as MathNodeHost | null;
-    const slot = host?.querySelector<HTMLElement>(".math-node-editor-slot");
-    if (!host?.mathPosition || !slot || current.current?.host === host) return;
-    close();
-    separateHistory(editor);
-    const next = { id: crypto.randomUUID(), editor, display, host, slot, collapsedHeight: host.getBoundingClientRect().height, original: String(editor.state.doc.nodeAt(position)?.attrs.latex ?? "") };
-    current.current = next;
-    setSession(next);
-  }, [close]);
-  return { open, card: session ? <MathEditor key={session.id} session={session} onClose={close} /> : null };
+      const next = {
+        id: crypto.randomUUID(),
+        editor,
+        display,
+        host,
+        slot,
+        collapsedHeight: host.getBoundingClientRect().height,
+        original: String(editor.state.doc.nodeAt(position)?.attrs.latex ?? ""),
+      };
+      current.current = next;
+      setSession(next);
+    },
+    [close],
+  );
+  return {
+    open,
+    card: session ? (
+      <MathEditor key={session.id} session={session} onClose={close} />
+    ) : null,
+  };
 }
 
-function MathEditor({ session, onClose: closeSession }: { session: MathSession; onClose: (id?: string) => void }) {
-  const onClose = useCallback(() => closeSession(session.id), [closeSession, session.id]);
+function MathEditor({
+  session,
+  onClose: closeSession,
+}: {
+  session: MathSession;
+  onClose: (id?: string) => void;
+}) {
+  const onClose = useCallback(
+    () => closeSession(session.id),
+    [closeSession, session.id],
+  );
   const [draft, setDraft] = useState(session.original);
   const draftRef = useRef(session.original);
   const [sourceOpen, setSourceOpen] = useState(false);
-  const [status, setStatus] = useState<"loading" | "ready" | "fallback">("loading");
-  const [symbolOpen, setSymbolOpen] = useState(() => typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)").matches);
+  const [status, setStatus] = useState<"loading" | "ready" | "fallback">(
+    "loading",
+  );
+  const [symbolOpen, setSymbolOpen] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      !!window.matchMedia?.("(pointer: coarse)").matches,
+  );
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [shortcuts, setShortcuts] = useState(readShortcuts);
   const sourceActive = useRef(false);
@@ -110,25 +216,66 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
   const hostRef = useRef<HTMLDivElement>(null);
   const fieldRef = useRef<MathfieldElement | null>(null);
   const sourceRef = useRef<HTMLTextAreaElement>(null);
-  const update = useCallback((value: string) => {
-    const pos = session.host.mathPosition();
-    if (pos === undefined || session.editor.isDestroyed) return;
-    const node = session.editor.state.doc.nodeAt(pos);
-    if (!node || !["inlineMath", "blockMath"].includes(node.type.name)) return;
-    draftRef.current = value;
-    setDraft(value);
-    if (node.attrs.latex !== value) session.editor.view.dispatch(session.editor.state.tr.setNodeMarkup(pos, undefined, { ...node.attrs, latex: value }));
-  }, [session]);
+  const update = useCallback(
+    (value: string) => {
+      const pos = session.host.mathPosition();
+      if (pos === undefined || session.editor.isDestroyed) return;
+      const node = session.editor.state.doc.nodeAt(pos);
+      if (!node || !["inlineMath", "blockMath"].includes(node.type.name))
+        return;
+      draftRef.current = value;
+      setDraft(value);
+      if (node.attrs.latex !== value)
+        session.editor.view.dispatch(
+          session.editor.state.tr.setNodeMarkup(pos, undefined, {
+            ...node.attrs,
+            latex: value,
+          }),
+        );
+    },
+    [session],
+  );
 
   useLayoutEffect(() => {
-    cancelFormulaTransition(session.display ? session.host : session.host.closest<HTMLElement>('p, li, td') || session.host);
+    cancelFormulaTransition(
+      session.display
+        ? session.host
+        : session.host.closest<HTMLElement>("p, li, td") || session.host,
+    );
     session.host.classList.add("is-math-editing");
     session.host.setAttribute("draggable", "false");
+    const inlineParagraph = !session.display
+      ? session.host.closest<HTMLElement>("p")
+      : null;
+    const spaceHost = session.editor.view.dom;
+    const previousSpace = spaceHost.style.getPropertyValue(
+      "--fp-inline-math-space",
+    );
+
+    const reserveSpace = () => {
+      if (inlineParagraph)
+        spaceHost.style.setProperty(
+          "--fp-inline-math-space",
+          `${session.slot.getBoundingClientRect().height + 12}px`,
+        );
+    };
+    reserveSpace();
+    const inlineObserver =
+      inlineParagraph && typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(reserveSpace)
+        : null;
+    inlineObserver?.observe(session.slot);
     const sync = () => {
       const pos = session.host.mathPosition();
-      if (pos === undefined || !session.host.isConnected) { onClose(); return; }
+      if (pos === undefined || !session.host.isConnected) {
+        onClose();
+        return;
+      }
       const node = session.editor.state.doc.nodeAt(pos);
-      if (!node || !["inlineMath", "blockMath"].includes(node.type.name)) { onClose(); return; }
+      if (!node || !["inlineMath", "blockMath"].includes(node.type.name)) {
+        onClose();
+        return;
+      }
       const value = String(node.attrs.latex ?? "");
       if (value !== draftRef.current) {
         draftRef.current = value;
@@ -137,39 +284,73 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       }
     };
     const outside = (event: PointerEvent) => {
-      if (!session.host.contains(event.target as Node) && !(event.target as Element).closest?.(".fp-popup-panel")) onClose();
+      if (
+        !session.host.contains(event.target as Node) &&
+        !(event.target as Element).closest?.(".fp-popup-panel")
+      )
+        onClose();
     };
     session.editor.on("transaction", sync);
     session.editor.on("destroy", onClose);
     document.addEventListener("pointerdown", outside);
     return () => {
       const host = session.host;
-      const target = session.display ? host : host.closest<HTMLElement>('p, li, td') || host;
+      const target = session.display
+        ? host
+        : host.closest<HTMLElement>("p, li, td") || host;
       const before = target.getBoundingClientRect();
       const snapshot = target.cloneNode(true) as HTMLElement;
-      snapshot.querySelectorAll('math-field').forEach(field => {
-        const content = host.querySelector('.math-node-content')?.cloneNode(true) as HTMLElement | undefined;
-        if (content) { content.style.display = 'block'; field.replaceWith(content); } else field.remove();
+      snapshot.querySelectorAll("math-field").forEach((field) => {
+        const content = host
+          .querySelector(".math-node-content")
+          ?.cloneNode(true) as HTMLElement | undefined;
+        if (content) {
+          content.style.display = "block";
+          field.replaceWith(content);
+        } else field.remove();
       });
-      session.slot.style.display = 'none';
+      inlineObserver?.disconnect();
+      session.slot.style.display = "none";
+      const reservedSpace = spaceHost.style.getPropertyValue(
+        "--fp-inline-math-space",
+      );
+      if (previousSpace)
+        spaceHost.style.setProperty("--fp-inline-math-space", previousSpace);
+      else spaceHost.style.removeProperty("--fp-inline-math-space");
       host.classList.remove("is-math-editing");
       const after = target.getBoundingClientRect();
-      session.slot.style.removeProperty('display');
-      if (target.isConnected && typeof target.animate === 'function' && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
-        const overlay = document.createElement('div');
-        overlay.className = 'fp-markdown-editor fp-formula-closing';
+      session.slot.style.removeProperty("display");
+      if (
+        target.isConnected &&
+        typeof target.animate === "function" &&
+        !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+      ) {
+        const overlay = document.createElement("div");
+        overlay.className = "fp-markdown-editor fp-formula-closing";
+        overlay.style.setProperty("--fp-inline-math-space", reservedSpace);
         overlay.inert = true;
-        overlay.setAttribute('aria-hidden','true');
-        Object.assign(overlay.style,{position:'absolute',left:`${before.left+window.scrollX}px`,top:`${before.top+window.scrollY}px`,width:`${before.width}px`,height:`${before.height}px`,overflow:'clip',pointerEvents:'none',zIndex:'20'});
-        snapshot.style.margin = '0';
-        snapshot.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
-        const content = document.createElement('div');
-        content.className = 'fp-editor-prose';
-        Object.assign(content.style,{padding:'0',minHeight:'0'});
+        overlay.setAttribute("aria-hidden", "true");
+        Object.assign(overlay.style, {
+          position: "absolute",
+          left: `${before.left + window.scrollX}px`,
+          top: `${before.top + window.scrollY}px`,
+          width: `${before.width}px`,
+          height: `${before.height}px`,
+          overflow: "clip",
+          pointerEvents: "none",
+          zIndex: "20",
+        });
+        snapshot.style.margin = "0";
+        snapshot
+          .querySelectorAll("[id]")
+          .forEach((element) => element.removeAttribute("id"));
+        const content = document.createElement("div");
+        content.className = "fp-editor-prose";
+        Object.assign(content.style, { padding: "0", minHeight: "0" });
         content.append(snapshot);
         overlay.append(content);
         document.body.append(overlay);
-        animateFormulaTransition(target,overlay,before.height,after.height);
+        animateFormulaTransition(target, overlay, before.height, after.height);
       }
       session.editor.off("transaction", sync);
       session.editor.off("destroy", onClose);
@@ -197,9 +378,14 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
         field.environmentPopoverPolicy = "off";
         field.maxMatrixCols = 10;
         field.setAttribute("aria-label", "公式内容");
-        const mounted = new Promise<void>(resolve => field.addEventListener('mount', () => resolve(), {once:true}));
+        const mounted = new Promise<void>((resolve) =>
+          field.addEventListener("mount", () => resolve(), { once: true }),
+        );
         hostRef.current.append(field);
-        cleanup = () => { field.remove(); fieldRef.current = null; };
+        cleanup = () => {
+          field.remove();
+          fieldRef.current = null;
+        };
         await mounted;
         if (!active) return;
         field.menuItems = [];
@@ -209,7 +395,9 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
         keyboard.hide();
         const input = () => update(field.getValue("latex-unstyled"));
         field.addEventListener("input", input);
-        const focus = () => { sourceActive.current = false; };
+        const focus = () => {
+          sourceActive.current = false;
+        };
         field.addEventListener("focus", focus);
         cleanup = () => {
           keyboard.hide();
@@ -223,34 +411,46 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       } catch (cause) {
         cleanup();
         console.warn("Formula input initialization failed", cause);
-        if (active) { setStatus("fallback"); setSourceOpen(true); }
+        if (active) {
+          setStatus("fallback");
+          setSourceOpen(true);
+        }
       }
     })();
     return () => {
       active = false;
       cleanup();
       delete document.documentElement.dataset.mathEditing;
-
     };
   }, [update]);
 
   useEffect(() => {
     const read = () => setShortcuts(readShortcuts());
-    const refresh = () => { void refreshMathPreferences(); };
+    const refresh = () => {
+      void refreshMathPreferences();
+    };
     window.addEventListener(mathPreferencesChanged, read);
     window.addEventListener("storage", read);
     window.addEventListener("focus", refresh);
     refresh();
-    return () => { window.removeEventListener(mathPreferencesChanged, read); window.removeEventListener("storage", read); window.removeEventListener("focus", refresh); };
+    return () => {
+      window.removeEventListener(mathPreferencesChanged, read);
+      window.removeEventListener("storage", read);
+      window.removeEventListener("focus", refresh);
+    };
   }, []);
 
   useEffect(() => {
     if (status !== "ready" || !fieldRef.current) return;
     const field = fieldRef.current;
-    return installMathShortcuts(field, shortcuts, () => update(field.getValue("latex-unstyled")));
+    return installMathShortcuts(field, shortcuts, () =>
+      update(field.getValue("latex-unstyled")),
+    );
   }, [status, shortcuts, update]);
 
-  const matrixAction = (command: "addRowAfter" | "addColumnAfter" | "removeRow" | "removeColumn") => {
+  const matrixAction = (
+    command: "addRowAfter" | "addColumnAfter" | "removeRow" | "removeColumn",
+  ) => {
     const field = fieldRef.current;
     if (!field) return;
     field.focus();
@@ -262,13 +462,24 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
   const finish = (remove = false) => {
     const editor = session.editor;
     const pos = session.host.mathPosition();
-    if (pos === undefined || editor.isDestroyed) { onClose(); return; }
+    if (pos === undefined || editor.isDestroyed) {
+      onClose();
+      return;
+    }
     const node = editor.state.doc.nodeAt(pos);
-    if (remove && node) editor.commands.deleteRange({ from: pos, to: pos + node.nodeSize });
+    if (remove && node)
+      editor.commands.deleteRange({ from: pos, to: pos + node.nodeSize });
     onClose();
     if (!editor.isDestroyed) {
-      const end = Math.min(pos + (remove ? 0 : node?.nodeSize ?? 0), editor.state.doc.content.size);
-      editor.view.dispatch(editor.state.tr.setSelection(Selection.near(editor.state.doc.resolve(end), 1)));
+      const end = Math.min(
+        pos + (remove ? 0 : (node?.nodeSize ?? 0)),
+        editor.state.doc.content.size,
+      );
+      editor.view.dispatch(
+        editor.state.tr.setSelection(
+          Selection.near(editor.state.doc.resolve(end), 1),
+        ),
+      );
       editor.commands.focus(undefined, { scrollIntoView: false });
     }
   };
@@ -282,63 +493,357 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       const source = sourceRef.current;
       const start = source?.selectionStart ?? draftRef.current.length;
       const end = source?.selectionEnd ?? start;
-      const text = template.replaceAll("#0", draftRef.current.slice(start, end)).replaceAll("#?", "");
-      const next = draftRef.current.slice(0, start) + text + draftRef.current.slice(end);
+      const text = template
+        .replaceAll("#0", draftRef.current.slice(start, end))
+        .replaceAll("#?", "");
+      const next =
+        draftRef.current.slice(0, start) + text + draftRef.current.slice(end);
       update(next);
       field?.setValue(next, { silenceNotifications: true });
       source?.focus();
-      requestAnimationFrame(() => source?.setSelectionRange(start + text.length, start + text.length));
+      requestAnimationFrame(() =>
+        source?.setSelectionRange(start + text.length, start + text.length),
+      );
     }
   };
 
-  return createPortal(<AnimatedSize initialHeight={session.collapsedHeight}><div className="note-math-card inline-card-expansion" ref={panelRef} role="group" aria-label={session.display ? "编辑独立公式" : "编辑行内公式"} tabIndex={-1}
-    onPointerDown={event => event.stopPropagation()} onClick={event => event.stopPropagation()} onDoubleClick={event => event.stopPropagation()} onContextMenu={event => event.stopPropagation()}
-    onKeyDownCapture={event => {
-      if (event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) return;
-      if (!session.display && event.key === "Enter" && !event.shiftKey && !(event.target instanceof HTMLButtonElement)) { event.preventDefault(); event.stopPropagation(); finish(); return; }
-      if (session.display && event.key === "Enter" && !event.ctrlKey && !event.metaKey && event.target === fieldRef.current) {
-        event.preventDefault(); event.stopPropagation();
-        fieldRef.current?.executeCommand("addRowAfter");
-        if (fieldRef.current) update(fieldRef.current.getValue("latex-unstyled"));
-        return;
-      }
-      if (event.key === "Escape" || (event.key === "Enter" && (event.ctrlKey || event.metaKey))) { event.preventDefault(); event.stopPropagation(); finish(); }
-    }}
-    onKeyDown={event => event.stopPropagation()}>
-      <div className="note-math-topline">
-        <span className="note-math-title">∑ <span>{session.display ? "独立公式" : "行内公式"}</span></span>
-        <div className="note-math-controls">
-          <button type="button" title="LaTeX 源码" aria-label="LaTeX 源码" aria-expanded={sourceOpen} disabled={status === "fallback"} onClick={() => setSourceOpen(v => !v)}><Code2 size={15} /><span>源码</span></button>
-          <button type="button" aria-label="数学键盘" aria-expanded={symbolOpen} onClick={() => { setSymbolOpen(v => !v); window.mathVirtualKeyboard?.hide(); }}><Keyboard size={15}/><span>键盘</span></button>
-          <button type="button" aria-label="快捷输入设置" aria-expanded={settingsOpen} onClick={() => setSettingsOpen(v => !v)}><Settings2 size={15}/></button>
-          <button type="button" className="note-math-delete" title="删除公式" aria-label="删除公式" onClick={() => finish(true)}><Trash2 size={15} /></button>
-          <button type="button" className="note-math-done" aria-label="收起" title="收起 · Ctrl/⌘+Enter" onClick={() => finish()}><Check size={15} /><span>完成</span></button>
+  return createPortal(
+    <AnimatedSize initialHeight={session.collapsedHeight}>
+      <div
+        className="note-math-card inline-card-expansion"
+        ref={panelRef}
+        role="group"
+        aria-label={session.display ? "编辑独立公式" : "编辑行内公式"}
+        tabIndex={-1}
+        onPointerDown={(event) => event.stopPropagation()}
+        onClick={(event) => event.stopPropagation()}
+        onDoubleClick={(event) => event.stopPropagation()}
+        onContextMenu={(event) => event.stopPropagation()}
+        onKeyDownCapture={(event) => {
+          if (
+            event.nativeEvent.isComposing ||
+            event.nativeEvent.keyCode === 229
+          )
+            return;
+          if (
+            !session.display &&
+            event.key === "Enter" &&
+            !event.shiftKey &&
+            !(event.target instanceof HTMLButtonElement)
+          ) {
+            event.preventDefault();
+            event.stopPropagation();
+            finish();
+            return;
+          }
+          if (
+            session.display &&
+            event.key === "Enter" &&
+            !event.ctrlKey &&
+            !event.metaKey &&
+            event.target === fieldRef.current
+          ) {
+            event.preventDefault();
+            event.stopPropagation();
+            fieldRef.current?.executeCommand("addRowAfter");
+            if (fieldRef.current)
+              update(fieldRef.current.getValue("latex-unstyled"));
+            return;
+          }
+          if (
+            event.key === "Escape" ||
+            (event.key === "Enter" && (event.ctrlKey || event.metaKey))
+          ) {
+            event.preventDefault();
+            event.stopPropagation();
+            finish();
+          }
+        }}
+        onKeyDown={(event) => event.stopPropagation()}
+      >
+        <div className="note-math-topline">
+          <span className="note-math-title">
+            ∑ <span>{session.display ? "独立公式" : "行内公式"}</span>
+          </span>
+          <div className="note-math-controls">
+            <button
+              type="button"
+              title="LaTeX 源码"
+              aria-label="LaTeX 源码"
+              aria-expanded={sourceOpen}
+              disabled={status === "fallback"}
+              onClick={() => setSourceOpen((v) => !v)}
+            >
+              <Code2 size={15} />
+              <span>源码</span>
+            </button>
+            <button
+              type="button"
+              aria-label="数学键盘"
+              aria-expanded={symbolOpen}
+              onClick={() => {
+                setSymbolOpen((v) => !v);
+                window.mathVirtualKeyboard?.hide();
+              }}
+            >
+              <Keyboard size={15} />
+              <span>键盘</span>
+            </button>
+            <button
+              type="button"
+              aria-label="快捷输入设置"
+              aria-expanded={settingsOpen}
+              onClick={() => setSettingsOpen((v) => !v)}
+            >
+              <Settings2 size={15} />
+            </button>
+            <button
+              type="button"
+              className="note-math-delete"
+              title="删除公式"
+              aria-label="删除公式"
+              onClick={() => finish(true)}
+            >
+              <Trash2 size={15} />
+            </button>
+            <button
+              type="button"
+              className="note-math-done"
+              aria-label="收起"
+              title="收起 · Ctrl/⌘+Enter"
+              onClick={() => finish()}
+            >
+              <Check size={15} />
+              <span>完成</span>
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="note-math-writing">
-        {status === "loading" && <span className="note-math-status" role="status">正在准备公式输入…</span>}
-        <div ref={hostRef} className="note-math-live-host" hidden={status === "fallback"} />
-        {sourceOpen && <label className="note-math-source-label">LaTeX<textarea ref={sourceRef} aria-label="LaTeX 源码" className="note-math-source" rows={2} value={draft} spellCheck={false} onFocus={() => { sourceActive.current = true; }} onChange={event => { update(event.target.value); fieldRef.current?.setValue(event.target.value, { silenceNotifications: true }); }} /></label>}
-        {status === "fallback" && <span className="note-math-status" role="status">可直接输入 LaTeX 公式。</span>}
-      </div>
-      <div className="note-math-tools" role="toolbar" aria-label="公式结构">
-        {templates.map(([label, template]) => <button key={label} type="button" disabled={status === "loading" && !sourceOpen} onMouseDown={e => e.preventDefault()} onClick={() => insert(template)}>{label}</button>)}
-        <button type="button" aria-expanded={matrixOpen} onMouseDown={e => e.preventDefault()} onClick={() => { setMatrixOpen(v => !v); setMatrixMessage(""); }}><Grid2X2 size={14} />矩阵</button>
-      </div>
-      {matrixOpen && <div className="note-matrix-builder" role="group" aria-label="矩阵设置">
-        <div className="note-matrix-settings">
-          <label>行<SelectField label="矩阵行数" value={String(matrixRows)} onChange={value => setMatrixRows(Number(value))} options={Array.from({length:10},(_,i)=>({value:String(i+1),label:String(i+1)}))} /></label>
-          <span aria-hidden="true">×</span>
-          <label>列<SelectField label="矩阵列数" value={String(matrixColumns)} onChange={value => setMatrixColumns(Number(value))} options={Array.from({length:10},(_,i)=>({value:String(i+1),label:String(i+1)}))} /></label>
-          <label>括号<SelectField label="矩阵括号" value={matrixStyle} onChange={value => setMatrixStyle(value as MatrixStyle)} options={matrixStyles.map(([value,label])=>({value,label}))} /></label>
-          <button type="button" className="note-matrix-insert" disabled={status === "loading" && !sourceOpen} onMouseDown={e => e.preventDefault()} onClick={() => { insert(matrixTemplate(matrixRows, matrixColumns, matrixStyle)); setMatrixOpen(false); }}>插入 {matrixRows} × {matrixColumns}</button>
+        <div className="note-math-writing">
+          {status === "loading" && (
+            <span className="note-math-status" role="status">
+              正在准备公式输入…
+            </span>
+          )}
+          <div
+            ref={hostRef}
+            className="note-math-live-host"
+            hidden={status === "fallback"}
+          />
+          {sourceOpen && (
+            <label className="note-math-source-label">
+              LaTeX
+              <textarea
+                ref={sourceRef}
+                aria-label="LaTeX 源码"
+                className="note-math-source"
+                rows={2}
+                value={draft}
+                spellCheck={false}
+                onFocus={() => {
+                  sourceActive.current = true;
+                }}
+                onChange={(event) => {
+                  update(event.target.value);
+                  fieldRef.current?.setValue(event.target.value, {
+                    silenceNotifications: true,
+                  });
+                }}
+              />
+            </label>
+          )}
+          {status === "fallback" && (
+            <span className="note-math-status" role="status">
+              可直接输入 LaTeX 公式。
+            </span>
+          )}
         </div>
-        <div className="note-matrix-presets"><span>常用</span>{[[1, 3], [3, 1], [2, 2], [3, 3], [4, 4], [3, 4]].map(([rows, cols]) => <button key={`${rows}-${cols}`} type="button" aria-pressed={matrixRows === rows && matrixColumns === cols} onClick={() => { setMatrixRows(rows); setMatrixColumns(cols); }}>{rows} × {cols}</button>)}</div>
-        <div className="note-matrix-actions"><span>光标所在矩阵</span>{([['增行', 'addRowAfter'], ['增列', 'addColumnAfter'], ['删行', 'removeRow'], ['删列', 'removeColumn']] as const).map(([label, command]) => <button key={command} type="button" disabled={status !== "ready" || sourceOpen} onMouseDown={e => e.preventDefault()} onClick={() => matrixAction(command)}>{label}</button>)}</div>
-        {matrixMessage && <span className="note-math-status" role="status">{matrixMessage}</span>}
-      </div>}
-      {session.display && <div className="note-math-line-actions"><button type="button" onMouseDown={e => e.preventDefault()} onClick={() => { const field = fieldRef.current; if (field) { field.focus(); field.executeCommand("addRowAfter"); update(field.getValue("latex-unstyled")); } }}><CornerDownLeft size={14}/>换行</button><button type="button" onMouseDown={e => e.preventDefault()} onClick={() => insert("\\begin{aligned}#0 &= #? \\\\ #? &= #?\\end{aligned}")}>对齐多行</button><span>Enter 换行 · Ctrl/⌘+Enter 完成</span></div>}
-      {settingsOpen && <MathShortcutSettings rules={shortcuts} onSave={setShortcuts} onClose={() => setSettingsOpen(false)} />}
-      {symbolOpen && <MathSymbolPalette onInsert={insert} shortcuts={shortcuts} onCommand={command => { const field = fieldRef.current; if (field) { field.focus(); field.executeCommand(command); update(field.getValue("latex-unstyled")); } }} />}
-  </div></AnimatedSize>, session.slot);
+        <div className="note-math-tools" role="toolbar" aria-label="公式结构">
+          {templates.map(([label, template]) => (
+            <button
+              key={label}
+              type="button"
+              disabled={status === "loading" && !sourceOpen}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => insert(template)}
+            >
+              {label}
+            </button>
+          ))}
+          <button
+            type="button"
+            aria-expanded={matrixOpen}
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={() => {
+              setMatrixOpen((v) => !v);
+              setMatrixMessage("");
+            }}
+          >
+            <Grid2X2 size={14} />
+            矩阵
+          </button>
+        </div>
+        {matrixOpen && (
+          <div
+            className="note-matrix-builder"
+            role="group"
+            aria-label="矩阵设置"
+          >
+            <div className="note-matrix-settings">
+              <label>
+                行
+                <SelectField
+                  label="矩阵行数"
+                  value={String(matrixRows)}
+                  onChange={(value) => setMatrixRows(Number(value))}
+                  options={Array.from({ length: 10 }, (_, i) => ({
+                    value: String(i + 1),
+                    label: String(i + 1),
+                  }))}
+                />
+              </label>
+              <span aria-hidden="true">×</span>
+              <label>
+                列
+                <SelectField
+                  label="矩阵列数"
+                  value={String(matrixColumns)}
+                  onChange={(value) => setMatrixColumns(Number(value))}
+                  options={Array.from({ length: 10 }, (_, i) => ({
+                    value: String(i + 1),
+                    label: String(i + 1),
+                  }))}
+                />
+              </label>
+              <label>
+                括号
+                <SelectField
+                  label="矩阵括号"
+                  value={matrixStyle}
+                  onChange={(value) => setMatrixStyle(value as MatrixStyle)}
+                  options={matrixStyles.map(([value, label]) => ({
+                    value,
+                    label,
+                  }))}
+                />
+              </label>
+              <button
+                type="button"
+                className="note-matrix-insert"
+                disabled={status === "loading" && !sourceOpen}
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  insert(
+                    matrixTemplate(matrixRows, matrixColumns, matrixStyle),
+                  );
+                  setMatrixOpen(false);
+                }}
+              >
+                插入 {matrixRows} × {matrixColumns}
+              </button>
+            </div>
+            <div className="note-matrix-presets">
+              <span>常用</span>
+              {[
+                [1, 3],
+                [3, 1],
+                [2, 2],
+                [3, 3],
+                [4, 4],
+                [3, 4],
+              ].map(([rows, cols]) => (
+                <button
+                  key={`${rows}-${cols}`}
+                  type="button"
+                  aria-pressed={matrixRows === rows && matrixColumns === cols}
+                  onClick={() => {
+                    setMatrixRows(rows);
+                    setMatrixColumns(cols);
+                  }}
+                >
+                  {rows} × {cols}
+                </button>
+              ))}
+            </div>
+            <div className="note-matrix-actions">
+              <span>光标所在矩阵</span>
+              {(
+                [
+                  ["增行", "addRowAfter"],
+                  ["增列", "addColumnAfter"],
+                  ["删行", "removeRow"],
+                  ["删列", "removeColumn"],
+                ] as const
+              ).map(([label, command]) => (
+                <button
+                  key={command}
+                  type="button"
+                  disabled={status !== "ready" || sourceOpen}
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => matrixAction(command)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            {matrixMessage && (
+              <span className="note-math-status" role="status">
+                {matrixMessage}
+              </span>
+            )}
+          </div>
+        )}
+        {session.display && (
+          <div className="note-math-line-actions">
+            <button
+              type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => {
+                const field = fieldRef.current;
+                if (field) {
+                  field.focus();
+                  field.executeCommand("addRowAfter");
+                  update(field.getValue("latex-unstyled"));
+                }
+              }}
+            >
+              <CornerDownLeft size={14} />
+              换行
+            </button>
+            <button
+              type="button"
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() =>
+                insert("\\begin{aligned}#0 &= #? \\\\ #? &= #?\\end{aligned}")
+              }
+            >
+              对齐多行
+            </button>
+            <span>Enter 换行 · Ctrl/⌘+Enter 完成</span>
+          </div>
+        )}
+        {settingsOpen && (
+          <MathShortcutSettings
+            rules={shortcuts}
+            onSave={setShortcuts}
+            onClose={() => setSettingsOpen(false)}
+          />
+        )}
+        {symbolOpen && (
+          <MathSymbolPalette
+            onInsert={insert}
+            shortcuts={shortcuts}
+            onCommand={(command) => {
+              const field = fieldRef.current;
+              if (field) {
+                field.focus();
+                field.executeCommand(command);
+                update(field.getValue("latex-unstyled"));
+              }
+            }}
+          />
+        )}
+      </div>
+    </AnimatedSize>,
+    session.slot,
+  );
 }

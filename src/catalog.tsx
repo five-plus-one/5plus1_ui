@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import * as U from "./lib";
-import { ResourceExplorerDemo, ChatComposerDemo, MarkdownEditorDemo, WorkspaceLayoutDemo, ShareAccessDemo, UploadQueueDemo } from './advanced-demos';
+import { patternDefinitions, PatternDemo } from "./pattern-demos";
+import {
+  ResourceExplorerDemo,
+  ChatComposerDemo,
+  MarkdownEditorDemo,
+  WorkspaceLayoutDemo,
+  ShareAccessDemo,
+  UploadQueueDemo,
+} from "./advanced-demos";
 import {
   Plus,
   ArrowUpRight,
@@ -32,17 +40,73 @@ export type Entry = {
   code: string;
 };
 const defs: Record<string, [string, string, string, string]> = {
-  ResourceExplorer: ['文件资源管理器','业务模式','浏览文件夹，搜索、排序并以列表或网格管理资料。','items；folderId；onFolderChange；selectedIds；onSelectionChange；onOpen；onAction?'],
-  ContextMenu: ['右键菜单','反馈','按当前位置提供文件、空白区域与选中内容的快捷操作。','items；children；label?；disabled?'],
-  ChatComposer: ['对话输入框', 'AI 对话', '引用、附件与模型选择，集中在清晰轻巧的输入区。', 'value；onChange；onSend；onStop?；attachments?；onFiles?；tools?；onComposerInsetChange?'],
-  MarkdownEditor: ['Markdown 富文本编辑', '业务模式', '文字、公式、表格与资料卡片，在同一篇笔记中编辑。', 'markdown?；documentKey?；onChange?；document?；provider?；onFiles?；resolveResourceUrl?'],
-  WorkspaceLayout: ['多栏工作区', '布局', '自由调整目录、内容和讨论区域，保留熟悉的工作节奏。', 'panels: WorkspacePanel[]；ref: WorkspaceLayoutHandle；persistenceKey?；direction?'],
-  SelectField: ['选择器', '表单', '统一主题、键盘导航与关闭行为的单项选择。', 'value；onChange；options；label；disabled?'],
-  MemberSearch: ['成员搜索', '账户管理', '查找用户或用户组，为资料添加协作成员。', 'onSearch(query,kind,signal)；onPick；excludedIds?；disabled?'],
-  ShareLink: ['链接分享', '账户管理', '控制链接访问权限，复制分享地址。', 'enabled；onEnabledChange；url?；access；onAccessChange；onCopy?'],
-  AttachmentPicker: ['资料选择', '业务模式', '搜索资料并选择需要添加的附件。', 'items；selectedIds；onChange；onConfirm；onSearch?；onLoadMore?'],
-  UploadQueue: ['上传队列', '业务模式', '查看上传与整理进度，重试或取消任务。', 'tasks；onCancel?；onRetry?；onDismiss?'],
-  MemberAccess: ['成员与权限', '账户管理', '查看成员、选择访问权限与邀请协作者。', 'members；roles；canManage?；onRoleChange?；onRemove?；onInvite?；busyIds?；error?'],
+  ...patternDefinitions,
+  ResourceExplorer: [
+    "文件资源管理器",
+    "业务模式",
+    "浏览文件夹，搜索、排序并以列表或网格管理资料。",
+    "items；folderId；onFolderChange；selectedIds；onSelectionChange；onOpen；onAction?",
+  ],
+  ContextMenu: [
+    "右键菜单",
+    "反馈",
+    "按当前位置提供文件、空白区域与选中内容的快捷操作。",
+    "items；children；label?；disabled?",
+  ],
+  ChatComposer: [
+    "对话输入框",
+    "AI 对话",
+    "引用、附件与模型选择，集中在清晰轻巧的输入区。",
+    "value；onChange；onSend；onStop?；attachments?；onFiles?；tools?；onComposerInsetChange?",
+  ],
+  MarkdownEditor: [
+    "Markdown 富文本编辑",
+    "业务模式",
+    "文字、公式、表格与资料卡片，在同一篇笔记中编辑。",
+    "markdown?；documentKey?；onChange?；document?；provider?；onFiles?；resolveResourceUrl?",
+  ],
+  WorkspaceLayout: [
+    "多栏工作区",
+    "布局",
+    "自由调整目录、内容和讨论区域，保留熟悉的工作节奏。",
+    "panels: WorkspacePanel[]；ref: WorkspaceLayoutHandle；persistenceKey?；direction?",
+  ],
+  SelectField: [
+    "选择器",
+    "表单",
+    "统一主题、键盘导航与关闭行为的单项选择。",
+    "value；onChange；options；label；disabled?",
+  ],
+  MemberSearch: [
+    "成员搜索",
+    "账户管理",
+    "查找用户或用户组，为资料添加协作成员。",
+    "onSearch(query,kind,signal)；onPick；excludedIds?；disabled?",
+  ],
+  ShareLink: [
+    "链接分享",
+    "账户管理",
+    "控制链接访问权限，复制分享地址。",
+    "enabled；onEnabledChange；url?；access；onAccessChange；onCopy?",
+  ],
+  AttachmentPicker: [
+    "资料选择",
+    "业务模式",
+    "搜索资料并选择需要添加的附件。",
+    "items；selectedIds；onChange；onConfirm；onSearch?；onLoadMore?",
+  ],
+  UploadQueue: [
+    "上传队列",
+    "业务模式",
+    "查看上传与整理进度，重试或取消任务。",
+    "tasks；onCancel?；onRetry?；onDismiss?",
+  ],
+  MemberAccess: [
+    "成员与权限",
+    "账户管理",
+    "查看成员、选择访问权限与邀请协作者。",
+    "members；roles；canManage?；onRoleChange?；onRemove?；onInvite?；busyIds?；error?",
+  ],
   Button: [
     "按钮",
     "基础",
@@ -774,16 +838,86 @@ export function Demo({
   );
   const examples: Record<string, () => React.ReactNode> = {
     ResourceExplorer: () => <ResourceExplorerDemo />,
-    ContextMenu: () => <U.ContextMenu items={[{id:'open',label:'打开',onSelect:()=>notify('已打开')},{id:'view',label:'视图',children:[{id:'list',label:'列表',onSelect:()=>notify('列表视图')},{id:'grid',label:'网格',onSelect:()=>notify('网格视图')}]},{id:'delete',label:'移到回收站',danger:true,separator:true,onSelect:()=>notify('已移到回收站')}]}><div style={{padding:48,border:'1px dashed var(--fp-line)',borderRadius:8}}>右键打开快捷操作，也可以使用 Shift + F10。</div></U.ContextMenu>,
+    ContextMenu: () => (
+      <U.ContextMenu
+        items={[
+          { id: "open", label: "打开", onSelect: () => notify("已打开") },
+          {
+            id: "view",
+            label: "视图",
+            children: [
+              { id: "list", label: "列表", onSelect: () => notify("列表视图") },
+              { id: "grid", label: "网格", onSelect: () => notify("网格视图") },
+            ],
+          },
+          {
+            id: "delete",
+            label: "移到回收站",
+            danger: true,
+            separator: true,
+            onSelect: () => notify("已移到回收站"),
+          },
+        ]}
+      >
+        <div
+          style={{
+            padding: 48,
+            border: "1px dashed var(--fp-line)",
+            borderRadius: 8,
+          }}
+        >
+          右键打开快捷操作，也可以使用 Shift + F10。
+        </div>
+      </U.ContextMenu>
+    ),
     ChatComposer: () => <ChatComposerDemo />,
     MarkdownEditor: () => <MarkdownEditorDemo />,
     WorkspaceLayout: () => <WorkspaceLayoutDemo />,
-    AttachmentPicker: () => <U.AttachmentPicker items={[{id:'guide',name:'设计协作手册.pdf',detail:'PDF · 1.2 MB'},{id:'notes',name:'课堂笔记.md',detail:'Markdown · 最近更新'}]} selectedIds={multi.filter(id => ['guide','notes'].includes(id))} onChange={setMulti} onConfirm={()=>notify('资料已添加')} />,
+    AttachmentPicker: () => (
+      <U.AttachmentPicker
+        items={[
+          { id: "guide", name: "设计协作手册.pdf", detail: "PDF · 1.2 MB" },
+          { id: "notes", name: "课堂笔记.md", detail: "Markdown · 最近更新" },
+        ]}
+        selectedIds={multi.filter((id) => ["guide", "notes"].includes(id))}
+        onChange={setMulti}
+        onConfirm={() => notify("资料已添加")}
+      />
+    ),
     UploadQueue: () => <UploadQueueDemo />,
-    SelectField: () => <U.SelectField label="排序方式" value={v === 'notes' ? 'recent' : v} onChange={setV} options={[{value:'recent',label:'最近更新'},{value:'name',label:'名称'},{value:'created',label:'创建时间'}]} />,
+    SelectField: () => (
+      <U.SelectField
+        label="排序方式"
+        value={v === "notes" ? "recent" : v}
+        onChange={setV}
+        options={[
+          { value: "recent", label: "最近更新" },
+          { value: "name", label: "名称" },
+          { value: "created", label: "创建时间" },
+        ]}
+      />
+    ),
     MemberSearch: () => <ShareAccessDemo />,
     ShareLink: () => <ShareAccessDemo />,
-    MemberAccess: () => <U.MemberAccess members={[{id:'owner',name:'五加一',detail:'创建者',role:'owner',editable:false},{id:'reader',name:'林同学',role:'read'}]} roles={[{value:'owner',label:'所有者'},{value:'read',label:'可以阅读'},{value:'edit',label:'可以编辑'}]} />,
+    MemberAccess: () => (
+      <U.MemberAccess
+        members={[
+          {
+            id: "owner",
+            name: "五加一",
+            detail: "创建者",
+            role: "owner",
+            editable: false,
+          },
+          { id: "reader", name: "林同学", role: "read" },
+        ]}
+        roles={[
+          { value: "owner", label: "所有者" },
+          { value: "read", label: "可以阅读" },
+          { value: "edit", label: "可以编辑" },
+        ]}
+      />
+    ),
     Button: () => (
       <U.Stack direction="row">
         {btn}
@@ -1424,11 +1558,7 @@ export function Demo({
     ),
     CollapseTransition: () => (
       <div>
-        <U.Button
-          variant="secondary"
-          size="sm"
-          onClick={() => setOn(!on)}
-        >
+        <U.Button variant="secondary" size="sm" onClick={() => setOn(!on)}>
           {on ? "收起内容" : "展开内容"}
         </U.Button>
         <U.CollapseTransition isOpen={on}>
@@ -1475,14 +1605,10 @@ export function Demo({
     ),
     SelectionToolbar: () => (
       <div>
-        <p className="fp-muted">
-          点击下方按钮模拟选中一段文字后出现的工具栏。
-        </p>
+        <p className="fp-muted">点击下方按钮模拟选中一段文字后出现的工具栏。</p>
         <U.Button
           size="sm"
-          onClick={() =>
-            setAnchor(anchor ? null : { x: 260, y: 220 })
-          }
+          onClick={() => setAnchor(anchor ? null : { x: 260, y: 220 })}
         >
           {anchor ? "收起工具栏" : "显示工具栏"}
         </U.Button>
@@ -1571,11 +1697,7 @@ export function Demo({
       />
     ),
     CollapsibleSection: () => (
-      <U.CollapsibleSection
-        label="原文片段"
-        meta="128 字"
-        defaultOpen
-      >
+      <U.CollapsibleSection label="原文片段" meta="128 字" defaultOpen>
         <p className="fp-muted" style={{ margin: 0, lineHeight: 1.8 }}>
           向量空间是带有加法和数乘两种运算的集合。运算需要满足八条公理，
           这些公理保证了线性组合、基与维数等概念能够成立。
@@ -1625,10 +1747,7 @@ export function Demo({
         <p className="fp-muted" style={{ marginTop: 0 }}>
           点击按钮打开灯箱，支持滚轮缩放、拖动与 Esc 关闭。
         </p>
-        <U.Button
-          size="sm"
-          onClick={() => setLightboxOpen(!lightboxOpen)}
-        >
+        <U.Button size="sm" onClick={() => setLightboxOpen(!lightboxOpen)}>
           {lightboxOpen ? "关闭灯箱" : "打开灯箱"}
         </U.Button>
         <U.MediaLightbox
@@ -1654,11 +1773,7 @@ export function Demo({
         onToggle={() => setSettingsOpen(!settingsOpen)}
       >
         <U.Stack gap={12}>
-          <U.Switch
-            label="专注阅读"
-            checked={on}
-            onChange={setOn}
-          />
+          <U.Switch label="专注阅读" checked={on} onChange={setOn} />
           <U.Slider
             label={`字号 · ${slider}px`}
             min={12}
@@ -1846,8 +1961,8 @@ export function Demo({
     Derivation: () => (
       <U.Derivation label="推导：维数唯一">
         <p style={{ margin: 0 }}>
-          设两组基分别含 m 与 n 个向量。由替换定理可得 m ≤ n 且 n ≤ m，
-          因此 m = n，维数唯一确定。
+          设两组基分别含 m 与 n 个向量。由替换定理可得 m ≤ n 且 n ≤ m， 因此 m =
+          n，维数唯一确定。
         </p>
       </U.Derivation>
     ),
@@ -1925,7 +2040,12 @@ export function Demo({
         items={[
           { id: "c1", title: "2.1 向量空间的定义", status: "done" },
           { id: "c2", title: "2.2 基与维数", status: "done" },
-          { id: "c3", title: "2.3 坐标与变换", status: "draft", detail: "草稿" },
+          {
+            id: "c3",
+            title: "2.3 坐标与变换",
+            status: "draft",
+            detail: "草稿",
+          },
           { id: "c4", title: "2.4 线性映射", status: "stub", detail: "未开始" },
         ]}
       />
@@ -1941,9 +2061,7 @@ export function Demo({
         ]}
       />
     ),
-    DistributionChart: () => (
-      <U.DistributionChart type="normal" interactive />
-    ),
+    DistributionChart: () => <U.DistributionChart type="normal" interactive />,
     VideoPlayer: () => (
       <U.VideoPlayer
         src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
@@ -1986,15 +2104,39 @@ export function Demo({
       </div>
     ),
     BottomNav: () => (
-      <div style={{ maxWidth: 420, border: "1px solid var(--fp-line)", borderRadius: 12, overflow: "hidden" }}>
+      <div
+        style={{
+          maxWidth: 420,
+          border: "1px solid var(--fp-line)",
+          borderRadius: 12,
+          overflow: "hidden",
+        }}
+      >
         <U.BottomNav
           value={bottomTab}
           onChange={setBottomTab}
           items={[
-            { id: "detail", label: "详解", icon: <span aria-hidden="true">▤</span> },
-            { id: "video", label: "动画", icon: <span aria-hidden="true">▶</span> },
-            { id: "ai", label: "AI 对话", icon: <span aria-hidden="true">✦</span>, badge: 2 },
-            { id: "interactive", label: "交互", icon: <span aria-hidden="true">◆</span> },
+            {
+              id: "detail",
+              label: "详解",
+              icon: <span aria-hidden="true">▤</span>,
+            },
+            {
+              id: "video",
+              label: "动画",
+              icon: <span aria-hidden="true">▶</span>,
+            },
+            {
+              id: "ai",
+              label: "AI 对话",
+              icon: <span aria-hidden="true">✦</span>,
+              badge: 2,
+            },
+            {
+              id: "interactive",
+              label: "交互",
+              icon: <span aria-hidden="true">◆</span>,
+            },
           ]}
         />
       </div>
@@ -2023,12 +2165,37 @@ export function Demo({
     WindowTaskbar: () => (
       <U.WindowTaskbar
         windows={[
-          { id: "w1", title: "阅读与创造.pdf", active: true, icon: <span aria-hidden="true">▤</span> },
-          { id: "w2", title: "AI 对话", icon: <span aria-hidden="true">✦</span> },
-          { id: "w3", title: "图片生成", icon: <span aria-hidden="true">◉</span> },
-          { id: "w4", title: "复习记录", icon: <span aria-hidden="true">◈</span> },
-          { id: "w5", title: "引用来源", icon: <span aria-hidden="true">⌕</span> },
-          { id: "w6", title: "积分明细", icon: <span aria-hidden="true">◎</span> },
+          {
+            id: "w1",
+            title: "阅读与创造.pdf",
+            active: true,
+            icon: <span aria-hidden="true">▤</span>,
+          },
+          {
+            id: "w2",
+            title: "AI 对话",
+            icon: <span aria-hidden="true">✦</span>,
+          },
+          {
+            id: "w3",
+            title: "图片生成",
+            icon: <span aria-hidden="true">◉</span>,
+          },
+          {
+            id: "w4",
+            title: "复习记录",
+            icon: <span aria-hidden="true">◈</span>,
+          },
+          {
+            id: "w5",
+            title: "引用来源",
+            icon: <span aria-hidden="true">⌕</span>,
+          },
+          {
+            id: "w6",
+            title: "积分明细",
+            icon: <span aria-hidden="true">◎</span>,
+          },
         ]}
         onSelect={(id) => notify(`切换到 ${id}`)}
       />
@@ -2036,7 +2203,11 @@ export function Demo({
   };
   return (
     <div className="demo-inner">
-      {examples[name]?.() || <p>选择一个组件开始体验。</p>}
+      {patternDefinitions[name] ? (
+        <PatternDemo name={name} notify={notify} />
+      ) : (
+        examples[name]?.() || <p>选择一个组件开始体验。</p>
+      )}
     </div>
   );
 }

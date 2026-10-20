@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState, type ReactNode } from "react";
 import PdfPreview from "./PdfPreview";
 import { Download } from "lucide-react";
-import { AnimatedSize } from '../AnimatedSize';
-import { VideoPlayer } from '../VideoPlayer';
+import { AnimatedSize } from "../AnimatedSize";
+import { VideoPlayer, type VideoPlayerProps } from "../VideoPlayer";
+import { AudioPlayer, type AudioPlayerProps } from "../AudioPlayer";
 export type PreviewResource = {
   name: string;
   url: string;
@@ -14,9 +15,13 @@ export type PreviewResource = {
 export function ResourcePreview({
   resource,
   renderVideoExtra,
+  videoProps,
+  audioProps,
 }: {
   resource: PreviewResource;
   renderVideoExtra?: ReactNode;
+  videoProps?: Omit<VideoPlayerProps, "src" | "title">;
+  audioProps?: Omit<AudioPlayerProps, "src" | "title">;
 }) {
   let { name, url, mediaType = "", previewUrl, bytes = 0 } = resource;
   let [text, setText] = useState(""),
@@ -38,7 +43,9 @@ export function ResourcePreview({
         if (!r.ok) throw Error();
         return r.text();
       })
-      .then(value => { if (!c.signal.aborted) setText(value); })
+      .then((value) => {
+        if (!c.signal.aborted) setText(value);
+      })
       .catch(() => {
         if (!c.signal.aborted) setError(true);
       });
@@ -57,32 +64,37 @@ export function ResourcePreview({
                 : "文件预览"}
           </small>
         </span>
-        {!office && <a href={resource.downloadUrl || url} download={name}>
-          <Download size={16} aria-hidden="true" />下载原文件
-        </a>}
+        {!office && (
+          <a href={resource.downloadUrl || url} download={name}>
+            <Download size={16} aria-hidden="true" />
+            下载原文件
+          </a>
+        )}
       </header>
-      <ContentSize>{office ? (
-        <PdfPreview
-          url={previewUrl || url}
-          name={name}
-          downloadUrl={resource.downloadUrl || url}
-        />
-      ) : mediaType.startsWith("image/") ? (
-        <img className="fp-preview-image" src={url} alt={name} />
-      ) : mediaType.startsWith("video/") ? (
-        <>
-          <VideoPlayer src={url} title={name} />
-          {renderVideoExtra}
-        </>
-      ) : mediaType.startsWith("audio/") ? (
-        <audio controls preload="metadata" src={url} aria-label={name} />
-      ) : plain && bytes <= 2_000_000 ? (
-        <pre className="fp-preview-text">
-          {error ? "暂时无法读取，请下载查看。" : text || "正在阅读文件…"}
-        </pre>
-      ) : (
-        <div className="pdf-preview-message">此文件可以下载后查看。</div>
-      )}</ContentSize>
+      <ContentSize>
+        {office ? (
+          <PdfPreview
+            url={previewUrl || url}
+            name={name}
+            downloadUrl={resource.downloadUrl || url}
+          />
+        ) : mediaType.startsWith("image/") ? (
+          <img className="fp-preview-image" src={url} alt={name} />
+        ) : mediaType.startsWith("video/") ? (
+          <>
+            <VideoPlayer {...videoProps} src={url} title={name} />
+            {renderVideoExtra}
+          </>
+        ) : mediaType.startsWith("audio/") ? (
+          <AudioPlayer {...audioProps} src={url} title={name} />
+        ) : plain && bytes <= 2_000_000 ? (
+          <pre className="fp-preview-text">
+            {error ? "暂时无法读取，请下载查看。" : text || "正在阅读文件…"}
+          </pre>
+        ) : (
+          <div className="pdf-preview-message">此文件可以下载后查看。</div>
+        )}
+      </ContentSize>
     </section>
   );
 }
