@@ -1,6 +1,6 @@
 # 工作区组件交付记录
 
-版本：0.3.2，日期：2026-10-20。
+版本：0.3.3，日期：2026-10-20。
 
 已提供 WorkspaceLayout、受控 FileTree、MessageList、ChatComposer、MarkdownEditor、VideoPlayer 接口扩展和 MemberAccess；模型菜单与共用浮层统一交互、密度和主题。
 

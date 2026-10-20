@@ -1,10 +1,10 @@
 # 课栈组件接入指南
 
-适用版本：@fiveplusone/ui 0.3.2。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
+适用版本：@fiveplusone/ui 0.3.3。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
 
 ## 安装与主题
 
-组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.3.2.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
+组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.3.3.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
 
 运行依赖为 React 19、Tiptap 3.32、Yjs 13.6、react-resizable-panels 2.x。接入时检查依赖树，确保 React、Yjs、Tiptap core/pm 使用同一实例和兼容版本；锁定依赖后验证历史文档与协作。
 
@@ -37,6 +37,10 @@ configureMathPreferences 可注入账户范围存储，默认本地存储。上�
 ## 视频与权限
 
 VideoPlayer.resolveSource(src,signal) 获取授权源，切换时取消旧请求。videoRef 暴露原生 video；startAt/onTimeUpdate/onSeek/onPlaybackRateChange/tracks 接入位置、课堂控制和字幕。授权刷新、保存节流、课程时间轴继续由课栈控制器处理。
+
+播放器快捷键仅在播放器内获得焦点时生效：空格/K 播放暂停，左右方向键跳转 5 秒，J/L 跳转 10 秒，上下方向键调整音量，M 静音，F 全屏，Home/End 到首尾，数字 0–9 跳转百分比位置，暂停时逗号/句号按 1/30 秒步进。可用 keyboardShortcuts={false} 关闭。输入框、按钮和滑块保留原有键盘行为。
+
+CollaborativeEditor 复用 MarkdownEditor 的工具栏、公式、卡片、Mermaid 和快捷插入。onChange 保留 JSON 回调，onMarkdownChange 返回 Markdown；document/provider/user 接入共享文档和协作身份。
 
 MemberAccess 受控展示 members/roles；canManage、成员 editable、busyIds 控制可操作状态；onInvite/onRoleChange/onRemove 连接真实服务。账户、积分和管理流程保留课栈业务状态，复用表单与弹窗；服务端独立校验权限。
 
