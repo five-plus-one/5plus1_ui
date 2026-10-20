@@ -1,0 +1,2055 @@
+{
+  "scope": "Non-test TSX source inventory. This inventory does not establish feature parity or design acceptance.",
+  "counts": {
+    "components": 277,
+    "frontend": 8,
+    "app": 0,
+    "lib": 3,
+    "collaboration": 0
+  },
+  "componentGroups": {
+    "account": 12,
+    "admin": 5,
+    "agent": 2,
+    "browser": 3,
+    "canvas": 17,
+    "chat": 44,
+    "examples": 1,
+    "icons": 3,
+    "interactives": 68,
+    "keyboard": 2,
+    "layout": 30,
+    "notes": 31,
+    "quiz": 5,
+    "resources": 2,
+    "review": 5,
+    "search": 1,
+    "setup": 1,
+    "shared": 28,
+    "ui": 4,
+    "video": 6,
+    "visualizations": 4,
+    "window": 3
+  },
+  "unmappedComponents": [],
+  "staleMappings": [],
+  "libraryImportCount": 0,
+  "sources": [
+    {
+      "source": "components/account/AccountCenter.tsx",
+      "lines": 62,
+      "sha256": "62ea77b0bdd6524ce7192bc81484fa68a1e1a982dd1752b4e8bcee80163485fe",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/CommerceManager.tsx",
+      "lines": 27,
+      "sha256": "f61f2e61516e26e9c8ffb5f9b577a3ff08b34674884bbb3eeb3d27c9eb91eaa3",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/CreditsPanel.tsx",
+      "lines": 45,
+      "sha256": "72ed6fb1a86ab68726016b96d76b498bf2c45139002ab1d0250e13d1de760807",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/DirectoryManager.tsx",
+      "lines": 36,
+      "sha256": "f62b79d64b3702f34a809de742d6e835500af21b7a3a6a0529e91a7666999879",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/ImportLocalStudy.tsx",
+      "lines": 15,
+      "sha256": "d0d989041e6c9f0bc8fcfde5b3b7065ef542cecb5237f070233756640a582db7",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/LedgerView.tsx",
+      "lines": 19,
+      "sha256": "415dc9673cfe6f131bee09eb21239ac148384562db764e3611fe8b153747aca7",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/LoginScreen.tsx",
+      "lines": 9,
+      "sha256": "ce0684b12cad7a95b819bc197873a85b578f63f24273179937b84532d8f7ac5f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/NotebookManager.tsx",
+      "lines": 68,
+      "sha256": "69319e863a2ff532c1bd4d6e6a58d35be2047e13310ab2212e52cfcb0ed1adb1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/ShareCurrentNotebook.tsx",
+      "lines": 11,
+      "sha256": "054c4e02ede9aff50709dc5a20be92e2d8266abb580ecba14338460914ed7012",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/ShareNotebook.tsx",
+      "lines": 10,
+      "sha256": "cd66ce279be648a3a7a83480ff3992c6706f0dcfa6aecc9d2e07bb9855d3e78f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/UserCreditsEditor.tsx",
+      "lines": 16,
+      "sha256": "724fe44a0380d7e7f1dbc5eca0514251181d95f0df72612a2f3b891fea63d7c6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/account/UserDetails.tsx",
+      "lines": 31,
+      "sha256": "3b6b4bf0449629f7e82e21a7d907823bdf0cd8c8a57d40be897ccda5deb93621",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/admin/AdminCenter.tsx",
+      "lines": 46,
+      "sha256": "ed70ce8f170ecc01aaf30d9f073ab2c2aab8c331bb79f4d6ba51ec9dc73bdc98",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/admin/AdministratorManager.tsx",
+      "lines": 53,
+      "sha256": "a50bde5704ed42e99d6870ad8c07d4b3127d534cc765718678675ad414c8e272",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/admin/CapacityManager.tsx",
+      "lines": 12,
+      "sha256": "6510aac5becf3da372b2b1e4df006c90829c3ed7c3ae6cb3cd7b74391746ef64",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/admin/PlatformSettingsManager.tsx",
+      "lines": 40,
+      "sha256": "0d6269b33762da87dc405048622c97991bc4b413da1713e95a942b9a0a5010d1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/admin/SystemManager.tsx",
+      "lines": 35,
+      "sha256": "a8a98b9c03bacb6ad84897ee0ed8a767eae6dfb400c0171131cac988835e4197",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/agent/AgentRunTrace.tsx",
+      "lines": 52,
+      "sha256": "1f787b5520b0ef81a595abe334cf06464cce806cdfb9a0a9f1513f8c4ce63ab5",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/agent/AgentWorkspace.tsx",
+      "lines": 137,
+      "sha256": "c3cb42e64931ad8b609effef5ef0cf40a795c68cdc2ddfb666e88272022ee079",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/browser/BrowserSettingsButton.tsx",
+      "lines": 180,
+      "sha256": "d9bbd06f8ce3b85cce13f19e4e72924e5b30265f348b9e9b361fdc0f68d0c326",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/browser/BrowserTab.tsx",
+      "lines": 379,
+      "sha256": "f01e2b27fbb01e36911f03128748fe2de0cddcc7dbca56209e790e846a29b17d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/browser/EmbedFallback.tsx",
+      "lines": 58,
+      "sha256": "424797507bdd3bf1c7399b559ae88af1883c63fa40cfa2b5c6e8782f8d40b863",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasBlockRenderer.tsx",
+      "lines": 31,
+      "sha256": "196b9da6d7119b0b868678c9538970b5add7c1d59ab72e495431d69023e26206",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasControls.tsx",
+      "lines": 75,
+      "sha256": "e9cc8f5a24f3a77e64dfbdeeb4eef684e771d11c59b38f5b4bbf35a44b71bc9c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasDiagnosticPanel.tsx",
+      "lines": 18,
+      "sha256": "47f0caf2abe7a11dec3c359961963af34f233f54d209b492af2c0b889bec8c9c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasDirective.tsx",
+      "lines": 144,
+      "sha256": "021d1d04589b6bd242e4acc4f87ee9a8d7c04d4f71fa28a3a8e82724b665d070",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasFrame.tsx",
+      "lines": 106,
+      "sha256": "a60110b1e53f0baa854102f483e1880be31572fc067dbe34873b7c1af8ab99ed",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasFullscreenPortal.tsx",
+      "lines": 39,
+      "sha256": "07812f745cca802c8b3d15651f0411f3746a9b5a9eba237c49fbda03f4737f9b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/CanvasRevisionPanel.tsx",
+      "lines": 98,
+      "sha256": "d47adb7ca6b7df0ede399766d2b7bb77704f7182aa7fecfcf6c1ef3f8fb15610",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/DiagramCanvas.tsx",
+      "lines": 62,
+      "sha256": "bebca5223e6782ff180a7ae3df2ca906035a87348ecca98f4368b77bd99898bf",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/FunctionPlot.tsx",
+      "lines": 85,
+      "sha256": "bb5e7288db952277f51c793dbd226bc19ae10465c4db4c4d25156e00716f737d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/PlotDirective.tsx",
+      "lines": 103,
+      "sha256": "8f893f775429db92edd025657a7561f0110a5e223c8ca0c640beba8f63f6a522",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/RawSvgViewer.tsx",
+      "lines": 44,
+      "sha256": "d25137728faa8e4e4afb217d861d234a36276e9bd8b27366302049ccbaa0c901",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/renderers/HtmlRenderer.tsx",
+      "lines": 56,
+      "sha256": "67bd42b06aeb1f69b9518e2b6eeae02e44bfeb8bc76e942ba3afdd6736796507",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/renderers/MoleculeRenderer.tsx",
+      "lines": 108,
+      "sha256": "9e1b718806e05607f0b3d677565932ed55210c12112ade76bbc90821cd8d2ca2",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/renderers/MultiPlotRenderer.tsx",
+      "lines": 75,
+      "sha256": "74e18621fc081939914b0bde54b7a9a1dea843627e4709484eccd2a14d2fcba8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/renderers/PlotRenderer.tsx",
+      "lines": 65,
+      "sha256": "827126971cb09077cb6ffea2aedae3e5062556d0f3b29ced85fa97d2defc7fe1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/renderers/RawSvgRenderer.tsx",
+      "lines": 143,
+      "sha256": "84c4eba1b7c86e4a823e5007d559dfaf57f0f3fb69f2bebb5e375b4c404aa273",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/canvas/SvgCanvas.tsx",
+      "lines": 298,
+      "sha256": "8abd74bf59c8f1e34649c70f170928279bf694ce6d70cba08b5d783051817300",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/AgentFoldHeader.tsx",
+      "lines": 47,
+      "sha256": "bda741dc868f8e1248355017c1b7492451656baeadaf3320dd55aedcf0d1f110",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/AgentTrace.tsx",
+      "lines": 150,
+      "sha256": "84ac1ceb858b35a5d40528e1d95de4a68dc23797bf191890e0bfde9a9f02cfae",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/AgentTraceStep.tsx",
+      "lines": 79,
+      "sha256": "658ffbee08020799c36d847f1ec7844fedf2a10372213909a2dbbb30d9ef1aea",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ArtifactCard.tsx",
+      "lines": 391,
+      "sha256": "a00a89de03b70d012f2db122ccf6ab502cf7a0392b9f61f516fed47913b2951e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ArtifactViewer.tsx",
+      "lines": 165,
+      "sha256": "99f44931647eed1b57fa8d16d54ecb65adae6dfea72858dd496e2d1d9b9ebd82",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/AttachmentThumbnails.tsx",
+      "lines": 170,
+      "sha256": "0a40d5233ab631e13e83fbcba47fd2c5fad6542d1173497c82ef87be5762186b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/BillingDashboard.tsx",
+      "lines": 12,
+      "sha256": "6cdfbeb7d58e79c8441a3ff6174a50d6bcef514c1f71a4994000a08911ac1f03",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatEmptyState.tsx",
+      "lines": 56,
+      "sha256": "378a2ead53ad29b90b1c524df67b5b0c6fb7ff29d65a3cecdbd2943c473e75bc",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatHistoryOverlay.tsx",
+      "lines": 239,
+      "sha256": "bfb1ac4b8c9d3a83ed40ca5a30a186cf6f7a42c304831f0a524183fb78b248cf",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatImage.tsx",
+      "lines": 50,
+      "sha256": "c335e32fc05b4d84a848aee4030ab510c9e0a8309958af98f414fbe28330f852",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatInput.tsx",
+      "lines": 371,
+      "sha256": "dc9d42e5eea45482294b70a7bffbac21b1ad4941980217f834fefc0af90823bb",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatMessage.tsx",
+      "lines": 307,
+      "sha256": "5b2222a1bbcd128a3d3ef62b8f94a62be8e19211549526a216be87358d7f604d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatMessageVisualizations.tsx",
+      "lines": 172,
+      "sha256": "dbb1efef568fd07b1acf290c50a34f4d3e8493727d6bcc6dfce0ea705560d08b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatPanel.tsx",
+      "lines": 309,
+      "sha256": "4038fb2dc7549d9fd6b51b81db2d8a9a2a5f331d8db5ba101f620d7a64df104c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatPanelHeader.tsx",
+      "lines": 48,
+      "sha256": "2ca4d0b1ff8ca717be6cad6bf79a50c02c94dd777bafdc1200fc83964b041dee",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatQuizCard.tsx",
+      "lines": 154,
+      "sha256": "746222a03af38755681cbed246f0c10487400fb6e73153907b1a3155f96d8250",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatSettings.tsx",
+      "lines": 1622,
+      "sha256": "998830415161e2850104cf900eb4aa2d4074a53119e7b6d7f0aa56fd156583fb",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ChatThread.tsx",
+      "lines": 251,
+      "sha256": "cb83d723e9ce203b7c1c6cbbb6c37480c666e95fba65fa23d4714d828399fe0f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/DocumentCard.tsx",
+      "lines": 233,
+      "sha256": "b1d7241a441d8fe6d90f92937cf72103539628a093357fb299e6162ce579ea73",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/DocumentViewer.tsx",
+      "lines": 184,
+      "sha256": "2ab21be313c2aab276dbff680dc65703007d4c6246b18fec9ffc2a1cffbccf1d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/FloatingChatBody.tsx",
+      "lines": 111,
+      "sha256": "fa44896db6bdbaa5b12365a94206b2d3281a9e22210ddd61456f35bc941eb429",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/FloatingChatLayer.tsx",
+      "lines": 17,
+      "sha256": "967214bc462c41e2ebe9aaa1c6f97325bcc2c0638257bd28f8797baa6078b317",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/FloatingChatWindow.tsx",
+      "lines": 197,
+      "sha256": "740acf34e7b46ae4f40f02d7c8b65d7b70988f546c88f0fb02336615dffc1f70",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/FollowUpQuestions.tsx",
+      "lines": 57,
+      "sha256": "ed9e7b89dcaa331ef65e9ee6db6132a82ac3fa9ee9d5be67173323325dc3a275",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ImageGenCard.tsx",
+      "lines": 198,
+      "sha256": "d564af8f01516eba46991a5180a9b1dbb7b90e4b2d46907f9f5a47e15d80ad0a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ImageGenViewer.tsx",
+      "lines": 536,
+      "sha256": "1bd60b7d572160dbf733c4068f2e19c596ecfca86b4338aa5da70b33ac222414",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ImageStrip.tsx",
+      "lines": 71,
+      "sha256": "213b8a6584319005a91467a86b7d8cb490a766584eda006072edf571ee00b3bd",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/MessageContent.tsx",
+      "lines": 399,
+      "sha256": "58fff453cb5060a31bb2a2285f5740f903a76c00e8d06ba0db4f7506a3d733e5",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ModelMenu.tsx",
+      "lines": 440,
+      "sha256": "0c0ed41c2b3d2f0887e86225e68289eef7fa0398e6a6e4d2cda58b1caf548a70",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/NoteCitationCard.tsx",
+      "lines": 59,
+      "sha256": "21fa64c031103b58b43a8c6151d182495a62d06f037dbe33af0a3d4c74cd0175",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/NoteCitationViewer.tsx",
+      "lines": 240,
+      "sha256": "c55307f0157953399d2c47b0d825346d050af8327b96c1fdf01bb18c2569a8a2",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/NoteImageGallery.tsx",
+      "lines": 46,
+      "sha256": "f3a5dceefdbbd72f94aed3149fbaf4d6d993b99c5d7b63488b2efc837b17296f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ProcessingSteps.tsx",
+      "lines": 14,
+      "sha256": "8ee9148b937c8143a18a2998b478cc314ed98b4b95ebcc5f55adb36f351c85cd",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ReasoningTraceStep.tsx",
+      "lines": 43,
+      "sha256": "1981d68172b8ad6a15850e6e9aa0b131857c74b94fd99e01d1393e9e7b24b08f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/SkillsManager.tsx",
+      "lines": 163,
+      "sha256": "86c143fec01ce002df572dcc1741ab69e09ab89fe7f35e525e8b8bb0f5cfb500",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/SourcePreviewViewer.tsx",
+      "lines": 189,
+      "sha256": "b68ed308e141b42c14e4c036796771880b9ede7b5b9405800f03c421e104afc3",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/SourceTraceViewer.tsx",
+      "lines": 175,
+      "sha256": "4318e6f9352d7835a88b736f227771ef581de9f66e8a3cb46c339dfae60e1797",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ThinkingMenu.tsx",
+      "lines": 229,
+      "sha256": "e22d661d31d19b60541abf68df018d349cdbccdced43474d5c8d42f507d4d786",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/TokenDashboard.tsx",
+      "lines": 10,
+      "sha256": "49d60ead51a829440a2508268518606760aedd693238a0eb89662f9640be5b5a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ToolCallDashboard.tsx",
+      "lines": 33,
+      "sha256": "21d486fca92f2dc37fd5e6681313f4044a78b1a7b17f18cbf8d8ba5193905c12",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/ToolTraceStep.tsx",
+      "lines": 61,
+      "sha256": "70c07a2cef00a9236ca881ecde91c1fc47f242c1f34ac4e39af5d1ce37864d4f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/VizErrorBoundary.tsx",
+      "lines": 73,
+      "sha256": "d2246842a57ef7b3158f0c0d0c79c1d4f0e14c73ddf809288ea15e4e65f3aa68",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/VizFold.tsx",
+      "lines": 31,
+      "sha256": "0de0cbd94689c6d55133d9ba8acf74b5e2e6e51ed4f9cccf5d3a8eb237d8b501",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/chat/WebSourceFold.tsx",
+      "lines": 54,
+      "sha256": "e3e2f8e8297eb118950fd4bc0d55b8d2efa099c07c3f076872e00886456b3d8e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/examples/ExampleTab.tsx",
+      "lines": 220,
+      "sha256": "4add4f2533d41d717084b906dbe6b516ad2400874a30d24e31dd0ea847feb694",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/icons/AgentIcons.tsx",
+      "lines": 131,
+      "sha256": "d6553d7ca4e47895897aa22747859021d6f52d4d42366e139f8de2e70f1507b6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/icons/ModelBrandIcons.tsx",
+      "lines": 168,
+      "sha256": "e9da1ee5194a14c1713712899824e0674d955e4f7fc2e5cc33b5b47dffd4169c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/icons/PencilSparklesIcon.tsx",
+      "lines": 33,
+      "sha256": "5d6538970a028d8a8201d0022e230736cd9a25b38f0956ab03ae90ecf39946b4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch01/BondPolarityExplorer.tsx",
+      "lines": 342,
+      "sha256": "1c7f2bebc1def652ac35836e0a8a62924b6a24fb4f596559df36e7b6622a7309",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch02/IUPACNamingPractice.tsx",
+      "lines": 307,
+      "sha256": "67334473d5ba92e612912a8e3c5bbed7bb8e68fda57799ef19eb8603b2bdc373",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch03/BoilingPointComparator.tsx",
+      "lines": 364,
+      "sha256": "f53861b343eb70cad974740b8de75f648b53393fd09233ffd4d33a9047064cc7",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch04/ChairFlip.tsx",
+      "lines": 245,
+      "sha256": "f81c0d86278c895a100f3c843bbec7562b81e0bb8341fca2ea191f23a6acf0ff",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch04/NewmanProjection.tsx",
+      "lines": 482,
+      "sha256": "a8a6e571a8fb37e2671f7acc04d40ff6ae06074ad9a40dd237da7f5b19f3ca9d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch05/CarbocationStability.tsx",
+      "lines": 379,
+      "sha256": "22e53b963d59975786c6e09930be379d9fc0d28f741342aefe870c165968f0af",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch06/MarkovnikovPredictor.tsx",
+      "lines": 406,
+      "sha256": "abfd188ac31a3977c332d711aadc3c0fa98b8735dcd7b504ace9503058972d02",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch07/DieneAddition.tsx",
+      "lines": 318,
+      "sha256": "10df68f0ef5b986add287263aa42590e02ec41e5c897ec8049eafcaca269a268",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch08/DirectingEffect.tsx",
+      "lines": 332,
+      "sha256": "ff7b74250be3fcedf092704a26613cdc308385d7324014e052e950421e2abd02",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch09/ChiralityMirror.tsx",
+      "lines": 272,
+      "sha256": "19a9e53957f2cf6ef54ba9fe1e81275c1f679a1565861703473de9c53e154a45",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch09/RSConfigPractice.tsx",
+      "lines": 516,
+      "sha256": "2cea53c9576c3b0cc11a7249c1e696ee2bc80ba7b7341df99ee7b7502236ae2e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch10/EliminationZaitsev.tsx",
+      "lines": 369,
+      "sha256": "94abad8722c4c05379eb9bc74e4530c2b8f7158b8eace98670fb0e85a199345d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch10/SN1SN2Compare.tsx",
+      "lines": 334,
+      "sha256": "923a105ecbc76fda8f61ff3e44ee13e1095c64a37c17af51b188686817e7ef4e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch11/EpoxideOpening.tsx",
+      "lines": 254,
+      "sha256": "0599656ec29b8af04440c7ce97302725dc7931cddce6d381ee70b7ea1a8c75ad",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch12/CarbonylAddition.tsx",
+      "lines": 249,
+      "sha256": "1302e4189cf4a41100b6259aeb0cbf945bbfae2589dcaafba1972567f9631c18",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch13/AcylReactivity.tsx",
+      "lines": 227,
+      "sha256": "31d2814c12a308ad4553933793b4901aeed6bcb8149b41fc702b12f3053bf182",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch14/AmineBasicity.tsx",
+      "lines": 228,
+      "sha256": "451232e48fd363f3c655bbd7c3e78c2e6aec1360ff2e28bfa22236fc66f612af",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/chemistry/ch14/DiazoniumNetwork.tsx",
+      "lines": 362,
+      "sha256": "50c81c59cd61815763bedd309d327bcb9d62af601f383120b21ccd1d984c927e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/CustomInteractive.tsx",
+      "lines": 35,
+      "sha256": "9f2810ea1b81df487e927551c911416842b36f815b7b2a262e1d49b92d6670df",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/discrete-math/LogicRelationsLabs.tsx",
+      "lines": 93,
+      "sha256": "1f571e615d15eb437f60c75231bee13fb859d54aa7f0f012937b8417829c4bef",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/discrete-math/StructureLabs.tsx",
+      "lines": 72,
+      "sha256": "3b18b2637edef141df5351074130198ba17d82245b3536d767035d81b0420577",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/InteractivePlatform.tsx",
+      "lines": 11,
+      "sha256": "c60f7237c968c51e2ed991b1a882c5a3a7abd05a1c6f53ea329b52f7c8187dcb",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/InteractiveStudio.tsx",
+      "lines": 20,
+      "sha256": "4aaf67103ebb2ecc703c6a9ae4cb6e37c448b03cd9c14ff45a4a1e144b0205e9",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/InteractiveTab.tsx",
+      "lines": 59,
+      "sha256": "e3b01d23e3528d0df4c98300b84bb8e30e3710a9d0f598c1afd7f21c1d5f15ce",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/LabWorkbench.tsx",
+      "lines": 84,
+      "sha256": "0da6f2330d7a730e915b1f97c200ae39af931cda690730233ccce0e1f1b315b3",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/numerical-methods/ExtensionLabs.tsx",
+      "lines": 68,
+      "sha256": "5d94a4fbcb54462cd2101841d96969d618efb634428aaccc71a9af336c581a99",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/numerical-methods/FactorizationLabs.tsx",
+      "lines": 48,
+      "sha256": "0043d8c9dbcba7bf4ec4d1fe90bde11e1c3d48c7eda762b8eb52c1bcb2400dca",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/numerical-methods/Labs.tsx",
+      "lines": 46,
+      "sha256": "131416a3cc340a62323742043cb1ca0844ff074232470ef2006977524535b1a8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/numerical-methods/RecordingPlayer.tsx",
+      "lines": 29,
+      "sha256": "134faee9577452a636e4d3068ce93735a383c4a75e35d3f6b8748c8dee5d6ca4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/numerical-methods/SourceViewer.tsx",
+      "lines": 33,
+      "sha256": "8b777c48a3731b75957927c1d529a13b35c379b9dbb7662b6d36ab57ec5fffe9",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/physics/ElectrostaticsLab.tsx",
+      "lines": 17,
+      "sha256": "d1f1c2c88ed01a7ed288f5291dd07686050a40d28f10f364673fafe235d5a976",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch01/BayesExplorer.tsx",
+      "lines": 416,
+      "sha256": "fc54353c5a08bce0d25677211281a072b4383aae556916e7f4d5283566a6e89a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch01/ClassicalProbLab.tsx",
+      "lines": 585,
+      "sha256": "cd1e98ebadd429547d69fa41b4a582e8a8cce43d0802540fcb7a394cb7d1d82c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch01/FrequencyConvergence.tsx",
+      "lines": 97,
+      "sha256": "2331a7145d0318317350026b66e9646e8c512dbb2a8f96a43436070060473824",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch01/ReliabilityExplorer.tsx",
+      "lines": 533,
+      "sha256": "0e9217377e971ab84231a41603cfa67511d4d620574007c61fca5fcedf9f6fb6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch01/SampleSpaceBuilder.tsx",
+      "lines": 520,
+      "sha256": "507510f3794e2236261f4d370a1349a397d78fabf1de55e669f6cd48a4c754a1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch01/VennPlayground.tsx",
+      "lines": 61,
+      "sha256": "e6bf45e9083570cd8d45aa2d2619a20a26e6501874cf07dd84460e57a21e6f8b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch02/BinomialExplorer.tsx",
+      "lines": 592,
+      "sha256": "68b36bbf633ee06d0d75a6ad33d8133caf213403169c098eccdf6964c4e60194",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch02/CDFVisualizer.tsx",
+      "lines": 999,
+      "sha256": "ecc2caece109ad254f54e09fbad62dec8709a3ca607791644b290cc7b03f1a85",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch02/FuncDistDemo.tsx",
+      "lines": 685,
+      "sha256": "eb2c8b7da1c33d050ea39564db47c9405872bb0f3e69facee0889115eb7c4351",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch02/PDFExplorer.tsx",
+      "lines": 614,
+      "sha256": "1335ae573cbb34563d9b0c572e71e2ba501f594bf743b8fc8ec16041e6f2fd72",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch02/RVMapper.tsx",
+      "lines": 620,
+      "sha256": "e03291c060ddd8f86a6a78d82fd6ac0df351edca55cf7abdb8506ae20f905336",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch03/ConditionalExplorer.tsx",
+      "lines": 527,
+      "sha256": "889acea31d01dbe5267c42bb3d6724cfe9a20de9093ae0526f7218db34b42cfa",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch03/ConvolutionDemo.tsx",
+      "lines": 797,
+      "sha256": "f9eba891018ef2896f1798096e6cfeb649abbbc527d153c22bc697884aa21adb",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch03/IndependenceChecker.tsx",
+      "lines": 693,
+      "sha256": "dae3181b140aa6d49cbe597de8e1e3db637d1db5f14329d1bf5cdf8617d4b96a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch03/JointDistExplorer.tsx",
+      "lines": 626,
+      "sha256": "389e6992f32fc1c45e9448f863c6571b66c8d1065e1d2e2210430ad18d6d11f9",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch03/MarginalExplorer.tsx",
+      "lines": 919,
+      "sha256": "2573d147d3cd8c023c82ffa76bc7a5114fcc63000180316ccf32c309c5d3928c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch04/CorrelationExplorer.tsx",
+      "lines": 544,
+      "sha256": "a50ed97a1db8f6a2b4471fc850eb9b514d000bbc3c1f0d294c12ea6f692e38dd",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch04/CovMatrixDemo.tsx",
+      "lines": 640,
+      "sha256": "a216aacd136561cdbd78c06283621c131e1e812cd1a122ea534fe4f75af92e75",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch04/ExpectationExplorer.tsx",
+      "lines": 604,
+      "sha256": "3ef1340327d8f3977de335424a72b6c511dd594206aa21a208484b0120288109",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch04/VarianceExplorer.tsx",
+      "lines": 567,
+      "sha256": "c762feb2643ad2a9d3458bab10f2d9a92bb8e0b254e9ecfa55991067836de178",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch05/ChebyshevDemo.tsx",
+      "lines": 561,
+      "sha256": "f9b1f2d75a3e863c48a5edd34cefc4f0bdc6f6d47b03281d071fae8169cd4f4a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch05/CLTSimulator.tsx",
+      "lines": 680,
+      "sha256": "107a6c2bc2311cd9d74c7e7b83529718eb66caff0dc3e26750d3b2a8a34f50db",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch05/LLNSimulator.tsx",
+      "lines": 591,
+      "sha256": "ee70dde4972b6f4e4d88d58c94e7be5c36ed712769704da4875164b164291b9e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch06/NormalSamplingDemo.tsx",
+      "lines": 753,
+      "sha256": "2cc3a7123f06c6c000d97a6a37c396000eb08d6703180719bd6536d94d2fb6ac",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch06/QuantileExplorer.tsx",
+      "lines": 648,
+      "sha256": "31dbebb59ad60934d7e0ad512002564db7787a16aa9f32c396d4eb0deb00d949",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch06/SamplingDistExplorer.tsx",
+      "lines": 921,
+      "sha256": "fb054e1b1efe694c686360f98f578ede1ee86853fdcb04ea22d921850e912ed6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch06/StatisticCalculator.tsx",
+      "lines": 591,
+      "sha256": "f765f12dfd27b697328bc3dda4ea88625ce9fcaac36c0b9585fa6e279404ac21",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch07/ConfidenceIntervalExplorer.tsx",
+      "lines": 583,
+      "sha256": "d2cf37b20e6deb97e61a9295f4376f078f516b9eb569734a5662e77ed717a13d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch07/EstimatorComparator.tsx",
+      "lines": 646,
+      "sha256": "dc1c1571ca940575916a566348d00fd6c5b0bdf50634bcb90ed9511c2c12b1c1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch07/MLEExplorer.tsx",
+      "lines": 753,
+      "sha256": "7317dd105ad742c0dcd5cf782a5e34656b0eefd4d226669a43df27b0b867d3a8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch07/MomentEstimator.tsx",
+      "lines": 882,
+      "sha256": "3618271b0c2aa6522c15c6cbf03c1dce654f01fe57f8fc9274299e3104c1da9a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch08/ErrorTypeDemo.tsx",
+      "lines": 565,
+      "sha256": "bcbb8a79481bfd90666f9654eec6a44878408a496ed826c45fe497e40ac54720",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch08/HypTestDemo.tsx",
+      "lines": 637,
+      "sha256": "1da2894326b68e17435f4560b46af5560bbf4482ba4eb5e029e023f4ce0c29e2",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch08/MeanTestExplorer.tsx",
+      "lines": 931,
+      "sha256": "1d5aff21aeab356d81883f31ef5d18a148153fe122c027412f9befe337166486",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ch08/VarianceTestExplorer.tsx",
+      "lines": 917,
+      "sha256": "a7a9ff34e00f2b82a3123a6581dd7feff11631eccd7d09016b564af85d3a3d16",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/probability/ReviewLabs.tsx",
+      "lines": 84,
+      "sha256": "e32d34a88690b361b41e2e24a6c514202faa9e992d27a07a87004dc100300050",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/interactives/SaveInteractiveButton.tsx",
+      "lines": 15,
+      "sha256": "cf76b17902effe0dcfcf5e634fe645235834133942042b75727071ab9df63ca2",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/keyboard/KeyboardShortcutProvider.tsx",
+      "lines": 95,
+      "sha256": "bbafa30d94040d71cc54b35a934937e0b93ee3285740efaafb328eb6190ffb7f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/keyboard/ShortcutHelpOverlay.tsx",
+      "lines": 86,
+      "sha256": "fe879037ec9a3d9039ecaa3d4c06df738d3efe65afecf7bddd49b4b1f01c047e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/AcademicYearSwitcher.tsx",
+      "lines": 210,
+      "sha256": "40850ac0932f594f5b58024bb98891cc7c4877e6b10bb286587a80c2db19f34b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/AccessContext.tsx",
+      "lines": 48,
+      "sha256": "3aeffe9677e13aadcf4bc21b92a840522056e5f7a695beb1d0c8eb70e98ee430",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/AppearanceSettingsControls.tsx",
+      "lines": 188,
+      "sha256": "11cf153c0554258fda0a3449c19d3abec94eda95472a5b547dcd66a57e3a0cab",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/AppShell.tsx",
+      "lines": 618,
+      "sha256": "dba327cb521ab553b9ed8beb750a5466c9dd7048df194e587227646c5a8bddcc",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/BookshelfFilter.tsx",
+      "lines": 84,
+      "sha256": "9b010f6b19f5f80745c564570cbf11f12071532cc872599ca117ae9309a18ca0",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/BrandLogo.tsx",
+      "lines": 155,
+      "sha256": "db80f4d2de78643bf564d295d8df38c0b6c682424ee9eb047c3e190142550a05",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/FileTree.tsx",
+      "lines": 111,
+      "sha256": "b24d5c39369c35a401b050e0bff83f37e762b6b3d857569dc1787898d3821eba",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/FileTreeItem.tsx",
+      "lines": 151,
+      "sha256": "e58be3f5f7afc0fde7cde4ac3463fae6d4f96af0d45623736705a65083c2cd97",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/GlobalSettings.tsx",
+      "lines": 430,
+      "sha256": "c2b47462b53568699fce32064ab93107c4f79f6f562b7f6abf027a7675cbbd5b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/HomeBookshelf.tsx",
+      "lines": 229,
+      "sha256": "f8e8c3e57afd7e6416603f238818fe4f9099f2b3c9f7870a4df5ad61901f01e4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/KeyboardShortcutsSettings.tsx",
+      "lines": 109,
+      "sha256": "0b948d552c090ac24cc87c6948346a7b9cc305170d959869e93f1a225f8fb4ae",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/MobileBottomNav.tsx",
+      "lines": 3,
+      "sha256": "621bad01aa8819d60ebc8311e4f053e9f2ffa8dc33a242158beebc5e2feec998",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/MobileChapterPicker.tsx",
+      "lines": 313,
+      "sha256": "44a8d42b85fbe075fc55f7177644bd5435b642b4a627ab25cadb251e2845c079",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/MobileProductNav.tsx",
+      "lines": 51,
+      "sha256": "160f8fbcf4bd10b15b847b05c7eb06565b6f82fe1f5c9d2941a7346ca6aa5ee8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/MobileTopBar.tsx",
+      "lines": 96,
+      "sha256": "6597d4afaec4600045c6bc88b0ebde64a469383ee45d9a314a4e824b87e97b0d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/MobileViewport.tsx",
+      "lines": 51,
+      "sha256": "d057bbef236da1c96217e15ce3d27ed7dc1b8a1619e68122f1920dd7238716a7",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/NewTabPlaceholder.tsx",
+      "lines": 28,
+      "sha256": "1a9b91eacc09f14825d5308f5fac415a5bd4cb706a78a82505d2fbe808d240a3",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/NotePane.tsx",
+      "lines": 68,
+      "sha256": "5e62b71a22faf9b887ae54c3af569360652e4164072bf231e4e01a5edf2301c5",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/NoteSplitPane.tsx",
+      "lines": 121,
+      "sha256": "3c78b6840fb4c7ba67c36d2718f77b3a631b96abb08ac435e8c0371b05b68ca6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/NoteTabStrip.tsx",
+      "lines": 190,
+      "sha256": "6792cf92859de122afd4300d8e9b51cf728f100af167201f0f4770e81fa1e63b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/ProductSwitcher.tsx",
+      "lines": 38,
+      "sha256": "3334fc8696691bd562e72070c540efa11bb14c13a7d0450afa021ef1114eecda",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/RightPanel.tsx",
+      "lines": 301,
+      "sha256": "b2142e56e24aa41a236d2bc53f02872c1f911311ee2711a8280e44ef21b193d1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/RuntimeCatalogProvider.tsx",
+      "lines": 27,
+      "sha256": "6853c6b0ce9f31261024ef1911a55e2fd20098867bb22e64eae6982edad49cd6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/SettingsSection.tsx",
+      "lines": 71,
+      "sha256": "093b81bf148663d2b2fb847b98b3372e72a66eb5e8e87c4f8392906cd1f80d89",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/SharedNoteToolbar.tsx",
+      "lines": 44,
+      "sha256": "8efc1e1282988e9621d02ddcd036f2b3096706be6eb19035a0d7e82fb55a134f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/SiblingFilesPanel.tsx",
+      "lines": 313,
+      "sha256": "1701403f313f81f3dda9c3a53a96b72c53f4f66681d3a7d690cf042c2b904288",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/SubjectSidebar.tsx",
+      "lines": 510,
+      "sha256": "efe64c60c07dc44496e830167bcd77fdbb60b22bfadb22d098a1a75429b73e9b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/TocTree.tsx",
+      "lines": 209,
+      "sha256": "afc6bb9b6eeffc0c685020506058c045bbdc6750d77b6ca54ab59b5f51b3166e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/WorkspaceActivity.tsx",
+      "lines": 10,
+      "sha256": "b83e83bb7b943543f9b3a9cfd0da60c96e5170d031534f494579c817cc7cb587",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/layout/WorkspaceTreeContextMenu.tsx",
+      "lines": 214,
+      "sha256": "5cb5ad50ef1b22b08fac69e713781fd630299c32378c1be9e123dd9aeb9623eb",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/AnimatedInlineCard.tsx",
+      "lines": 20,
+      "sha256": "41dd14ac74d07b3ba5772d7e2ecbfa735c8a142f2e30bd5e1e2852e4b763beda",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/AttachmentPicker.tsx",
+      "lines": 26,
+      "sha256": "1e3e40b13981eca13ec99099145d24036014f419945f29e8c8a9fae3d3a214f2",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/AttachmentView.tsx",
+      "lines": 15,
+      "sha256": "c11943bd8625027f163f41aaae2aa3b04e458d3619f09bf8a2d2626c26c0a67f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/BacklinksPanel.tsx",
+      "lines": 66,
+      "sha256": "ca74318fef2378989530ce553f34462c11c12dd7aa34adca9cad5c17d95cdc21",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/CodeBlockLanguageSelect.tsx",
+      "lines": 40,
+      "sha256": "1644f5c8ad168b459fe1d9a91a95f118545954b36480abe1302cd1bcf9320bc1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/ContentPageClient.tsx",
+      "lines": 476,
+      "sha256": "bf45d38c71859a8a04eb92905d463f41023f5fa08deb0f34e551b0683f597ecd",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/DirectiveBlockView.tsx",
+      "lines": 93,
+      "sha256": "788e73bfbde5b475c8478c0d29358bce855499ab77e03470602a7a65cc2e0561",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/DynamicRecording.tsx",
+      "lines": 13,
+      "sha256": "c3cb2b158f3e8be35cbeca30504dd542e816462a2fe802012393d28b00db26c6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/GraphView.tsx",
+      "lines": 286,
+      "sha256": "b7287e8677af341df65d2746f6aeab4c7e6d6d659f8c75201cb079b3c4cc91ef",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/ImageConversionView.tsx",
+      "lines": 40,
+      "sha256": "97bfe905a9e25f2042792fcd9baaa91a24eaa9ba3aa841b970e53428c1353c7c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/ImagePasteDialog.tsx",
+      "lines": 62,
+      "sha256": "47a5171182ac279e2ea627e3c12227ae3c41000e5c96eec0fa0ff8c6cec90e0d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/ImportVaultDialog.tsx",
+      "lines": 332,
+      "sha256": "3f40dba515c932bfe942109b206b380e4507ac756ff513585a89c6a024bab14c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/MathEditor.tsx",
+      "lines": 321,
+      "sha256": "60b1512983d6d08b156f168427599e830142864b70fb6422b99fca1184436a95",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/MathShortcutSettings.tsx",
+      "lines": 24,
+      "sha256": "918d7de54f22f7f0e3a27a5202f3364a4da3d621ac404a2c293b0f1e92569c54",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/MathSymbolPalette.tsx",
+      "lines": 60,
+      "sha256": "9e2a9fdaf1345469b7245951145da29eced17e01879562cca69109e55ea329e6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/MemberSearch.tsx",
+      "lines": 13,
+      "sha256": "89efe723b6c21e170b18459a3291d0e9e0b6a540ba4a0ae7d2165b3674c4f2a4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/MermaidCodeBlockView.tsx",
+      "lines": 52,
+      "sha256": "7e4afe89ccc78f97004f9b9a0a0a9f8b5040806aabe03d47a09330e7d9fb9cea",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/MermaidEditor.tsx",
+      "lines": 83,
+      "sha256": "4f62ecc982f2a9259af8cd30c826110492d5b2d7d8d9040c0c3b96418763ae8e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteAttachmentCard.tsx",
+      "lines": 73,
+      "sha256": "4585b7b074a898d12921e2639cc29a7917c8f7c8c2b77c36c96943afb0124eb4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteLink.tsx",
+      "lines": 36,
+      "sha256": "67e577ea12a59788eefbd220b283d66ab5fbf691477a54673567219026686413",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteRenderer.tsx",
+      "lines": 25,
+      "sha256": "fbb1045928d263640e4da7828575afe4b1e55ae5792fd774de5821c5a6fd9157",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteRendererServer.tsx",
+      "lines": 26,
+      "sha256": "6544b3051791df934c50ab2354b4348075fc70319a2f6d466fc9c87f4557ca19",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteSkeleton.tsx",
+      "lines": 95,
+      "sha256": "92ba31ace16021b55329d445f3a965da4f77bb67a2aeea543881ff89cf4035ac",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteToolbar.tsx",
+      "lines": 176,
+      "sha256": "690333a8d91852ebd821132ff4d8e76c7c677102cf372f506c6de4587fc9ce00",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/NoteWorkspaceActions.tsx",
+      "lines": 257,
+      "sha256": "76d1dd4604fc87da11a6dbbe7beded9ecdd2e526785e63bdb8ab1e7c7e9924f9",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/ProgressiveNoteRenderer.tsx",
+      "lines": 60,
+      "sha256": "ebac04b8e51e462dbd4dbeb92e31ed6cc7a7605cb2f9524a5b8ab541ce38c4f3",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/SelectionPopover.tsx",
+      "lines": 302,
+      "sha256": "09575893579525b500acddbef6a72abed09b2d61169e08519738ef219f4cafa8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/ToolbarColorPicker.tsx",
+      "lines": 142,
+      "sha256": "71c6c14f0ed83259f4f3e2ed5737fba18320e8aea32b56163b36e25f03f1919b",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/UploadPlaceholderView.tsx",
+      "lines": 41,
+      "sha256": "4b5763f1e5232b94a7f457e705d8955ec17e173ff8c25af621985dcb65eaa2de",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/UploadQueue.tsx",
+      "lines": 12,
+      "sha256": "995fbc4dcc846e75282b85caad6e3d83f66e1a839b6152d44821302177293e49",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/notes/VisualNoteEditor.tsx",
+      "lines": 982,
+      "sha256": "5282cdc850f32e545e30e0c90b3e3b25b6707ee001ad883bc9c1b3968ed58ad1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/quiz/QuizMarkdown.tsx",
+      "lines": 94,
+      "sha256": "06547d8171d1789598adc1da71b2cd751f14388a268f1a8371ad6502779c7d6c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/quiz/QuizQuestion.tsx",
+      "lines": 903,
+      "sha256": "b63f932706069cdc2a5fb17adadd9a5304ecc35230d65ac58a65fb2993f59106",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/quiz/QuizScoring.tsx",
+      "lines": 176,
+      "sha256": "1340a5e8fe6654c9dd7925ba32c97fd43f9e92f7c2d288ee445e5634ac05f99c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/quiz/QuizSummary.tsx",
+      "lines": 246,
+      "sha256": "2be0af48de12f007556d16e8fe7eaea0272526f007895d85f33388406ada266c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/quiz/QuizTab.tsx",
+      "lines": 394,
+      "sha256": "d2f88a256f6a4ae2b0920ae8cc3d67e2cbe8190b838c2f7b6bfc81a100c3b662",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/resources/ResourceCenter.tsx",
+      "lines": 128,
+      "sha256": "e09beaa469d31557d55e0c5e3ec094fa4e6417fb7b5b96a01fb85d09cab6ebbf",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/resources/ResourcePreview.tsx",
+      "lines": 19,
+      "sha256": "78a8274f2f1a5b11ef25004f71b211efca633e1c373dd815847ca6b61e3c3aa6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/review/CollapsibleSection.tsx",
+      "lines": 62,
+      "sha256": "979d0638565c1f1294ae73b1e62de397fcaf22754c2fe69bb85f5d29c4a189be",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/review/FlipCard.tsx",
+      "lines": 192,
+      "sha256": "171241a99e80580ca202103981a528e75483820f2f2422d43e77f0d35787881a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/review/RecordPreviewLayer.tsx",
+      "lines": 17,
+      "sha256": "aba9f52f83db357cc3f87887175a2041ab9157fdea066da7088a945042fa428e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/review/RecordPreviewWindow.tsx",
+      "lines": 698,
+      "sha256": "a30dc00598243b53273399f3dfac2e33484caeb49a062186380f62213c171284",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/review/ReviewPage.tsx",
+      "lines": 510,
+      "sha256": "0720ac33d652a550ab6936f2c700adb5cdc8f9794d0401442aaf217835fb1d18",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/search/GlobalSearchButton.tsx",
+      "lines": 169,
+      "sha256": "71fe84af33753af146872b1cade35e23bb8518ea7c2ab0a987df837cb74069a7",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/setup/SetupWizard.tsx",
+      "lines": 58,
+      "sha256": "ec638abdf43c411794641bebcaeb4db079bae84ab267dd44e42f99cc853adca4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/ChoiceMenu.tsx",
+      "lines": 8,
+      "sha256": "c07c634077b5b65d2d4d94e401e42a20c6c370598ae04d71b43faf43d0de61c6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/CodeBlock.tsx",
+      "lines": 68,
+      "sha256": "d27e07ae02b140f717bf660ce63e90e8af3282e5fe5ab5e03834a8f3d41a3ae4",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/ContentImage.tsx",
+      "lines": 51,
+      "sha256": "912f6837be318a348e93c60ad0bb8ec367b9197097e4bca770cf78c3be43e525",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/Callout.tsx",
+      "lines": 38,
+      "sha256": "d591ce3bec8a60d0309741b3e90a87956d246dac00c951ace026955af65a7fd1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/CauseEffect.tsx",
+      "lines": 73,
+      "sha256": "4c87919465590844589e4d3bdd729e960f61867c4683773500e83b3c0a14c33f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/CompareTable.tsx",
+      "lines": 20,
+      "sha256": "0912e63fc3620bd4a0fc12a184847599596e848e4605683ba9bc0f37380ac744",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/ConceptCard.tsx",
+      "lines": 40,
+      "sha256": "463937e35a7c1bc8387d1cc257df2f0da702694179eef448fc9992f6652a3b81",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/Derivation.tsx",
+      "lines": 17,
+      "sha256": "dcf93ec622f75ded83b38937c0b2cd3af8478a17076f0c291167f21a060ac0f5",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/EventCard.tsx",
+      "lines": 63,
+      "sha256": "b1dd692b9bb4c783a34606ec033ff2f1a01007cfbe463f017d8c1c2df47e08cd",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/Figure.tsx",
+      "lines": 41,
+      "sha256": "94b38183df5721ae85c45580e08b8e178190f3e2ae86c8588da24ed799f03f46",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/HistoryMap.tsx",
+      "lines": 58,
+      "sha256": "6150c9b4504d58017c6b16f3160b47fe9087bce8fcc224441e01fd34f3b7812a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/KeyPoint.tsx",
+      "lines": 20,
+      "sha256": "fbd31729629b611380b631e68cdfb773569d7e594c26d7a4fe863739a597c906",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/LearningAnimation.tsx",
+      "lines": 21,
+      "sha256": "86371b14faf41402d8cc918f2c936ec8dd8b596c92bc49648f077fb192ed11f7",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/MediaEmbed.tsx",
+      "lines": 111,
+      "sha256": "a2bd0113675718b42165c2b329e2c7116121f9d8c331b0589ce955aac7ebc0d8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/MemoryCard.tsx",
+      "lines": 239,
+      "sha256": "8f094049c5767e0ecf7f5c7a34f2ba7e973b475b7e956abe0806083f51b90fec",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/directives/Timeline.tsx",
+      "lines": 70,
+      "sha256": "62d7a355c985a3baeb1314d0f8aa6efe3a44d4484499cdb896f6b4d1d276e8a8",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/FloatingPanel.tsx",
+      "lines": 9,
+      "sha256": "d170da0c1b64fb50b2e1d23382933eff7fc956e6183a3904dbdac78103605bd6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/HorizontalScrollbar.tsx",
+      "lines": 33,
+      "sha256": "8184d8709fd4b7a24b8c18f253d2491fb1f9646c2e2d1f13954a87ccc834417c",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/ImageLightbox.tsx",
+      "lines": 141,
+      "sha256": "15f26cb8110663c00235ae389ccf50dd5cb966fcb3d4622b036d945a8d4b21c9",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/MermaidBlock.tsx",
+      "lines": 57,
+      "sha256": "2ba8e9df51e7a6b756237e11d0cd613ab7e428a542fb0e8207917def8f77c648",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/MessageContextMenu.tsx",
+      "lines": 144,
+      "sha256": "838b94cd9e146c0368428618790e13d869431aef605cd630e31070cc30195b80",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/PdfPreview.tsx",
+      "lines": 159,
+      "sha256": "7ac1a6e9ab7977ce4496210ac89c5b117322b068c23bf22aa3d63e94bcc3776f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/ResizeLoader.tsx",
+      "lines": 63,
+      "sha256": "0f4269a18aac76e6b81f684649e5df7970d530cfc0e450e0d9c903249c936a27",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/SubjectIcon.tsx",
+      "lines": 21,
+      "sha256": "8f5085e30b868b938ead9687b8d53ebfcee8df7659216f9ffefcd6fd44362508",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/SurfaceBoundary.tsx",
+      "lines": 23,
+      "sha256": "669a45b5b4900b682a8993246da69a977de2c0230d61275cbd516ebbd10ca4bf",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/TaskDialog.tsx",
+      "lines": 26,
+      "sha256": "f7fe86d5d1a6291430c1978358e628f64cac9f4ace4a8f0099a20097ed8f39b1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/TreeDisclosure.tsx",
+      "lines": 8,
+      "sha256": "35877b6c43980cea74cd7a2f31138f7ecff79c49f8ca2bc7b70c74c20c5a5561",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/shared/WorkspaceLoading.tsx",
+      "lines": 5,
+      "sha256": "3819adfa6d846f9a1649ed597b5a98a3586b60de5742e49892b3a2ee7e03c6ce",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/ui/AnimatedCollapse.tsx",
+      "lines": 80,
+      "sha256": "ebd95d71c311ebe4b5e50394c29666271ce5ea25e4ad1451e65cb8cc67f899b1",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/ui/LazyVisible.tsx",
+      "lines": 57,
+      "sha256": "08b21986e6f9a7acd6606db1293419ac80a3741756c0ffc11a03a07787ab6a4f",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/ui/Tip.tsx",
+      "lines": 56,
+      "sha256": "d114ba8d325143eaaddfa524c6e20c718dbf4751162f61e1c8db70116251bc61",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/ui/Tooltip.tsx",
+      "lines": 104,
+      "sha256": "ed89f3cec23e8d46cfb75943eb5ff1b3a5dd9084a6e1373f86a9cb3c59bcaf0e",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/video/ClassroomProgress.tsx",
+      "lines": 28,
+      "sha256": "cd43e89d078ddd6ac70890affec3fd64358f7431547bc9e5164fc89b862d9987",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/video/InlinePlayer.tsx",
+      "lines": 99,
+      "sha256": "20482ee34eb815128b038fc39442b7f71e87d6efe59cb7084b18cf33a9900063",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/video/LectureDock.tsx",
+      "lines": 54,
+      "sha256": "e0b181fa4ca3ed38fd877659fbf6e70865fc7bcf45c14578def1bd235ea4ff11",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/video/LecturePlayer.tsx",
+      "lines": 116,
+      "sha256": "ec70d5894b8dc393bbcbe828a8c769d9df8849ecb4c9ae3467334f25b67e59dc",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/video/PipPlayer.tsx",
+      "lines": 219,
+      "sha256": "99ae300fc14db63671ac5e3b13382595008f2950742175ced8aeb872475e44ed",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/video/VideoTab.tsx",
+      "lines": 182,
+      "sha256": "88b59689417eee10ecf8f88e4ad0a901c9124c0c4e2601e4e489327d392037d2",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/visualizations/primitives/DistributionChart.tsx",
+      "lines": 426,
+      "sha256": "7e9c8ab66d45b27c101dd5e64a02ad180c80a16622f0177e47c989f33978281a",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/visualizations/primitives/FormulaSteps.tsx",
+      "lines": 257,
+      "sha256": "33040a1bb7de799f564ea6c263dddaac753526f129beaab232b24866576d91f0",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/visualizations/primitives/VennDiagram.tsx",
+      "lines": 435,
+      "sha256": "ebd8ffa50920ca724a26ddf92ed812c5bf364f984799161cd012f8ccb811d6ae",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/visualizations/primitives/VideoPlayer.tsx",
+      "lines": 119,
+      "sha256": "b994d7f23fe14041deb8f5e966ef07173f97ccf7238d6d9f78877d9a2955552d",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/window/OverflowMenu.tsx",
+      "lines": 99,
+      "sha256": "646178b5bd0e8dcdb609436f1187759f639e2114b206991da12b42a96bd62517",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/window/WindowChrome.tsx",
+      "lines": 124,
+      "sha256": "fcd8dba6e09bf8ee84876cca2fb67224fc34eb63b5b40a9fc842d58608d9e3e6",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "components/window/WindowTaskbar.tsx",
+      "lines": 154,
+      "sha256": "e2919d6de5dcdc4c089e281f6c1f330293962b2f7f9fc7b2dfb114039952d771",
+      "importsLibrary": false,
+      "mappingPresent": true
+    },
+    {
+      "source": "frontend/App.tsx",
+      "lines": 63,
+      "sha256": "e4112a4b915406a8eea8d786797233dd3710e7673941ccb0a199d9c0f5cdd50e",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/dynamic.tsx",
+      "lines": 7,
+      "sha256": "f5e392d8400e05137e930313f4aa3e40c65352d4571268ed689d0fb34a9ecf39",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/Link.tsx",
+      "lines": 9,
+      "sha256": "8b03dd286fe5a76c0867f558da5c84ffb5852aa293b82aa1da6c871130a49767",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/main.tsx",
+      "lines": 78,
+      "sha256": "e72813bc7a39167855daa6d08cbf958c279d587f92bb536555a6219234e09207",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/navigation.tsx",
+      "lines": 12,
+      "sha256": "59085e87e1a2e2d1712d19b18ad48d63b9195413f22d59dd6ff3e22eb285debd",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/ReleaseNotice.tsx",
+      "lines": 7,
+      "sha256": "ac3d5bb5b3954bb748a2ed473f6403337bc4be78d0d2ca314bd834ccb1273dcb",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/SharedPage.tsx",
+      "lines": 69,
+      "sha256": "b036c20062dc15d54789367c5cf8a69e788e8683272540bfae57d304ceb59270",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "frontend/WorkspaceCache.tsx",
+      "lines": 23,
+      "sha256": "c2f83558b7eb845322a12f544a2f507756b9a31e208cc82ad46d1b7a8517f861",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "lib/content/componentRegistry.tsx",
+      "lines": 50,
+      "sha256": "b7453de02c4553559492cf6582f3c8bf00dd7be3312468edc696dd1ce06db8cc",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "lib/markdown/noteComponents.tsx",
+      "lines": 32,
+      "sha256": "a9c91e3813025ef07bb831bd4f14a93f87f4bb2b8a56ef6735501cd00acfcd7e",
+      "importsLibrary": false,
+      "mappingPresent": false
+    },
+    {
+      "source": "lib/utils/xmlParser.tsx",
+      "lines": 392,
+      "sha256": "9e78c570c6ebb5199c8702976c8635173a8b11151eb791a38010e44524674c37",
+      "importsLibrary": false,
+      "mappingPresent": false
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 # 设计站部署
 
-设计站地址：https://ui.five-plus-one.com ，版本 0.4.0。
+设计站地址：https://ui.five-plus-one.com ，版本 0.4.1。
 
 ## 网关静态站点
 
 - 1Panel 网站 ID：49，类型：static。
 - 网关：114.66.58.250；站点别名：ui.five-plus-one.com。
 - 网站目录：`/opt/1panel/www/sites/ui.five-plus-one.com/index`。
-- 当前发布目录：`/opt/1panel/www/sites/ui.five-plus-one.com/releases/20261020-12`。
+- 当前发布目录：`/opt/1panel/www/sites/ui.five-plus-one.com/releases/20261020-13`。
 - HTTP 自动跳转 HTTPS，使用网关已有的域名证书。
 - 网站使用静态资源与 hash 路由；无需 Node 常驻进程。
 
@@ -26,3 +26,5 @@
 ## 验收记录
 
 2026-10-20：113 项自动测试通过；188 个示例通过源码及安装包编译检查，组件包与类型声明构建成功。网关发布编号为 20261020-12；146 个线上文件均通过 HTTPS 返回成功，摘要与本地 dist 一致。浏览器复验 0.4 标识、188 项目录、公式同行布局、关闭交互与编辑器右键菜单。完整范围见 kezhan-ui-0.4.0-acceptance.md。
+
+2026-10-20：0.4.1 发布编号为 20261020-13。121 项测试与 189 个源码及安装包示例检查通过；设计站、组件包与类型声明构建成功。146 个线上文件通过 HTTPS 摘要校验。浏览器复验正文排版、手机小窗控制及内容恢复。完整复核范围和抽取缺口见 [课栈组件抽取与设计复核](kezhan-ui-0.4.1-review.md)。

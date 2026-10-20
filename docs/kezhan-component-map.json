@@ -7,15 +7,18 @@
       "UserProfile"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/CommerceManager.tsx",
     "components": [
-      "PlanPicker"
+      "PlanPicker",
+      "SettingsForm"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "PlanPicker 仅选择方案；充值规则、服务价格、会员编辑、支付配置、模型价格同步与覆盖编辑仍需专用视图。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/account/CreditsPanel.tsx",
@@ -25,17 +28,19 @@
       "CapacityOverview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/DirectoryManager.tsx",
     "components": [
       "ManagementTable",
-      "SettingsForm",
-      "AsyncAction"
+      "MemberSearch",
+      "MemberAccess"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "成员和用户组管理、组内成员增删、候选搜索与授权明细尚未形成完整管理视图。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/account/ImportLocalStudy.tsx",
@@ -44,7 +49,8 @@
       "DirectoryPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/LedgerView.tsx",
@@ -52,7 +58,8 @@
       "LedgerView"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/LoginScreen.tsx",
@@ -60,17 +67,20 @@
       "LoginForm"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/NotebookManager.tsx",
     "components": [
       "ManagementTable",
-      "SettingsForm",
-      "AsyncAction"
+      "VersionHistory",
+      "VersionDiff",
+      "ImportPanel"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "笔记本发布状态、来源更新、清单预检、草稿预览、发布与历史恢复组合界面仍需提取。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/account/ShareCurrentNotebook.tsx",
@@ -83,7 +93,8 @@
       "DirectoryPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/ShareNotebook.tsx",
@@ -96,7 +107,8 @@
       "DirectoryPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/UserCreditsEditor.tsx",
@@ -104,15 +116,20 @@
       "CreditAdjustment"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/account/UserDetails.tsx",
     "components": [
-      "UserProfile"
+      "UserProfile",
+      "CreditAdjustment",
+      "CapacityOverview",
+      "PermissionSummary"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "个人资料已有展示；容量调整、管理员状态和组成员编辑仍需完整组合视图。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/admin/AdminCenter.tsx",
@@ -122,7 +139,8 @@
       "UserProfile"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/admin/AdministratorManager.tsx",
@@ -132,7 +150,8 @@
       "AsyncAction"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/admin/CapacityManager.tsx",
@@ -142,7 +161,8 @@
       "AsyncAction"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/admin/PlatformSettingsManager.tsx",
@@ -152,7 +172,8 @@
       "AsyncAction"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/admin/SystemManager.tsx",
@@ -162,7 +183,8 @@
       "AsyncAction"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/agent/AgentRunTrace.tsx",
@@ -173,7 +195,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/agent/AgentWorkspace.tsx",
@@ -185,7 +208,8 @@
       "ChatComposer"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/browser/BrowserSettingsButton.tsx",
@@ -195,7 +219,8 @@
       "EmbedFallback"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/browser/BrowserTab.tsx",
@@ -205,7 +230,8 @@
       "EmbedFallback"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/browser/EmbedFallback.tsx",
@@ -213,7 +239,8 @@
       "EmbedFallback"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/canvas/CanvasBlockRenderer.tsx",
@@ -221,8 +248,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/CanvasControls.tsx",
@@ -232,8 +260,9 @@
       "VersionDiff",
       "ErrorState"
     ],
-    "integration": "保留专用画布数据与渲染引擎，挂接工作台的 tools、inspector、source、children、onRun/onSave。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/CanvasDiagnosticPanel.tsx",
@@ -243,8 +272,9 @@
       "VersionDiff",
       "ErrorState"
     ],
-    "integration": "保留专用画布数据与渲染引擎，挂接工作台的 tools、inspector、source、children、onRun/onSave。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/CanvasDirective.tsx",
@@ -252,8 +282,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/CanvasFrame.tsx",
@@ -263,8 +294,9 @@
       "VersionDiff",
       "ErrorState"
     ],
-    "integration": "保留专用画布数据与渲染引擎，挂接工作台的 tools、inspector、source、children、onRun/onSave。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/CanvasFullscreenPortal.tsx",
@@ -274,8 +306,9 @@
       "VersionDiff",
       "ErrorState"
     ],
-    "integration": "保留专用画布数据与渲染引擎，挂接工作台的 tools、inspector、source、children、onRun/onSave。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/CanvasRevisionPanel.tsx",
@@ -285,8 +318,9 @@
       "VersionDiff",
       "ErrorState"
     ],
-    "integration": "保留专用画布数据与渲染引擎，挂接工作台的 tools、inspector、source、children、onRun/onSave。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/DiagramCanvas.tsx",
@@ -294,8 +328,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/FunctionPlot.tsx",
@@ -303,8 +338,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/PlotDirective.tsx",
@@ -312,8 +348,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/RawSvgViewer.tsx",
@@ -321,8 +358,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/renderers/HtmlRenderer.tsx",
@@ -330,8 +368,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/renderers/MoleculeRenderer.tsx",
@@ -339,8 +378,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/renderers/MultiPlotRenderer.tsx",
@@ -348,8 +388,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/renderers/PlotRenderer.tsx",
@@ -357,8 +398,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/renderers/RawSvgRenderer.tsx",
@@ -366,8 +408,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/canvas/SvgCanvas.tsx",
@@ -375,8 +418,9 @@
       "CanvasWorkbench",
       "MarkdownContent"
     ],
-    "integration": "SVG/HTML/函数图/分子与多图渲染引擎保留宿主，通过 renderDirective 和工作台内容插槽接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/chat/AgentFoldHeader.tsx",
@@ -387,7 +431,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/AgentTrace.tsx",
@@ -398,7 +443,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/AgentTraceStep.tsx",
@@ -409,7 +455,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ArtifactCard.tsx",
@@ -419,7 +466,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ArtifactViewer.tsx",
@@ -430,7 +478,8 @@
       "FloatingWindow"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/AttachmentThumbnails.tsx",
@@ -440,7 +489,8 @@
       "ContentImage"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/BillingDashboard.tsx",
@@ -450,7 +500,8 @@
       "CapacityOverview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatEmptyState.tsx",
@@ -459,7 +510,8 @@
       "AIMessage"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatHistoryOverlay.tsx",
@@ -471,7 +523,8 @@
       "ChatComposer"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatImage.tsx",
@@ -481,7 +534,8 @@
       "ContentImage"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatInput.tsx",
@@ -491,7 +545,8 @@
       "ChatPreferencesPanel"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatMessage.tsx",
@@ -502,7 +557,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatMessageVisualizations.tsx",
@@ -512,7 +568,8 @@
       "CanvasWorkbench"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatPanel.tsx",
@@ -524,7 +581,8 @@
       "ChatComposer"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatPanelHeader.tsx",
@@ -536,7 +594,8 @@
       "ChatComposer"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatQuizCard.tsx",
@@ -546,7 +605,8 @@
       "QuizQuestion"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ChatSettings.tsx",
@@ -556,8 +616,9 @@
       "ModelSelector",
       "SelectField"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "模型/API 分组增改删、协议与思考参数、图像模型、默认提示、工具默认值和数据导入导出仍缺完整设置面板。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/chat/ChatThread.tsx",
@@ -569,7 +630,8 @@
       "ChatComposer"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/DocumentCard.tsx",
@@ -579,7 +641,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/DocumentViewer.tsx",
@@ -590,7 +653,8 @@
       "FloatingWindow"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/FloatingChatBody.tsx",
@@ -601,7 +665,8 @@
       "ArtifactPreview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/FloatingChatLayer.tsx",
@@ -612,7 +677,8 @@
       "ArtifactPreview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/FloatingChatWindow.tsx",
@@ -623,7 +689,8 @@
       "ArtifactPreview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/FollowUpQuestions.tsx",
@@ -632,7 +699,8 @@
       "AIMessage"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ImageGenCard.tsx",
@@ -642,7 +710,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ImageGenViewer.tsx",
@@ -653,7 +722,8 @@
       "FloatingWindow"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ImageStrip.tsx",
@@ -663,7 +733,8 @@
       "ContentImage"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/MessageContent.tsx",
@@ -674,7 +745,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ModelMenu.tsx",
@@ -685,7 +757,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/NoteCitationCard.tsx",
@@ -695,7 +768,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/NoteCitationViewer.tsx",
@@ -706,7 +780,8 @@
       "FloatingWindow"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/NoteImageGallery.tsx",
@@ -716,7 +791,8 @@
       "QuizQuestion"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ProcessingSteps.tsx",
@@ -727,7 +803,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ReasoningTraceStep.tsx",
@@ -738,18 +815,17 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/SkillsManager.tsx",
     "components": [
-      "ChatPreferencesPanel",
-      "SkillsPanel",
-      "ModelSelector",
-      "SelectField"
+      "SkillsPanel"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "SkillsPanel 仅列出技能与启停；技能文件导入、正文和描述编辑、删除、体积信息仍需提取。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/chat/SourcePreviewViewer.tsx",
@@ -760,7 +836,8 @@
       "FloatingWindow"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/SourceTraceViewer.tsx",
@@ -771,7 +848,8 @@
       "FloatingWindow"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ThinkingMenu.tsx",
@@ -782,7 +860,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/TokenDashboard.tsx",
@@ -790,7 +869,8 @@
       "TokenDashboard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ToolCallDashboard.tsx",
@@ -801,7 +881,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/ToolTraceStep.tsx",
@@ -812,7 +893,8 @@
       "ContextMenu"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/VizErrorBoundary.tsx",
@@ -820,7 +902,8 @@
       "ErrorState"
     ],
     "integration": "业务异常边界与错误采集保留课栈，错误展示复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/VizFold.tsx",
@@ -830,7 +913,8 @@
       "CanvasWorkbench"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/chat/WebSourceFold.tsx",
@@ -840,7 +924,8 @@
       "CanvasWorkbench"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/examples/ExampleTab.tsx",
@@ -850,7 +935,8 @@
       "MarkdownContent"
     ],
     "integration": "例题内容、课程目录与打开路由保留课栈。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/icons/AgentIcons.tsx",
@@ -860,7 +946,8 @@
       "ProductNavigation"
     ],
     "integration": "图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/icons/ModelBrandIcons.tsx",
@@ -870,7 +957,8 @@
       "ProductNavigation"
     ],
     "integration": "图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/icons/PencilSparklesIcon.tsx",
@@ -880,7 +968,8 @@
       "ProductNavigation"
     ],
     "integration": "图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/interactives/chemistry/ch01/BondPolarityExplorer.tsx",
@@ -893,8 +982,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch02/IUPACNamingPractice.tsx",
@@ -907,8 +997,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch03/BoilingPointComparator.tsx",
@@ -921,8 +1012,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch04/ChairFlip.tsx",
@@ -935,8 +1027,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch04/NewmanProjection.tsx",
@@ -949,8 +1042,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch05/CarbocationStability.tsx",
@@ -963,8 +1057,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch06/MarkovnikovPredictor.tsx",
@@ -977,8 +1072,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch07/DieneAddition.tsx",
@@ -991,8 +1087,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch08/DirectingEffect.tsx",
@@ -1005,8 +1102,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch09/ChiralityMirror.tsx",
@@ -1019,8 +1117,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch09/RSConfigPractice.tsx",
@@ -1033,8 +1132,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch10/EliminationZaitsev.tsx",
@@ -1047,8 +1147,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch10/SN1SN2Compare.tsx",
@@ -1061,8 +1162,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch11/EpoxideOpening.tsx",
@@ -1075,8 +1177,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch12/CarbonylAddition.tsx",
@@ -1089,8 +1192,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch13/AcylReactivity.tsx",
@@ -1103,8 +1207,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch14/AmineBasicity.tsx",
@@ -1117,8 +1222,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/chemistry/ch14/DiazoniumNetwork.tsx",
@@ -1131,8 +1237,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/CustomInteractive.tsx",
@@ -1143,8 +1250,9 @@
       "ImportPanel",
       "DirectoryPicker"
     ],
-    "integration": "实验注册、学科计算、沙箱执行与生成服务保留课栈，目录、工作台和操作面板复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/discrete-math/LogicRelationsLabs.tsx",
@@ -1157,8 +1265,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/discrete-math/StructureLabs.tsx",
@@ -1171,8 +1280,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/InteractivePlatform.tsx",
@@ -1183,8 +1293,9 @@
       "ImportPanel",
       "DirectoryPicker"
     ],
-    "integration": "实验注册、学科计算、沙箱执行与生成服务保留课栈，目录、工作台和操作面板复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/InteractiveStudio.tsx",
@@ -1195,8 +1306,9 @@
       "ImportPanel",
       "DirectoryPicker"
     ],
-    "integration": "实验注册、学科计算、沙箱执行与生成服务保留课栈，目录、工作台和操作面板复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/InteractiveTab.tsx",
@@ -1207,8 +1319,9 @@
       "ImportPanel",
       "DirectoryPicker"
     ],
-    "integration": "实验注册、学科计算、沙箱执行与生成服务保留课栈，目录、工作台和操作面板复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/LabWorkbench.tsx",
@@ -1219,8 +1332,9 @@
       "ImportPanel",
       "DirectoryPicker"
     ],
-    "integration": "实验注册、学科计算、沙箱执行与生成服务保留课栈，目录、工作台和操作面板复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/numerical-methods/ExtensionLabs.tsx",
@@ -1233,8 +1347,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/numerical-methods/FactorizationLabs.tsx",
@@ -1247,8 +1362,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/numerical-methods/Labs.tsx",
@@ -1261,16 +1377,18 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/numerical-methods/RecordingPlayer.tsx",
     "components": [
       "RecordingPlayback"
     ],
-    "integration": "录制事件生成、时钟推进与沙箱场景由课栈连接；回放视图和关键帧导航在组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/numerical-methods/SourceViewer.tsx",
@@ -1278,8 +1396,9 @@
       "CanvasWorkbench",
       "CodeBlock"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/physics/ElectrostaticsLab.tsx",
@@ -1292,8 +1411,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch01/BayesExplorer.tsx",
@@ -1306,8 +1426,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch01/ClassicalProbLab.tsx",
@@ -1320,8 +1441,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch01/FrequencyConvergence.tsx",
@@ -1334,8 +1456,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch01/ReliabilityExplorer.tsx",
@@ -1348,8 +1471,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch01/SampleSpaceBuilder.tsx",
@@ -1362,8 +1486,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch01/VennPlayground.tsx",
@@ -1376,8 +1501,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch02/BinomialExplorer.tsx",
@@ -1390,8 +1516,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch02/CDFVisualizer.tsx",
@@ -1404,8 +1531,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch02/FuncDistDemo.tsx",
@@ -1418,8 +1546,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch02/PDFExplorer.tsx",
@@ -1432,8 +1561,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch02/RVMapper.tsx",
@@ -1446,8 +1576,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch03/ConditionalExplorer.tsx",
@@ -1460,8 +1591,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch03/ConvolutionDemo.tsx",
@@ -1474,8 +1606,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch03/IndependenceChecker.tsx",
@@ -1488,8 +1621,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch03/JointDistExplorer.tsx",
@@ -1502,8 +1636,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch03/MarginalExplorer.tsx",
@@ -1516,8 +1651,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch04/CorrelationExplorer.tsx",
@@ -1530,8 +1666,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch04/CovMatrixDemo.tsx",
@@ -1544,8 +1681,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch04/ExpectationExplorer.tsx",
@@ -1558,8 +1696,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch04/VarianceExplorer.tsx",
@@ -1572,8 +1711,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch05/ChebyshevDemo.tsx",
@@ -1586,8 +1726,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch05/CLTSimulator.tsx",
@@ -1600,8 +1741,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch05/LLNSimulator.tsx",
@@ -1614,8 +1756,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch06/NormalSamplingDemo.tsx",
@@ -1628,8 +1771,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch06/QuantileExplorer.tsx",
@@ -1642,8 +1786,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch06/SamplingDistExplorer.tsx",
@@ -1656,8 +1801,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch06/StatisticCalculator.tsx",
@@ -1670,8 +1816,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch07/ConfidenceIntervalExplorer.tsx",
@@ -1684,8 +1831,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch07/EstimatorComparator.tsx",
@@ -1698,8 +1846,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch07/MLEExplorer.tsx",
@@ -1712,8 +1861,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch07/MomentEstimator.tsx",
@@ -1726,8 +1876,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch08/ErrorTypeDemo.tsx",
@@ -1740,8 +1891,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch08/HypTestDemo.tsx",
@@ -1754,8 +1906,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch08/MeanTestExplorer.tsx",
@@ -1768,8 +1921,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ch08/VarianceTestExplorer.tsx",
@@ -1782,8 +1936,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/probability/ReviewLabs.tsx",
@@ -1796,8 +1951,9 @@
       "QuizQuestion",
       "RecordingPlayback"
     ],
-    "integration": "学科实验的计算与内容保留课栈；迁移时将参数控件接入统一控件与工作台，尚未修改此源文件。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/interactives/SaveInteractiveButton.tsx",
@@ -1805,8 +1961,9 @@
       "AsyncAction",
       "DirectoryPicker"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "计算及专用渲染引擎保留宿主；参数面板、编辑与录制界面需逐项抽取。CanvasWorkbench 插槽不代表这些界面已完成。",
+    "status": "共用外壳已提供，专用界面待抽取与验收",
+    "review": "shell"
   },
   {
     "source": "components/keyboard/KeyboardShortcutProvider.tsx",
@@ -1815,7 +1972,8 @@
       "useShortcut"
     ],
     "integration": "快捷键注册与可配置界面已提供；宿主连接操作、作用域与持久化。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/keyboard/ShortcutHelpOverlay.tsx",
@@ -1825,7 +1983,8 @@
       "ShortcutProvider"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/AcademicYearSwitcher.tsx",
@@ -1833,23 +1992,25 @@
       "AcademicYearSwitcher"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/AccessContext.tsx",
     "components": [],
-    "integration": "访问权限与运行时目录的数据提供器保留课栈，不作为展示组件抽取。",
-    "status": "宿主数据层保留"
+    "integration": "此文件承担宿主上下文或同步状态，不作为展示组件完成项计数。",
+    "status": "宿主上下文保留，相关视图单独接入",
+    "review": "host"
   },
   {
     "source": "components/layout/AppearanceSettingsControls.tsx",
     "components": [
-      "SettingsForm",
-      "SettingsSection",
-      "SelectField"
+      "SelectField",
+      "ColorPicker"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "基础主题控件可用；字体、字号及各内容区外观继承设置尚未形成完整配置视图。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/layout/AppShell.tsx",
@@ -1859,7 +2020,8 @@
       "RunWorkspace"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/BookshelfFilter.tsx",
@@ -1869,7 +2031,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/BrandLogo.tsx",
@@ -1879,7 +2042,8 @@
       "ProductNavigation"
     ],
     "integration": "图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/FileTree.tsx",
@@ -1889,7 +2053,8 @@
       "CollapseTransition"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/FileTreeItem.tsx",
@@ -1899,17 +2064,19 @@
       "CollapseTransition"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/GlobalSettings.tsx",
     "components": [
       "SettingsForm",
-      "SettingsSection",
-      "SelectField"
+      "SelectField",
+      "ShortcutSettings"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "基础控件可复用；实际各分区、外观继承和应用范围需专项组合。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/layout/HomeBookshelf.tsx",
@@ -1919,7 +2086,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/KeyboardShortcutsSettings.tsx",
@@ -1929,7 +2097,8 @@
       "ShortcutProvider"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/MobileBottomNav.tsx",
@@ -1938,7 +2107,8 @@
       "BottomNav"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/MobileChapterPicker.tsx",
@@ -1947,7 +2117,8 @@
       "TocTree"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/MobileProductNav.tsx",
@@ -1956,7 +2127,8 @@
       "BottomNav"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/MobileTopBar.tsx",
@@ -1964,7 +2136,8 @@
       "MobileTopBar"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/MobileViewport.tsx",
@@ -1974,7 +2147,8 @@
       "MobileTopBar"
     ],
     "integration": "视口、安全区和页面路由由宿主保留。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/NewTabPlaceholder.tsx",
@@ -1982,7 +2156,8 @@
       "WorkspaceEmpty"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/NotePane.tsx",
@@ -1992,7 +2167,8 @@
       "RunWorkspace"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/NoteSplitPane.tsx",
@@ -2002,7 +2178,8 @@
       "RunWorkspace"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/NoteTabStrip.tsx",
@@ -2010,7 +2187,8 @@
       "WorkspaceTabs"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/ProductSwitcher.tsx",
@@ -2019,7 +2197,8 @@
       "BottomNav"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/RightPanel.tsx",
@@ -2029,13 +2208,15 @@
       "RunWorkspace"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/RuntimeCatalogProvider.tsx",
     "components": [],
-    "integration": "访问权限与运行时目录的数据提供器保留课栈，不作为展示组件抽取。",
-    "status": "宿主数据层保留"
+    "integration": "此文件承担宿主上下文或同步状态，不作为展示组件完成项计数。",
+    "status": "宿主上下文保留，相关视图单独接入",
+    "review": "host"
   },
   {
     "source": "components/layout/SettingsSection.tsx",
@@ -2045,7 +2226,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/SharedNoteToolbar.tsx",
@@ -2055,7 +2237,8 @@
       "ShareAccessPanel"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/SiblingFilesPanel.tsx",
@@ -2063,7 +2246,8 @@
       "SiblingFiles"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/SubjectSidebar.tsx",
@@ -2072,7 +2256,8 @@
       "BottomNav"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/TocTree.tsx",
@@ -2080,7 +2265,8 @@
       "TocTree"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/layout/WorkspaceActivity.tsx",
@@ -2089,8 +2275,9 @@
       "TaskStatus",
       "NotificationList"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "此文件承担宿主上下文或同步状态，不作为展示组件完成项计数。",
+    "status": "宿主上下文保留，相关视图单独接入",
+    "review": "host"
   },
   {
     "source": "components/layout/WorkspaceTreeContextMenu.tsx",
@@ -2100,7 +2287,8 @@
       "CollapseTransition"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/AnimatedInlineCard.tsx",
@@ -2111,7 +2299,8 @@
       "ShortcutSettings"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/AttachmentPicker.tsx",
@@ -2121,7 +2310,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/AttachmentView.tsx",
@@ -2131,7 +2321,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/BacklinksPanel.tsx",
@@ -2139,7 +2330,8 @@
       "BacklinksPanel"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/CodeBlockLanguageSelect.tsx",
@@ -2150,7 +2342,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/ContentPageClient.tsx",
@@ -2159,7 +2352,8 @@
       "LazyVisible"
     ],
     "integration": "服务端读取、流式传输、资源授权和专用渲染器由宿主连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/DirectiveBlockView.tsx",
@@ -2170,7 +2364,8 @@
       "deleteEditorBlock"
     ],
     "integration": "本地草稿、保存版本与编辑文档身份由宿主连接；节点与通用交互在组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/DynamicRecording.tsx",
@@ -2178,7 +2373,8 @@
       "RecordingPlayback"
     ],
     "integration": "录制事件生成、时钟推进与沙箱场景由课栈连接；回放视图和关键帧导航在组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/GraphView.tsx",
@@ -2186,7 +2382,8 @@
       "GraphView"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/ImageConversionView.tsx",
@@ -2197,7 +2394,8 @@
       "ImageConversion"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/ImagePasteDialog.tsx",
@@ -2208,7 +2406,8 @@
       "ImageConversion"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/ImportVaultDialog.tsx",
@@ -2217,7 +2416,8 @@
       "DirectoryPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/MathEditor.tsx",
@@ -2228,7 +2428,8 @@
       "ShortcutSettings"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/MathShortcutSettings.tsx",
@@ -2239,7 +2440,8 @@
       "ShortcutSettings"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/MathSymbolPalette.tsx",
@@ -2250,7 +2452,8 @@
       "ShortcutSettings"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/MemberSearch.tsx",
@@ -2263,7 +2466,8 @@
       "DirectoryPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/MermaidCodeBlockView.tsx",
@@ -2274,7 +2478,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/MermaidEditor.tsx",
@@ -2285,7 +2490,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/NoteAttachmentCard.tsx",
@@ -2295,7 +2501,8 @@
       "FileCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/NoteLink.tsx",
@@ -2303,25 +2510,26 @@
       "NoteLink"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/NoteRenderer.tsx",
     "components": [
-      "MarkdownContent",
-      "LazyVisible"
+      "MarkdownContent"
     ],
-    "integration": "服务端读取、流式传输、资源授权和专用渲染器由宿主连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "公式、表格、卡片已提供；双链、标题锚点、内联颜色/高亮及全部专用指令的阅读等价性仍需对照。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/notes/NoteRendererServer.tsx",
     "components": [
-      "MarkdownContent",
-      "LazyVisible"
+      "MarkdownContent"
     ],
-    "integration": "服务端读取、流式传输、资源授权和专用渲染器由宿主连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "服务端与客户端渲染一致性、专用指令和授权资源仍需宿主集成验证。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/notes/NoteSkeleton.tsx",
@@ -2330,7 +2538,8 @@
       "TaskProgress"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/NoteToolbar.tsx",
@@ -2340,7 +2549,8 @@
       "ShareAccessPanel"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/NoteWorkspaceActions.tsx",
@@ -2350,7 +2560,8 @@
       "ShareAccessPanel"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/ProgressiveNoteRenderer.tsx",
@@ -2359,7 +2570,8 @@
       "LazyVisible"
     ],
     "integration": "服务端读取、流式传输、资源授权和专用渲染器由宿主连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/SelectionPopover.tsx",
@@ -2369,7 +2581,8 @@
       "ColorPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/ToolbarColorPicker.tsx",
@@ -2379,7 +2592,8 @@
       "ColorPicker"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/UploadPlaceholderView.tsx",
@@ -2390,7 +2604,8 @@
       "ImageConversion"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/UploadQueue.tsx",
@@ -2398,18 +2613,20 @@
       "UploadQueue"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/notes/VisualNoteEditor.tsx",
     "components": [
       "MarkdownEditor",
-      "DirectiveFields",
-      "moveEditorBlock",
-      "deleteEditorBlock"
+      "VersionHistory",
+      "VersionDiff",
+      "SaveConflict"
     ],
-    "integration": "本地草稿、保存版本与编辑文档身份由宿主连接；节点与通用交互在组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "核心富文本及协作接口可用；保存导航、真实版本恢复、块拖动和既有扩展文档完整往返需产品集成验收。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/quiz/QuizMarkdown.tsx",
@@ -2418,7 +2635,8 @@
       "LazyVisible"
     ],
     "integration": "服务端读取、流式传输、资源授权和专用渲染器由宿主连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/quiz/QuizQuestion.tsx",
@@ -2426,7 +2644,8 @@
       "QuizQuestion"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/quiz/QuizScoring.tsx",
@@ -2434,7 +2653,8 @@
       "QuizScoring"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/quiz/QuizSummary.tsx",
@@ -2442,7 +2662,8 @@
       "QuizSummary"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/quiz/QuizTab.tsx",
@@ -2452,7 +2673,8 @@
       "MarkdownContent"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/resources/ResourceCenter.tsx",
@@ -2463,7 +2685,8 @@
       "RecycleBin"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/resources/ResourcePreview.tsx",
@@ -2474,7 +2697,8 @@
       "VideoPlayer"
     ],
     "integration": "转换服务、鉴权源和真实预览文件由宿主提供。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/review/CollapsibleSection.tsx",
@@ -2483,7 +2707,8 @@
       "CollapseTransition"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/review/FlipCard.tsx",
@@ -2492,7 +2717,8 @@
       "RecallContent"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/review/RecordPreviewLayer.tsx",
@@ -2503,7 +2729,8 @@
       "ArtifactPreview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/review/RecordPreviewWindow.tsx",
@@ -2514,7 +2741,8 @@
       "ArtifactPreview"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/review/ReviewPage.tsx",
@@ -2523,7 +2751,8 @@
       "MemoryCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/search/GlobalSearchButton.tsx",
@@ -2532,7 +2761,8 @@
       "CommandMenu"
     ],
     "integration": "搜索权限、远程与本地合并、定位路由由课栈提供。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/setup/SetupWizard.tsx",
@@ -2540,7 +2770,8 @@
       "SetupWizard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/ChoiceMenu.tsx",
@@ -2549,7 +2780,8 @@
       "Popup"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/CodeBlock.tsx",
@@ -2560,16 +2792,17 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/ContentImage.tsx",
     "components": [
-      "Figure",
       "ContentImage"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "本轮验证失败占位、更换地址恢复及宿主错误回调。",
+    "status": "本轮视图验收通过，待课栈接入",
+    "review": "verified"
   },
   {
     "source": "components/shared/directives/Callout.tsx",
@@ -2578,7 +2811,8 @@
       "MarkdownContent"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/CauseEffect.tsx",
@@ -2586,7 +2820,8 @@
       "CauseEffect"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/CompareTable.tsx",
@@ -2594,7 +2829,8 @@
       "CompareTable"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/ConceptCard.tsx",
@@ -2602,7 +2838,8 @@
       "ConceptCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/Derivation.tsx",
@@ -2611,7 +2848,8 @@
       "FormulaSteps"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/EventCard.tsx",
@@ -2619,7 +2857,8 @@
       "EventCard"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/Figure.tsx",
@@ -2628,7 +2867,8 @@
       "ContentImage"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/HistoryMap.tsx",
@@ -2637,7 +2877,8 @@
       "HistoryMap"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/KeyPoint.tsx",
@@ -2645,7 +2886,8 @@
       "KeyPoint"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/LearningAnimation.tsx",
@@ -2654,7 +2896,8 @@
       "VideoPlayer"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/MediaEmbed.tsx",
@@ -2664,7 +2907,8 @@
       "EmbedFallback"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/MemoryCard.tsx",
@@ -2673,7 +2917,8 @@
       "RecallContent"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/directives/Timeline.tsx",
@@ -2682,18 +2927,17 @@
       "Timeline"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/FloatingPanel.tsx",
     "components": [
-      "FloatingWindow",
-      "WindowChrome",
-      "WindowTaskbar",
-      "ArtifactPreview"
+      "Popup"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "源组件是锚点定位的受控浮层，需补齐外部 anchor/open 控制契约；FloatingWindow 是拖动窗口，不能直接替代。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "anchored"
   },
   {
     "source": "components/shared/HorizontalScrollbar.tsx",
@@ -2701,7 +2945,8 @@
       "HorizontalScrollbar"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/ImageLightbox.tsx",
@@ -2709,7 +2954,8 @@
       "MediaLightbox"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/MermaidBlock.tsx",
@@ -2720,7 +2966,8 @@
       "SelectField"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/MessageContextMenu.tsx",
@@ -2729,7 +2976,8 @@
       "SelectionActions"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/PdfPreview.tsx",
@@ -2740,7 +2988,8 @@
       "VideoPlayer"
     ],
     "integration": "转换服务、鉴权源和真实预览文件由宿主提供。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/ResizeLoader.tsx",
@@ -2749,7 +2998,8 @@
       "TaskProgress"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/SubjectIcon.tsx",
@@ -2759,15 +3009,17 @@
       "ProductNavigation"
     ],
     "integration": "图标和品牌资源保留宿主映射，通过 icon 插槽接入；五加一 Logo 使用统一地址。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/SurfaceBoundary.tsx",
     "components": [
-      "ErrorState"
+      "SurfaceBoundary"
     ],
-    "integration": "业务异常边界与错误采集保留课栈，错误展示复用组件库。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "本轮提供局部异常恢复、重新挂载和 resetKey 切换；错误诊断交给 onError。验证见 window-recovery.test.tsx。",
+    "status": "本轮视图验收通过，待课栈接入",
+    "review": "verified"
   },
   {
     "source": "components/shared/TaskDialog.tsx",
@@ -2776,7 +3028,8 @@
       "TaskProgress"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/TreeDisclosure.tsx",
@@ -2786,7 +3039,8 @@
       "CollapseTransition"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/shared/WorkspaceLoading.tsx",
@@ -2795,7 +3049,8 @@
       "TaskProgress"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/ui/AnimatedCollapse.tsx",
@@ -2804,7 +3059,8 @@
       "AnimatedSize"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/ui/LazyVisible.tsx",
@@ -2812,7 +3068,8 @@
       "LazyVisible"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/ui/Tip.tsx",
@@ -2820,7 +3077,8 @@
       "Tooltip"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/ui/Tooltip.tsx",
@@ -2828,7 +3086,8 @@
       "Tooltip"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/video/ClassroomProgress.tsx",
@@ -2837,7 +3096,8 @@
       "Progress"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/video/InlinePlayer.tsx",
@@ -2847,7 +3107,8 @@
       "ClassroomTimeline"
     ],
     "integration": "授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/video/LectureDock.tsx",
@@ -2855,7 +3116,8 @@
       "LectureDock"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/video/LecturePlayer.tsx",
@@ -2865,17 +3127,19 @@
       "ClassroomTimeline"
     ],
     "integration": "授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/video/PipPlayer.tsx",
     "components": [
       "VideoPlayer",
-      "LectureDock",
-      "ClassroomTimeline"
+      "FloatingWindow",
+      "LectureDock"
     ],
-    "integration": "授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "播放及窗口已有独立组件；画中画几何、鉴权刷新、时间恢复、字幕与课堂联动仍需组合验收。",
+    "status": "部分视图可用，完整界面待抽取与验收",
+    "review": "partial"
   },
   {
     "source": "components/video/VideoTab.tsx",
@@ -2885,7 +3149,8 @@
       "ClassroomTimeline"
     ],
     "integration": "授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/visualizations/primitives/DistributionChart.tsx",
@@ -2893,7 +3158,8 @@
       "DistributionChart"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/visualizations/primitives/FormulaSteps.tsx",
@@ -2902,7 +3168,8 @@
       "FormulaSteps"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/visualizations/primitives/VennDiagram.tsx",
@@ -2910,7 +3177,8 @@
       "VennDiagram"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/visualizations/primitives/VideoPlayer.tsx",
@@ -2920,7 +3188,8 @@
       "ClassroomTimeline"
     ],
     "integration": "授权刷新、缓冲看门狗、播放位置持久化与课堂路由保留宿主；播放器提供 videoRef 和事件接入。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/window/OverflowMenu.tsx",
@@ -2929,16 +3198,17 @@
       "Dropdown"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   },
   {
     "source": "components/window/WindowChrome.tsx",
     "components": [
-      "WindowChrome",
-      "FloatingWindow"
+      "WindowChrome"
     ],
-    "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "integration": "标题在左，操作位于右侧，关闭按钮在最右；验证键盘、拖动隔离和窄容器位置。外部打开操作通过 actions 接入。",
+    "status": "本轮视图验收通过，待课栈接入",
+    "review": "verified"
   },
   {
     "source": "components/window/WindowTaskbar.tsx",
@@ -2947,6 +3217,7 @@
       "Dropdown"
     ],
     "integration": "业务数据、授权和持久化由课栈连接。",
-    "status": "视图接口已提供，待课栈接入"
+    "status": "已有共享组件，完整能力待验收",
+    "review": "candidate"
   }
 ]
