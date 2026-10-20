@@ -2,7 +2,7 @@
 
 面向五加一产品的共同视觉语言、交互模式与组件规范。
 
-包含 78 个基础及业务组件、5 个工作区组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
+组件目录包含 119 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
 
 - [UI UX 设计调研](docs/research/ui-ux-research-2026-10-19.md)
 
@@ -17,7 +17,7 @@ npm run dev
 
 访问 http://127.0.0.1:5178/ 。`npm run build` 构建设计网站和带类型声明的组件包；`npm test` 执行回归测试。
 
-在本项目执行 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.1.0.tgz`：
+在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.2.0.tgz`：
 
 ```tsx
 import { Button, Card } from '@fiveplusone/ui';
@@ -32,6 +32,11 @@ export function Welcome() {
 
 ## 工作区能力
 
+- WorkspaceLayout：多栏拖动、折叠、宽度保存、嵌套分屏和命令式控制。
+- ChatComposer / MessageList：受控草稿、附件、引用、中文输入、虚拟列表和流式粘底。
+- MarkdownEditor：课栈 Markdown 节点、工具栏、公式与矩阵、表格、代码、卡片和 Yjs 协作。
+- MemberAccess：成员角色、邀请、提交反馈与只读展示。
+- VideoPlayer：授权播放源、控制器引用、播放位置和字幕接入。
 - ResourcePreview：PDF、Word、PowerPoint、表格、图片、音视频与文本预览入口。
 - PdfPreview：课栈分页预览、延迟加载、转换等待、缩放、跳页及重试。
 - HorizontalScrollbar：拖动和键盘操作的横向滚动条。
@@ -42,5 +47,6 @@ Office 转换依赖接入项目的预览服务；跨设备协作依赖鉴权、�
 
 - [设计规范](docs/design/design-system.md)
 - [接入与课栈适配](docs/design/integration.md)
+- [课栈迁移接口与验收](docs/kezhan-migration-guide.md)
 
 `src/lib` 为组件包，`src/catalog.tsx` 与 `src/workspace-gallery.tsx` 为目录，`src/main.tsx` 为设计网站，`tests` 为回归测试。

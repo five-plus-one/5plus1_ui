@@ -1,28 +1,13 @@
-# KeZhan 组件完整提取清单
+# 工作区组件交付记录
 
-## 扫描进度：0/224
+版本：0.2.0，日期：2026-10-20。
 
-### 待扫描目录
-1. account/ - 账户相关组件
-2. browser/ - 浏览器组件
-3. chat/ - AI 对话组件
-4. editor/ - 编辑器组件
-5. icons/ - 图标组件
-6. interactives/ - 交互式组件
-7. layout/ - 布局组件
-8. notes/ - 笔记组件
-9. shared/ - 共享组件
-10. ui/ - UI 基础组件
-11. video/ - 视频组件
-12. window/ - 窗口组件
+已提供 WorkspaceLayout、受控 FileTree、MessageList、ChatComposer、MarkdownEditor、VideoPlayer 接口扩展和 MemberAccess；模型菜单与共用浮层统一交互、密度和主题。
 
-### 提取策略
-每个组件：
-1. 读取源代码
-2. 分析功能和 props
-3. 按照五加一设计规范重写
-4. 添加到组件库
-5. 添加到演示站点
+Markdown 编辑器采用课栈 schema 2，包含工具栏、数学输入、矩阵、表格、代码语言、附件节点和指令卡片。共享 Y.Doc 的双编辑器同步已通过回归测试。
 
-### 当前任务
-开始扫描第一个目录：account/
+验证：31 项自动测试通过；设计站、组件包与类型声明构建成功；私有安装包可导入组件并通过消费者 TypeScript 检查。浏览器验证模型菜单深浅主题、Escape 关闭、公式面板、矩阵工具和快捷插入。
+
+课栈应用尚待分批接入。后台权限、保存冲突、历史恢复、Office 转换、课堂联动和专用内容渲染由课栈提供，具体契约见 kezhan-migration-guide.md。119 项目录的渲染检查不等于全部业务交互的生产验收。
+
+规范以 src/lib/tokens.css、themes.ts、docs/design/design-system.md 为当前依据；历史提案供追溯参考。

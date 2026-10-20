@@ -1,261 +1,45 @@
-# KeZhan-notebook 重构实施指南
+# 课栈组件接入指南
 
-## 阶段一：准备工作（已完成 ✅）
+适用版本：@fiveplusone/ui 0.2.0。课栈实际入口为 frontend/main.tsx。组件库提供视图与交互契约，业务服务、权限、持久化和保存协议由课栈接入。
 
-### 1. P0 组件实现
-- [x] FileTree（文件树导航，支持命名空间和 prefetch）
-- [x] ChatComposer（AI 输入框，支持附件和引用）
-- [x] MessageList + MessageBubble（虚拟滚动对话流）
-- [x] CollapseTransition（动画折叠容器）
-- [x] ResizablePanel（三栏布局，已存在）
+## 安装与主题
 
-### 2. 组件映射文档
-- [x] 创建完整的组件映射表
-- [x] 变量映射表（MD3 → fp-*）
-- [x] 迁移步骤说明
+组件库执行 npm run build、npm pack，在课栈安装 fiveplusone-ui-0.2.0.tgz。入口引入 @fiveplusone/ui/styles.css，根元素设置 data-product="kezhan" 与 data-theme="light" 或 dark。品牌色固定 #FD8B07，课栈操作主题 #1A73E8，Logo 使用 https://go.r-l.ink/ico。
 
-## 阶段二：变量替换（进行中）
+运行依赖为 React 19、Tiptap 3.32、Yjs 13.6、react-resizable-panels 2.x。接入时检查依赖树，确保 React、Yjs、Tiptap core/pm 使用同一实例和兼容版本；锁定依赖后验证历史文档与协作。
 
-### 自动化脚本
-运行 `scripts/migrate-kezhan.sh` 自动替换所有 CSS 变量：
-- MD3 颜色变量 → fp-* 语义变量
-- 自定义变量（--bg-*, --ink-*, --line）→ fp-* 变量
+## 布局与文件
 
-### 手动检查项
-脚本完成后，手动检查以下文件：
-1. `app/globals.css` - 全局变量定义
-2. `lib/theme/` - 主题配置
-3. `components/ui/` - UI 组件样式
+WorkspaceLayout.panels 每项包含 id、label、content，可设置百分比 defaultSize/minSize/maxSize 和 collapsible/collapsedSize。嵌套布局提供分屏，外层必须有明确高度。ref 提供 getLayout/setLayout/collapse/expand/resize/isCollapsed。persistenceKey 按产品、账户、工作区区分；宿主处理布局版本与账户退出策略。原 ResizablePanel 保持 first/second 两栏接口。
 
-## 阶段三：组件替换
+FileTree 使用全路径或资源 ID 作为稳定 id。expandedIds/onExpandedChange 控制展开；onToggle 通知变化，onPrefetch 在悬停和聚焦时触发，由宿主去重并检查权限。onOpen(node,event) 保留修饰键，onMiddleClick 处理中键，onNodeDragStart/onNodeDrop 处理拖放。onSelect(node) 保持兼容。路径组合、排序、资源变更与恢复由课栈处理。
 
-### 3.1 安装依赖
-```bash
-cd D:/5plus1/DEV/KeZhan/KeZhan-notebook/KeZhan-notebook/.work/server-7-clean
-npm install ../../5plus1-ui/fiveplusone-ui-0.1.0.tgz
-npm install @tanstack/react-virtual  # MessageList 依赖
-```
+ResourcePreview/PdfPreview 连接现有授权、转换和分页服务。Office 演示使用预制页面，生产需真实转换服务。验收 PDF、DOCX、PPTX、XLSX、大文件、等待、登录过期、失败重试和窄屏滚动。
 
-### 3.2 导入样式
-在 `app/layout.tsx` 中添加：
-```tsx
-import '@fiveplusone/ui/styles.css';
-```
+## 对话与输入
 
-### 3.3 替换核心组件
+MessageList<T> 接收稳定 ID 和 renderMessage，保留复杂消息内容；超过 30 条默认启用虚拟滚动，可设置 estimateSize、virtualize、历史加载及 bottomInset。流式增长时保持粘底，阅读历史时停止自动跳底。sessionId 与 hydrated 管理切换恢复，位置只保存在当前组件实例中，跨卸载恢复由宿主处理。继续保留 SSE、消息归并、重试与会话缓存，并以真实长消息验证滚动行为。
 
-#### AppShell（布局容器）
-```tsx
-// 旧
-import { PanelGroup, Panel, PanelResizeHandle } from "react-resizable-panels";
+ChatComposer 采用 value/onChange/onSend，发送成功后由宿主清空草稿。onStop/isLoading 连接取消；attachments 标记 uploading/ready/error，上传中或失败时阻止发送；onFiles 接收选择、粘贴与拖放。quotedText/onClearQuote 管理引用，tools 插入模型、思考、搜索等控件，onComposerInsetChange 通知高度。上传、配额与请求恢复由课栈提供。
 
-// 新
-import { ResizablePanel } from "@fiveplusone/ui";
+## Markdown 编辑器
 
-// 使用
-<ResizablePanel
-  defaultSizes={[20, 60, 20]}
-  minSizes={[200, 400, 200]}
->
-  <div>{/* 左侧栏 */}</div>
-  <div>{/* 主内容 */}</div>
-  <div>{/* 右侧栏 */}</div>
-</ResizablePanel>
-```
+MarkdownEditor 沿用课栈 NOTE_SCHEMA_VERSION=2，包含标题、列表、表格、代码语言、图片、附件、公式和指令卡片；工具栏、公式编辑、矩阵、符号与快捷键已移入组件库。段首输入 / 打开快捷插入。
 
-#### FileTree（文件导航）
-```tsx
-// 旧
-import FileTree from "@/components/layout/FileTree";
-import FileTreeItem from "@/components/layout/FileTreeItem";
+markdown 提供初始内容；切换笔记更新 documentKey，同一文档外部恢复通过 onReady 返回的 Editor 实例执行。onChange 返回 Markdown 和 JSON。onHistory/onSnapshot/onExport/onAttachment 接入业务操作，未提供的操作从工具栏隐藏。onFiles 连接上传，resolveResourceUrl 解析授权资源地址。
 
-// 新
-import { FileTree } from "@fiveplusone/ui";
+协作模式传入 document:Y.Doc、provider、user，从共享文档加载，不使用初始 Markdown 重置房间。editable 控制视图，服务端仍需验证权限；握手检查 schema 版本。上线前使用真实历史文档验证附件、公式、表格、卡片、代码往返及并发编辑。
 
-// 使用
-<FileTree
-  items={treeData}
-  selectedId={selectedKey}
-  expandedIds={expandedIds}
-  onSelect={(id, item) => handleSelect(id, item)}
-  onToggle={(id) => toggleExpand(id)}
-  onPrefetch={(id) => prefetchRoute(id)}
-  prefetchDelay={120}
-/>
-```
+renderDirective 注入课栈专用卡片视图，默认卡片可编辑嵌套 Markdown。课栈全部专用指令渲染器、Mermaid 图形渲染、版本面板、保存冲突和本地恢复仍需业务层接入。extensions 追加不同名称扩展，已有节点的变更统一调整 schema，避免重复注册。
 
-#### ChatPanel（AI 对话）
-```tsx
-// 旧
-import ChatPanel from "@/components/chat/ChatPanel";
-import ChatInput from "@/components/chat/ChatInput";
-import ChatThread from "@/components/chat/ChatThread";
+configureMathPreferences 可注入账户范围存储，默认本地存储。上传、鉴权和跨设备同步由宿主提供。
 
-// 新
-import { ChatComposer, MessageList, MessageBubble } from "@fiveplusone/ui";
+## 视频与权限
 
-// 使用
-<div className="chat-container">
-  <MessageList
-    messages={messages}
-    isLoading={isLoading}
-    error={error}
-    onClearError={() => clearError()}
-    bottomInset={composerHeight}
-    renderMessage={(msg) => <MessageBubble message={msg} />}
-  />
-  <ChatComposer
-    onSend={(content, options) => sendMessage(content, options)}
-    disabled={isLoading}
-    quotedText={quotedText}
-    onClearQuote={() => setQuotedText(undefined)}
-    attachments={attachments}
-    onAddAttachment={(file) => handleAttachment(file)}
-    onRemoveAttachment={(id) => removeAttachment(id)}
-  />
-</div>
-```
+VideoPlayer.resolveSource(src,signal) 获取授权源，切换时取消旧请求。videoRef 暴露原生 video；startAt/onTimeUpdate/onSeek/onPlaybackRateChange/tracks 接入位置、课堂控制和字幕。授权刷新、保存节流、课程时间轴继续由课栈控制器处理。
 
-#### AnimatedCollapse
-```tsx
-// 旧
-import AnimatedCollapse from "@/components/ui/AnimatedCollapse";
+MemberAccess 受控展示 members/roles；canManage、成员 editable、busyIds 控制可操作状态；onInvite/onRoleChange/onRemove 连接真实服务。账户、积分和管理流程保留课栈业务状态，复用表单与弹窗；服务端独立校验权限。
 
-// 新
-import { CollapseTransition } from "@fiveplusone/ui";
+## 推广验收
 
-// 使用（API 相同）
-<CollapseTransition isOpen={isExpanded}>
-  {children}
-</CollapseTransition>
-```
-
-### 3.4 替换基础组件
-
-批量替换导入：
-```tsx
-// 旧
-import Button from "@/components/ui/Button";
-import Input from "@/components/ui/Input";
-import Dialog from "@/components/ui/Dialog";
-
-// 新
-import { Button, Input, Dialog } from "@fiveplusone/ui";
-```
-
-大部分组件 API 保持一致，直接替换即可。
-
-## 阶段四：样式调整
-
-### 4.1 自定义主题
-创建 `lib/theme/fp-theme.css`：
-```css
-:root {
-  /* 如果需要覆盖默认颜色 */
-  --fp-primary: #your-brand-color;
-  
-  /* 如果需要自定义字体 */
-  --fp-font-body: 'Your Font', system-ui, sans-serif;
-  
-  /* 保持其他 fp-* 变量不变 */
-}
-```
-
-### 4.2 组件样式覆盖
-KeZhan 特定样式可通过 CSS 覆盖：
-```css
-/* components/layout/custom.css */
-.fp-file-tree-item {
-  /* KeZhan 定制：更紧凑的行高 */
-  min-height: 28px;
-}
-
-.fp-message-bubble {
-  /* KeZhan 定制：更大的圆角 */
-  border-radius: var(--fp-radius-lg);
-}
-```
-
-## 阶段五：测试验证
-
-### 5.1 功能测试
-- [ ] 文件树导航正常
-- [ ] 展开/折叠动画流畅
-- [ ] AI 对话发送接收正常
-- [ ] 附件上传正常
-- [ ] 引用功能正常
-- [ ] 布局拖拽调整正常
-- [ ] 路由 prefetch 正常
-
-### 5.2 主题测试
-- [ ] 深色模式切换正常
-- [ ] 浅色模式对比度符合规范
-- [ ] 自定义主题色应用正常
-
-### 5.3 可访问性测试
-- [ ] 键盘导航完整
-- [ ] Tab 顺序合理
-- [ ] 焦点指示清晰
-- [ ] 屏幕阅读器友好
-
-### 5.4 性能测试
-- [ ] 长对话列表虚拟滚动正常
-- [ ] 大文件树渲染流畅
-- [ ] 布局调整无卡顿
-- [ ] 首屏加载时间无退化
-
-### 5.5 响应式测试
-- [ ] 移动端布局正常
-- [ ] 平板布局正常
-- [ ] 桌面布局正常
-
-## 阶段六：清理优化
-
-### 6.1 移除旧代码
-```bash
-# 删除旧组件文件
-rm -rf components/ui/Button.tsx
-rm -rf components/layout/FileTree.tsx
-rm -rf components/layout/FileTreeItem.tsx
-rm -rf components/chat/ChatInput.tsx
-rm -rf components/chat/ChatThread.tsx
-# ... 其他已替换的组件
-```
-
-### 6.2 移除旧依赖
-检查 `package.json`，移除不再需要的依赖：
-- 旧 UI 库依赖
-- 重复的工具库
-
-### 6.3 代码审查
-- [ ] 无未使用的导入
-- [ ] 无硬编码颜色值
-- [ ] 变量命名一致
-- [ ] 注释完整
-
-## 回滚方案
-
-如果重构遇到问题需要回滚：
-```bash
-git checkout main
-git branch -D feat/5plus1-ui-migration
-```
-
-## 预计时间线
-
-- 变量替换：0.5 天（自动化脚本）
-- 组件替换：2-3 天
-- 样式调整：1 天
-- 测试验证：1-2 天
-- 清理优化：0.5 天
-
-**总计：5-7 个工作日**
-
-## 当前进度
-
-- [x] 阶段一：准备工作（P0 组件实现）✅
-- [x] 阶段二：变量替换（脚本准备完成）✅
-- [ ] 阶段三：组件替换（待执行）
-- [ ] 阶段四：样式调整（待执行）
-- [ ] 阶段五：测试验证（待执行）
-- [ ] 阶段六：清理优化（待执行）
+先接主题和基础控件，再接布局、文件树、预览、对话与编辑器。逐批验证深浅主题、窄屏、键盘、弹层关闭和焦点、真实权限与失败恢复。编辑器额外验证断线重连、历史内容、并发和保存冲突；对话验证长历史、流式增量和恢复。覆盖原有完整用户任务后再切换默认入口。
