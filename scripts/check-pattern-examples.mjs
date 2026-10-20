@@ -49,4 +49,3 @@ if (diagnostics.length) {
   );
   process.exitCode = 1;
 } else console.log(`Verified ${files.length} copyable examples.`);
-

@@ -4,7 +4,7 @@
 
 设计站：[ui.five-plus-one.com](https://ui.five-plus-one.com)。
 
-组件目录包含 126 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
+组件目录包含 188 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
 
 - [UI UX 设计调研](docs/research/ui-ux-research-2026-10-19.md)
 
@@ -19,7 +19,7 @@ npm run dev
 
 访问 http://127.0.0.1:5178/ 。`npm run build` 构建设计网站和带类型声明的组件包；`npm test` 执行回归测试。
 
-在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.3.5.tgz`：
+在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.4.0.tgz`：
 
 ```tsx
 import { Button, Card } from '@fiveplusone/ui';
@@ -51,6 +51,8 @@ Office 转换依赖接入项目的预览服务；跨设备协作依赖鉴权、�
 - [设计规范](docs/design/design-system.md)
 - [接入与课栈适配](docs/design/integration.md)
 - [课栈迁移接口与验收](docs/kezhan-migration-guide.md)
+- [0.4.0 交付与验收](docs/kezhan-ui-0.4.0-acceptance.md)
+- [课栈组件来源映射](docs/kezhan-component-map-2026-10-20.md)
 - [组件设计与接入审计](docs/component-design-audit-2026-10-20.md)
 - [设计站部署](docs/deployment.md)
 
