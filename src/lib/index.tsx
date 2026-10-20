@@ -21,6 +21,12 @@ export * from './NotebookPublishing';
 export * from './AISettingsWorkspace';
 export * from './AppearanceWorkspace';
 export * from './AnchoredPanel';
+export * from './ThemeToggle';
+export * from './ContentSkeleton';
+export * from './ShareMemberRow';
+export * from './SettingsLayout';
+export * from './DiscardChangesPrompt';
+export * from './editor/CardEditorFrame';
 import { CollapseTransition } from "./CollapseTransition";
 import { ChevronDown } from "lucide-react";
 import React, {

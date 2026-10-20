@@ -20,6 +20,8 @@ export interface AnchoredPanelProps {
   maxHeight?: number;
   className?: string;
   initialFocus?: RefObject<HTMLElement | null>;
+  /** Suggestion lists keep typing in their anchor; dialogs and menus receive focus. */
+  autoFocus?: boolean;
 }
 export function AnchoredPanel({
   anchor,
@@ -33,6 +35,7 @@ export function AnchoredPanel({
   maxHeight = 320,
   className = "",
   initialFocus,
+  autoFocus = role !== "listbox",
 }: AnchoredPanelProps) {
   const panel = useRef<HTMLDivElement>(null),
     close = useRef(onClose);
@@ -102,15 +105,16 @@ export function AnchoredPanel({
   }, [open, anchor, width, maxHeight]);
   useEffect(() => {
     if (!open) return;
-    const frame = requestAnimationFrame(() =>
+    const frame = requestAnimationFrame(() => {
+      if (!autoFocus && !initialFocus?.current) return;
       (
         initialFocus?.current ||
         panel.current?.querySelector<HTMLElement>(
           'input,button,[tabindex="0"]',
         ) ||
         panel.current
-      )?.focus({ preventScroll: true }),
-    );
+      )?.focus({ preventScroll: true });
+    });
     const outside = (e: Event) => {
       if (
         !panel.current?.contains(e.target as Node) &&
@@ -140,7 +144,7 @@ export function AnchoredPanel({
       document.removeEventListener("focusin", outside, true);
       document.removeEventListener("keydown", key, true);
     };
-  }, [open, anchor, initialFocus]);
+  }, [open, anchor, initialFocus, autoFocus]);
   if (!open && !exiting) return null;
   return createPortal(
     <div

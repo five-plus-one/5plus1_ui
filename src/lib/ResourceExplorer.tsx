@@ -17,6 +17,7 @@ import {
 import { ContextMenu, type ContextMenuItem } from "./ContextMenu";
 import { Dropdown } from "./Popup";
 import { AnimatedSize } from "./AnimatedSize";
+import { ContentSkeleton } from "./ContentSkeleton";
 import { SelectField } from "./SelectField";
 export interface ExplorerResource {
   id: string;
@@ -432,7 +433,7 @@ export function ResourceExplorer({
             {error ? (
               <p role="alert">{error}</p>
             ) : loading ? (
-              <p role="status">正在加载文件…</p>
+              <ContentSkeleton variant="list" label="正在加载文件" />
             ) : !visible.length ? (
               <p className="fp-explorer-empty">
                 {query ? "没有找到匹配的文件" : "文件夹还是空的"}

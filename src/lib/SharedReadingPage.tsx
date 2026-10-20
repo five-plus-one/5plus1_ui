@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Menu, X, Copy, List } from "lucide-react";
 import { MarkdownContent, type MarkdownContentProps } from "./MarkdownContent";
 import { AnimatedSize } from "./AnimatedSize";
+import { ContentSkeleton } from "./ContentSkeleton";
 import { WorkspaceFeedback, useWorkspaceAction } from "./WorkspaceForms";
 export interface SharedReadingEntry {
   id: string;
@@ -33,6 +34,8 @@ export interface SharedReadingPageProps {
     heading?: string;
   }) => Promise<void> | void;
   contentProps?: Omit<MarkdownContentProps, "markdown">;
+  content?: ReactNode;
+  navigation?: ReactNode;
 }
 export function SharedReadingPage({
   title,
@@ -50,6 +53,8 @@ export function SharedReadingPage({
   footer,
   onCopyReference,
   contentProps,
+  content,
+  navigation,
 }: SharedReadingPageProps) {
   const [drawer, setDrawer] = useState<"notes" | "contents" | null>(null),
     [active, setActive] = useState(""),
@@ -96,7 +101,9 @@ export function SharedReadingPage({
     setDrawer(null);
     setActive("");
   }, [selectedId]);
-  const nav = (
+  const firstHeading = markdown.trimStart().match(/^#\s+(.+?)(?:\s+#+)?\s*(?:\r?\n|$)/)?.[1].trim();
+  const showArticleTitle = firstHeading !== title.trim();
+  const nav = navigation ?? (
     <>
       <h2>笔记目录</h2>
       <input
@@ -265,9 +272,7 @@ export function SharedReadingPage({
         <main id={uid}>
           <AnimatedSize>
             {loading ? (
-              <p role="status" className="fp-workspace-empty">
-                正在打开笔记…
-              </p>
+              <ContentSkeleton label="正在打开笔记" />
             ) : error ? (
               <div className="fp-workspace-empty" role="alert">
                 <p>{error}</p>
@@ -303,7 +308,7 @@ export function SharedReadingPage({
               </div>
             ) : (
               <>
-                <h1>{title}</h1>
+                {showArticleTitle && <h1>{title}</h1>}
                 {onCopyReference && (
                   <button
                     type="button"
@@ -334,7 +339,7 @@ export function SharedReadingPage({
                   </button>
                 )}
                 <WorkspaceFeedback {...task} />
-                <MarkdownContent {...contentProps} markdown={markdown} />
+                {content ?? <MarkdownContent {...contentProps} markdown={markdown} />}
                 {footer}
               </>
             )}

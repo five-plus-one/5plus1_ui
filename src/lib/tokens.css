@@ -38,6 +38,7 @@
   --fp-warning: #895500;
   --fp-warning-soft: #fff2d7;
   --fp-error: #b33131;
+  --fp-on-error: #ffffff;
   --fp-error-soft: #fff0ee;
   --fp-info: #185abc;
   --fp-info-soft: #e8f0fe;
@@ -132,6 +133,7 @@
   --fp-warning: #efd28d;
   --fp-warning-soft: #3e341e;
   --fp-error: #ffb4ab;
+  --fp-on-error: #601410;
   --fp-error-soft: #452522;
   --fp-info: #c2d7fa;
   --fp-info-soft: #263751;

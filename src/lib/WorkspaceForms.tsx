@@ -9,20 +9,20 @@ export function WorkspaceSection({
   actions,
   children,
 }: {
-  title: string;
+  title?: string;
   description?: string;
   actions?: ReactNode;
   children: ReactNode;
 }) {
   return (
     <section className="fp-workspace-section">
-      <header>
+      {(title || description || actions) && <header>
         <div>
-          <h3>{title}</h3>
+          {title && <h3>{title}</h3>}
           {description && <p>{description}</p>}
         </div>
         {actions && <div className="fp-workspace-actions">{actions}</div>}
-      </header>
+      </header>}
       {children}
     </section>
   );

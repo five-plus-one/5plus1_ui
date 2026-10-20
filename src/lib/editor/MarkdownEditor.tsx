@@ -11,6 +11,7 @@ import {
   type NodeViewProps,
 } from "@tiptap/react";
 import type { Editor, Extensions, JSONContent } from "@tiptap/core";
+import { Selection, TextSelection } from "@tiptap/pm/state";
 import Collaboration from "@tiptap/extension-collaboration";
 import CollaborationCaret from "@tiptap/extension-collaboration-caret";
 import Placeholder from "@tiptap/extension-placeholder";
@@ -624,6 +625,17 @@ export function MarkdownEditor(props: MarkdownEditorProps) {
       editorProps: {
         attributes: { "aria-label": "笔记正文", class: "fp-editor-prose" },
         handleKeyDown(_view, event) {
+          // Keep document navigation inside this editor when embedded in a node view.
+          if (!event.isComposing && (event.ctrlKey || event.metaKey) &&
+              (event.key === "Home" || event.key === "End")) {
+            const boundary = event.key === "Home"
+              ? Selection.atStart(_view.state.doc) : Selection.atEnd(_view.state.doc);
+            const selection = event.shiftKey
+              ? TextSelection.create(_view.state.doc, _view.state.selection.anchor, boundary.head)
+              : boundary;
+            _view.dispatch(_view.state.tr.setSelection(selection).scrollIntoView());
+            return true;
+          }
           const suggested = suggestionRef.current;
           if (suggested.suggestion && !event.isComposing) {
             if (event.key === "Escape") {

@@ -77,6 +77,10 @@
   container-type: inline-size;
 }
 .fp-shared-header {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--fp-surface);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -97,26 +101,39 @@
   grid-template-columns: 220px minmax(0, 1fr) 180px;
   gap: 32px;
   padding: 28px;
+  max-width:1600px;
+  margin-inline:auto;
+  align-items:start;
 }
 .fp-shared-layout > main {
   min-width: 0;
+  padding:24px 28px;
+  border:1px solid var(--fp-line);
+  border-radius:12px;
+  background:var(--fp-surface);
 }
 .fp-shared-layout h1 {
   font-size: 28px;
   line-height: 1.4;
   margin: 0 0 24px;
 }
-.fp-shared-layout h2,
+.fp-shared-navigation h2,
+.fp-shared-contents h2,
 .fp-shared-drawer h2 {
   font-size: 14px;
   margin: 0 0 16px;
 }
-.fp-shared-layout h3,
+.fp-shared-navigation h3,
+.fp-shared-contents h3,
 .fp-shared-drawer h3 {
   font-size: 12px;
   color: var(--fp-muted);
   margin: 24px 0 8px;
 }
+.fp-shared-layout > aside { position:sticky; top:100px; max-height:calc(100dvh - 128px); overflow:auto; }
+.fp-shared-layout > main h2 { font-size:24px; line-height:1.5; margin:36px 0 18px; }
+.fp-shared-layout > main h3 { font-size:20px; line-height:1.5; margin:28px 0 14px; }
+.fp-shared-layout > main :is(h2,h3,h4) { scroll-margin-top:100px; }
 .fp-shared-note,
 .fp-shared-contents a,
 .fp-shared-drawer nav a {
@@ -213,6 +230,8 @@
   }
 }
 @container (max-width:900px) {
+  .fp-shared-mobile-bar { display:flex; gap:12px; padding:12px 24px; }
+  .fp-shared-mobile-bar > button:first-child { display:none; }
   .fp-shared-layout {
     grid-template-columns: 190px minmax(0, 1fr);
     gap: 24px;
@@ -223,6 +242,7 @@
   }
 }
 @container (max-width:620px) {
+  .fp-shared-mobile-bar > button:first-child { display:inline-flex; }
   .fp-shared-layout {
     display: block;
     padding: 20px;

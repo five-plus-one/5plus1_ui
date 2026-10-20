@@ -71,7 +71,7 @@ export function bindNestedMathEditor(
   const reset = (event: PointerEvent) => {
     if (
       !(event.target instanceof Element) ||
-      !event.target.closest(".visual-directive-editor")
+      !event.target.closest(".visual-directive-editor,.fp-card-editor-frame")
     )
       nestedTargets.delete(parent);
   };

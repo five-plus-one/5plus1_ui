@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { productThemes, type ProductTheme } from "./themes";
 import { ColorPicker } from "./StyledInputs";
 import { AsyncAction } from "./ManagementViews";
+import { AnimatedSize } from "./AnimatedSize";
 import {
   WorkspaceSection,
   WorkspaceField,
@@ -146,6 +147,7 @@ export function AppearanceWorkspace({
   onChange,
   onReset,
   product = "brand",
+  heading = true,
   regions = [
     { id: "reading", label: "笔记阅读" },
     { id: "editor", label: "笔记编辑" },
@@ -156,6 +158,7 @@ export function AppearanceWorkspace({
   onChange: (value: AppearancePreferences) => void;
   onReset: () => void;
   product?: ProductTheme;
+  heading?: boolean;
   regions?: { id: string; label: string }[];
 }) {
   const [systemDark, setSystemDark] = useState(
@@ -180,8 +183,8 @@ export function AppearanceWorkspace({
       aria-label="外观设置"
     >
       <WorkspaceSection
-        title="外观"
-        description="让阅读、写作和对话保持适合自己的节奏。"
+        title={heading ? "外观" : undefined}
+        description={heading ? "让阅读、写作和对话保持适合自己的节奏。" : undefined}
       >
         <SettingsTabs
           label="明暗主题"
@@ -205,7 +208,7 @@ export function AppearanceWorkspace({
           ]}
           onChange={(v) => change({ mode: v as AppearancePreferences["mode"] })}
         />
-        <div className="fp-workspace-grid">
+        <AnimatedSize>{value.mode === "custom" && <div className="fp-workspace-grid">
           {(["lightAccent", "darkAccent", "selection"] as const).map(
             (key, i) => (
               <ColorPicker
@@ -216,7 +219,7 @@ export function AppearanceWorkspace({
               />
             ),
           )}
-        </div>
+        </div>}</AnimatedSize>
         <WorkspaceField
           label="全局字体"
           value={value.font}
