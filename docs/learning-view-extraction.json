@@ -1,0 +1,332 @@
+[
+  {
+    "source": "components/interactives/probability/ch01/BayesExplorer.tsx",
+    "target": "src/lib/learning/probability/ch01/BayesExplorer.tsx",
+    "sha256": "fc54353c5a08bce0d25677211281a072b4383aae556916e7f4d5283566a6e89a"
+  },
+  {
+    "source": "components/interactives/probability/ch01/ClassicalProbLab.tsx",
+    "target": "src/lib/learning/probability/ch01/ClassicalProbLab.tsx",
+    "sha256": "cd1e98ebadd429547d69fa41b4a582e8a8cce43d0802540fcb7a394cb7d1d82c"
+  },
+  {
+    "source": "components/interactives/probability/ch01/FrequencyConvergence.tsx",
+    "target": "src/lib/learning/probability/ch01/FrequencyConvergence.tsx",
+    "sha256": "2331a7145d0318317350026b66e9646e8c512dbb2a8f96a43436070060473824"
+  },
+  {
+    "source": "components/interactives/probability/ch01/ReliabilityExplorer.tsx",
+    "target": "src/lib/learning/probability/ch01/ReliabilityExplorer.tsx",
+    "sha256": "0e9217377e971ab84231a41603cfa67511d4d620574007c61fca5fcedf9f6fb6"
+  },
+  {
+    "source": "components/interactives/probability/ch01/SampleSpaceBuilder.tsx",
+    "target": "src/lib/learning/probability/ch01/SampleSpaceBuilder.tsx",
+    "sha256": "507510f3794e2236261f4d370a1349a397d78fabf1de55e669f6cd48a4c754a1"
+  },
+  {
+    "source": "components/interactives/probability/ch01/VennPlayground.tsx",
+    "target": "src/lib/learning/probability/ch01/VennPlayground.tsx",
+    "sha256": "e6bf45e9083570cd8d45aa2d2619a20a26e6501874cf07dd84460e57a21e6f8b"
+  },
+  {
+    "source": "components/interactives/probability/ch02/BinomialExplorer.tsx",
+    "target": "src/lib/learning/probability/ch02/BinomialExplorer.tsx",
+    "sha256": "68b36bbf633ee06d0d75a6ad33d8133caf213403169c098eccdf6964c4e60194"
+  },
+  {
+    "source": "components/interactives/probability/ch02/CDFVisualizer.tsx",
+    "target": "src/lib/learning/probability/ch02/CDFVisualizer.tsx",
+    "sha256": "ecc2caece109ad254f54e09fbad62dec8709a3ca607791644b290cc7b03f1a85"
+  },
+  {
+    "source": "components/interactives/probability/ch02/FuncDistDemo.tsx",
+    "target": "src/lib/learning/probability/ch02/FuncDistDemo.tsx",
+    "sha256": "eb2c8b7da1c33d050ea39564db47c9405872bb0f3e69facee0889115eb7c4351"
+  },
+  {
+    "source": "components/interactives/probability/ch02/PDFExplorer.tsx",
+    "target": "src/lib/learning/probability/ch02/PDFExplorer.tsx",
+    "sha256": "1335ae573cbb34563d9b0c572e71e2ba501f594bf743b8fc8ec16041e6f2fd72"
+  },
+  {
+    "source": "components/interactives/probability/ch02/RVMapper.tsx",
+    "target": "src/lib/learning/probability/ch02/RVMapper.tsx",
+    "sha256": "e03291c060ddd8f86a6a78d82fd6ac0df351edca55cf7abdb8506ae20f905336"
+  },
+  {
+    "source": "components/interactives/probability/ch03/ConditionalExplorer.tsx",
+    "target": "src/lib/learning/probability/ch03/ConditionalExplorer.tsx",
+    "sha256": "889acea31d01dbe5267c42bb3d6724cfe9a20de9093ae0526f7218db34b42cfa"
+  },
+  {
+    "source": "components/interactives/probability/ch03/ConvolutionDemo.tsx",
+    "target": "src/lib/learning/probability/ch03/ConvolutionDemo.tsx",
+    "sha256": "f9eba891018ef2896f1798096e6cfeb649abbbc527d153c22bc697884aa21adb"
+  },
+  {
+    "source": "components/interactives/probability/ch03/IndependenceChecker.tsx",
+    "target": "src/lib/learning/probability/ch03/IndependenceChecker.tsx",
+    "sha256": "dae3181b140aa6d49cbe597de8e1e3db637d1db5f14329d1bf5cdf8617d4b96a"
+  },
+  {
+    "source": "components/interactives/probability/ch03/JointDistExplorer.tsx",
+    "target": "src/lib/learning/probability/ch03/JointDistExplorer.tsx",
+    "sha256": "389e6992f32fc1c45e9448f863c6571b66c8d1065e1d2e2210430ad18d6d11f9"
+  },
+  {
+    "source": "components/interactives/probability/ch03/MarginalExplorer.tsx",
+    "target": "src/lib/learning/probability/ch03/MarginalExplorer.tsx",
+    "sha256": "2573d147d3cd8c023c82ffa76bc7a5114fcc63000180316ccf32c309c5d3928c"
+  },
+  {
+    "source": "components/interactives/probability/ch04/CorrelationExplorer.tsx",
+    "target": "src/lib/learning/probability/ch04/CorrelationExplorer.tsx",
+    "sha256": "a50ed97a1db8f6a2b4471fc850eb9b514d000bbc3c1f0d294c12ea6f692e38dd"
+  },
+  {
+    "source": "components/interactives/probability/ch04/CovMatrixDemo.tsx",
+    "target": "src/lib/learning/probability/ch04/CovMatrixDemo.tsx",
+    "sha256": "a216aacd136561cdbd78c06283621c131e1e812cd1a122ea534fe4f75af92e75"
+  },
+  {
+    "source": "components/interactives/probability/ch04/ExpectationExplorer.tsx",
+    "target": "src/lib/learning/probability/ch04/ExpectationExplorer.tsx",
+    "sha256": "3ef1340327d8f3977de335424a72b6c511dd594206aa21a208484b0120288109"
+  },
+  {
+    "source": "components/interactives/probability/ch04/VarianceExplorer.tsx",
+    "target": "src/lib/learning/probability/ch04/VarianceExplorer.tsx",
+    "sha256": "c762feb2643ad2a9d3458bab10f2d9a92bb8e0b254e9ecfa55991067836de178"
+  },
+  {
+    "source": "components/interactives/probability/ch05/ChebyshevDemo.tsx",
+    "target": "src/lib/learning/probability/ch05/ChebyshevDemo.tsx",
+    "sha256": "f9b1f2d75a3e863c48a5edd34cefc4f0bdc6f6d47b03281d071fae8169cd4f4a"
+  },
+  {
+    "source": "components/interactives/probability/ch05/CLTSimulator.tsx",
+    "target": "src/lib/learning/probability/ch05/CLTSimulator.tsx",
+    "sha256": "107a6c2bc2311cd9d74c7e7b83529718eb66caff0dc3e26750d3b2a8a34f50db"
+  },
+  {
+    "source": "components/interactives/probability/ch05/LLNSimulator.tsx",
+    "target": "src/lib/learning/probability/ch05/LLNSimulator.tsx",
+    "sha256": "ee70dde4972b6f4e4d88d58c94e7be5c36ed712769704da4875164b164291b9e"
+  },
+  {
+    "source": "components/interactives/probability/ch06/NormalSamplingDemo.tsx",
+    "target": "src/lib/learning/probability/ch06/NormalSamplingDemo.tsx",
+    "sha256": "2cc3a7123f06c6c000d97a6a37c396000eb08d6703180719bd6536d94d2fb6ac"
+  },
+  {
+    "source": "components/interactives/probability/ch06/QuantileExplorer.tsx",
+    "target": "src/lib/learning/probability/ch06/QuantileExplorer.tsx",
+    "sha256": "31dbebb59ad60934d7e0ad512002564db7787a16aa9f32c396d4eb0deb00d949"
+  },
+  {
+    "source": "components/interactives/probability/ch06/SamplingDistExplorer.tsx",
+    "target": "src/lib/learning/probability/ch06/SamplingDistExplorer.tsx",
+    "sha256": "fb054e1b1efe694c686360f98f578ede1ee86853fdcb04ea22d921850e912ed6"
+  },
+  {
+    "source": "components/interactives/probability/ch06/StatisticCalculator.tsx",
+    "target": "src/lib/learning/probability/ch06/StatisticCalculator.tsx",
+    "sha256": "f765f12dfd27b697328bc3dda4ea88625ce9fcaac36c0b9585fa6e279404ac21"
+  },
+  {
+    "source": "components/interactives/probability/ch07/ConfidenceIntervalExplorer.tsx",
+    "target": "src/lib/learning/probability/ch07/ConfidenceIntervalExplorer.tsx",
+    "sha256": "d2cf37b20e6deb97e61a9295f4376f078f516b9eb569734a5662e77ed717a13d"
+  },
+  {
+    "source": "components/interactives/probability/ch07/EstimatorComparator.tsx",
+    "target": "src/lib/learning/probability/ch07/EstimatorComparator.tsx",
+    "sha256": "dc1c1571ca940575916a566348d00fd6c5b0bdf50634bcb90ed9511c2c12b1c1"
+  },
+  {
+    "source": "components/interactives/probability/ch07/MLEExplorer.tsx",
+    "target": "src/lib/learning/probability/ch07/MLEExplorer.tsx",
+    "sha256": "7317dd105ad742c0dcd5cf782a5e34656b0eefd4d226669a43df27b0b867d3a8"
+  },
+  {
+    "source": "components/interactives/probability/ch07/MomentEstimator.tsx",
+    "target": "src/lib/learning/probability/ch07/MomentEstimator.tsx",
+    "sha256": "3618271b0c2aa6522c15c6cbf03c1dce654f01fe57f8fc9274299e3104c1da9a"
+  },
+  {
+    "source": "components/interactives/probability/ch08/ErrorTypeDemo.tsx",
+    "target": "src/lib/learning/probability/ch08/ErrorTypeDemo.tsx",
+    "sha256": "bcbb8a79481bfd90666f9654eec6a44878408a496ed826c45fe497e40ac54720"
+  },
+  {
+    "source": "components/interactives/probability/ch08/HypTestDemo.tsx",
+    "target": "src/lib/learning/probability/ch08/HypTestDemo.tsx",
+    "sha256": "1da2894326b68e17435f4560b46af5560bbf4482ba4eb5e029e023f4ce0c29e2"
+  },
+  {
+    "source": "components/interactives/probability/ch08/MeanTestExplorer.tsx",
+    "target": "src/lib/learning/probability/ch08/MeanTestExplorer.tsx",
+    "sha256": "1d5aff21aeab356d81883f31ef5d18a148153fe122c027412f9befe337166486"
+  },
+  {
+    "source": "components/interactives/probability/ch08/VarianceTestExplorer.tsx",
+    "target": "src/lib/learning/probability/ch08/VarianceTestExplorer.tsx",
+    "sha256": "a7a9ff34e00f2b82a3123a6581dd7feff11631eccd7d09016b564af85d3a3d16"
+  },
+  {
+    "source": "components/interactives/probability/ReviewLabs.tsx",
+    "target": "src/lib/learning/probability/ReviewLabs.tsx",
+    "sha256": "e32d34a88690b361b41e2e24a6c514202faa9e992d27a07a87004dc100300050"
+  },
+  {
+    "source": "components/interactives/chemistry/ch01/BondPolarityExplorer.tsx",
+    "target": "src/lib/learning/chemistry/ch01/BondPolarityExplorer.tsx",
+    "sha256": "1c7f2bebc1def652ac35836e0a8a62924b6a24fb4f596559df36e7b6622a7309"
+  },
+  {
+    "source": "components/interactives/chemistry/ch02/IUPACNamingPractice.tsx",
+    "target": "src/lib/learning/chemistry/ch02/IUPACNamingPractice.tsx",
+    "sha256": "67334473d5ba92e612912a8e3c5bbed7bb8e68fda57799ef19eb8603b2bdc373"
+  },
+  {
+    "source": "components/interactives/chemistry/ch03/BoilingPointComparator.tsx",
+    "target": "src/lib/learning/chemistry/ch03/BoilingPointComparator.tsx",
+    "sha256": "f53861b343eb70cad974740b8de75f648b53393fd09233ffd4d33a9047064cc7"
+  },
+  {
+    "source": "components/interactives/chemistry/ch04/ChairFlip.tsx",
+    "target": "src/lib/learning/chemistry/ch04/ChairFlip.tsx",
+    "sha256": "f81c0d86278c895a100f3c843bbec7562b81e0bb8341fca2ea191f23a6acf0ff"
+  },
+  {
+    "source": "components/interactives/chemistry/ch04/NewmanProjection.tsx",
+    "target": "src/lib/learning/chemistry/ch04/NewmanProjection.tsx",
+    "sha256": "a8a6e571a8fb37e2671f7acc04d40ff6ae06074ad9a40dd237da7f5b19f3ca9d"
+  },
+  {
+    "source": "components/interactives/chemistry/ch05/CarbocationStability.tsx",
+    "target": "src/lib/learning/chemistry/ch05/CarbocationStability.tsx",
+    "sha256": "22e53b963d59975786c6e09930be379d9fc0d28f741342aefe870c165968f0af"
+  },
+  {
+    "source": "components/interactives/chemistry/ch06/MarkovnikovPredictor.tsx",
+    "target": "src/lib/learning/chemistry/ch06/MarkovnikovPredictor.tsx",
+    "sha256": "abfd188ac31a3977c332d711aadc3c0fa98b8735dcd7b504ace9503058972d02"
+  },
+  {
+    "source": "components/interactives/chemistry/ch07/DieneAddition.tsx",
+    "target": "src/lib/learning/chemistry/ch07/DieneAddition.tsx",
+    "sha256": "10df68f0ef5b986add287263aa42590e02ec41e5c897ec8049eafcaca269a268"
+  },
+  {
+    "source": "components/interactives/chemistry/ch08/DirectingEffect.tsx",
+    "target": "src/lib/learning/chemistry/ch08/DirectingEffect.tsx",
+    "sha256": "ff7b74250be3fcedf092704a26613cdc308385d7324014e052e950421e2abd02"
+  },
+  {
+    "source": "components/interactives/chemistry/ch09/ChiralityMirror.tsx",
+    "target": "src/lib/learning/chemistry/ch09/ChiralityMirror.tsx",
+    "sha256": "19a9e53957f2cf6ef54ba9fe1e81275c1f679a1565861703473de9c53e154a45"
+  },
+  {
+    "source": "components/interactives/chemistry/ch09/RSConfigPractice.tsx",
+    "target": "src/lib/learning/chemistry/ch09/RSConfigPractice.tsx",
+    "sha256": "2cea53c9576c3b0cc11a7249c1e696ee2bc80ba7b7341df99ee7b7502236ae2e"
+  },
+  {
+    "source": "components/interactives/chemistry/ch10/EliminationZaitsev.tsx",
+    "target": "src/lib/learning/chemistry/ch10/EliminationZaitsev.tsx",
+    "sha256": "94abad8722c4c05379eb9bc74e4530c2b8f7158b8eace98670fb0e85a199345d"
+  },
+  {
+    "source": "components/interactives/chemistry/ch10/SN1SN2Compare.tsx",
+    "target": "src/lib/learning/chemistry/ch10/SN1SN2Compare.tsx",
+    "sha256": "923a105ecbc76fda8f61ff3e44ee13e1095c64a37c17af51b188686817e7ef4e"
+  },
+  {
+    "source": "components/interactives/chemistry/ch11/EpoxideOpening.tsx",
+    "target": "src/lib/learning/chemistry/ch11/EpoxideOpening.tsx",
+    "sha256": "0599656ec29b8af04440c7ce97302725dc7931cddce6d381ee70b7ea1a8c75ad"
+  },
+  {
+    "source": "components/interactives/chemistry/ch12/CarbonylAddition.tsx",
+    "target": "src/lib/learning/chemistry/ch12/CarbonylAddition.tsx",
+    "sha256": "1302e4189cf4a41100b6259aeb0cbf945bbfae2589dcaafba1972567f9631c18"
+  },
+  {
+    "source": "components/interactives/chemistry/ch13/AcylReactivity.tsx",
+    "target": "src/lib/learning/chemistry/ch13/AcylReactivity.tsx",
+    "sha256": "31d2814c12a308ad4553933793b4901aeed6bcb8149b41fc702b12f3053bf182"
+  },
+  {
+    "source": "components/interactives/chemistry/ch14/AmineBasicity.tsx",
+    "target": "src/lib/learning/chemistry/ch14/AmineBasicity.tsx",
+    "sha256": "451232e48fd363f3c655bbd7c3e78c2e6aec1360ff2e28bfa22236fc66f612af"
+  },
+  {
+    "source": "components/interactives/chemistry/ch14/DiazoniumNetwork.tsx",
+    "target": "src/lib/learning/chemistry/ch14/DiazoniumNetwork.tsx",
+    "sha256": "50c81c59cd61815763bedd309d327bcb9d62af601f383120b21ccd1d984c927e"
+  },
+  {
+    "source": "components/interactives/physics/ElectrostaticsLab.tsx",
+    "target": "src/lib/learning/physics/ElectrostaticsLab.tsx",
+    "sha256": "d1f1c2c88ed01a7ed288f5291dd07686050a40d28f10f364673fafe235d5a976"
+  },
+  {
+    "source": "components/interactives/discrete-math/LogicRelationsLabs.tsx",
+    "target": "src/lib/learning/discrete-math/LogicRelationsLabs.tsx",
+    "sha256": "1f571e615d15eb437f60c75231bee13fb859d54aa7f0f012937b8417829c4bef"
+  },
+  {
+    "source": "components/interactives/discrete-math/StructureLabs.tsx",
+    "target": "src/lib/learning/discrete-math/StructureLabs.tsx",
+    "sha256": "3b18b2637edef141df5351074130198ba17d82245b3536d767035d81b0420577"
+  },
+  {
+    "source": "components/interactives/numerical-methods/ExtensionLabs.tsx",
+    "target": "src/lib/learning/numerical-methods/ExtensionLabs.tsx",
+    "sha256": "5d94a4fbcb54462cd2101841d96969d618efb634428aaccc71a9af336c581a99"
+  },
+  {
+    "source": "components/interactives/numerical-methods/FactorizationLabs.tsx",
+    "target": "src/lib/learning/numerical-methods/FactorizationLabs.tsx",
+    "sha256": "0043d8c9dbcba7bf4ec4d1fe90bde11e1c3d48c7eda762b8eb52c1bcb2400dca"
+  },
+  {
+    "source": "components/interactives/numerical-methods/Labs.tsx",
+    "target": "src/lib/learning/numerical-methods/Labs.tsx",
+    "sha256": "131416a3cc340a62323742043cb1ca0844ff074232470ef2006977524535b1a8"
+  },
+  {
+    "source": "lib/numerical-methods.ts",
+    "target": "src/lib/learning/engines/numerical-methods.ts",
+    "sha256": "6e9d0b67db945256402e921dfb9dfd6f59f1df172d02b042251a0fdb133e8ca0"
+  },
+  {
+    "source": "lib/numerical-methods-extension.ts",
+    "target": "src/lib/learning/engines/numerical-methods-extension.ts",
+    "sha256": "61572486ed23a44e0085ed8fee1ba804654b6488288b23a41831f646dbc69ce0"
+  },
+  {
+    "source": "components/visualizations/primitives/DistributionChart.tsx",
+    "target": "src/lib/learning/visualizations/DistributionChart.tsx",
+    "sha256": "7e9c8ab66d45b27c101dd5e64a02ad180c80a16622f0177e47c989f33978281a"
+  },
+  {
+    "source": "components/visualizations/primitives/VennDiagram.tsx",
+    "target": "src/lib/learning/visualizations/VennDiagram.tsx",
+    "sha256": "ebd8ffa50920ca724a26ddf92ed812c5bf364f984799161cd012f8ccb811d6ae"
+  },
+  {
+    "source": "components/visualizations/primitives/FormulaSteps.tsx",
+    "target": "src/lib/learning/visualizations/FormulaSteps.tsx",
+    "sha256": "33040a1bb7de799f564ea6c263dddaac753526f129beaab232b24866576d91f0"
+  },
+  {
+    "source": "components/interactives/registry.ts",
+    "target": "src/lib/learning/registry.tsx",
+    "sha256": "f974a65df8841a77707475f5cabf64f55f2ce55950f1fd3132db3b817800fc76"
+  }
+]

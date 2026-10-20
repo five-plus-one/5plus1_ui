@@ -1,0 +1,93 @@
+[
+  {
+    "source": "frontend/SharedPage.tsx",
+    "components": [
+      "SharedReadingPage"
+    ],
+    "targets": [
+      "src/lib/SharedReadingPage.tsx"
+    ],
+    "integration": "分享目录、阅读权限状态、引用复制、标题目录和手机抽屉。授权与实际笔记加载由宿主提供。"
+  },
+  {
+    "source": "frontend/ReleaseNotice.tsx",
+    "components": [
+      "ReleaseNotice",
+      "useReleaseUpdate"
+    ],
+    "targets": [
+      "src/lib/SharedReadingPage.tsx"
+    ],
+    "integration": "版本检查、通知、暂缓、更新前保存守卫；版本标识与刷新回调由宿主提供。"
+  },
+  {
+    "source": "frontend/App.tsx",
+    "components": [],
+    "targets": [],
+    "integration": "宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。"
+  },
+  {
+    "source": "frontend/dynamic.tsx",
+    "components": [],
+    "targets": [],
+    "integration": "宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。"
+  },
+  {
+    "source": "frontend/Link.tsx",
+    "components": [],
+    "targets": [],
+    "integration": "宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。"
+  },
+  {
+    "source": "frontend/main.tsx",
+    "components": [],
+    "targets": [],
+    "integration": "宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。"
+  },
+  {
+    "source": "frontend/navigation.tsx",
+    "components": [],
+    "targets": [],
+    "integration": "宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。"
+  },
+  {
+    "source": "frontend/WorkspaceCache.tsx",
+    "components": [],
+    "targets": [],
+    "integration": "宿主应用入口、路由、按需加载或缓存；不属于可复用展示组件。"
+  },
+  {
+    "source": "lib/content/componentRegistry.tsx",
+    "components": [
+      "LearningExperiment",
+      "getLearningExperiment",
+      "learningExperiments"
+    ],
+    "targets": [
+      "src/lib/learning/registry.tsx"
+    ],
+    "integration": "登记全部学科实验；课程专属原件通过 LearningSourceView 或 renderSource 接入。"
+  },
+  {
+    "source": "lib/markdown/noteComponents.tsx",
+    "components": [
+      "MarkdownContent"
+    ],
+    "targets": [
+      "src/lib/MarkdownContent.tsx"
+    ],
+    "integration": "Markdown 指令、公式、图片与标题映射；宿主提供内部资源解析。"
+  },
+  {
+    "source": "lib/utils/xmlParser.tsx",
+    "components": [
+      "MarkdownContent",
+      "LearningExperiment",
+      "CanvasWorkspace"
+    ],
+    "targets": [
+      "src/lib/MarkdownContent.tsx"
+    ],
+    "integration": "XML/工具响应转 Markdown 的业务解析保留宿主；解析后的笔记、实验和画布使用共享视图。"
+  }
+]

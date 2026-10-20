@@ -1,0 +1,134 @@
+[
+  {
+    "source": "components/canvas/CanvasBlockRenderer.tsx",
+    "target": "src/lib/canvas/CanvasBlockRenderer.tsx",
+    "adaptation": "portable-source",
+    "sha256": "196b9da6d7119b0b868678c9538970b5add7c1d59ab72e495431d69023e26206"
+  },
+  {
+    "source": "components/canvas/CanvasControls.tsx",
+    "target": "src/lib/canvas/CanvasControls.tsx",
+    "adaptation": "portable-source",
+    "sha256": "e9cc8f5a24f3a77e64dfbdeeb4eef684e771d11c59b38f5b4bbf35a44b71bc9c"
+  },
+  {
+    "source": "components/canvas/CanvasDirective.tsx",
+    "target": "src/lib/canvas/CanvasDirective.tsx",
+    "adaptation": "portable-source",
+    "sha256": "021d1d04589b6bd242e4acc4f87ee9a8d7c04d4f71fa28a3a8e82724b665d070"
+  },
+  {
+    "source": "components/canvas/CanvasFrame.tsx",
+    "target": "src/lib/canvas/CanvasFrame.tsx",
+    "adaptation": "maintained-view",
+    "sha256": "a60110b1e53f0baa854102f483e1880be31572fc067dbe34873b7c1af8ab99ed"
+  },
+  {
+    "source": "components/canvas/CanvasFullscreenPortal.tsx",
+    "target": "src/lib/canvas/CanvasFullscreenPortal.tsx",
+    "adaptation": "maintained-view",
+    "sha256": "07812f745cca802c8b3d15651f0411f3746a9b5a9eba237c49fbda03f4737f9b"
+  },
+  {
+    "source": "components/canvas/canvasUtils.ts",
+    "target": "src/lib/canvas/canvasUtils.ts",
+    "adaptation": "portable-source",
+    "sha256": "5edd82c4b0b82c58faa00620a94386b117d1cd436e7d4804d1af739e286628b3"
+  },
+  {
+    "source": "components/canvas/DiagramCanvas.tsx",
+    "target": "src/lib/canvas/DiagramCanvas.tsx",
+    "adaptation": "portable-source",
+    "sha256": "bebca5223e6782ff180a7ae3df2ca906035a87348ecca98f4368b77bd99898bf"
+  },
+  {
+    "source": "components/canvas/FunctionPlot.tsx",
+    "target": "src/lib/canvas/FunctionPlot.tsx",
+    "adaptation": "portable-source",
+    "sha256": "bb5e7288db952277f51c793dbd226bc19ae10465c4db4c4d25156e00716f737d"
+  },
+  {
+    "source": "components/canvas/index.ts",
+    "target": "src/lib/canvas/index.ts",
+    "adaptation": "portable-source",
+    "sha256": "32a8d1536957ca4ad19940fc38644d2d39977bf1d2ca04a2d319e0777f00e31a"
+  },
+  {
+    "source": "components/canvas/PlotDirective.tsx",
+    "target": "src/lib/canvas/PlotDirective.tsx",
+    "adaptation": "portable-source",
+    "sha256": "8f893f775429db92edd025657a7561f0110a5e223c8ca0c640beba8f63f6a522"
+  },
+  {
+    "source": "components/canvas/RawSvgViewer.tsx",
+    "target": "src/lib/canvas/RawSvgViewer.tsx",
+    "adaptation": "portable-source",
+    "sha256": "d25137728faa8e4e4afb217d861d234a36276e9bd8b27366302049ccbaa0c901"
+  },
+  {
+    "source": "components/canvas/renderers/HtmlRenderer.tsx",
+    "target": "src/lib/canvas/renderers/HtmlRenderer.tsx",
+    "adaptation": "maintained-view",
+    "sha256": "67bd42b06aeb1f69b9518e2b6eeae02e44bfeb8bc76e942ba3afdd6736796507"
+  },
+  {
+    "source": "components/canvas/renderers/MultiPlotRenderer.tsx",
+    "target": "src/lib/canvas/renderers/MultiPlotRenderer.tsx",
+    "adaptation": "portable-source",
+    "sha256": "74e18621fc081939914b0bde54b7a9a1dea843627e4709484eccd2a14d2fcba8"
+  },
+  {
+    "source": "components/canvas/renderers/PlotRenderer.tsx",
+    "target": "src/lib/canvas/renderers/PlotRenderer.tsx",
+    "adaptation": "portable-source",
+    "sha256": "827126971cb09077cb6ffea2aedae3e5062556d0f3b29ced85fa97d2defc7fe1"
+  },
+  {
+    "source": "components/canvas/renderers/RawSvgRenderer.tsx",
+    "target": "src/lib/canvas/renderers/RawSvgRenderer.tsx",
+    "adaptation": "portable-source",
+    "sha256": "84c4eba1b7c86e4a823e5007d559dfaf57f0f3fb69f2bebb5e375b4c404aa273"
+  },
+  {
+    "source": "components/canvas/SvgCanvas.tsx",
+    "target": "src/lib/canvas/SvgCanvas.tsx",
+    "adaptation": "portable-source",
+    "sha256": "8abd74bf59c8f1e34649c70f170928279bf694ce6d70cba08b5d783051817300"
+  },
+  {
+    "source": "lib/canvas/types.ts",
+    "target": "src/lib/canvas/engines/types.ts",
+    "adaptation": "portable-source",
+    "sha256": "0bff18615003540943265133055c4897d89be1b6cec9b8892f45c3967a07dab1"
+  },
+  {
+    "source": "lib/canvas/normalize.ts",
+    "target": "src/lib/canvas/engines/normalize.ts",
+    "adaptation": "portable-source",
+    "sha256": "5f26cf996ae7b60704d7d74488912f9c5939b471e6fa1488b5e8f94fe9557d9a"
+  },
+  {
+    "source": "lib/canvas/plot.ts",
+    "target": "src/lib/canvas/engines/plot.ts",
+    "adaptation": "portable-source",
+    "sha256": "e8de61b0aa59612dd0527f1d0a46b67cf76da8adfdcb6c4b42e7b7b954187738"
+  },
+  {
+    "source": "lib/utils/sanitizeSvg.ts",
+    "target": "src/lib/canvas/engines/sanitizeSvg.ts",
+    "adaptation": "portable-source",
+    "sha256": "dec0e5ccf00b9cdd9719071656cbc02380ebe559fca847821341dfbb491d83af"
+  },
+  {
+    "source": "lib/svg/svgHealth.ts",
+    "target": "src/lib/canvas/engines/svgHealth.ts",
+    "adaptation": "portable-source",
+    "sha256": "917ab713cbe14d038b7e7f09ef94ce736d676a21bc97228390b6917b6fcea190"
+  },
+  {
+    "source": "lib/utils/downloadHtml.ts",
+    "target": "src/lib/canvas/downloadHtml.ts",
+    "adaptation": "portable-source",
+    "sha256": "bdc7082f6eaad5585816e1477f22baaf656b6f521203830a23d4a6aedaaf9000"
+  }
+]

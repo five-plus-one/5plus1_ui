@@ -155,21 +155,23 @@ function DirectiveView(
           </span>
         )}
       </div>
-      <input
-        aria-label="卡片标题"
-        value={readDirectiveTitle(node.attrs.attributes, name)}
-        disabled={!editor.isEditable}
-        placeholder="添加标题"
-        onChange={(e) =>
-          updateAttributes({
-            attributes: writeDirectiveTitle(
-              node.attrs.attributes,
-              name,
-              e.target.value,
-            ),
-          })
-        }
-      />
+      {editing && (
+        <input
+          aria-label="卡片标题"
+          value={readDirectiveTitle(node.attrs.attributes, name)}
+          disabled={!editor.isEditable}
+          placeholder="添加标题"
+          onChange={(e) =>
+            updateAttributes({
+              attributes: writeDirectiveTitle(
+                node.attrs.attributes,
+                name,
+                e.target.value,
+              ),
+            })
+          }
+        />
+      )}
       <AnimatedSize>
         {editing && (
           <DirectiveFields

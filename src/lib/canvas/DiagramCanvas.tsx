@@ -1,0 +1,61 @@
+"use client";
+import { CanvasBlockRenderer } from "./CanvasBlockRenderer";
+import { normalizeSvgDiagramBlock } from "./engines/normalize";
+import type { CanvasBlock } from "./engines/types";
+export type DiagramMode = "raw" | "math" | "molecule" | "html";
+const MODES: DiagramMode[] = ["raw", "math", "molecule", "html"];
+export function isDiagramMode(v: unknown): v is DiagramMode {
+  return typeof v === "string" && (MODES as string[]).includes(v);
+}
+interface DiagramCanvasProps {
+  mode: DiagramMode;
+  /** 标签体：SVG 源 / SMILES / HTML（math 模式不用，函数从 attrs.fn 取）。 */
+  content: string;
+  title?: string;
+  width?: number;
+  height?: number;
+  /** 原始标签属性，math 模式透传给 PlotDirective（fn/xmin/xmax/label/grid…）。 */
+  attrs?: Record<string, unknown>;
+  repairContext?: {
+    modelId?: string;
+    topic?: string;
+  };
+  onRepairContent?: (svg: string) => void;
+  onRevisionAccepted?: (block: CanvasBlock) => void;
+}
+/**
+ * 统一画布壳：按 mode 把 AI 内容路由到合适的渲染体，四种能力同壳，
+ * 全部经由 CanvasBlockRenderer 分发：
+ *  - raw      自由 SVG（含投影式模板）          → renderers/RawSvgRenderer
+ *  - math     精准函数图                         → renderers/PlotRenderer | MultiPlotRenderer
+ *  - molecule SMILES 结构式                      → renderers/MoleculeRenderer
+ *  - html     沙箱 HTML                          → renderers/HtmlRenderer
+ *
+ * 控件（半透明/缩放/全屏）、错误降级各由具体体/上层 VizErrorBoundary 负责，本壳只做路由 + 标题。
+ */
+export function DiagramCanvas({
+  mode,
+  content,
+  title,
+  width,
+  height,
+  attrs = {},
+  repairContext,
+  onRepairContent,
+  onRevisionAccepted,
+}: DiagramCanvasProps) {
+  void onRepairContent;
+  const block = normalizeSvgDiagramBlock(
+    { ...attrs, mode, title, width, height },
+    content,
+  );
+  return (
+    <div className="diagram-canvas">
+      <CanvasBlockRenderer
+        block={block}
+        revisionTopic={repairContext?.topic}
+        onRevisionAccepted={onRevisionAccepted}
+      />
+    </div>
+  );
+}

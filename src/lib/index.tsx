@@ -1,4 +1,26 @@
+export { learningAlpha } from './learning/theme';
+export * from './LearningSourceView';
+export * from './NotebookManagerWorkspace';
+export * from './CourseContentWorkspace';
+export * from './BrowserWorkspace';
+export * from './UserDetailsWorkspace';
+export * from './PlatformWorkspace';
+export * from './BrowserPreferences';
+export * from './FollowUpQuestions';
+export * from './NoteEditorWorkspace';
+export * from './LectureWorkspace';
+export * from './SharedReadingPage';
+export * from './CanvasWorkspace';
+export * from './LearningExperiments';
 export { SurfaceBoundary, type SurfaceBoundaryProps } from "./SurfaceBoundary";
+export * from './WorkspaceForms';
+export * from './CommerceWorkspace';
+export * from './SkillsWorkspace';
+export * from './DirectoryWorkspace';
+export * from './NotebookPublishing';
+export * from './AISettingsWorkspace';
+export * from './AppearanceWorkspace';
+export * from './AnchoredPanel';
 import { CollapseTransition } from "./CollapseTransition";
 import { ChevronDown } from "lucide-react";
 import React, {
@@ -1847,3 +1869,10 @@ export {
 } from "./editor/DirectiveFields";
 
 export { useMathEditor } from "./editor/MathEditor";
+
+import './canvas/canvas-base.css';
+import './canvas/canvas-theme.css';
+import './reading-workspace.css';
+import './learning-utilities.css';
+import './learning-theme.css';
+import './workspace-forms.css';

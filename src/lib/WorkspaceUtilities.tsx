@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { normalizeBrowserUrl } from "./BrowserPreferences";
 import { WindowChrome } from "./WindowChrome";
 import { AsyncAction } from "./ManagementViews";
 export interface ShortcutBinding {
@@ -212,7 +213,10 @@ export function constrainWindowGeometry(
   minimum = { width: 300, height: 200 },
 ): WindowGeometry {
   const width = Math.min(bounds.width, Math.max(minimum.width, geometry.width));
-  const height = Math.min(bounds.height, Math.max(minimum.height, geometry.height));
+  const height = Math.min(
+    bounds.height,
+    Math.max(minimum.height, geometry.height),
+  );
   return {
     width,
     height,
@@ -254,7 +258,10 @@ export function FloatingWindow({
     value: WindowGeometry;
   } | null>(null);
   const root = useRef<HTMLDivElement>(null);
-  const [bounds, setBounds] = useState<{ width: number; height: number } | null>(null);
+  const [bounds, setBounds] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
   useLayoutEffect(() => {
     const measure = () => {
       const parent = contained ? root.current?.parentElement : null;
@@ -262,15 +269,31 @@ export function FloatingWindow({
         width: parent?.clientWidth || window.innerWidth,
         height: parent?.clientHeight || window.innerHeight,
       };
-      setBounds((previous) => previous?.width === next.width && previous.height === next.height ? previous : next);
+      setBounds((previous) =>
+        previous?.width === next.width && previous.height === next.height
+          ? previous
+          : next,
+      );
     };
     measure();
-    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
-    if (contained && root.current?.parentElement) observer?.observe(root.current.parentElement);
+    const observer =
+      typeof ResizeObserver === "undefined"
+        ? null
+        : new ResizeObserver(measure);
+    if (contained && root.current?.parentElement)
+      observer?.observe(root.current.parentElement);
     window.addEventListener("resize", measure);
-    return () => { observer?.disconnect(); window.removeEventListener("resize", measure); };
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, [contained]);
-  const visibleGeometry = bounds ? constrainWindowGeometry(geometry, bounds, { width: minWidth, height: minHeight }) : geometry;
+  const visibleGeometry = bounds
+    ? constrainWindowGeometry(geometry, bounds, {
+        width: minWidth,
+        height: minHeight,
+      })
+    : geometry;
   const current = useRef(geometry);
   current.current = visibleGeometry;
   const pointer = (event: React.PointerEvent, mode: "move" | "resize") => {
@@ -314,33 +337,40 @@ export function FloatingWindow({
       onPointerMove={(event) => {
         const start = drag.current;
         if (!start) return;
-        const available = bounds || { width: window.innerWidth, height: window.innerHeight };
+        const available = bounds || {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
         const dx = event.clientX - start.x,
           dy = event.clientY - start.y;
         onGeometryChange(
-          constrainWindowGeometry(start.mode === "move"
-            ? {
-                ...start.value,
-                x: start.value.x + dx,
-                y: start.value.y + dy,
-              }
-            : {
-                ...start.value,
-                width: Math.max(
-                  minWidth,
-                  Math.min(
-                    available.width - start.value.x,
-                    start.value.width + dx,
+          constrainWindowGeometry(
+            start.mode === "move"
+              ? {
+                  ...start.value,
+                  x: start.value.x + dx,
+                  y: start.value.y + dy,
+                }
+              : {
+                  ...start.value,
+                  width: Math.max(
+                    minWidth,
+                    Math.min(
+                      available.width - start.value.x,
+                      start.value.width + dx,
+                    ),
                   ),
-                ),
-                height: Math.max(
-                  minHeight,
-                  Math.min(
-                    available.height - start.value.y,
-                    start.value.height + dy,
+                  height: Math.max(
+                    minHeight,
+                    Math.min(
+                      available.height - start.value.y,
+                      start.value.height + dy,
+                    ),
                   ),
-                ),
-              }, available, { width: minWidth, height: minHeight }),
+                },
+            available,
+            { width: minWidth, height: minHeight },
+          ),
         );
       }}
       onPointerUp={() => {
@@ -376,23 +406,36 @@ export function FloatingWindow({
             )
               return;
             e.preventDefault();
-            onGeometryChange(constrainWindowGeometry({
-              ...visibleGeometry,
-              width: Math.max(
-                minWidth,
-                visibleGeometry.width +
-                  (e.key === "ArrowRight"
-                    ? 16
-                    : e.key === "ArrowLeft"
-                      ? -16
-                      : 0),
+            onGeometryChange(
+              constrainWindowGeometry(
+                {
+                  ...visibleGeometry,
+                  width: Math.max(
+                    minWidth,
+                    visibleGeometry.width +
+                      (e.key === "ArrowRight"
+                        ? 16
+                        : e.key === "ArrowLeft"
+                          ? -16
+                          : 0),
+                  ),
+                  height: Math.max(
+                    minHeight,
+                    visibleGeometry.height +
+                      (e.key === "ArrowDown"
+                        ? 16
+                        : e.key === "ArrowUp"
+                          ? -16
+                          : 0),
+                  ),
+                },
+                bounds || {
+                  width: window.innerWidth,
+                  height: window.innerHeight,
+                },
+                { width: minWidth, height: minHeight },
               ),
-              height: Math.max(
-                minHeight,
-                visibleGeometry.height +
-                  (e.key === "ArrowDown" ? 16 : e.key === "ArrowUp" ? -16 : 0),
-              ),
-            }, bounds || { width: window.innerWidth, height: window.innerHeight }, { width: minWidth, height: minHeight }));
+            );
           }}
         />
       )}
@@ -429,12 +472,10 @@ export function BrowserSurface({
         onSubmit={(e) => {
           e.preventDefault();
           try {
-            const target = new URL(
-              /^https?:\/\//i.test(draft) ? draft : `https://${draft}`,
-            );
-            if (!/^https?:$/.test(target.protocol)) throw Error();
+            const target = normalizeBrowserUrl(draft);
+            if (!target) throw Error();
             setInvalid("");
-            onNavigate(target.href);
+            onNavigate(target);
           } catch {
             setInvalid("请输入有效的网址。");
           }

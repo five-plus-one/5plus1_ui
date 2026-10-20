@@ -1,0 +1,366 @@
+/* ─────────────────────────────────────────────────────────────
+   SVG Canvas 画布组件样式
+   ───────────────────────────────────────────────────────────── */
+
+.svg-canvas-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--md-sys-shape-corner-large, 14px);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container-lowest);
+  margin: 1.25rem 0;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+.svg-canvas-wrapper:active {
+  cursor: grabbing;
+}
+
+.svg-canvas-wrapper svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Grid lines */
+.svg-canvas-grid line {
+  stroke: var(--md-sys-color-outline-variant);
+  stroke-opacity: 0.35;
+}
+
+/* Axes */
+.svg-canvas-axis line,
+.svg-canvas-axis path {
+  stroke: var(--md-sys-color-on-surface);
+  stroke-width: 1.5;
+  fill: none;
+}
+.svg-canvas-axis text {
+  fill: var(--md-sys-color-on-surface-variant);
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+.svg-canvas-axis-label {
+  fill: var(--md-sys-color-on-surface);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+/* Tick marks */
+.svg-canvas-tick line {
+  stroke: var(--md-sys-color-on-surface);
+  stroke-width: 1;
+}
+.svg-canvas-tick text {
+  fill: var(--md-sys-color-on-surface-variant);
+  font-size: 10px;
+  font-family: var(--font-mono);
+}
+
+/* Function curves */
+.svg-canvas-curve {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Legend */
+.svg-canvas-legend {
+  font-size: 12px;
+  font-family: var(--font-sans);
+}
+.svg-canvas-legend text {
+  fill: var(--md-sys-color-on-surface);
+}
+
+/* Controls overlay — 与正文 HTML（ContentPageClient）控件**完全同款**：
+   半透明深色药丸 + 白色图标 + backdrop-blur。逐值对齐参考（bg-black/30、blur-sm、
+   gap-1、px-1 py-0.5、rounded-lg、按钮 h-7 w-7 rounded-md text-white/90 hover:bg-white/20）。
+   常显（参考即常显）。保留 .svg-canvas-controls 类名供指针守卫选择器使用。 */
+.svg-canvas-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 3px;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 3;
+}
+.svg-canvas-controls-left {
+  left: 8px;
+  right: auto;
+}
+.svg-canvas-controls button {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--duration-fast, 150ms) var(--ease-out),
+    transform var(--duration-instant, 80ms) var(--ease-out);
+}
+.svg-canvas-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.svg-canvas-controls button:active {
+  transform: scale(0.94);
+}
+
+.canvas-frame {
+  padding: 8px;
+  cursor: default;
+  user-select: auto;
+}
+.canvas-frame-title {
+  padding: 6px 42px 6px 34px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.canvas-frame-body {
+  min-height: 32px;
+}
+.canvas-diagnostic-panel,
+.canvas-revision-panel,
+.canvas-source-panel {
+  margin: 8px;
+}
+.canvas-diagnostic-panel {
+  padding: 10px 12px;
+  border: 1px dashed var(--md-sys-color-outline-variant);
+  border-radius: 8px;
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+}
+.canvas-diagnostic-title {
+  font-weight: 700;
+  font-size: 0.86rem;
+  margin-bottom: 4px;
+}
+.canvas-diagnostic-message {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.canvas-diagnostic-reason {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--md-sys-color-on-surface-variant);
+  font-family: var(--font-mono, monospace);
+}
+.canvas-revision-panel {
+  padding: 8px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 8px;
+  background: var(--md-sys-color-surface-container-lowest);
+}
+.canvas-revision-panel textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 64px;
+  border-radius: 7px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  padding: 7px 8px;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.canvas-revision-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 7px;
+}
+.canvas-revision-actions button {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 7px;
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  padding: 5px 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.canvas-revision-actions button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+.canvas-revision-actions .canvas-revision-submit {
+  border-color: transparent;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+.canvas-revision-error {
+  margin-top: 6px;
+  color: var(--md-sys-color-error);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* 「放大查看」真全屏：CanvasFullscreenPortal 把画布体 portal 到 document.body，
+   脱离 .chat-messages{contain:layout} 与虚拟列表 translateY() 建立的包含块，
+   使 position:fixed 锚定真视口（详见 components/canvas/CanvasFullscreenPortal.tsx）。 */
+.canvas-fullscreen-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.canvas-fullscreen-stage {
+  position: relative;
+  width: 92vw;
+  height: 92vh;
+  background: var(--md-sys-color-surface-container-lowest);
+  border-radius: var(--md-sys-shape-corner-large, 14px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 全屏舞台内的画布体填满舞台（去掉外边距/最大高度限制） */
+.canvas-fullscreen-stage .svg-canvas-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border: none;
+  border-radius: inherit;
+}
+.canvas-fullscreen-stage .svg-canvas-wrapper > svg,
+.canvas-fullscreen-stage .svg-raw-inner {
+  width: 100%;
+  height: 100%;
+}
+.canvas-fullscreen-stage .svg-raw-content svg,
+.canvas-fullscreen-stage .html-canvas-frame {
+  max-height: none;
+  height: 100%;
+}
+
+/* HTML-in-canvas 沙箱 iframe 图层（复用 .svg-canvas-wrapper 边框，但还原交互光标） */
+.html-canvas-layer {
+  cursor: default;
+  user-select: auto;
+  touch-action: auto;
+  overflow: hidden;
+}
+.html-canvas-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #fff;
+  border-radius: inherit;
+}
+
+/* 统一画布壳（DiagramCanvas） */
+.diagram-canvas {
+  margin: 0.8em 0;
+}
+.diagram-canvas-title {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 0.45em;
+}
+
+/* 分子结构（RDKit）加载/错误状态卡 */
+.molecule-status {
+  margin: 0.6em 0;
+  padding: 0.7rem 0.85rem;
+  border: 1px dashed var(--md-sys-color-outline-variant);
+  border-radius: 12px;
+  background: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.85em;
+}
+.molecule-status-error {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--md-sys-color-error) 40%, var(--md-sys-color-outline-variant));
+}
+.molecule-smiles {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.92em;
+  color: var(--md-sys-color-on-surface);
+  word-break: break-all;
+}
+
+/* Raw AI-generated SVG content — theme integration */
+.svg-raw-content {
+  color: var(--md-sys-color-on-surface);
+  --diagram-primary: var(--md-sys-color-primary);
+  --diagram-secondary: var(--md-sys-color-secondary);
+  --diagram-tertiary: var(--md-sys-color-tertiary);
+  --diagram-error: var(--md-sys-color-error);
+  --diagram-outline: var(--md-sys-color-outline);
+  --diagram-surface: var(--md-sys-color-surface-container-lowest);
+}
+.svg-raw-content svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+}
+.svg-raw-content text {
+  fill: currentColor;
+}
+.svg-raw-content line:not([stroke]),
+.svg-raw-content path:not([stroke]),
+.svg-raw-content polyline:not([stroke]) {
+  stroke: currentColor;
+}
+.svg-raw-content circle:not([fill]),
+.svg-raw-content rect:not([fill]),
+.svg-raw-content ellipse:not([fill]) {
+  fill: none;
+  stroke: currentColor;
+}
+
+/* Figure directive */
+.figure-directive {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.figure-directive img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--md-sys-shape-corner-medium, 10px);
+}
+.figure-directive figcaption {
+  font-size: 0.85em;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 0.5rem;
+}
+.figure-directive-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  border-radius: var(--md-sys-shape-corner-medium, 10px);
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.85em;
+}

@@ -1,6 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type Ref } from "react";
+import { SelectField } from "./SelectField";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 export interface AudioPlayerProps {
+  audioRef?: Ref<HTMLAudioElement>;
+  onSeek?: (seconds: number) => void;
+  onPlaybackRateChange?: (rate: number) => void;
   src: string;
   title?: string;
   startAt?: number;
@@ -17,10 +21,11 @@ export function AudioPlayer({
   startAt = 0,
   onTimeUpdate,
   onEnded,
-  resolveSource,
+  resolveSource, audioRef, onSeek, onPlaybackRateChange,
 }: AudioPlayerProps) {
   const audio = useRef<HTMLAudioElement>(null),
-    version = useRef(0);
+    version = useRef(0), resume = useRef(startAt), sourceId = useRef(src);
+  const [rate, setRate] = useState(1);
   const [source, setSource] = useState(resolveSource ? "" : src),
     [playing, setPlaying] = useState(false),
     [time, setTime] = useState(0),
@@ -31,9 +36,10 @@ export function AudioPlayer({
   useEffect(() => {
     const controller = new AbortController(),
       run = ++version.current;
+    if (sourceId.current !== src) { sourceId.current = src; resume.current = startAt; }
     setError("");
     setPlaying(false);
-    setTime(0);
+    setTime(resume.current);
     setDuration(0);
     setSource("");
     Promise.resolve(resolveSource ? resolveSource(src, controller.signal) : src)
@@ -50,7 +56,7 @@ export function AudioPlayer({
     if (audio.current) {
       const next = Math.max(0, Math.min(duration || 0, value));
       audio.current.currentTime = next;
-      setTime(next);
+      setTime(next); resume.current = next;
     }
   };
   const toggle = () => {
@@ -79,17 +85,20 @@ export function AudioPlayer({
       }}
     >
       <audio
-        ref={audio}
+        ref={value => { audio.current = value; if (typeof audioRef === "function") audioRef(value); else if (audioRef) audioRef.current = value; }}
         src={source || undefined}
         preload="metadata"
         onLoadedMetadata={() => {
           const el = audio.current!;
           setDuration(Number.isFinite(el.duration) ? el.duration : 0);
-          if (startAt > 0) el.currentTime = Math.min(startAt, el.duration || 0);
+          el.currentTime = Math.max(0, Math.min(resume.current, el.duration || 0));
+          el.playbackRate = rate;
           el.volume = volume;
         }}
+        onSeeked={() => onSeek?.(audio.current!.currentTime)}
+        onRateChange={() => { const value = audio.current!.playbackRate; setRate(value); onPlaybackRateChange?.(value); }}
         onTimeUpdate={() => {
-          setTime(audio.current!.currentTime);
+          resume.current = audio.current!.currentTime; setTime(resume.current);
           onTimeUpdate?.(audio.current!.currentTime);
         }}
         onPlay={() => setPlaying(true)}
@@ -109,6 +118,7 @@ export function AudioPlayer({
         </span>
       </div>
       <div className="fp-audio-controls">
+        <SelectField label="播放速度" value={String(rate)} options={[.5,.75,1,1.25,1.5,1.75,2].map(value => ({value:String(value),label:`${value}×`}))} onChange={value => { setRate(Number(value)); if (audio.current) audio.current.playbackRate = Number(value); }} />
         <button
           type="button"
           aria-label={playing ? "暂停" : "播放"}

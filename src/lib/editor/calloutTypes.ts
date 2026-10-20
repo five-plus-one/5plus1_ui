@@ -14,6 +14,8 @@ export type CalloutType = (typeof CALLOUT_TYPES)[number];
 export const CALLOUTS = new Set<string>(CALLOUT_TYPES);
 
 const DIRECTIVE_ALIASES: Record<string, string> = {
+  animation: "learninganimation",
+  map: "historymap",
   "cause-effect": "causeeffect",
   "learning-animation": "learninganimation",
   intuition: "insight",

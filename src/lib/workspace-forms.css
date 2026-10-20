@@ -1,0 +1,376 @@
+.fp-workspace-form {
+  min-width: 0;
+  width: 100%;
+  color: var(--fp-ink);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.fp-workspace-form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.fp-workspace-section {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.fp-workspace-section + .fp-workspace-section,
+.fp-workspace-section
+  > fieldset
+  > [data-animated-size]
+  > div
+  > .fp-workspace-section
+  + .fp-workspace-section {
+  margin-top: 28px;
+}
+.fp-workspace-section > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.fp-workspace-section h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.fp-workspace-section header p,
+.fp-workspace-toggle p,
+.fp-workspace-row p {
+  margin: 6px 0 0;
+  color: var(--fp-muted);
+  font-size: 13px;
+}
+.fp-workspace-section .fp-workspace-section {
+  border-top: 1px solid var(--fp-line);
+  padding-top: 24px;
+}
+.fp-workspace-section .fp-workspace-section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.fp-workspace-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  font-weight: 500;
+}
+.fp-workspace-field + .fp-workspace-field {
+  margin-top: 20px;
+}
+.fp-workspace-section > .fp-workspace-field + .fp-workspace-field {
+  margin-top: 0;
+}
+.fp-workspace-section > .fp-feedback-size:not(.fp-feedback-visible) {
+  margin-top: -20px;
+}
+.fp-workspace-field small {
+  font-size: 12px;
+  color: var(--fp-muted);
+  font-weight: 400;
+}
+.fp-workspace-field .fp-input {
+  width: 100%;
+  min-height: 40px;
+  background: var(--fp-surface);
+  color: var(--fp-ink);
+}
+.fp-workspace-field textarea {
+  line-height: 1.8;
+  resize: vertical;
+  min-height: 140px;
+}
+.fp-workspace-field .fp-select-field,
+.fp-workspace-field .fp-dropdown,
+.fp-workspace-field .fp-popup-trigger {
+  width: 100%;
+}
+.fp-workspace-field .fp-popup-trigger {
+  justify-content: space-between;
+  min-height: 40px;
+}
+.fp-workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 20px;
+}
+.fp-workspace-grid > .fp-workspace-field {
+  margin-top: 0;
+}
+.fp-workspace-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 0;
+}
+.fp-workspace-toggle strong {
+  font-size: 14px;
+  font-weight: 500;
+}
+.fp-workspace-toggle .fp-switch {
+  flex-shrink: 0;
+}
+.fp-settings-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--fp-surface-sunken);
+  width: fit-content;
+  max-width: 100%;
+}
+.fp-settings-tabs button {
+  position: relative;
+  isolation: isolate;
+  white-space: nowrap;
+  border: 0;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 7px;
+  color: var(--fp-muted);
+  font: inherit;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+.fp-settings-tabs button[aria-selected="true"] {
+  color: var(--fp-primary);
+}
+.fp-settings-tab-indicator {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 7px;
+  background: var(--fp-surface);
+  box-shadow: 0 1px 4px #0000000d;
+}
+.fp-workspace-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.fp-workspace-feedback:empty {
+  display: none;
+}
+.fp-workspace-feedback p {
+  margin: 0 0 16px;
+}
+.fp-workspace-feedback [role="alert"] {
+  color: var(--fp-error);
+}
+.fp-workspace-feedback [role="status"] {
+  color: var(--fp-muted);
+}
+.fp-workspace-split {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
+  gap: 28px;
+}
+.fp-workspace-split > * {
+  min-width: 0;
+}
+.fp-workspace-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fp-workspace-item-list button {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  border: 0;
+  padding: 12px;
+  border-radius: 8px;
+  min-width: 0;
+  background: transparent;
+  color: var(--fp-ink);
+  cursor: pointer;
+  font: inherit;
+  transition:
+    background 150ms ease,
+    color 150ms ease;
+}
+.fp-workspace-item-list button:hover {
+  background: var(--fp-surface-sunken);
+}
+.fp-workspace-item-list button[aria-pressed="true"] {
+  background: var(--fp-primary-soft);
+  color: var(--fp-primary);
+}
+.fp-workspace-item-list button > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+.fp-workspace-item-list strong {
+  display: block;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.fp-workspace-item-list small {
+  display: block;
+  color: var(--fp-muted);
+  font-size: 12px;
+}
+.fp-workspace-item-list > button:has(> strong) {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.fp-workspace-avatar {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: var(--fp-primary-soft);
+  color: var(--fp-primary);
+}
+.fp-workspace-pagination,
+.fp-workspace-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+.fp-workspace-row + .fp-workspace-row {
+  border-top: 1px solid var(--fp-line);
+}
+.fp-workspace-inline {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+.fp-workspace-inline .fp-workspace-field {
+  flex: 1;
+}
+.fp-workspace-picker {
+  max-height: 300px;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+.fp-workspace-upload {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed var(--fp-line);
+  padding: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--fp-muted);
+  background: var(--fp-surface);
+}
+.fp-workspace-upload:hover {
+  border-color: var(--fp-primary);
+}
+.fp-workspace-upload:focus-within {
+  outline: 2px solid var(--fp-primary);
+  outline-offset: 2px;
+}
+.fp-workspace-empty {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--fp-muted);
+}
+.fp-workspace-type-preview {
+  border: 1px solid var(--fp-line);
+  border-radius: 8px;
+  padding: 20px;
+}
+.fp-anchored-panel {
+  z-index: 1500;
+  padding: 12px;
+}
+@media (max-width: 640px) {
+  .fp-workspace-section > header {
+    flex-direction: column;
+  }
+  .fp-workspace-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .fp-workspace-inline {
+    flex-wrap: wrap;
+  }
+  .fp-settings-tabs button {
+    padding: 8px 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fp-workspace-form *,
+  .fp-anchored-panel {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.fp-reader-callout-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.fp-reader-callout-toggle svg {
+  transition: transform 180ms ease;
+}
+.fp-reader-callout > .fp-collapse-transition > div > :first-child {
+  margin-top: 16px;
+}
+.fp-workspace-form {
+  container-type: inline-size;
+}
+@container (max-width:640px) {
+  .fp-workspace-grid,
+  .fp-workspace-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fp-experiment-list {
+    max-height: 240px;
+  }
+  .fp-workspace-section > header {
+    flex-wrap: wrap;
+  }
+  .fp-settings-tabs {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+.fp-appearance-workspace {
+  background: var(--fp-surface);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.fp-directive-node
+  [data-animated-size]
+  > div
+  > .fp-markdown-content
+  > .fp-reader-callout {
+  margin: 0;
+  padding: 12px 0 0;
+  border: 0;
+  background: transparent;
+}
+
+.fp-appearance-workspace[data-mode="colorful"] .fp-workspace-type-preview{border-left:3px solid var(--fp-primary);background:var(--fp-primary-soft)}
+.fp-markdown-content :is(h1,h2,h3,h4,h5,h6){color:var(--fp-heading-color,var(--fp-ink))}
+.fp-workspace-toggle>.fp-switch-label{width:auto;min-height:40px;padding:7px;flex-shrink:0}.fp-workspace-toggle .fp-switch{display:block}

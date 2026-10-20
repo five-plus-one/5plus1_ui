@@ -1,0 +1,318 @@
+.fp-lecture-chapters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-block: 20px;
+}
+.fp-lecture-chapters button {
+  display: flex;
+  gap: 10px;
+}
+.fp-lecture-chapters [aria-current] {
+  background: var(--fp-primary-soft);
+  color: var(--fp-primary-ink);
+  border-color: var(--fp-primary);
+}
+.fp-lecture-content {
+  padding-block: 20px;
+}
+.fp-lecture-transcript {
+  max-height: 540px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  margin-block: 16px;
+}
+.fp-lecture-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  transition: background-color 0.16s ease;
+}
+.fp-lecture-line[data-active] {
+  background: var(--fp-primary-soft);
+}
+.fp-lecture-line p {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.9;
+}
+.fp-lecture-word {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0 2px;
+  cursor: pointer;
+  text-align: start;
+}
+.fp-lecture-word[data-active] {
+  color: var(--fp-primary-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.fp-lecture-timestamp {
+  flex: none;
+  padding: 4px;
+  background: none;
+  border: 0;
+  color: var(--fp-primary-ink);
+  font: inherit;
+  cursor: pointer;
+}
+.fp-audio-controls {
+  flex-wrap: wrap;
+}
+.fp-audio-controls > .fp-select-field {
+  width: 80px;
+  flex: none;
+}
+.fp-shared-reading {
+  color: var(--fp-ink);
+  background: var(--fp-surface);
+  font: 14px/1.7 var(--fp-font);
+  min-height: 100%;
+  container-type: inline-size;
+}
+.fp-shared-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--fp-line);
+}
+.fp-shared-header img {
+  display: block;
+  border-radius: 6px;
+}
+.fp-shared-header > strong {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.fp-shared-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 180px;
+  gap: 32px;
+  padding: 28px;
+}
+.fp-shared-layout > main {
+  min-width: 0;
+}
+.fp-shared-layout h1 {
+  font-size: 28px;
+  line-height: 1.4;
+  margin: 0 0 24px;
+}
+.fp-shared-layout h2,
+.fp-shared-drawer h2 {
+  font-size: 14px;
+  margin: 0 0 16px;
+}
+.fp-shared-layout h3,
+.fp-shared-drawer h3 {
+  font-size: 12px;
+  color: var(--fp-muted);
+  margin: 24px 0 8px;
+}
+.fp-shared-note,
+.fp-shared-contents a,
+.fp-shared-drawer nav a {
+  display: block;
+  width: 100%;
+  background: none;
+  border: 0;
+  text-align: start;
+  padding: 9px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition:
+    color 0.16s,
+    background-color 0.16s;
+}
+.fp-shared-note:hover,
+.fp-shared-contents a:hover {
+  background: var(--fp-surface-muted);
+}
+.fp-shared-reading [aria-current] {
+  color: var(--fp-primary-ink);
+  background: var(--fp-primary-soft);
+}
+.fp-shared-mobile-bar {
+  display: none;
+}
+.fp-shared-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgb(0 0 0 / 0.28);
+  display: flex;
+}
+.fp-shared-drawer {
+  width: min(320px, 90vw);
+  position: relative;
+  background: var(--fp-surface);
+  padding: 64px 24px 24px;
+  overflow: auto;
+  animation: fp-shared-drawer-in 0.18s ease-out;
+}
+.fp-shared-close {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--fp-muted);
+  cursor: pointer;
+}
+.fp-shared-drawer > .fp-shared-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+.fp-shared-close:hover {
+  background: var(--fp-surface-muted);
+  color: var(--fp-ink);
+}
+.fp-release-notice {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  margin: 12px;
+  border: 1px solid var(--fp-line);
+  border-radius: 10px;
+  color: var(--fp-ink);
+  background: var(--fp-surface);
+  box-shadow: var(--fp-shadow);
+}
+.fp-release-notice p {
+  margin: 6px 0 0;
+  color: var(--fp-muted);
+}
+@keyframes fp-shared-drawer-in {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@container (max-width:900px) {
+  .fp-shared-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px;
+  }
+  .fp-shared-contents {
+    display: none;
+  }
+}
+@container (max-width:620px) {
+  .fp-shared-layout {
+    display: block;
+    padding: 20px;
+  }
+  .fp-shared-navigation {
+    display: none;
+  }
+  .fp-shared-mobile-bar {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px 0;
+  }
+  .fp-shared-header {
+    padding: 16px 20px;
+  }
+  .fp-release-notice {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fp-shared-drawer {
+    animation: none;
+  }
+}
+
+.fp-followup-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+  color: var(--fp-ink);
+}
+.fp-followup-questions > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.fp-followup-question {
+  text-align: start;
+  border: 1px solid var(--fp-line);
+  border-radius: 8px;
+  background: var(--fp-surface);
+  padding: 12px 16px;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background 0.16s,
+    border-color 0.16s;
+}
+.fp-followup-question:hover {
+  background: var(--fp-primary-soft);
+  border-color: var(--fp-primary);
+}
+.fp-followup-question .fp-markdown-content {
+  font-size: 14px;
+}
+.fp-followup-question .fp-markdown-content > :first-child {
+  margin-top: 0;
+}
+.fp-followup-question .fp-markdown-content > :last-child {
+  margin-bottom: 0;
+}
+
+.fp-course-content {
+  padding: 24px;
+  min-width: 0;
+  width: 100%;
+  background: var(--fp-surface);
+  color: var(--fp-ink);
+}
+.canvas-fullscreen-stage:has(.fp-course-content) {
+  overflow: auto;
+}
+.fp-browser-viewport {
+  margin-inline: auto;
+  max-width: 100%;
+  width: 100%;
+  transition: width 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+.fp-browser-viewport[data-viewport="mobile"] {
+  width: 390px;
+}
+.fp-followup-question > p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+[style*="--fp-selection"] ::selection {
+  background: var(--fp-selection);
+}

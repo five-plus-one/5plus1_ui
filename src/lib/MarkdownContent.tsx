@@ -1,13 +1,32 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { ChevronDown } from "lucide-react";
+import { CollapseTransition } from "./CollapseTransition";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkDirective from "remark-directive";
 import rehypeKatex from "rehype-katex";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
+import rehypeTableMath from "./reading/rehypeTableMath";
+import remarkCalloutSoftBreaks from "./reading/remarkCalloutSoftBreaks";
+import { normalizeDirectiveLabels } from "./reading/normalizeDirectiveLabels";
+import {
+  readingSchema,
+  readingStyles,
+  readingHeadingIds,
+} from "./reading/pipeline";
+import { mathMacros } from "./editor/mathRendering";
+import { LearningExperiment } from "./LearningExperiments";
+import { CanvasBlockRenderer } from "./canvas/CanvasBlockRenderer";
+import {
+  normalizePlotAttrs,
+  normalizeCanvasAttrs,
+  normalizeSvgDiagramBlock,
+} from "./canvas/engines/normalize";
 import { visit } from "unist-util-visit";
 import type { Root } from "mdast";
 import { MermaidPreview } from "./editor/VisualCodeBlock";
-import { normalizeObsidianCallouts } from "./editor/normalizeObsidianCallouts";
 import { canonicalDirectiveName, CALLOUT_META } from "./editor/calloutTypes";
 import {
   ConceptCard,
@@ -28,10 +47,43 @@ import { VideoPlayer } from "./VideoPlayer";
 import { AudioPlayer } from "./AudioPlayer";
 import { ContentImage } from "./ContentImage";
 import "katex/dist/katex.min.css";
+import "katex/contrib/mhchem";
+
+function ReadingCallout({
+  title,
+  kind,
+  collapsed,
+  children,
+}: {
+  title: string;
+  kind: string;
+  collapsed: boolean;
+  children: ReactNode;
+}) {
+  const [open, setOpen] = useState(!collapsed);
+  return (
+    <aside className="fp-reader-callout" data-kind={kind}>
+      <button
+        type="button"
+        className="fp-reader-callout-toggle"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
+        <ChevronDown
+          size={16}
+          style={{ transform: open ? undefined : "rotate(-90deg)" }}
+        />
+        <strong>{title}</strong>
+      </button>
+      <CollapseTransition isOpen={open}>{children}</CollapseTransition>
+    </aside>
+  );
+}
 export interface RenderDirectiveProps {
   name: string;
   attributes: Record<string, string>;
   children: ReactNode;
+  source?: string;
 }
 export interface MarkdownContentProps {
   markdown: string;
@@ -48,6 +100,13 @@ function directiveNodes() {
         name?: string;
         attributes?: Record<string, string>;
         data?: Record<string, unknown>;
+        children?: {
+          type: string;
+          name?: string;
+          attributes?: Record<string, string>;
+          value?: string;
+          children?: unknown[];
+        }[];
       };
       if (
         !["containerDirective", "leafDirective", "textDirective"].includes(
@@ -55,12 +114,29 @@ function directiveNodes() {
         )
       )
         return;
+      const attributes = { ...directive.attributes };
+      const sourceText = (children: typeof directive.children): string =>
+        (children || [])
+          .map(
+            (child) =>
+              child.value || sourceText(child.children as typeof children),
+          )
+          .join("\n");
+      if (directive.name === "canvas" && directive.children)
+        attributes.plots = JSON.stringify(
+          directive.children
+            .filter((child) => child.name === "plot")
+            .map((child) => child.attributes || {}),
+        );
       directive.data = {
         ...directive.data,
         hName: "fp-directive",
         hProperties: {
           "data-name": directive.name,
-          "data-attributes": JSON.stringify(directive.attributes || {}),
+          "data-attributes": JSON.stringify({
+            ...attributes,
+            __source: sourceText(directive.children),
+          }),
         },
       };
     });
@@ -81,6 +157,7 @@ export function MarkdownContent({
     name,
     attributes,
     children,
+    source,
   }: RenderDirectiveProps): ReactNode => {
     const canonical = canonicalDirectiveName(name),
       title =
@@ -89,8 +166,48 @@ export function MarkdownContent({
         CALLOUT_META[canonical]?.label ||
         "学习内容";
     if (renderDirective) {
-      const custom = renderDirective({ name: canonical, attributes, children });
+      const custom = renderDirective({
+        name: canonical,
+        attributes,
+        children,
+        source,
+      });
       if (custom !== undefined) return custom;
+    }
+    if (canonical === "interactive" && attributes.id)
+      return <LearningExperiment id={attributes.id} />;
+    if (["plot", "functionplot"].includes(canonical))
+      return (
+        <CanvasBlockRenderer
+          block={{
+            kind: "plot",
+            title: attributes.title || attributes.label,
+            fn: attributes.fn || source || "x",
+            attrs: normalizePlotAttrs(attributes),
+          }}
+        />
+      );
+    if (["canvas", "svgcanvas", "svg"].includes(canonical)) {
+      let plots: { fn: string; color?: string; label?: string }[] = [];
+      try {
+        plots = JSON.parse(attributes.plots || "[]");
+      } catch {
+        /* Optional curves use the canvas source. */
+      }
+      return (
+        <CanvasBlockRenderer
+          block={
+            plots.length
+              ? {
+                  kind: "multi-plot",
+                  title: attributes.title,
+                  attrs: normalizeCanvasAttrs(attributes),
+                  plots,
+                }
+              : normalizeSvgDiagramBlock(attributes, source || "")
+          }
+        />
+      );
     }
     if (["concept", "conceptcard"].includes(canonical))
       return (
@@ -215,10 +332,13 @@ export function MarkdownContent({
         </section>
       );
     return (
-      <aside className="fp-reader-callout" data-kind={canonical}>
-        <strong>{title}</strong>
+      <ReadingCallout
+        title={title}
+        kind={canonical === "callout" ? attributes.kind || "note" : canonical}
+        collapsed={attributes.collapsed === "true"}
+      >
         {children}
-      </aside>
+      </ReadingCallout>
     );
   };
   const components = {
@@ -240,10 +360,13 @@ export function MarkdownContent({
       } catch {
         /* A malformed optional attribute uses default presentation. */
       }
+      const source = attributes.__source;
+      delete attributes.__source;
       return render({
         name: String(properties["data-name"] || properties.dataName || "note"),
         attributes,
         children,
+        source,
       });
     },
     img: ({ src, alt }: { src?: string; alt?: string }) =>
@@ -284,11 +407,27 @@ export function MarkdownContent({
   return (
     <article className="fp-markdown-content">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkMath, remarkDirective, directiveNodes]}
-        rehypePlugins={[rehypeKatex]}
+        remarkPlugins={[
+          remarkGfm,
+          remarkMath,
+          remarkDirective,
+          remarkCalloutSoftBreaks,
+          directiveNodes,
+        ]}
+        rehypePlugins={[
+          rehypeRaw,
+          readingStyles,
+          [rehypeSanitize, readingSchema],
+          rehypeTableMath,
+          [
+            rehypeKatex,
+            { throwOnError: false, strict: false, macros: mathMacros },
+          ],
+          readingHeadingIds,
+        ]}
         components={components}
       >
-        {normalizeObsidianCallouts(markdown)}
+        {normalizeDirectiveLabels(markdown)}
       </ReactMarkdown>
     </article>
   );

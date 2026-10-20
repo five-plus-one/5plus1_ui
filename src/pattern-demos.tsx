@@ -1,14 +1,77 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import * as U from "./lib";
 function RecoverableContent() {
   const [failed, setFailed] = useState(false);
   if (failed) throw new Error("Content unavailable");
   return <div className="fp-pattern-panel"><h3>课堂笔记</h3><p>继续阅读今天的课程内容。</p><button type="button" onClick={() => setFailed(true)}>体验重新打开</button></div>;
 }
+
+function AnchoredPanelExample(){const anchor=useRef<HTMLButtonElement>(null),[open,setOpen]=useState(false);return <><button ref={anchor} type="button" className="fp-button fp-secondary" aria-expanded={open} onClick={()=>setOpen(!open)}>阅读选项</button><U.AnchoredPanel anchor={anchor} open={open} onClose={()=>setOpen(false)} label="阅读选项"><button type="button" className="fp-button fp-ghost" onClick={()=>setOpen(false)}>继续阅读</button></U.AnchoredPanel></>;}
+function CommerceExample() {
+ const [value,setValue]=useState<U.CommerceSettings>({enabled:false,creditsPerYuan:10,costMultiplier:1,gateway:'',pid:'',secret:'',serviceRates:{quarkOcrRequest:.1,documentOrganization:.2,webSearch:.03},plans:[{id:'monthly',name:'学习月卡',days:30,priceYuan:18,credits:200,discount:.9,enabled:true}],modelRates:{'学习模型':{input:1,output:4,cachedInput:.2}}});
+ return <U.CommerceWorkspace value={value} onSave={next=>setValue(next)} onSyncPrices={async()=>{ const next={...value,modelRates:{'学习模型':{input:1.2,output:4.5,cachedInput:.25}},pricingSyncedAt:new Date().toISOString()};setValue(next);return next;}} />;
+}
+function SkillsExample() { const [skills,setSkills]=useState<U.EditableSkill[]>([{id:'review',name:'课程复习',description:'用例题检验理解。',content:'# 复习方法\n先解释概念，再检查例题。',pinned:false}]); return <U.SkillsWorkspace skills={skills} onSave={next=>setSkills(next)} />; }
+function DirectoryExample() {
+ const [users,setUsers]=useState<U.DirectoryUser[]>([{sub:'five',name:'五加一',email:'hello@example.com'},{sub:'chen',name:'陈同学',email:'chen@example.com'}]),[groups,setGroups]=useState<U.DirectoryGroup[]>([{id:'study',name:'学习小组',description:'共同整理课程笔记',members:['five']}]);
+ return <U.DirectoryWorkspace users={users} groups={groups} onSaveUser={user=>setUsers(list=>[...list.filter(item=>item.sub!==user.sub),user])} onSaveGroup={group=>setGroups(list=>[...list.filter(item=>item.id!==group.id),group])} onDeleteGroup={id=>setGroups(list=>list.filter(item=>item.id!==id))} />;
+}
+function AISettingsExample() {
+ const [value,setValue]=useState<U.AISettings>({groups:[{id:'study',name:'学习服务',baseUrl:'https://api.example.com/v1',apiKey:'',models:[{...U.createEditableAIModel(),id:'study-model',label:'学习模型'}]}],defaultModel:'study:study-model',excerptModel:'',selectionModel:'',imageTextModel:'',fallbackModel:'',defaultThinking:true,defaultSearch:false,thinkingEffort:'medium',globalContext:'先给出思路，再通过例子说明。',disabledTools:[],imageEnabled:false});
+ return <U.AISettingsWorkspace value={value} onSave={next=>setValue(next)} tools={[{id:'search',label:'查找资料',description:'在课程资料中寻找相关内容。'},{id:'web',label:'联网搜索',description:'补充公开的参考资料。'}]} />;
+}
+function NotebookPublishingExample() {
+ const [notebook,setNotebook]=useState<U.PublishedNotebook>({id:'algebra',title:'线性代数',sourcePrefix:'课程资料/线性代数',currentRelease:'first',syncMode:'review'}),[versions,setVersions]=useState<U.NotebookRelease[]>([{id:'first',createdAt:'2026-10-01T10:00:00Z',label:'第一章'}]);
+ return <U.NotebookPublishing notebook={notebook} versions={versions} onPrepare={async()=>({id:crypto.randomUUID(),title:'线性代数 · 新一章',sections:2,resources:1,structureChanged:true,items:[{id:'vectors',title:'向量空间',kind:'note',content:'# 向量空间\n\n从加法和数乘开始，理解空间的结构。\n\n## 一个例子\n\n平面向量可以表示为 $v=(x,y)$。'},{id:'linear',title:'线性映射',kind:'note',content:'# 线性映射\n\n保持加法和数乘的映射。'}]})} onPublish={id=>{setNotebook({...notebook,currentRelease:id});setVersions(list=>[{id,createdAt:new Date().toISOString(),label:'课程更新'},...list]);}} onSetSource={next=>setNotebook({...notebook,...next})} onRestore={id=>setNotebook({...notebook,currentRelease:id,syncMode:'review'})} />;
+}
+function AppearanceExample() { const initial:U.AppearancePreferences={theme:'system',mode:'default',lightAccent:'#FD8B07',darkAccent:'#FFB45C',selection:'#FFF2E2',font:'system',regions:{}};const [value,setValue]=useState(initial);return <U.AppearanceWorkspace value={value} onChange={setValue} onReset={()=>setValue(initial)} />; }
+function CanvasExample() { const [value,setValue]=useState<U.CanvasBlock>({kind:'plot',title:'函数探索',fn:'sin(x)',attrs:{xmin:-6.28,xmax:6.28,ymin:-2,ymax:2,grid:true,axes:true}});return <U.CanvasWorkspace value={value} onChange={setValue} onRevise={async(_block,instruction)=>({kind:'plot',title:instruction,fn:'2*sin(x)',attrs:{xmin:-6.28,xmax:6.28,ymin:-3,ymax:3,grid:true,axes:true}})} />; }
+function NoteEditorExample() { const [value,setValue]=useState<U.EditableNote>({id:'reading',title:'阅读与理解',markdown:'# 阅读与理解\n\n记录一个概念，用自己的例子解释它。\n\n同行公式 $x^2+y^2$ 与后面的文字。',revision:'first'});return <U.NoteEditorWorkspace document={value} onSave={async(next,signal)=>{if(signal.aborted)throw new Error('保存已取消。');const saved={...next,revision:crypto.randomUUID()};setValue(saved);return saved;}} versions={[{id:'first',label:'最初的想法',date:'2026-10-20',preview:<U.MarkdownContent markdown="从一个问题开始。" />}]} onRestore={async()=>{const next={...value,markdown:'从一个问题开始。',revision:crypto.randomUUID()};setValue(next);return next;}} />; }
+function LectureExample() {const [notes,setNotes]=useState('## 我的课堂笔记\n\n记录问题，课后再检查。');return <U.LectureWorkspace title="从阅读到理解" media={{kind:'audio',src:'/samples/reading.wav'}} transcript={[{text:'让我们从一个问题开始。',start:0,end:2.2,words:[{text:'让我们',start:0,end:.7},{text:'从一个问题',start:.7,end:1.5},{text:'开始。',start:1.5,end:2.2}]},{text:'用自己的话说明，再用例子检验。',start:2.2,end:5.5}]} chapters={[{id:'opening',title:'提出问题',start:0,markdown:'## 提出问题\n\n明确今天需要理解的内容。'},{id:'example',title:'检验理解',start:2.2,markdown:'## 检验理解\n\n为概念补充自己的例子。'}]} notes={notes} onNotesChange={setNotes} onCite={reference=>setNotes(text=>text+`\n\n> ${reference.text}\n\n${reference.title} · ${reference.time.toFixed(1)} 秒`)} />;}
+function SharedReadingExample(){const [id,setId]=useState('reading');return <U.SharedReadingPage title={id==='reading'?'阅读与理解':'课堂想法'} selectedId={id} onNavigate={setId} entries={[{id:'reading',title:'阅读与理解',group:'学习方法'},{id:'ideas',title:'课堂想法',group:'学习方法'}]} markdown={id==='reading'?'## 提出问题\n\n把资料变成自己的认识，从一个问题开始。\n\n## 检验理解\n\n用自己的话解释概念，再回到资料核对。':'## 课堂记录\n\n记下问题，找到自己的例子。'} headings={id==='reading'?[{id:'提出问题',title:'提出问题',level:2},{id:'检验理解',title:'检验理解',level:2}]:[{id:'课堂记录',title:'课堂记录',level:2}]} onCopyReference={async reference=>{await navigator.clipboard.writeText(`${reference.title}\n${reference.text}`);}} />;}
+function PlatformExample(){const [value,setValue]=useState<U.PlatformPreferences>({siteName:'课栈笔记',accountName:'五加一',supportUrl:'https://fiveplus.one/',providers:[],documentProcessing:{quark:{apiKey:'',scene:'general-ocr',pagesPerRequest:2,enabled:false}}});return <U.PlatformWorkspace value={value} onSave={next=>setValue(next)} />;}
+function BrowserPreferencesExample(){const [bookmarks,setBookmarks]=useState<U.BrowserBookmark[]>([{id:'home',name:'五加一主页',url:'https://fiveplus.one/'}]),[home,setHome]=useState('https://fiveplus.one/'),[opened,setOpened]=useState('');return <><U.BrowserPreferences bookmarks={bookmarks} homeUrl={home} onAdd={bookmark=>setBookmarks(list=>[...list,{...bookmark,id:crypto.randomUUID()}])} onRemove={id=>setBookmarks(list=>list.filter(item=>item.id!==id))} onOpen={id=>setOpened(bookmarks.find(item=>item.id===id)?.url||'')} onHomeChange={setHome} />{opened&&<a href={opened} target="_blank" rel="noreferrer">打开所选网页 ↗</a>}</>;}
+function UserDetailsExample(){const [user,setUser]=useState<U.DirectoryUser>({sub:'chen',name:'陈同学',email:'chen@example.com'}),[storage,setStorage]=useState({used:1.2*1024**3,capacity:5*1024**3}),[credits,setCredits]=useState(250),[admin,setAdmin]=useState(false);return <U.UserDetailsWorkspace user={user} groups={[{id:'study',name:'学习小组',description:'',members:['chen']}]} storage={storage} credits={credits} administrator={admin} onSaveProfile={setUser} onSaveCapacity={gb=>setStorage({...storage,capacity:gb*1024**3})} onAdjustCredits={amount=>setCredits(value=>value+amount)} onSaveAdministrator={setAdmin} />;}
+function NotebookManagerExample(){const [books,setBooks]=useState<U.PublishedNotebook[]>([{id:'algebra',title:'线性代数',sourcePrefix:'课程资料/线性代数',currentRelease:'first',syncMode:'review'}]),[drafts,setDrafts]=useState<U.ManagedNotebookDraft[]>([]);return <U.NotebookManagerWorkspace notebooks={books} drafts={drafts} onPrepare={async input=>{const draft={id:crypto.randomUUID(),notebookId:input.notebookId,title:'课程新章节',sections:1,resources:0,structureChanged:true,items:[{id:'vectors',title:'向量空间',kind:'note',content:'## 向量空间\n\n从加法和数乘开始，理解空间的结构。'}]};setDrafts(list=>[...list,draft]);return draft;}} onPublish={id=>{const draft=drafts.find(item=>item.id===id);if(!draft)return;if(draft.notebookId)setBooks(list=>list.map(book=>book.id===draft.notebookId?{...book,currentRelease:id}:book));else setBooks(list=>[...list,{id:crypto.randomUUID(),title:draft.title,sourcePrefix:'课程资料',currentRelease:id,syncMode:'review'}]);setDrafts(list=>list.filter(item=>item.id!==id));}} onSetSource={(id,input)=>setBooks(list=>list.map(book=>book.id===id?{...book,...input}:book))}/>;}
+function CourseContentExample(){const [document,setDocument]=useState<U.EditableNote>({id:'vectors',title:'向量空间',revision:'one',markdown:'## 理解向量空间\n\n从加法与数乘开始，为抽象概念找到具体的例子。\n\n向量长度 $\\sqrt{x^2+y^2}$ 描述了点到原点的距离。'});return <U.CourseContentWorkspace document={document} subject="线性代数" summary="用自己的例子检验理解" onSave={async next=>{const saved={...next,revision:crypto.randomUUID()};setDocument(saved);return saved;}} examples={[{id:'plane',title:'平面向量',markdown:'## 平面向量\n\n两个坐标分别表示向量在两条坐标轴上的分量。'}]} quiz={<U.MarkdownContent markdown="## 检验理解\n\n写出两个平面向量，并计算它们的和。"/>}/>;}
+function BrowserWorkspaceExample(){const [url,setUrl]=useState('https://fiveplus.one/'),[viewport,setViewport]=useState<'desktop'|'mobile'>('desktop'),[home,setHome]=useState(url),[bookmarks,setBookmarks]=useState<U.BrowserBookmark[]>([]);return <U.BrowserWorkspace url={url} onNavigate={setUrl} homeUrl={home} viewport={viewport} onViewportChange={setViewport} bookmarks={bookmarks} onAddBookmark={bookmark=>setBookmarks(list=>[...list,{...bookmark,id:crypto.randomUUID()}])} onRemoveBookmark={id=>setBookmarks(list=>list.filter(item=>item.id!==id))} onHomeChange={setHome} onOpenExternal={target=>window.open(target,'_blank','noopener,noreferrer')}><U.EmbedFallback url={url} reason="此网页可以在浏览器中继续阅读。"/></U.BrowserWorkspace>;}
+function LearningSourceExample({kind}:{kind:'audio'|'document'|'transcript'}) { return <U.LearningSourceView source={kind==='audio'?{title:'课堂录音',audio:{src:'/samples/reading.wav'},transcript:[{text:'从一个问题开始，用例子检验理解。',start:0,end:5}]}:kind==='document'?{title:'设计协作手册',resource:{name:'设计协作手册.pdf',url:'/samples/design.pdf',previewUrl:'/samples/pdf.json'}}:{title:'课堂讲稿',markdown:'## 课堂讲稿\n\n从一个问题开始，用自己的话说明，再通过例子检验。'}}/>; }
+function AdministratorDirectoryExample(){const [enabled,setEnabled]=useState(['five']);return <U.AdministratorDirectory users={[{sub:'five',name:'五加一'},{sub:'chen',name:'陈同学'}]} enabledIds={enabled} protectedIds={['five']} onSave={(id,checked)=>setEnabled(list=>checked?[...list,id]:list.filter(item=>item!==id))}/>;}
+function CapacityDirectoryExample(){const [entries,setEntries]=useState([{id:'chen',name:'陈同学',used:1.2*1024**3,capacity:5*1024**3}]);return <U.CapacityDirectory entries={entries} onSave={(id,gb)=>setEntries(list=>list.map(item=>item.id===id?{...item,capacity:gb*1024**3}:item))}/>;}
+function PlatformResetExample(){const [done,setDone]=useState(false);return done?<section className="fp-workspace-section"><h3>准备配置课栈</h3><p>填写站点名称和学习服务连接，继续使用课程与笔记。</p><button type="button" className="fp-button fp-secondary" onClick={()=>setDone(false)}>返回平台管理</button></section>:<U.PlatformReset canReset onReset={()=>setDone(true)}/>;}
+function ReleaseNoticeExample(){const [available,setAvailable]=useState(true);return <>{!available&&<button type="button" className="fp-button fp-secondary" onClick={()=>setAvailable(true)}>查看更新提示</button>}<U.ReleaseNotice available={available} onRefresh={()=>setAvailable(false)} onDismiss={()=>setAvailable(false)} /></>;}
+function FollowUpExample(){const [text,setText]=useState('');return <><U.FollowUpQuestions questions={['如何判断一个映射是线性的？','向量空间与线性空间有什么联系？']} onSelect={setText} />{text&&<U.MarkdownContent markdown={`## 继续思考\n\n${text}`} />}</>;}
+
 export const patternDefinitions: Record<
   string,
   [string, string, string, string]
 > = {
+  CommerceWorkspace: ["积分与会员设置", "账户管理", "配置积分、会员、支付与模型价格。", "value；onSave；onSyncPrices?；readOnly?"],
+  SkillsWorkspace: ["技能库管理", "AI 对话", "导入技能文件，编辑正文并保存学习方法。", "skills；onSave；onExport?；maxSkills?"],
+  DirectoryWorkspace: ["用户与用户组管理", "账户管理", "搜索账户，编辑资料，维护学习小组成员。", "users；groups；onSaveUser；onSaveGroup；onDeleteGroup"],
+  UserDetailsWorkspace: ["用户详情管理", "账户管理", "查看资料与用户组，调整存储、积分和管理权限。", "user；groups；storage?；credits?；administrator?；onSaveProfile"],
+  AISettingsWorkspace: ["助手完整设置", "AI 对话", "管理模型连接、学习偏好、图片创作与工具。", "value；onSave；builtInModels?；tools?；onExportSettings?"],
+  NotebookManagerWorkspace: ["笔记本管理工作区", "账户管理", "查找课程、检查待发布内容并管理阅读版本。", "notebooks；drafts；versions?；onPrepare；onPublish"],
+  CourseContentWorkspace: ["课程内容工作区", "业务模式", "阅读正文、编辑笔记，并在例题和练习之间切换。", "document；onSave；examples?；quiz?；contentProps?"],
+  BrowserWorkspace: ["网页浏览工作区", "业务模式", "在学习中浏览网页、切换视图并管理收藏。", "url；onNavigate；children；viewport?；bookmarks?"],
+  NotebookPublishing: ["笔记本发布", "业务模式", "预检目录，阅读草稿，发布课程并恢复历史版本。", "notebook?；onPrepare；onPublish；onSetSource?；onRestore?"],
+  AppearanceWorkspace: ["外观与阅读字体", "账户管理", "设置配色和各内容区的字体、字号与继承关系。", "value；onChange；onReset；regions?"],
+  CanvasWorkspace: ["学习画布编辑", "业务模式", "查看图形、提出修改，并采用需要的版本。", "value；onChange；onRevise?；renderMolecule?；recorder?"],
+  NoteEditorWorkspace: ["笔记编辑工作区", "业务模式", "编辑、自动保存，处理内容更新并恢复历史版本。", "document；onSave；versions?；onRestore?；registerNavigationGuard?"],
+  LectureWorkspace: ["课堂讲稿与笔记", "业务模式", "播放课堂资料，跳转讲稿与章节，记录笔记。", "title；media；transcript；chapters?；notes；onNotesChange；onCite?"],
+  SharedReadingPage: ["分享阅读页面", "业务模式", "在分享的笔记、章节目录与引用之间自然切换。", "title；markdown；entries?；onNavigate?；headings?；access?"],
+  AdministratorDirectory: ["平台管理员", "账户管理", "搜索成员，核对并调整平台管理权限。", "users；enabledIds；protectedIds；onSave"],
+  CapacityDirectory: ["用户存储管理", "账户管理", "查看各用户的资料使用量并调整存储额度。", "entries；onSave"],
+  PlatformReset: ["平台重新配置", "账户管理", "核对操作后重新设置平台服务。", "canReset；confirmation?；onReset"],
+  PlatformWorkspace: ["站点与学习服务", "账户管理", "配置站点信息、模型供应商和扫描识别。", "value；onSave；onConfigureStorage?"],
+  BrowserPreferences: ["浏览与收藏设置", "业务模式", "保存常用网页，管理收藏与浏览器主页。", "bookmarks；homeUrl；onAdd；onRemove；onOpen；onHomeChange"],
+  ExperimentLibrary: ["学科实验库", "业务模式", "按学科搜索实验，调整参数并观察结果。", "value?；onSelect?；onSave?；renderSource?"],
+  LearningExperiment: ["学科交互实验", "业务模式", "在笔记中直接使用已抽取的课程实验。", "id；sources?；renderSource?"],
+  LearningSourceView: ["课程原始资料", "业务模式", "阅读课件、转录稿，结合录音整理笔记。", "source: {title,resource?,audio?,transcript?,chapters?,markdown?}"],
+  ReleaseNotice: ["应用更新提示", "反馈", "保存当前工作后，打开已经就绪的新版本。", "available；onRefresh；onDismiss?；beforeRefresh?"],
+  FollowUpQuestions: ["继续提问", "AI 对话", "从相关问题继续思考，并查看本轮参考资料。", "questions；onSelect；sourceCount?；onOpenSources?"],
+  LearningRecords: ["学习记录设置", "账户管理", "查看章节测验记录、最佳成绩和复习入口。", "records；onOpen；onClear；shortcuts?；appearance?"],
+  AnchoredPanel: ["锚点定位浮层", "反馈", "依附已有控件打开浮层，支持键盘和点击外部关闭。", "anchor；open；onClose；label；children；role?"],
   SurfaceBoundary: [
     "内容恢复", "反馈", "局部内容出现问题时重新打开，继续阅读。",
     "children；title?；description?；resetKey?；onError?",
@@ -448,6 +511,33 @@ export function PatternDemo({
     </div>
   );
   const demos: Record<string, () => React.ReactNode> = {
+    CommerceWorkspace: () => <CommerceExample />,
+    SkillsWorkspace: () => <SkillsExample />,
+    DirectoryWorkspace: () => <DirectoryExample />,
+    UserDetailsWorkspace: () => <UserDetailsExample />,
+    AISettingsWorkspace: () => <AISettingsExample />,
+    NotebookManagerWorkspace: () => <NotebookManagerExample />,
+    CourseContentWorkspace: () => <CourseContentExample />,
+    BrowserWorkspace: () => <BrowserWorkspaceExample />,
+    NotebookPublishing: () => <NotebookPublishingExample />,
+    AppearanceWorkspace: () => <AppearanceExample />,
+    CanvasWorkspace: () => <CanvasExample />,
+    NoteEditorWorkspace: () => <NoteEditorExample />,
+    LectureWorkspace: () => <LectureExample />,
+    SharedReadingPage: () => <SharedReadingExample />,
+    AdministratorDirectory: () => <AdministratorDirectoryExample />,
+    CapacityDirectory: () => <CapacityDirectoryExample />,
+    PlatformReset: () => <PlatformResetExample />,
+    PlatformWorkspace: () => <PlatformExample />,
+    BrowserPreferences: () => <BrowserPreferencesExample />,
+    ReleaseNotice: () => <ReleaseNoticeExample />,
+    FollowUpQuestions: () => <FollowUpExample />,
+    ExperimentLibrary: () => <U.ExperimentLibrary value={active==='reading'?'probability-disk-conditional-lab':active} onSelect={setActive} renderSource={(_id,kind)=><LearningSourceExample kind={kind}/>} />,
+    LearningExperiment: () => <U.LearningExperiment id="probability-disk-conditional-lab" />,
+    LearningSourceView: () => <U.LearningSourceView source={{title:'课堂资料',audio:{src:'/samples/reading.wav'},transcript:[{text:'从一个问题开始。',start:0,end:5}],chapters:[{id:'opening',title:'课程开始',start:0}]}} />,
+    LearningRecords: () => <><U.LearningRecords records={revealed?[]:[{id:'algebra',subject:'线性代数',chapter:'向量空间',last:80,best:90,attempts:3}]} onOpen={()=>setSelected('algebra')} onClear={()=>setRevealed(true)} />{selected==='algebra'&&<U.MarkdownContent markdown="## 向量空间复习\n\n试着用自己的话解释线性无关，再检查章节中的例题。"/>}</>,
+    AnchoredPanel: () => <AnchoredPanelExample />,
+
     SurfaceBoundary: () => <U.SurfaceBoundary><RecoverableContent /></U.SurfaceBoundary>,
     DirectiveFields: () => (
       <U.DirectiveFields

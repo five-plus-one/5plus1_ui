@@ -21,6 +21,7 @@ export interface VideoPlayerProps {
   onSeek?: (time: number) => void;
   onPlaybackRateChange?: (rate: number) => void;
   onPlaybackError?: (error: string) => void;
+  onPictureInPictureChange?: (active: boolean) => void;
   tracks?: { src: string; label: string; language: string; default?: boolean }[];
   /** 仅在播放器内获得焦点时响应快捷键 */
   keyboardShortcuts?: boolean;
@@ -45,11 +46,13 @@ export function VideoPlayer({
   onSeek,
   onPlaybackRateChange,
   onPlaybackError,
-  tracks = [],
+  tracks = [], onPictureInPictureChange,
   keyboardShortcuts = true,
 }: VideoPlayerProps) {
   const host = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
+  const resume = useRef(startAt), sourceId = useRef(src);
+  const [caption, setCaption] = useState(tracks.findIndex(track => track.default));
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(startAt);
   const [duration, setDuration] = useState(0);
@@ -64,7 +67,8 @@ export function VideoPlayer({
   const reportError = (message: string) => { setError(message); callbacks.current.onPlaybackError?.(message); };
   useEffect(() => {
     const controller = new AbortController();
-    setError(''); setNotice(''); setPlaying(false); setTime(startAt); setDuration(0);
+    if (sourceId.current !== src) { sourceId.current = src; resume.current = startAt; }
+    setError(''); setNotice(''); setPlaying(false); setTime(resume.current); setDuration(0);
     if (!resolveSource) { setResolved(src); return; }
     setResolved('');
     void resolveSource(src, controller.signal).then(url => { if (!controller.signal.aborted) setResolved(url); }).catch(cause => { if (!controller.signal.aborted) reportError(cause instanceof Error ? cause.message : '视频暂时无法播放'); });
@@ -74,9 +78,10 @@ export function VideoPlayer({
   useEffect(() => {
     const el = video.current;
     if (!el) return;
-    el.currentTime = startAt;
+    resume.current = startAt; el.currentTime = startAt;
   }, [src, startAt]);
 
+  useEffect(() => { const el = video.current; if (!el) return; const enter = () => onPictureInPictureChange?.(true), leave = () => onPictureInPictureChange?.(false); el.addEventListener('enterpictureinpicture', enter); el.addEventListener('leavepictureinpicture', leave); return () => { el.removeEventListener('enterpictureinpicture', enter); el.removeEventListener('leavepictureinpicture', leave); }; }, [onPictureInPictureChange]);
   const toggle = () => {
     const el = video.current;
     if (!el) return;
@@ -97,7 +102,7 @@ export function VideoPlayer({
         await el.requestPictureInPicture();
       }
     } catch {
-      /* 浏览器不支持时静默失败 */
+      setNotice('暂时无法打开画中画，请重试。');
     }
   };
 
@@ -152,12 +157,13 @@ export function VideoPlayer({
           onClick={() => { host.current?.focus({ preventScroll: true }); toggle(); }}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
-          onLoadedMetadata={(e) => { setDuration(e.currentTarget.duration); e.currentTarget.currentTime = Math.max(0, Math.min(startAt, e.currentTarget.duration || startAt)); }}
+          onLoadedMetadata={(e) => { e.currentTarget.playbackRate = rate; e.currentTarget.volume = volume; e.currentTarget.muted = muted; Array.from(e.currentTarget.textTracks).forEach((track, i) => { track.mode = i === caption ? "showing" : "disabled"; }); setDuration(e.currentTarget.duration); e.currentTarget.currentTime = Math.max(0, Math.min(resume.current, e.currentTarget.duration || resume.current)); }}
           onError={() => { if (resolved) reportError('视频暂时无法播放，请重试'); }}
           onSeeked={e => onSeek?.(e.currentTarget.currentTime)}
           onRateChange={e => { setRate(e.currentTarget.playbackRate); onPlaybackRateChange?.(e.currentTarget.playbackRate); }}
           onVolumeChange={e => { setVolume(e.currentTarget.volume); setMuted(e.currentTarget.muted); }}
           onTimeUpdate={(e) => {
+            resume.current = e.currentTarget.currentTime;
             setTime(e.currentTarget.currentTime);
             onTimeUpdate?.(e.currentTarget.currentTime);
           }}
@@ -181,6 +187,7 @@ export function VideoPlayer({
         )}
       </div>
       <div className="fp-video-controls">
+        {tracks.length > 0 && <SelectField label="字幕" value={String(caption)} options={[{value:"-1",label:"关闭字幕"},...tracks.map((track,index)=>({value:String(index),label:track.label}))]} onChange={value=>{ const index=Number(value);setCaption(index);if(video.current)Array.from(video.current.textTracks).forEach((track,i)=>{track.mode=i===index?"showing":"disabled";}); }} />}
         <SelectField label="播放速度" value={String(rate)} onChange={value=>{if(video.current)video.current.playbackRate=Number(value);}} options={[.5,.75,1,1.25,1.5,2].map(speed=>({value:String(speed),label:`${speed}×`}))} />
         <button
           type="button"
@@ -239,7 +246,7 @@ export function VideoPlayer({
             if (video.current) video.current.volume = next;
           }}
         />
-        <button type="button" aria-label="画中画" onClick={pip}>
+        <button type="button" aria-label="画中画" disabled={typeof document !== "undefined" && !document.pictureInPictureEnabled} onClick={pip}>
           <PictureInPicture size={16} />
         </button>
         <button

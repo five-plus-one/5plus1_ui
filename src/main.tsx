@@ -177,7 +177,7 @@ function App() {
           <span>
             五加一<span>Design</span>
           </span>
-          <U.Badge>0.4</U.Badge>
+          <U.Badge>0.5</U.Badge>
         </a>
         <button className="site-search" onClick={() => setSearch(true)}>
           <Search size={15} />
@@ -984,7 +984,7 @@ function Start() {
       <U.CodeBlock
         language="shell"
         code={
-          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.4.1.tgz"
+          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.5.0.tgz"
         }
       />
       <h2 className="doc-heading">2. 从一个按钮开始</h2>
@@ -1464,4 +1464,6 @@ function BrandExample() {
     </div>
   );
 }
-createRoot(document.getElementById("root")!).render(<App />);
+const appRoot = import.meta.hot?.data.appRoot || createRoot(document.getElementById("root")!);
+if (import.meta.hot) import.meta.hot.data.appRoot = appRoot;
+appRoot.render(<App />);

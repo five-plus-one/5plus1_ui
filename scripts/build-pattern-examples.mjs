@@ -108,7 +108,7 @@ for (const property of demos.properties) {
       .map((r) => r.code)
       .join("\n");
   examples[name] =
-    `import { useCallback, useState } from 'react';\nimport * as U from '@fiveplusone/ui';\nimport '@fiveplusone/ui/styles.css';\n\n${top}\n\nexport function Example(){\n${needed.has("notify") ? "const notify=(message:string)=>console.info(message);\n" : ""}${local}\nreturn (${property.initializer.body.getText(source)});\n}\n`;
+    `import { useCallback, useRef, useState } from 'react';\nimport * as U from '@fiveplusone/ui';\nimport '@fiveplusone/ui/styles.css';\n\n${top}\n\nexport function Example(){\n${needed.has("notify") ? "const notify=(message:string)=>console.info(message);\n" : ""}${local}\nreturn (${property.initializer.body.getText(source)});\n}\n`;
 }
 fs.writeFileSync(
   new URL("../src/pattern-examples.ts", import.meta.url),
