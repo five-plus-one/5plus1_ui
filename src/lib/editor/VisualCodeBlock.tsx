@@ -35,17 +35,19 @@ export function MermaidPreview({ code }: { code: string }) {
 function CodeView({ node, editor, getPos }: NodeViewProps) {
   const mermaid = String(node.attrs.language).toLowerCase() === 'mermaid';
   const [editing, setEditing] = useState(false), [source, setSource] = useState(false);
+  const sourceInput=useRef<HTMLTextAreaElement>(null),editButton=useRef<HTMLButtonElement>(null),wasEditing=useRef(false);
+  useEffect(()=>{if(editing)sourceInput.current?.focus({preventScroll:true});else if(wasEditing.current)editButton.current?.focus({preventScroll:true});wasEditing.current=editing;},[editing]);
   const code = node.textContent;
   const commit = (value: string) => {
-    const pos = getPos(); if (pos === undefined || editor.isDestroyed) return;
+    const pos = getPos(); if (pos === undefined || editor.isDestroyed || !editor.isEditable) return;
     editor.commands.command(({ tr }) => { const current = tr.doc.nodeAt(pos); if (!current) return false; tr.replaceWith(pos + 1, pos + current.nodeSize - 1, value ? editor.schema.text(value) : []); return true; });
   };
   return <NodeViewWrapper className={mermaid ? 'fp-mermaid-node' : 'fp-code-node'}>
     {mermaid && <pre hidden aria-hidden="true"><NodeViewContent /></pre>}
     {mermaid ? <div contentEditable={false}>
-      <header className="fp-code-header"><span><Code2 size={14} />Mermaid 图表</span><div>{editor.isEditable && <button type="button" aria-label={editing ? '完成图表编辑' : '编辑图表'} aria-expanded={editing} onClick={() => setEditing(value => !value)}>{editing ? <Check size={14} /> : <Pencil size={14} />}{editing ? '完成' : '编辑'}</button>}<button type="button" aria-pressed={source} onClick={() => setSource(value => !value)}>源码</button></div></header>
-      <CollapseTransition isOpen={editing}><div className="fp-mermaid-source"><SelectField label="图表模板" value="" placeholder="插入模板" options={templates} onChange={value => { const template = templates.find(item => item.value === value); if (template) commit(template.code); }} /><textarea aria-label="Mermaid 源码" value={code} spellCheck={false} onChange={event => commit(event.target.value)} onKeyDown={event => { event.stopPropagation(); if (event.key === 'Escape' || (event.key === 'Enter' && (event.ctrlKey || event.metaKey))) { event.preventDefault(); setEditing(false); } }} /></div></CollapseTransition>
-      {!editing && source && <pre><code>{code}</code></pre>}
+      <header className="fp-code-header"><span><Code2 size={14} />Mermaid 图表</span><div>{editor.isEditable && <button ref={editButton} type="button" aria-label={editing ? '完成图表编辑' : '编辑图表'} aria-expanded={editing} onClick={() => setEditing(value => !value)}>{editing ? <Check size={14} /> : <Pencil size={14} />}{editing ? '完成' : '编辑'}</button>}<button type="button" aria-pressed={source} onClick={() => setSource(value => !value)}>源码</button></div></header>
+      <CollapseTransition isOpen={editing}><div className="fp-mermaid-source"><SelectField label="图表模板" value="" placeholder="插入模板" options={templates} onChange={value => { const template = templates.find(item => item.value === value); if (template) commit(template.code); }} /><textarea ref={sourceInput} readOnly={!editor.isEditable} aria-label="Mermaid 源码" value={code} spellCheck={false} onChange={event => commit(event.target.value)} onKeyDown={event => { event.stopPropagation(); if (event.key === 'Escape' || (event.key === 'Enter' && (event.ctrlKey || event.metaKey))) { event.preventDefault(); setEditing(false); } }} /></div></CollapseTransition>
+      <CollapseTransition isOpen={!editing && source}><pre><code>{code}</code></pre></CollapseTransition>
       <MermaidPreview code={code} />
     </div> : <><div contentEditable={false} className="fp-code-header"><SelectField label="代码块语言" value={node.attrs.language || ''} disabled={!editor.isEditable} options={[{value:'',label:'纯文本'}, ...CODE_BLOCK_LANGUAGES]} onChange={language => { const pos = getPos(); if (pos !== undefined) editor.commands.command(({tr}) => { tr.setNodeMarkup(pos, undefined, {...node.attrs, language: language || null}); return true; }); }} /></div><pre><code><NodeViewContent /></code></pre></>}
   </NodeViewWrapper>;

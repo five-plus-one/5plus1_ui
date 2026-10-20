@@ -58,11 +58,13 @@ it('retains sharing state on failed settings and reports copy results', async()=
 it('edits Mermaid source and serializes the updated graph into Markdown',async()=>{
   const change=vi.fn();render(<MarkdownEditor markdown={'```mermaid\nflowchart LR\n A[开始] --> B[完成]\n```'} onChange={change}/>);
   fireEvent.click(await screen.findByRole('button',{name:'编辑图表'}));
+  expect(screen.getByRole('textbox',{name:'Mermaid 源码'})).toHaveFocus();
   fireEvent.change(screen.getByRole('textbox',{name:'Mermaid 源码'}),{target:{value:'flowchart LR\n A[验证] --> B[完成]'}});
   expect(change).toHaveBeenLastCalledWith(expect.stringContaining('A[验证]'),expect.objectContaining({type:'doc'}));
   fireEvent.click(screen.getByRole('button',{name:'完成图表编辑'}));
   await screen.findByRole('img',{name:'流程图'});expect(screen.getByRole('img',{name:'流程图'})).toHaveTextContent('验证');
   expect(screen.queryByRole('textbox',{name:'Mermaid 源码'})).not.toBeInTheDocument();
+  expect(screen.getByRole('button',{name:'编辑图表'})).toHaveFocus();
 });
 
 it('changes a directive type through the searchable menu and retains its title', async()=>{

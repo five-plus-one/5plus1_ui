@@ -38,7 +38,7 @@ export function ResourcePreview({
         if (!r.ok) throw Error();
         return r.text();
       })
-      .then(setText)
+      .then(value => { if (!c.signal.aborted) setText(value); })
       .catch(() => {
         if (!c.signal.aborted) setError(true);
       });

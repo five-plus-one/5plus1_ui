@@ -40,6 +40,14 @@ afterEach(() => {
   vi.restoreAllMocks();
   delete document.documentElement.dataset.apiOrigin;
 });
+it('keeps the reading layout while switching documents and returns to page one',async()=>{
+ showPreview();vi.stubGlobal('fetch',vi.fn().mockImplementation(async()=>Response.json({status:'ready',manifest:{pageCount:2,pages:[{n:1,url:'/1.jpg'},{n:2,url:'/2.jpg'}]}})));
+ const view=render(<PdfPreview url="/one" name="讲义.pdf"/>);await screen.findByAltText('第 2 页');
+ fireEvent.click(screen.getByRole('button',{name:'完整展开'}));
+ view.rerender(<PdfPreview url="/two" name="笔记.docx"/>);await screen.findByAltText('第 2 页');
+ expect(screen.getByRole('button',{name:'固定窗口'})).toHaveAttribute('aria-pressed','true');
+ expect(screen.getByRole('spinbutton',{name:'跳转到页码'})).toHaveValue(1);
+});
 
 it("keeps the preview mounted when zoom triggers deferred horizontal scroll updates", async () => {
   showPreview();

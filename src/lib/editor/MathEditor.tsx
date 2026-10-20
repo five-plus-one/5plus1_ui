@@ -16,6 +16,7 @@ import MathShortcutSettings from "./MathShortcutSettings";
 import { installMathShortcuts, readShortcuts } from "./mathShortcuts";
 import { mathPreferencesChanged, refreshMathPreferences } from "./mathPreferences";
 import { SelectField } from "../SelectField";
+import { animateFormulaTransition, cancelFormulaTransition } from './formulaTransition';
 import type { MathNodeHost } from "./LazyMathExtensions";
 
 
@@ -120,6 +121,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
   }, [session]);
 
   useLayoutEffect(() => {
+    cancelFormulaTransition(session.display ? session.host : session.host.closest<HTMLElement>('p, li, td') || session.host);
     session.host.classList.add("is-math-editing");
     session.host.setAttribute("draggable", "false");
     const sync = () => {
@@ -153,7 +155,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       host.classList.remove("is-math-editing");
       const after = target.getBoundingClientRect();
       session.slot.style.removeProperty('display');
-      if (target.isConnected && target.animate && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+      if (target.isConnected && typeof target.animate === 'function' && !window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
         const overlay = document.createElement('div');
         overlay.className = 'fp-markdown-editor fp-formula-closing';
         overlay.inert = true;
@@ -167,13 +169,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
         content.append(snapshot);
         overlay.append(content);
         document.body.append(overlay);
-        const duration = 220, easing = 'cubic-bezier(.2,0,0,1)';
-        const contraction = target.animate([{height:`${before.height}px`,overflow:'clip'},{height:`${after.height}px`,overflow:'clip'}],{duration,easing});
-        target.animate([{opacity:0},{opacity:0,offset:.35},{opacity:1}],{duration,easing});
-        const closing = overlay.animate([{height:`${before.height}px`,opacity:1},{height:`${after.height}px`,opacity:0}],{duration,easing});
-        const cleanup = () => {overlay.remove();contraction.cancel();};
-        closing.onfinish = cleanup;
-        closing.oncancel = cleanup;
+        animateFormulaTransition(target,overlay,before.height,after.height);
       }
       session.editor.off("transaction", sync);
       session.editor.off("destroy", onClose);

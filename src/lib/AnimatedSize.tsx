@@ -8,9 +8,10 @@ export function AnimatedSize({ children, initialHeight, className }: { children:
   const reduced = useReducedMotion();
   useLayoutEffect(() => {
     const element = content.current;
-    if (!element || typeof ResizeObserver === 'undefined') return;
+    if (!element) return;
     const measure = () => setHeight(element.getBoundingClientRect().height);
     measure();
+    if (typeof ResizeObserver === 'undefined') return;
     const observer = new ResizeObserver(measure);
     observer.observe(element);
     return () => observer.disconnect();

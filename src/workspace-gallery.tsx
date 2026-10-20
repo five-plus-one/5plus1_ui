@@ -97,7 +97,6 @@ function PreviewDemo() {
         <U.Badge tone="accent">多格式 · 同一体验</U.Badge>
       </div>
       <U.ResourcePreview
-        key={type}
         resource={{
           name: files[0].children!.find((f) => f.id === type)!.name,
           url: `/samples/design.${type}`,
@@ -247,7 +246,6 @@ function FileTreeDemo({ notify }: { notify: (s: string) => void }) {
         <section>
           {["pdf", "docx", "pptx", "xlsx"].includes(selected) ? (
             <U.ResourcePreview
-              key={selected}
               resource={{
                 name: items[0]?.children?.find((f) => f.id === selected)?.name || "资料",
                 url: `/samples/design.${selected}`,

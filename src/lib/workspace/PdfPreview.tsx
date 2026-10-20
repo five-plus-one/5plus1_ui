@@ -131,6 +131,7 @@ export default function PdfPreview({
   const [pageAspect, setPageAspect] = useState(0.707);
   const [attempt, setAttempt] = useState(0);
   const [horizontal, setHorizontal] = useState({ left: 0, max: 0 });
+  useEffect(()=>{setCurrent(1);setJumpTo('');setPageAspect(.707);if(pagesHost.current)pagesHost.current.scrollTop=0;},[url]);
 
   useEffect(() => {
     if (!host.current) return;
