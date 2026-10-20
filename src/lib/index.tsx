@@ -1646,8 +1646,16 @@ export { default as PdfPreview } from "./workspace/PdfPreview";
 export { default as HorizontalScrollbar } from "./workspace/HorizontalScrollbar";
 export * from "./workspace/ResourcePreview";
 export * from "./workspace/FileTree";
+export * from "./workspace/WorkspaceLayout";
 export * from "./workspace/CollaborativeEditor";
 export { MessageList, MessageBubble, type Message, type MessageListProps } from "./MessageList";
+export * from "./ChatComposer";
+export * from "./MemberAccess";
+export * from "./editor/MarkdownEditor";
+export { markdownToDocument, documentToMarkdown, baseEditorExtensions, NOTE_SCHEMA_VERSION } from "./editor/schema";
+export { configureMathPreferences, type MathPreferenceStorage } from "./editor/mathPreferences";
+export { Attachment } from "./editor/attachment";
+export { DirectiveBlock } from "./editor/directiveBlock";
 export { CollapseTransition, type CollapseTransitionProps } from "./CollapseTransition";
 export { AgentTrace, type AgentTraceProps, type TraceStep, type TraceStatus } from "./AgentTrace";
 export { FlipCard, type FlipCardProps, type FlipCardKind } from "./FlipCard";
@@ -1695,5 +1703,7 @@ export { WindowTaskbar, type WindowTaskbarProps, type TaskbarWindow } from "./Wi
 export * from "./themes";
 import "./workspace/preview.css";
 import "./workspace/workspace.css";
+import "./workspace/controls.css";
+import "./editor/editor.css";
 import "./product-themes.css";
 

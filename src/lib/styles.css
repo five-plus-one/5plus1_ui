@@ -2083,7 +2083,7 @@ input[type="color"]::-webkit-color-swatch {
 .fp-message-system {
   margin: 0 auto;
   background: var(--fp-info-soft);
-  color: var(--fp-ink-soft);
+  color: var(--fp-muted);
   font-size: var(--fp-text-sm);
   text-align: center;
 }

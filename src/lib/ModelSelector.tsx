@@ -1,128 +1,41 @@
-/** KeZhan 组件提取 - ModelSelector（模型选择器）
- *
- * 原组件功能：
- * - 双层菜单（主菜单 + 模型详情飞出菜单）
- * - 分组显示模型
- * - 显示上下文窗口、thinking 支持等信息
- * - 响应式布局
- *
- * 五加一设计规范重写：
- * - 使用 Dropdown 基础
- * - 统一弹出动画
- * - 完整键盘导航
- */
-
-import { useState, useRef, useCallback } from "react";
-import { ChevronDown, Check, Cpu } from "lucide-react";
+import { Check, ChevronDown, Cpu, Eye, Wrench, Brain } from 'lucide-react';
+import { Popup } from './Popup';
 
 export interface ModelInfo {
   id: string;
   label: string;
+  /** Context window in tokens, for example 128_000. */
   contextWindow?: number;
   supportsThinking?: boolean;
   supportsVision?: boolean;
   supportsTools?: boolean;
   description?: string;
-}
-
-export interface ModelGroup {
-  name: string;
-  models: ModelInfo[];
-}
-
-export interface ModelSelectorProps {
-  /** 当前选中的模型 ID */
-  value: string;
-  /** 选择回调 */
-  onChange: (modelId: string) => void;
-  /** 模型分组 */
-  groups: ModelGroup[];
-  /** 是否禁用 */
   disabled?: boolean;
 }
-
-export function ModelSelector({
-  value,
-  onChange,
-  groups,
-  disabled = false,
-}: ModelSelectorProps) {
-  const [open, setOpen] = useState(false);
-  const [focusedId, setFocusedId] = useState<string | null>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-
-  const currentModel = groups
-    .flatMap((g) => g.models)
-    .find((m) => m.id === value);
-
-  const handleSelect = useCallback(
-    (modelId: string) => {
-      onChange(modelId);
-      setOpen(false);
-    },
-    [onChange],
-  );
-
-  const formatContextWindow = (k?: number) => {
-    if (!k || k <= 0) return null;
-    if (k % 1000 === 0) return `${k / 1000}M`;
-    if (k >= 1000) return `${(k / 1000).toFixed(1).replace(/\.0$/, "")}M`;
-    return `${k}K`;
-  };
-
-  return (
-    <div className="fp-model-selector">
-      <button
-        ref={triggerRef}
-        type="button"
-        className="fp-model-selector-trigger"
-        onClick={() => setOpen(!open)}
-        disabled={disabled}
-        aria-haspopup="true"
-        aria-expanded={open}
-      >
-        <Cpu size={16} aria-hidden="true" />
-        <span>{currentModel?.label || value}</span>
-        <ChevronDown size={14} aria-hidden="true" />
-      </button>
-
-      {open && (
-        <div className="fp-model-selector-panel">
-          {groups.map((group) => (
-            <div key={group.name} className="fp-model-group">
-              <div className="fp-model-group-label">{group.name}</div>
-              {group.models.map((model) => (
-                <button
-                  key={model.id}
-                  type="button"
-                  className="fp-model-item"
-                  data-selected={value === model.id || undefined}
-                  onClick={() => handleSelect(model.id)}
-                  onMouseEnter={() => setFocusedId(model.id)}
-                  onMouseLeave={() => setFocusedId(null)}
-                >
-                  <div className="fp-model-item-main">
-                    <span className="fp-model-item-label">{model.label}</span>
-                    {formatContextWindow(model.contextWindow) && (
-                      <span className="fp-model-item-context">
-                        {formatContextWindow(model.contextWindow)}
-                      </span>
-                    )}
-                  </div>
-                  {model.description && focusedId === model.id && (
-                    <div className="fp-model-item-description">
-                      {model.description}
-                    </div>
-                  )}
-                  {value === model.id && (
-                    <Check size={16} className="fp-model-item-check" />
-                  )}
-                </button>
-              ))}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+export interface ModelGroup { name: string; models: ModelInfo[] }
+export interface ModelSelectorProps { value: string; onChange: (modelId: string) => void; groups: ModelGroup[]; disabled?: boolean; label?: string }
+export function formatContextWindow(tokens?: number) {
+  if (!tokens || tokens <= 0) return '';
+  if (tokens >= 1_000_000) return `${+(tokens / 1_000_000).toFixed(1)}M`;
+  if (tokens >= 1_000) return `${+(tokens / 1_000).toFixed(1)}K`;
+  return `${tokens}`;
+}
+export function ModelSelector({ value, onChange, groups, disabled, label = '选择模型' }: ModelSelectorProps) {
+  const model = groups.flatMap(group => group.models).find(item => item.id === value);
+  return <span className="fp-model-selector"><Popup label={label} role="listbox" disabled={disabled || !groups.some(group => group.models.length)} className="fp-model-selector-panel"
+    trigger={<><Cpu size={16} aria-hidden="true" /><span>{model?.label || value || '选择模型'}</span><ChevronDown size={14} aria-hidden="true" /></>}>
+    {close => groups.filter(group => group.models.length).map(group => <div key={group.name} role="group" aria-label={group.name} className="fp-model-group">
+      <div className="fp-model-group-label">{group.name}</div>
+      {group.models.map(item => <button type="button" role="option" aria-selected={item.id === value} disabled={item.disabled} tabIndex={-1} key={item.id} className="fp-model-item" onClick={() => { close(); onChange(item.id); }}>
+        <span className="fp-model-item-copy"><span className="fp-model-item-main"><span className="fp-model-item-label">{item.label}</span><span className="fp-model-item-context">{formatContextWindow(item.contextWindow)}</span></span>
+          {item.description && <span className="fp-model-item-description">{item.description}</span>}
+          {(item.supportsThinking || item.supportsVision || item.supportsTools) && <span className="fp-model-capabilities">
+            {item.supportsThinking && <span><Brain size={12} aria-hidden="true" />推理</span>}
+            {item.supportsVision && <span><Eye size={12} aria-hidden="true" />视觉</span>}
+            {item.supportsTools && <span><Wrench size={12} aria-hidden="true" />工具</span>}
+          </span>}
+        </span><Check size={16} className="fp-model-item-check" aria-hidden="true" style={{ visibility: item.id === value ? 'visible' : 'hidden' }} />
+      </button>)}
+    </div>)}
+  </Popup></span>;
 }

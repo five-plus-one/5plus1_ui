@@ -4,6 +4,8 @@
  * 与 Select 的区别是支持 optgroup 与分组标签，并保留最近选择。
  */
 
+import { useId } from 'react';
+
 export interface FilterOption {
   value: string;
   label: string;
@@ -35,7 +37,8 @@ export function FilterSelect({
   disabled,
   id,
 }: FilterSelectProps) {
-  const selectId = id || "fp-filter-select";
+  const generatedId = useId();
+  const selectId = id || generatedId;
   return (
     <div className="fp-filter">
       {label && (

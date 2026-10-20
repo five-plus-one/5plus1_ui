@@ -1,6 +1,11 @@
 import { entries } from "./catalog";
 export function componentCode(name: string) {
   const examples: Record<string, string> = {
+    MemberAccess: '<MemberAccess members={[{id: "me", name: "五加一", role: "edit"}]} roles={[{value: "read", label: "可以阅读"}, {value: "edit", label: "可以编辑"}]} />',
+    ChatComposer: '<ChatComposer value={text} onChange={setText} onSend={async message => { console.log(message); setText(""); }} />',
+    MarkdownEditor: '<MarkdownEditor markdown="## 学习笔记\\n\\n写下你的理解。" onChange={(markdown, document) => console.log(markdown, document)} />',
+    WorkspaceLayout: '<div style={{height: 480}}><WorkspaceLayout panels={[\n  {id: "files", label: "目录", content: <p>课程资料</p>, defaultSize: 20, collapsible: true},\n  {id: "note", label: "笔记", content: <p>学习笔记</p>, defaultSize: 50},\n  {id: "chat", label: "讨论", content: <p>讨论</p>, defaultSize: 30},\n]} persistenceKey="my-product:workspace" /></div>',
+    ModelSelector: '<ModelSelector value={text || "fast"} onChange={setText} groups={[{name: "通用模型", models: [{id: "fast", label: "快速版", contextWindow: 128000}, {id: "deep", label: "深度版", contextWindow: 200000}]}]} />',
     Button: '<Button onClick={() => setMessage("已保存")}>保存笔记</Button>',
     IconButton:
       '<IconButton label="更多操作" onClick={() => setOpen(true)}>＋</IconButton>',

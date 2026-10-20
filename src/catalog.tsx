@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as U from "./lib";
+import { ChatComposerDemo, MarkdownEditorDemo, WorkspaceLayoutDemo } from './advanced-demos';
 import {
   Plus,
   ArrowUpRight,
@@ -31,6 +32,10 @@ export type Entry = {
   code: string;
 };
 const defs: Record<string, [string, string, string, string]> = {
+  ChatComposer: ['对话输入框', 'AI 对话', '引用、附件与模型选择，集中在清晰轻巧的输入区。', 'value；onChange；onSend；onStop?；attachments?；onFiles?；tools?；onComposerInsetChange?'],
+  MarkdownEditor: ['Markdown 富文本编辑', '业务模式', '文字、公式、表格与资料卡片，在同一篇笔记中编辑。', 'markdown?；documentKey?；onChange?；document?；provider?；onFiles?；resolveResourceUrl?'],
+  WorkspaceLayout: ['多栏工作区', '布局', '自由调整目录、内容和讨论区域，保留熟悉的工作节奏。', 'panels: WorkspacePanel[]；ref: WorkspaceLayoutHandle；persistenceKey?；direction?'],
+  MemberAccess: ['成员与权限', '账户管理', '查看成员、选择访问权限与邀请协作者。', 'members；roles；canManage?；onRoleChange?；onRemove?；onInvite?；busyIds?；error?'],
   Button: [
     "按钮",
     "基础",
@@ -761,6 +766,10 @@ export function Demo({
     </U.Button>
   );
   const examples: Record<string, () => React.ReactNode> = {
+    ChatComposer: () => <ChatComposerDemo />,
+    MarkdownEditor: () => <MarkdownEditorDemo />,
+    WorkspaceLayout: () => <WorkspaceLayoutDemo />,
+    MemberAccess: () => <U.MemberAccess members={[{id:'owner',name:'五加一',detail:'创建者',role:'owner',editable:false},{id:'reader',name:'林同学',role:'read'}]} roles={[{value:'owner',label:'所有者'},{value:'read',label:'可以阅读'},{value:'edit',label:'可以编辑'}]} />,
     Button: () => (
       <U.Stack direction="row">
         {btn}

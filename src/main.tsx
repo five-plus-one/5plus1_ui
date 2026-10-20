@@ -119,6 +119,7 @@ function App() {
   }, []);
   let current =
     nav.find((n) => n.id !== "/" && path.startsWith(n.id)) || nav[0];
+  if (path.startsWith('/embed/')) return <><Embed path={path} notify={notify} />{toast && <U.Toast message={toast} onClose={() => setToast('')} />}</>;
   return (
     <>
       <a
@@ -138,7 +139,7 @@ function App() {
           <span>
             五加一<span>Design</span>
           </span>
-          <U.Badge>0.1</U.Badge>
+          <U.Badge>0.2</U.Badge>
         </a>
         <button className="site-search" onClick={() => setSearch(true)}>
           <Search size={15} />
@@ -756,7 +757,7 @@ function Embed({ path, notify }: { path: string; notify: (s: string) => void }) 
   let entry = allEntries.find((e) => e.name === name);
   useEffect(() => {
     const syncTheme = (e: MessageEvent) => {
-      if (e.data?.type === "theme-change") {
+      if (e.origin === location.origin && e.source === window.parent && e.data?.type === "theme-change" && ['light', 'dark'].includes(e.data.theme)) {
         document.documentElement.setAttribute("data-theme", e.data.theme);
       }
     };
@@ -771,9 +772,7 @@ function Embed({ path, notify }: { path: string; notify: (s: string) => void }) 
         <span>{entry.zh}</span>
         <U.Badge>{entry.group}</U.Badge>
       </header>
-      <div className="demo-inner">
-        <Demo key={entry.name} name={entry.name} notify={notify} />
-      </div>
+      <Demo key={entry.name} name={entry.name} notify={notify} />
     </div>
   );
 }
@@ -911,7 +910,7 @@ function Start() {
       <U.CodeBlock
         language="shell"
         code={
-          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.1.0.tgz"
+          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.2.0.tgz"
         }
       />
       <h2 className="doc-heading">2. 从一个按钮开始</h2>

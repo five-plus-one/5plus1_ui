@@ -4,7 +4,7 @@
  * 进度、音量、全屏与画中画。不依赖第三方播放器库。
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type Ref } from "react";
 import { Play, Pause, Volume2, VolumeX, Maximize, PictureInPicture } from "lucide-react";
 
 export interface VideoPlayerProps {
@@ -15,6 +15,12 @@ export interface VideoPlayerProps {
   startAt?: number;
   onTimeUpdate?: (time: number) => void;
   onEnded?: () => void;
+  resolveSource?: (src: string, signal: AbortSignal) => Promise<string>;
+  videoRef?: Ref<HTMLVideoElement>;
+  onSeek?: (time: number) => void;
+  onPlaybackRateChange?: (rate: number) => void;
+  onPlaybackError?: (error: string) => void;
+  tracks?: { src: string; label: string; language: string; default?: boolean }[];
 }
 
 function formatTime(seconds: number) {
@@ -31,6 +37,12 @@ export function VideoPlayer({
   startAt = 0,
   onTimeUpdate,
   onEnded,
+  resolveSource,
+  videoRef,
+  onSeek,
+  onPlaybackRateChange,
+  onPlaybackError,
+  tracks = [],
 }: VideoPlayerProps) {
   const video = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -38,6 +50,20 @@ export function VideoPlayer({
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
+  const [resolved, setResolved] = useState(resolveSource ? '' : src);
+  const [error, setError] = useState('');
+  const [generation, retry] = useState(0);
+  const [rate, setRate] = useState(1);
+  const callbacks = useRef({ onPlaybackError }); callbacks.current = { onPlaybackError };
+  const reportError = (message: string) => { setError(message); callbacks.current.onPlaybackError?.(message); };
+  useEffect(() => {
+    const controller = new AbortController();
+    setError(''); setPlaying(false); setTime(startAt); setDuration(0);
+    if (!resolveSource) { setResolved(src); return; }
+    setResolved('');
+    void resolveSource(src, controller.signal).then(url => { if (!controller.signal.aborted) setResolved(url); }).catch(cause => { if (!controller.signal.aborted) reportError(cause instanceof Error ? cause.message : '视频暂时无法播放'); });
+    return () => controller.abort();
+  }, [src, resolveSource, generation]);
 
   useEffect(() => {
     const el = video.current;
@@ -49,7 +75,7 @@ export function VideoPlayer({
     const el = video.current;
     if (!el) return;
     if (el.paused) {
-      void el.play();
+      void el.play().catch(() => reportError('暂时无法播放，请重试'));
     } else {
       el.pause();
     }
@@ -73,15 +99,19 @@ export function VideoPlayer({
     <div className="fp-video">
       <div className="fp-video-stage">
         <video
-          ref={video}
-          src={src}
+          ref={element => { video.current = element; if (typeof videoRef === 'function') videoRef(element); else if (videoRef) videoRef.current = element; }}
+          src={resolved || undefined}
           poster={poster}
           playsInline
           preload="metadata"
           onClick={toggle}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
-          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onLoadedMetadata={(e) => { setDuration(e.currentTarget.duration); e.currentTarget.currentTime = Math.max(0, Math.min(startAt, e.currentTarget.duration || startAt)); }}
+          onError={() => { if (resolved) reportError('视频暂时无法播放，请重试'); }}
+          onSeeked={e => onSeek?.(e.currentTarget.currentTime)}
+          onRateChange={e => { setRate(e.currentTarget.playbackRate); onPlaybackRateChange?.(e.currentTarget.playbackRate); }}
+          onVolumeChange={e => { setVolume(e.currentTarget.volume); setMuted(e.currentTarget.muted); }}
           onTimeUpdate={(e) => {
             setTime(e.currentTarget.currentTime);
             onTimeUpdate?.(e.currentTarget.currentTime);
@@ -91,8 +121,10 @@ export function VideoPlayer({
             onEnded?.();
           }}
           aria-label={title || "视频"}
-        />
-        {!playing && (
+        >{tracks.map(track => <track key={track.src} kind="subtitles" src={track.src} srcLang={track.language} label={track.label} default={track.default} />)}</video>
+        {error && <div className="fp-video-error" role="alert"><span>{error}</span><button type="button" onClick={() => { if (!resolveSource) video.current?.load(); retry(n => n + 1); }}>重新加载</button></div>}
+        {!error && !resolved && <div className="fp-video-error" role="status">正在准备视频…</div>}
+        {!playing && !error && resolved && (
           <button
             type="button"
             className="fp-video-bigplay"
@@ -104,6 +136,7 @@ export function VideoPlayer({
         )}
       </div>
       <div className="fp-video-controls">
+        <select aria-label="播放速度" value={rate} onChange={e => { if (video.current) video.current.playbackRate = Number(e.target.value); }}>{[.5, .75, 1, 1.25, 1.5, 2].map(speed => <option key={speed} value={speed}>{speed}×</option>)}</select>
         <button
           type="button"
           aria-label={playing ? "暂停" : "播放"}

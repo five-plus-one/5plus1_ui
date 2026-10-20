@@ -1,4 +1,4 @@
-import { useState, useRef, type KeyboardEvent } from "react";
+import { useState, useRef, type KeyboardEvent, type MouseEvent, type DragEvent } from "react";
 import {
   ChevronRight,
   Folder,
@@ -19,6 +19,15 @@ export type FileTreeProps = {
   selectedId?: string;
   onSelect: (item: FileTreeNode) => void;
   defaultExpanded?: string[];
+  expandedIds?: readonly string[];
+  onExpandedChange?: (ids: string[]) => void;
+  onToggle?: (id: string, expanded: boolean) => void;
+  onPrefetch?: (node: FileTreeNode) => void;
+  /** Receives modifier keys for opening a tab or a split view. */
+  onOpen?: (node: FileTreeNode, event: MouseEvent | KeyboardEvent) => void;
+  onMiddleClick?: (node: FileTreeNode, event: MouseEvent) => void;
+  onNodeDragStart?: (node: FileTreeNode, event: DragEvent) => void;
+  onNodeDrop?: (node: FileTreeNode, event: DragEvent) => void;
   namespace?: string;
   onRename?: (node: FileTreeNode) => void;
   onRemove?: (node: FileTreeNode) => void;
@@ -30,13 +39,22 @@ export function FileTree({
   selectedId,
   onSelect,
   defaultExpanded = [],
+  expandedIds,
+  onExpandedChange,
+  onToggle,
+  onPrefetch,
+  onOpen,
+  onMiddleClick,
+  onNodeDragStart,
+  onNodeDrop,
   namespace = "files",
   onRename,
   onRemove,
   onCreate,
   label = "文件目录",
 }: FileTreeProps) {
-  let [expanded, setExpanded] = useState(new Set(defaultExpanded));
+  let [localExpanded, setExpanded] = useState(new Set(defaultExpanded));
+  const expanded = expandedIds === undefined ? localExpanded : new Set(expandedIds);
   let host = useRef<HTMLDivElement>(null);
   let [focus, setFocus] = useState<string | null>(null);
   let visible: FileTreeNode[] = [];
@@ -48,12 +66,11 @@ export function FileTree({
   }
   flatten(items);
   function toggle(id: string) {
-    setExpanded((s) => {
-      let n = new Set(s);
-      if (n.has(id)) n.delete(id);
-      else n.add(id);
-      return n;
-    });
+    const next = new Set(expanded);
+    if (next.has(id)) next.delete(id); else next.add(id);
+    if (expandedIds === undefined) setExpanded(next);
+    onExpandedChange?.([...next]);
+    onToggle?.(id, next.has(id));
   }
   function focusNode(id: string) {
     setFocus(id);
@@ -103,7 +120,7 @@ export function FileTree({
     }
     if (e.key === "Enter" || e.key === " ") {
       if (node.kind === "folder") toggle(node.id);
-      else onSelect(node);
+      else { onSelect(node); onOpen?.(node, e); }
     }
   }
   function render(nodes: FileTreeNode[], depth = 0) {
@@ -124,12 +141,18 @@ export function FileTree({
           data-node={node.id}
           className="fp-file-tree-row"
           style={{ paddingLeft: 12 + depth * 18 }}
-          onFocus={() => setFocus(node.id)}
+          onFocus={(e) => { if (e.target === e.currentTarget) { setFocus(node.id); onPrefetch?.(node); } }}
+          onMouseEnter={() => onPrefetch?.(node)}
+          draggable={node.kind === 'file' && !!onNodeDragStart}
+          onDragStart={(e) => onNodeDragStart?.(node, e)}
+          onDragOver={onNodeDrop ? e => e.preventDefault() : undefined}
+          onDrop={onNodeDrop ? e => { e.preventDefault(); onNodeDrop(node, e); } : undefined}
+          onAuxClick={e => { if (e.button === 1 && node.kind === 'file' && onMiddleClick) { e.preventDefault(); onMiddleClick(node, e); } }}
           onKeyDown={(e) => key(e, node)}
-          onClick={() => {
+          onClick={(e) => {
             setFocus(node.id);
             if (node.kind === "folder") toggle(node.id);
-            else onSelect(node);
+            else { onSelect(node); onOpen?.(node, e); }
           }}
         >
           {node.kind === "folder" ? (
