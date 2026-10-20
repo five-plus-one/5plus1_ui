@@ -1,49 +1,65 @@
 /* Generated from themes.ts by scripts/build-themes.mjs. */
 [data-product="brand"] {
   --fp-primary: #FD8B07;
-  --fp-on-primary: #202124;
+  --fp-on-primary: #542D0C;
   --fp-primary-soft: #FFF2E2;
   --fp-primary-ink: #914600;
+  --fp-action: #B85E00;
+  --fp-on-action: #FFFFFF;
 }
 [data-theme="dark"][data-product="brand"] {
   --fp-primary: #FD8B07;
-  --fp-on-primary: #202124;
+  --fp-on-primary: #542D0C;
   --fp-primary-soft: #422D18;
   --fp-primary-ink: #FFC98F;
+  --fp-action: #FFB65C;
+  --fp-on-action: #492600;
 }
 [data-product="kezhan"] {
   --fp-primary: #1A73E8;
   --fp-on-primary: #FFFFFF;
   --fp-primary-soft: #E8F0FE;
   --fp-primary-ink: #185ABC;
+  --fp-action: #1A73E8;
+  --fp-on-action: #FFFFFF;
 }
 [data-theme="dark"][data-product="kezhan"] {
   --fp-primary: #A8C7FA;
   --fp-on-primary: #142D50;
   --fp-primary-soft: #263751;
   --fp-primary-ink: #C2D7FA;
+  --fp-action: #A8C7FA;
+  --fp-on-action: #142D50;
 }
 [data-product="marker"] {
   --fp-primary: #13795B;
   --fp-on-primary: #FFFFFF;
   --fp-primary-soft: #E6F4ED;
   --fp-primary-ink: #0C6248;
+  --fp-action: #13795B;
+  --fp-on-action: #FFFFFF;
 }
 [data-theme="dark"][data-product="marker"] {
   --fp-primary: #8DD8B6;
   --fp-on-primary: #103C2B;
   --fp-primary-soft: #193C30;
   --fp-primary-ink: #B1E8CE;
+  --fp-action: #8DD8B6;
+  --fp-on-action: #103C2B;
 }
 [data-product="onepass"] {
   --fp-primary: #7252C7;
   --fp-on-primary: #FFFFFF;
   --fp-primary-soft: #F0EAFC;
   --fp-primary-ink: #5D3DA8;
+  --fp-action: #7252C7;
+  --fp-on-action: #FFFFFF;
 }
 [data-theme="dark"][data-product="onepass"] {
   --fp-primary: #CDB8FF;
   --fp-on-primary: #342052;
   --fp-primary-soft: #35294B;
   --fp-primary-ink: #DFD0FF;
+  --fp-action: #CDB8FF;
+  --fp-on-action: #342052;
 }

@@ -7,6 +7,8 @@ for (const [id, palette] of Object.entries(productThemes)) {
     'on-primary': dark ? (palette.darkOnPrimary || palette.onPrimary) : palette.onPrimary,
     'primary-soft': dark ? palette.darkSoft : palette.soft,
     'primary-ink': dark ? palette.darkInk : palette.ink,
+    action: dark ? (palette.darkAction || palette.darkPrimary || palette.primary) : (palette.action || palette.primary),
+    'on-action': dark ? (palette.darkOnAction || palette.darkOnPrimary || palette.onPrimary) : (palette.onAction || palette.onPrimary),
   });
   for (const dark of [false, true]) {
     blocks.push(`${dark ? '[data-theme="dark"]' : ''}[data-product="${id}"] {\n${Object.entries(values(dark)).map(([k,v]) => `  --fp-${k}: ${v};`).join('\n')}\n}`);

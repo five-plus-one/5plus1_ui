@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Download, Minus, Plus, RotateCcw, Maximize2, Minimize2 } from "lucide-react";
 import HorizontalScrollbar from "./HorizontalScrollbar";
+import { AnimatedSize } from '../AnimatedSize';
 
 type PageImage = { n: number; url: string };
 type PageManifest = { pages: PageImage[]; pageCount: number };
@@ -352,7 +353,7 @@ export default function PdfPreview({
           </div>
         )}
       </div>
-      {state === "error" ? (
+      <AnimatedSize>{state === "error" ? (
         <div role="alert" className="pdf-preview-message">
           暂时无法预览此文件。
           <button
@@ -417,7 +418,7 @@ export default function PdfPreview({
             />
           ))}
         </div>
-      )}
+      )}</AnimatedSize>
     </div>
   );
 }

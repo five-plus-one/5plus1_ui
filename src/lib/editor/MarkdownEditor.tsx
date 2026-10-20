@@ -10,6 +10,7 @@ import type * as Y from 'yjs';
 import { FileText, Trash2, Pencil, Check } from 'lucide-react';
 import { SelectField } from '../SelectField';
 import { VisualCodeBlock } from './VisualCodeBlock';
+import { insertMermaidCard } from './mermaid';
 import NoteToolbar from './NoteToolbar';
 import { baseEditorExtensions, documentToMarkdown, markdownToDocument } from './schema';
 import { DirectiveBlock, DIRECTIVE_CARD_TYPES, readDirectiveTitle, writeDirectiveTitle } from './directiveBlock';
@@ -69,15 +70,15 @@ export function MarkdownEditor(props: MarkdownEditorProps) {
   const commandDefs = [
     ['text', '文本', '普通段落'], ['h1', '一级标题', '大标题'], ['h2', '二级标题', '章节标题'], ['h3', '三级标题', '小节标题'],
     ['bullet', '无序列表', '项目列表'], ['ordered', '有序列表', '编号列表'], ['quote', '引用', '引用段落'], ['code', '代码块', '代码内容'],
-    ['divider', '分隔线', '划分内容'], ['table', '表格', '3 × 3'], ['inlineMath', '行内公式', '在段落中输入公式'], ['math', '独立公式', '独立成行'], ['card', '卡片', '说明与重点'],
+    ['divider', '分隔线', '划分内容'], ['table', '表格', '3 × 3'], ['inlineMath', '行内公式', '在段落中输入公式'], ['math', '独立公式', '独立成行'], ['card', '卡片', '说明与重点'], ['mermaid', 'Mermaid 图表', '流程图与时序图'],
   ];
   const choices = (query: string) => commandDefs.filter(command => command.join(' ').toLowerCase().includes(query.toLowerCase()));
   function updateQuick(instance: Editor) {
     const { $from, from, empty } = instance.state.selection;
-    const match = empty && instance.isEditable && !$from.parent.type.spec.code ? $from.parent.textBetween(0, $from.parentOffset).match(/^\/([^\s/]*)$/u) : null;
+    const match = empty && instance.isEditable && !$from.parent.type.spec.code ? $from.parent.textBetween(0, $from.parentOffset).match(/(?:^|\s)\/([^\s/]*)$/u) : null;
     if (!match) { setQuick(null); return; }
     const point = instance.view.coordsAtPos(from);
-    setQuick(old => ({ from: from - match[0].length, to: from, query: match[1], top: Math.max(8, Math.min(point.bottom + 6, window.innerHeight - 300)), left: Math.max(8, Math.min(point.left, window.innerWidth - 272)), active: old?.query === match[1] ? old.active : 0 }));
+    setQuick(old => ({ from: from - match[1].length - 1, to: from, query: match[1], top: Math.max(8, Math.min(point.bottom + 6, window.innerHeight - 300)), left: Math.max(8, Math.min(point.left, window.innerWidth - 272)), active: old?.query === match[1] ? old.active : 0 }));
   }
   function runQuick(command: string) {
     const instance = instanceRef.current, range = quickRef.current;
@@ -93,6 +94,7 @@ export function MarkdownEditor(props: MarkdownEditorProps) {
     else if (command === 'table') instance.commands.insertTable({ rows: 3, cols: 3, withHeaderRow: true });
     else if (command === 'inlineMath' || command === 'math') mathRef.current.open(instance, command === 'math');
     else if (command === 'card') instance.commands.insertContent({ type: 'directiveBlock', attrs: { name: 'note', attributes: '', body: '' } });
+    else if (command === 'mermaid') insertMermaidCard(instance);
   }
   const [painterMode, setPainterMode] = useState<FormatPainterMode>(null);
   const [painterMarks, setPainterMarks] = useState<PainterMark[]>([]);

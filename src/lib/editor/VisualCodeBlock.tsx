@@ -4,6 +4,7 @@ import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
 import { Check, Code2, Pencil } from 'lucide-react';
 import { noteLowlight } from './codeBlockLowlight';
 import { CollapseTransition } from '../CollapseTransition';
+import { AnimatedSize } from '../AnimatedSize';
 import { SelectField } from '../SelectField';
 import { CODE_BLOCK_LANGUAGES } from './codeBlockLanguage';
 
@@ -29,7 +30,7 @@ export function MermaidPreview({ code }: { code: string }) {
     }, 250);
     return () => { clearTimeout(timer); generation.current++; };
   }, [code, id, theme]);
-  return <div className="fp-mermaid-preview" aria-label="图表预览">{error ? <p role="alert">{error}</p> : svg ? <div dangerouslySetInnerHTML={{ __html: svg }} /> : <p role="status">正在绘制图表…</p>}</div>;
+  return <div className="fp-mermaid-preview" aria-label="图表预览"><AnimatedSize>{error ? <p role="alert">{error}</p> : svg ? <div dangerouslySetInnerHTML={{ __html: svg }} /> : <p role="status">正在绘制图表…</p>}</AnimatedSize></div>;
 }
 function CodeView({ node, editor, getPos }: NodeViewProps) {
   const mermaid = String(node.attrs.language).toLowerCase() === 'mermaid';

@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { AnimatedSize } from '../AnimatedSize';
 import { createPortal } from "react-dom";
 import type { Editor } from "@tiptap/core";
 import type { MathfieldElement } from "mathlive";
@@ -91,7 +92,6 @@ export function useMathEditor() {
 
 function MathEditor({ session, onClose: closeSession }: { session: MathSession; onClose: (id?: string) => void }) {
   const onClose = useCallback(() => closeSession(session.id), [closeSession, session.id]);
-  const reduced = useReducedMotion();
   const [draft, setDraft] = useState(session.original);
   const draftRef = useRef(session.original);
   const [sourceOpen, setSourceOpen] = useState(false);
@@ -107,7 +107,6 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
   const [matrixMessage, setMatrixMessage] = useState("");
   const panelRef = useRef<HTMLDivElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
-  const keyboardRef = useRef<HTMLDivElement>(null);
   const fieldRef = useRef<MathfieldElement | null>(null);
   const sourceRef = useRef<HTMLTextAreaElement>(null);
   const update = useCallback((value: string) => {
@@ -160,7 +159,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       try {
         const { MathfieldElement: Field } = await import("mathlive");
         await import("mathlive/fonts.css");
-        if (!active || !hostRef.current || !keyboardRef.current) return;
+        if (!active || !hostRef.current) return;
         const field = new Field();
         field.className = "note-math-live";
         field.mathVirtualKeyboardPolicy = "manual";
@@ -177,18 +176,13 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
         field.setValue(draftRef.current, { silenceNotifications: true });
         fieldRef.current = field;
         const keyboard = window.mathVirtualKeyboard;
-        const previousContainer = keyboard.container;
-        const previousLayouts = keyboard.layouts;
         keyboard.hide();
-        keyboard.container = keyboardRef.current;
         const input = () => update(field.getValue("latex-unstyled"));
         field.addEventListener("input", input);
         const focus = () => { sourceActive.current = false; };
         field.addEventListener("focus", focus);
         cleanup = () => {
           keyboard.hide();
-          keyboard.container = previousContainer;
-          keyboard.layouts = previousLayouts;
           field.removeEventListener("input", input);
           field.removeEventListener("focus", focus);
           field.remove();
@@ -267,13 +261,7 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
     }
   };
 
-  const [position, setPosition] = useState({ left: 16, top: 16 });
-  useLayoutEffect(() => {
-    const place = () => { const box = session.host.getBoundingClientRect(); setPosition({ left: Math.max(12, Math.min(box.left, window.innerWidth - Math.min(560, window.innerWidth - 24) - 12)), top: Math.max(12, Math.min(box.bottom + 8, window.innerHeight - 320)) }); };
-    place(); window.addEventListener('resize', place); window.addEventListener('scroll', place, true);
-    return () => { window.removeEventListener('resize', place); window.removeEventListener('scroll', place, true); };
-  }, [session]);
-  return createPortal(<motion.div className="note-math-card inline-card-expansion" style={{ position: 'fixed', ...position, width: 'min(560px, calc(100vw - 24px))', maxHeight: 'calc(100dvh - 32px)', overflowY: 'auto', zIndex: 1100, transformOrigin: 'top left' }} initial={{ opacity: 0, scale: .98, y: -4 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: .98, y: -4 }} transition={{ duration: reduced ? 0 : .18, ease: [.22, 1, .36, 1] }} ref={panelRef} role="group" aria-label={session.display ? "编辑独立公式" : "编辑行内公式"} tabIndex={-1}
+  return createPortal(<AnimatedSize initialHeight={session.collapsedHeight}><div className="note-math-card inline-card-expansion" ref={panelRef} role="group" aria-label={session.display ? "编辑独立公式" : "编辑行内公式"} tabIndex={-1}
     onPointerDown={event => event.stopPropagation()} onClick={event => event.stopPropagation()} onDoubleClick={event => event.stopPropagation()} onContextMenu={event => event.stopPropagation()}
     onKeyDownCapture={event => {
       if (event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) return;
@@ -322,6 +310,5 @@ function MathEditor({ session, onClose: closeSession }: { session: MathSession; 
       {session.display && <div className="note-math-line-actions"><button type="button" onMouseDown={e => e.preventDefault()} onClick={() => { const field = fieldRef.current; if (field) { field.focus(); field.executeCommand("addRowAfter"); update(field.getValue("latex-unstyled")); } }}><CornerDownLeft size={14}/>换行</button><button type="button" onMouseDown={e => e.preventDefault()} onClick={() => insert("\\begin{aligned}#0 &= #? \\\\ #? &= #?\\end{aligned}")}>对齐多行</button><span>Enter 换行 · Ctrl/⌘+Enter 完成</span></div>}
       {settingsOpen && <MathShortcutSettings rules={shortcuts} onSave={setShortcuts} onClose={() => setSettingsOpen(false)} />}
       {symbolOpen && <MathSymbolPalette onInsert={insert} shortcuts={shortcuts} onCommand={command => { const field = fieldRef.current; if (field) { field.focus(); field.executeCommand(command); update(field.getValue("latex-unstyled")); } }} />}
-      <div ref={keyboardRef} hidden />
-  </motion.div>, session.slot);
+  </div></AnimatedSize>, session.slot);
 }

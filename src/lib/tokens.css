@@ -27,6 +27,8 @@
   /* 色彩 · 操作主题默认值（brand 产品） */
   --fp-primary: #fd8b07;
   --fp-on-primary: #202124;
+  --fp-action: #b85e00;
+  --fp-on-action: #ffffff;
   --fp-primary-soft: #fff2e2;
   --fp-primary-ink: #914600;
 

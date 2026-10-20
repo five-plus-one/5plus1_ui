@@ -57,7 +57,7 @@
 .fp-markdown-editor .note-matrix-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .fp-markdown-editor .note-matrix-settings label { display: flex; align-items: center; gap: 5px; color: var(--fp-muted); font-size: 12px; }
 .fp-markdown-editor .note-matrix-settings select { min-height: 32px; padding: 4px 6px; border: 1px solid var(--fp-line); border-radius: 5px; background: var(--fp-surface); color: var(--fp-ink); font: inherit; }
-.fp-markdown-editor .note-math-card .note-matrix-insert { background: var(--fp-primary-ink); color: var(--fp-on-primary, white); }
+.fp-markdown-editor .note-math-card .note-matrix-insert { background: var(--fp-action); color: var(--fp-on-action); }
 .fp-markdown-editor .note-matrix-presets > span,
 .fp-markdown-editor .note-matrix-actions > span { color: var(--fp-faint); font-size: 11px; margin-right: 4px; }
 .fp-markdown-editor .note-matrix-presets button,
@@ -126,11 +126,7 @@
 .fp-markdown-editor .note-math-card,
 .fp-markdown-editor .note-insert-dialog { animation: none; }
 .fp-markdown-editor .tiptap-mathematics-render[data-type="inline-math"]:not(.is-math-editing) > .math-node-content { display: inline; overflow: visible; vertical-align: baseline; }
-/* Formula editing keeps the reading position stable. */
-.fp-markdown-editor .is-math-editing > .math-node-content { display: inline !important; }
-.fp-markdown-editor .tiptap-mathematics-render.is-math-editing[data-type="inline-math"] { display:inline-block; width:auto; padding:0; margin:0; }
-.fp-markdown-editor .tiptap-mathematics-render.is-math-editing[data-type="block-math"] { display:block; width:auto; padding:8px 4px; margin:12px 0; }
-.fp-markdown-editor .math-node-editor-slot { display:block; height:0; }
-.fp-markdown-editor .note-math-card { box-shadow:var(--fp-shadow-lg); }
+
+.fp-markdown-editor .math-node-editor-slot { height:auto; }
 .fp-markdown-editor .note-math-writing { min-height:108px; }
 .fp-markdown-editor .note-math-status { min-height:20px; }

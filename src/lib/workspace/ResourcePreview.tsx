@@ -1,6 +1,7 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useState, type ReactNode } from "react";
 import PdfPreview from "./PdfPreview";
 import { Download } from "lucide-react";
+import { AnimatedSize } from '../AnimatedSize';
 export type PreviewResource = {
   name: string;
   url: string;
@@ -25,6 +26,7 @@ export function ResourcePreview({
   let office =
     /\.(pdf|pptx?|docx?|xlsx?|odt|odp|ods)$/i.test(name) ||
     mediaType === "application/pdf";
+  const ContentSize = office ? Fragment : AnimatedSize;
   useEffect(() => {
     setText("");
     setError(false);
@@ -58,7 +60,7 @@ export function ResourcePreview({
           <Download size={16} aria-hidden="true" />下载原文件
         </a>}
       </header>
-      {office ? (
+      <ContentSize>{office ? (
         <PdfPreview
           url={previewUrl || url}
           name={name}
@@ -85,7 +87,7 @@ export function ResourcePreview({
         </pre>
       ) : (
         <div className="pdf-preview-message">此文件可以下载后查看。</div>
-      )}
+      )}</ContentSize>
     </section>
   );
 }

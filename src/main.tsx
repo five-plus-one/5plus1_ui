@@ -911,7 +911,7 @@ function Start() {
       <U.CodeBlock
         language="shell"
         code={
-          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.3.0.tgz"
+          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.3.1.tgz"
         }
       />
       <h2 className="doc-heading">2. 从一个按钮开始</h2>

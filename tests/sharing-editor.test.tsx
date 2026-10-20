@@ -1,9 +1,20 @@
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
+import type { Editor } from '@tiptap/core';
 import { AttachmentPicker, MarkdownEditor, MemberSearch, SelectField, ShareLink, UploadQueue, type MemberSearchResult } from '../src/lib';
 
 vi.mock('mermaid', () => ({ default: { initialize: vi.fn(), render: async (_id:string, source:string) => ({ svg: `<svg role="img" aria-label="流程图"><text>${source.includes('验证')?'验证':'开始'}</text></svg>` }) } }));
 afterEach(cleanup);
+it('opens slash commands after whitespace and preserves preceding content', async () => {
+  let editor!: Editor;
+  render(<MarkdownEditor markdown="" onReady={instance => { editor=instance; instance.view.coordsAtPos=()=>({left:20,right:20,top:20,bottom:40}); }} />);
+  await waitFor(()=>expect(editor).toBeDefined());
+  act(()=>{editor.commands.insertContent('正文 /mermaid');});
+  const choice=await screen.findByRole('option',{name:/Mermaid 图表/});
+  fireEvent.mouseDown(choice);fireEvent.click(choice);
+  expect(editor.getText()).toContain('正文 ');expect(editor.getText()).not.toContain('/mermaid');
+  expect(editor.getJSON().content?.some(node=>node.type==='codeBlock'&&node.attrs?.language==='mermaid')).toBe(true);
+});
 it('retains attachment selection after a failed submission and allows retry', async () => {
   const submit = vi.fn().mockRejectedValueOnce(new Error()).mockResolvedValueOnce(undefined);
   render(<AttachmentPicker items={[{id:'pdf',name:'讲义.pdf'}]} selectedIds={['pdf']} onChange={()=>{}} onConfirm={submit} />);

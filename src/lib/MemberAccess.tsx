@@ -1,6 +1,7 @@
 import { useId, useRef, useState } from 'react';
 import { UserPlus, X } from 'lucide-react';
 import { SelectField } from './SelectField';
+import { AnimatedSize } from './AnimatedSize';
 
 export interface AccessMember { id: string; name: string; detail?: string; role: string; editable?: boolean }
 export interface AccessRole { value: string; label: string; description?: string }
@@ -20,12 +21,12 @@ export function MemberAccess({ members, roles, canManage = false, busyIds = [], 
   const [address, setAddress] = useState(''), [role, setRole] = useState(defaultInviteRole || roles[0]?.value || ''), [busy, setBusy] = useState(false), [message, setMessage] = useState(''), [inviteError, setInviteError] = useState('');
   const guard = useRef(false), id = useId();
   return <section className="fp-member-access" aria-label="成员与访问权限">
-    <ul className="fp-access-members">{members.map(member => <li key={member.id}>
+    <AnimatedSize><ul className="fp-access-members">{members.map(member => <li key={member.id}>
       <span className="fp-access-avatar" aria-hidden="true">{member.name.slice(0, 1)}</span>
       <span className="fp-access-identity"><strong>{member.name}</strong>{member.detail && <small>{member.detail}</small>}</span>
       {canManage && member.editable !== false && onRoleChange ? <SelectField label={`${member.name}的权限`} value={member.role} disabled={busyIds.includes(member.id)} onChange={value => onRoleChange(member.id, value)} options={roles} /> : <span className="fp-access-role">{roles.find(option => option.value === member.role)?.label || member.role}</span>}
       {canManage && member.editable !== false && onRemove && <button type="button" className="fp-access-remove" aria-label={`移除${member.name}`} disabled={busyIds.includes(member.id)} onClick={() => onRemove(member.id)}><X size={15} /></button>}
-    </li>)}</ul>
+    </li>)}</ul></AnimatedSize>
     {!members.length && <p className="fp-access-help">还没有其他成员。</p>}
     {canManage && onInvite && <form className="fp-access-invite" onSubmit={async event => {
       event.preventDefault(); if (guard.current || !address.trim() || !role) return;

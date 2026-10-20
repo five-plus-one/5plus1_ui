@@ -146,22 +146,7 @@ export function Switch({
     </button>
   );
 }
-export function Select({
-  options,
-  ...p
-}: React.SelectHTMLAttributes<HTMLSelectElement> & {
-  options: { value: string; label: string }[];
-}) {
-  return (
-    <select {...p} className={cx("fp-input", p.className)}>
-      {options.map((o) => (
-        <option key={o.value} value={o.value}>
-          {o.label}
-        </option>
-      ))}
-    </select>
-  );
-}
+export { Select, Combobox } from './ChoiceInputs';
 export function Slider({
   label,
   min = 0,
@@ -818,34 +803,7 @@ export function NumberInput({
     </div>
   );
 }
-export function DatePicker(p: InputHTMLAttributes<HTMLInputElement>) {
-  return <Input {...p} type="date" />;
-}
-export function TimePicker(p: InputHTMLAttributes<HTMLInputElement>) {
-  return <Input {...p} type="time" />;
-}
-export function ColorPicker({
-  label,
-  value,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  return (
-    <label className="fp-row">
-      {label}
-      <input
-        aria-label={label}
-        type="color"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-      <code>{value}</code>
-    </label>
-  );
-}
+export { DatePicker, TimePicker, ColorPicker } from './StyledInputs';
 export function Rating({
   value,
   onChange,
@@ -1225,35 +1183,6 @@ export function AspectRatio({
 }) {
   return (
     <div style={{ aspectRatio: ratio, overflow: "hidden" }}>{children}</div>
-  );
-}
-export function Combobox({
-  label,
-  options,
-  value,
-  onChange,
-}: {
-  label: string;
-  options: string[];
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  let id = useId();
-  return (
-    <div className="fp-field">
-      <label htmlFor={id}>{label}</label>
-      <Input
-        id={id}
-        list={`${id}-list`}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-      <datalist id={`${id}-list`}>
-        {options.map((o) => (
-          <option key={o} value={o} />
-        ))}
-      </datalist>
-    </div>
   );
 }
 export function MultiSelect({
@@ -1695,3 +1624,4 @@ import "./workspace/controls.css";
 import "./editor/editor.css";
 import "./product-themes.css";
 
+export * from "./AnimatedSize";

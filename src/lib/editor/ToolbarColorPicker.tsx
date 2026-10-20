@@ -57,6 +57,7 @@ export default function ToolbarColorPicker({
   onClose: () => void;
 }) {
   const [recent, setRecent] = useState<string[]>([]);
+  const [custom, setCustom] = useState(current?.startsWith('#') ? current : '#FD8B07');
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => setRecent(readRecent()), []);
@@ -126,11 +127,13 @@ export default function ToolbarColorPicker({
         <h4>自定义</h4>
         <div className="toolbar-color-custom">
           <input
-            type="color"
+            type="text"
             aria-label="自定义颜色"
-            defaultValue={current && current.startsWith("#") ? current : "#2563eb"}
-            onChange={event => choose(event.target.value)}
+            value={custom}
+            placeholder="#FD8B07"
+            onChange={event => setCustom(event.target.value)}
           />
+          <button type="button" disabled={!/^#[0-9a-f]{6}$/i.test(custom)} onClick={() => choose(custom)}>应用</button>
           <button type="button" onClick={() => choose(mode === "text" ? null : "#fef08a")}>
             {mode === "text" ? "默认颜色" : "默认高亮"}
           </button>

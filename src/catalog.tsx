@@ -131,7 +131,7 @@ const defs: Record<string, [string, string, string, string]> = {
   Combobox: [
     "可输入选择",
     "表单",
-    "结合输入和浏览器原生候选列表。",
+    "结合输入、筛选与键盘选择候选项。",
     "label；options: string[]；value；onChange(string)",
   ],
   MultiSelect: [
@@ -161,13 +161,13 @@ const defs: Record<string, [string, string, string, string]> = {
   DatePicker: [
     "日期输入",
     "表单",
-    "使用设备原生日期选择体验。",
+    "使用统一主题的日历选择日期，支持手动输入。",
     "继承原生 input 属性",
   ],
   TimePicker: [
     "时间输入",
     "表单",
-    "使用设备原生时间选择体验。",
+    "选择小时与分钟，也可直接输入时间。",
     "继承原生 input 属性",
   ],
   Calendar: [

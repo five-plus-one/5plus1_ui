@@ -55,6 +55,7 @@ export function Popup({ label, children, menu = false, icon, trigger: triggerCon
     document.addEventListener('focusin', outside, true);
     document.addEventListener('keydown', escape, true);
     if (role !== 'dialog') focusItem();
+    else requestAnimationFrame(() => (panel.current?.querySelector<HTMLElement>('[aria-pressed="true"]:not(:disabled)') || panel.current?.querySelector<HTMLElement>('input:not(:disabled), button:not(:disabled), [tabindex="0"]'))?.focus({preventScroll:true}));
     return () => { document.removeEventListener('pointerdown', outside, true); document.removeEventListener('focusin', outside, true); document.removeEventListener('keydown', escape, true); };
   }, [open]);
   return <span className="fp-dropdown"><button type="button" ref={trigger} disabled={disabled} aria-label={label} aria-expanded={open} aria-controls={open ? id : undefined} aria-haspopup={role}
