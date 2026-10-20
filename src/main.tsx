@@ -474,7 +474,6 @@ function Components({
           eyebrow={selected.name.toUpperCase()}
           title={selected.zh}
           description={selected.description}
-          action={<U.Badge tone="success">可直接使用</U.Badge>}
         />
         <div className="preview-heading">
           <span>交互预览</span>
@@ -985,7 +984,7 @@ function Start() {
       <U.CodeBlock
         language="shell"
         code={
-          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.4.0.tgz"
+          "# 在 5plus1-ui 目录\nnpm install\nnpm run build\nnpm pack\n\n# 在你的产品项目\nnpm install ../5plus1-ui/fiveplusone-ui-0.4.1.tgz"
         }
       />
       <h2 className="doc-heading">2. 从一个按钮开始</h2>

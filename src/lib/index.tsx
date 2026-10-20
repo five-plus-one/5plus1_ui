@@ -1,3 +1,4 @@
+export { SurfaceBoundary, type SurfaceBoundaryProps } from "./SurfaceBoundary";
 import { CollapseTransition } from "./CollapseTransition";
 import { ChevronDown } from "lucide-react";
 import React, {
@@ -1828,6 +1829,7 @@ import "./workspace/workspace.css";
 import "./workspace/controls.css";
 import "./editor/editor.css";
 import "./product-themes.css";
+import "./content-rhythm.css";
 
 export * from "./AnimatedSize";
 

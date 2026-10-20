@@ -44,6 +44,15 @@ const identifiers = (node) => {
   return result;
 };
 const records = [];
+for (const statement of source.statements) {
+  if (!ts.isFunctionDeclaration(statement) || !statement.name || statement === fn) continue;
+  records.push({
+    scope: "top",
+    names: new Set([statement.name.text]),
+    uses: identifiers(statement),
+    code: statement.getText(source),
+  });
+}
 for (const [scope, list] of [
   [
     "top",

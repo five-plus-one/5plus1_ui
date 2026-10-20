@@ -57,7 +57,9 @@ export function ConceptCard({
         <ChevronRight size={16} className="fp-concept-chevron" />
       </button>
       <div id={id} className="fp-concept-body" inert={!open} aria-hidden={!open} data-open={open || undefined}>
-        <div className="fp-concept-inner">{children}</div>
+        <div className="fp-concept-clip">
+          <div className="fp-concept-inner">{children}</div>
+        </div>
       </div>
     </section>
   );

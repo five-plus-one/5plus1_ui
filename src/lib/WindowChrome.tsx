@@ -1,6 +1,6 @@
 /** WindowChrome - 从课栈 window/WindowChrome 提取
  *
- * 浮动窗口标题栏：左侧关闭/最小化/全屏，中间标题与图标，右侧附加操作。
+ * 浮动窗口标题栏：标题在左，附加操作和窗口控制在右。
  * 仅作为视觉外壳，窗口拖拽通过 onDragStart 交给调用方。
  */
 
@@ -37,51 +37,58 @@ export function WindowChrome({
     <div className={`fp-window ${className || ""}`}>
       <header
         className="fp-window-bar"
-        onPointerDown={onDragStart}
+        onPointerDown={(event) => {
+          if (
+            event.button === 0 &&
+            !(event.target as Element).closest(
+              "button,a,input,textarea,select,[data-no-drag]",
+            )
+          ) onDragStart?.(event);
+        }}
         data-draggable={onDragStart ? true : undefined}
       >
-        <div className="fp-window-traffic" data-no-drag>
-          <button
-            type="button"
-            className="fp-traffic fp-traffic-close"
-            aria-label="关闭窗口"
-            title="关闭"
-            onClick={onClose}
-          >
-            <X size={8} />
-          </button>
-          {onMinimize && (
-            <button
-              type="button"
-              className="fp-traffic fp-traffic-min"
-              aria-label="最小化窗口"
-              title="最小化"
-              onClick={onMinimize}
-            >
-              <Minus size={8} />
-            </button>
-          )}
-          {onFullscreen && (
-            <button
-              type="button"
-              className="fp-traffic fp-traffic-full"
-              aria-label={isFullscreen ? "退出全屏" : "全屏"}
-              title={isFullscreen ? "退出全屏" : "全屏"}
-              onClick={onFullscreen}
-            >
-              {isFullscreen ? <Minimize2 size={8} /> : <Maximize2 size={8} />}
-            </button>
-          )}
-        </div>
-        <div className="fp-window-title" data-no-drag>
+        <div className="fp-window-title">
           {icon}
-          <span>{title}</span>
+          <span title={title}>{title}</span>
         </div>
         {actions && (
           <div className="fp-window-actions" data-no-drag>
             {actions}
           </div>
         )}
+        <div className="fp-window-controls" data-no-drag>
+          {onMinimize && (
+            <button
+              type="button"
+              className="fp-window-control"
+              aria-label="最小化窗口"
+              title="最小化"
+              onClick={onMinimize}
+            >
+              <Minus size={16} />
+            </button>
+          )}
+          {onFullscreen && (
+            <button
+              type="button"
+              className="fp-window-control"
+              aria-label={isFullscreen ? "退出全屏" : "全屏"}
+              title={isFullscreen ? "退出全屏" : "全屏"}
+              onClick={onFullscreen}
+            >
+              {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+            </button>
+          )}
+          <button
+            type="button"
+            className="fp-window-control fp-window-control-close"
+            aria-label="关闭窗口"
+            title="关闭"
+            onClick={onClose}
+          >
+            <X size={16} />
+          </button>
+        </div>
       </header>
       <div className="fp-window-body">{children}</div>
     </div>

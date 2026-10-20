@@ -8,6 +8,7 @@ import {
 } from "react";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { CollapseTransition } from "./CollapseTransition";
+import { ContentImage } from "./ContentImage";
 export function EventCard({
   title,
   date,
@@ -71,10 +72,10 @@ export function Figure({
     <figure className="fp-reading-figure">
       {onOpen ? (
         <button type="button" aria-label={`查看${alt}`} onClick={onOpen}>
-          <img src={src} alt={alt} loading="lazy" />
+          <ContentImage src={src} alt={alt} />
         </button>
       ) : (
-        <img src={src} alt={alt} loading="lazy" />
+        <ContentImage src={src} alt={alt} />
       )}
       {(caption || credit) && (
         <figcaption>

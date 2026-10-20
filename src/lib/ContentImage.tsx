@@ -11,27 +11,23 @@ export interface ContentImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   title?: string;
 }
 
-export function ContentImage({ src, alt, title, ...rest }: ContentImageProps) {
-  const [errored, setErrored] = useState(false);
+export function ContentImage({ src, alt, title, onError, ...rest }: ContentImageProps) {
+  const [failedSource, setFailedSource] = useState<ContentImageProps["src"]>(undefined);
 
-  if (errored || !src) {
-    return (
+  const img = failedSource === src || !src ? (
       <span className="fp-content-image-error" role="img" aria-label={alt || "图片"}>
         <ImageOff size={22} aria-hidden="true" />
         <span>{alt || "图片加载失败"}</span>
       </span>
-    );
-  }
-
-  const img = (
+    ) : (
     <img
       src={src}
       alt={alt || ""}
       title={title}
       loading="lazy"
       decoding="async"
-      onError={() => setErrored(true)}
       {...rest}
+      onError={(event) => { setFailedSource(src); onError?.(event); }}
     />
   );
 

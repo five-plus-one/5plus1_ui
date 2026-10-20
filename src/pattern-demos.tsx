@@ -1,9 +1,18 @@
 import { useCallback, useState } from "react";
 import * as U from "./lib";
+function RecoverableContent() {
+  const [failed, setFailed] = useState(false);
+  if (failed) throw new Error("Content unavailable");
+  return <div className="fp-pattern-panel"><h3>课堂笔记</h3><p>继续阅读今天的课程内容。</p><button type="button" onClick={() => setFailed(true)}>体验重新打开</button></div>;
+}
 export const patternDefinitions: Record<
   string,
   [string, string, string, string]
 > = {
+  SurfaceBoundary: [
+    "内容恢复", "反馈", "局部内容出现问题时重新打开，继续阅读。",
+    "children；title?；description?；resetKey?；onError?",
+  ],
   DirectiveFields: [
     "卡片内容设置",
     "业务模式",
@@ -439,6 +448,7 @@ export function PatternDemo({
     </div>
   );
   const demos: Record<string, () => React.ReactNode> = {
+    SurfaceBoundary: () => <U.SurfaceBoundary><RecoverableContent /></U.SurfaceBoundary>,
     DirectiveFields: () => (
       <U.DirectiveFields
         name="audio"
@@ -799,7 +809,7 @@ export function PatternDemo({
     MarkdownContent: () => (
       <U.MarkdownContent
         markdown={
-          '## 从阅读到理解\n\n先用自己的话解释，再用 $x^2+y^2$ 检验。\n\n:::concept{term="线性映射"}\n保持向量加法与数乘的映射。\n:::\n\n| 阶段 | 目标 |\n| --- | --- |\n| 阅读 | 找到概念 |\n| 练习 | 检查理解 |\n\n:::event{title="课堂回顾" date="今天"}\n讨论了一个重要的例子。\n:::'
+          '## 从阅读到理解\n\n先用自己的话解释，再用 $x^2+y^2$ 检验。\n\n把定义、例子和结论分开记录，回看时更容易找到关键内容。\n\n### 阅读时可以问自己\n\n- 这个概念解决了什么问题？\n- 条件发生变化时，结论还成立吗？\n  - 先改变一个条件，再比较两个结果。\n\n> 读完一段，停下来用自己的话复述，再回到原文核对。\n\n:::concept{term="线性映射"}\n保持向量加法与数乘的映射。\n:::\n\n| 阶段 | 目标 |\n| --- | --- |\n| 阅读 | 找到概念 |\n| 练习 | 检查理解 |\n\n:::event{title="课堂回顾" date="今天"}\n讨论了一个重要的例子。\n:::'
         }
       />
     ),
@@ -1077,8 +1087,18 @@ export function PatternDemo({
             value: setting,
             description: "方便自己和同学找到。",
           },
+          {
+            id: "view",
+            label: "打开方式",
+            value: enabled ? "reading" : "outline",
+            options: [
+              { value: "reading", label: "继续阅读" },
+              { value: "outline", label: "先查看目录" },
+            ],
+            description: "选择打开笔记本后先看到的内容。",
+          },
         ]}
-        onChange={(_id, value) => setSetting(value)}
+        onChange={(id, value) => id === "name" ? setSetting(value) : setEnabled(value === "reading")}
         onSave={done}
       />
     ),

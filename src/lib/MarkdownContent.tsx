@@ -26,6 +26,7 @@ import {
 } from "./ReadingBlocks";
 import { VideoPlayer } from "./VideoPlayer";
 import { AudioPlayer } from "./AudioPlayer";
+import { ContentImage } from "./ContentImage";
 import "katex/dist/katex.min.css";
 export interface RenderDirectiveProps {
   name: string;
@@ -126,6 +127,7 @@ export function MarkdownContent({
           src={resolve(attributes.src)}
           alt={attributes.alt || title}
           caption={attributes.caption}
+          credit={attributes.credit}
         />
       );
     if (["memory", "memorycard"].includes(canonical))
@@ -246,7 +248,7 @@ export function MarkdownContent({
     },
     img: ({ src, alt }: { src?: string; alt?: string }) =>
       resolve(src || "") ? (
-        <img src={resolve(src || "")} alt={alt || ""} loading="lazy" />
+        <ContentImage src={resolve(src || "")} alt={alt || ""} />
       ) : (
         <span>{alt || "图片暂时无法显示。"}</span>
       ),

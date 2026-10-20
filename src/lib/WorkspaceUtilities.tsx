@@ -2,6 +2,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type ReactNode,
@@ -204,6 +205,21 @@ export interface WindowGeometry {
   width: number;
   height: number;
 }
+/** Keep every title-bar control reachable inside its containing workspace. */
+export function constrainWindowGeometry(
+  geometry: WindowGeometry,
+  bounds: { width: number; height: number },
+  minimum = { width: 300, height: 200 },
+): WindowGeometry {
+  const width = Math.min(bounds.width, Math.max(minimum.width, geometry.width));
+  const height = Math.min(bounds.height, Math.max(minimum.height, geometry.height));
+  return {
+    width,
+    height,
+    x: Math.max(0, Math.min(bounds.width - width, geometry.x)),
+    y: Math.max(0, Math.min(bounds.height - height, geometry.y)),
+  };
+}
 export interface FloatingWindowProps {
   title: string;
   geometry: WindowGeometry;
@@ -238,8 +254,25 @@ export function FloatingWindow({
     value: WindowGeometry;
   } | null>(null);
   const root = useRef<HTMLDivElement>(null);
+  const [bounds, setBounds] = useState<{ width: number; height: number } | null>(null);
+  useLayoutEffect(() => {
+    const measure = () => {
+      const parent = contained ? root.current?.parentElement : null;
+      const next = {
+        width: parent?.clientWidth || window.innerWidth,
+        height: parent?.clientHeight || window.innerHeight,
+      };
+      setBounds((previous) => previous?.width === next.width && previous.height === next.height ? previous : next);
+    };
+    measure();
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(measure);
+    if (contained && root.current?.parentElement) observer?.observe(root.current.parentElement);
+    window.addEventListener("resize", measure);
+    return () => { observer?.disconnect(); window.removeEventListener("resize", measure); };
+  }, [contained]);
+  const visibleGeometry = bounds ? constrainWindowGeometry(geometry, bounds, { width: minWidth, height: minHeight }) : geometry;
   const current = useRef(geometry);
-  current.current = geometry;
+  current.current = visibleGeometry;
   const pointer = (event: React.PointerEvent, mode: "move" | "resize") => {
     if (
       event.button !== 0 ||
@@ -270,10 +303,10 @@ export function FloatingWindow({
           ? { position: contained ? "absolute" : "fixed", inset: 8, zIndex }
           : {
               position: contained ? "absolute" : "fixed",
-              left: geometry.x,
-              top: geometry.y,
-              width: geometry.width,
-              height: geometry.height,
+              left: visibleGeometry.x,
+              top: visibleGeometry.y,
+              width: visibleGeometry.width,
+              height: visibleGeometry.height,
               zIndex,
             }
       }
@@ -281,43 +314,33 @@ export function FloatingWindow({
       onPointerMove={(event) => {
         const start = drag.current;
         if (!start) return;
-        const boundary = contained
-          ? root.current?.parentElement?.getBoundingClientRect()
-          : null;
-        const availableWidth = boundary?.width ?? window.innerWidth;
-        const availableHeight = boundary?.height ?? window.innerHeight;
+        const available = bounds || { width: window.innerWidth, height: window.innerHeight };
         const dx = event.clientX - start.x,
           dy = event.clientY - start.y;
         onGeometryChange(
-          start.mode === "move"
+          constrainWindowGeometry(start.mode === "move"
             ? {
                 ...start.value,
-                x: Math.max(
-                  0,
-                  Math.min(availableWidth - 80, start.value.x + dx),
-                ),
-                y: Math.max(
-                  0,
-                  Math.min(availableHeight - 44, start.value.y + dy),
-                ),
+                x: start.value.x + dx,
+                y: start.value.y + dy,
               }
             : {
                 ...start.value,
                 width: Math.max(
                   minWidth,
                   Math.min(
-                    availableWidth - start.value.x,
+                    available.width - start.value.x,
                     start.value.width + dx,
                   ),
                 ),
                 height: Math.max(
                   minHeight,
                   Math.min(
-                    availableHeight - start.value.y,
+                    available.height - start.value.y,
                     start.value.height + dy,
                   ),
                 ),
-              },
+              }, available, { width: minWidth, height: minHeight }),
         );
       }}
       onPointerUp={() => {
@@ -353,11 +376,11 @@ export function FloatingWindow({
             )
               return;
             e.preventDefault();
-            onGeometryChange({
-              ...geometry,
+            onGeometryChange(constrainWindowGeometry({
+              ...visibleGeometry,
               width: Math.max(
                 minWidth,
-                geometry.width +
+                visibleGeometry.width +
                   (e.key === "ArrowRight"
                     ? 16
                     : e.key === "ArrowLeft"
@@ -366,10 +389,10 @@ export function FloatingWindow({
               ),
               height: Math.max(
                 minHeight,
-                geometry.height +
+                visibleGeometry.height +
                   (e.key === "ArrowDown" ? 16 : e.key === "ArrowUp" ? -16 : 0),
               ),
-            });
+            }, bounds || { width: window.innerWidth, height: window.innerHeight }, { width: minWidth, height: minHeight }));
           }}
         />
       )}

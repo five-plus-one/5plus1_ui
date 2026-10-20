@@ -1874,7 +1874,7 @@ export function Demo({
       >
         <div style={{ padding: 24, minHeight: 160 }}>
           <p className="fp-muted" style={{ margin: 0, lineHeight: 1.8 }}>
-            窗口内容放在这里。标题栏支持拖动，左侧按钮可关闭、最小化或全屏。
+            阅读资料时，可以通过右上角按钮最小化、全屏或关闭窗口。
           </p>
         </div>
       </U.WindowChrome>
