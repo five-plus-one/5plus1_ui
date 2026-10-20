@@ -11,14 +11,17 @@ export interface PopupProps {
   disabled?: boolean;
   className?: string;
   role?: 'menu' | 'dialog' | 'listbox';
+  onOpenChange?: (open: boolean) => void;
 }
 /** Anchored surface with dismissal, keyboard navigation and viewport bounds. */
-export function Popup({ label, children, menu = false, icon, trigger: triggerContent, disabled, className = '', role: suppliedRole }: PopupProps) {
+export function Popup({ label, children, menu = false, icon, trigger: triggerContent, disabled, className = '', role: suppliedRole, onOpenChange }: PopupProps) {
   const [open, setOpen] = useState(false), [exiting, setExiting] = useState(false);
   const dismiss = () => { setExiting(true); setOpen(false); };
   useEffect(() => { if (!exiting) return; const timer = setTimeout(() => setExiting(false), 120); return () => clearTimeout(timer); }, [exiting]);
   const trigger = useRef<HTMLButtonElement>(null), panel = useRef<HTMLDivElement>(null);
   const id = useId();
+  const notify = useRef(onOpenChange); notify.current = onOpenChange;
+  useEffect(() => { notify.current?.(open); }, [open]);
   const role = suppliedRole || (menu ? 'menu' : 'dialog');
   const [position, setPosition] = useState({ left: 8, top: 8, maxHeight: 400 });
   const close = () => { dismiss(); trigger.current?.focus(); };
@@ -54,7 +57,8 @@ export function Popup({ label, children, menu = false, icon, trigger: triggerCon
     document.addEventListener('pointerdown', outside, true);
     document.addEventListener('focusin', outside, true);
     document.addEventListener('keydown', escape, true);
-    if (role !== 'dialog') focusItem();
+    if (role === 'listbox' && panel.current?.querySelector('.fp-select-search input')) requestAnimationFrame(() => panel.current?.querySelector<HTMLInputElement>('.fp-select-search input')?.focus({preventScroll:true}));
+    else if (role !== 'dialog') focusItem();
     else requestAnimationFrame(() => (panel.current?.querySelector<HTMLElement>('[aria-pressed="true"]:not(:disabled)') || panel.current?.querySelector<HTMLElement>('input:not(:disabled), button:not(:disabled), [tabindex="0"]'))?.focus({preventScroll:true}));
     return () => { document.removeEventListener('pointerdown', outside, true); document.removeEventListener('focusin', outside, true); document.removeEventListener('keydown', escape, true); };
   }, [open]);

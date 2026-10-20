@@ -57,13 +57,14 @@ export function VideoPlayer({
   const [muted, setMuted] = useState(false);
   const [resolved, setResolved] = useState(resolveSource ? '' : src);
   const [error, setError] = useState('');
+  const [notice, setNotice] = useState('');
   const [generation, retry] = useState(0);
   const [rate, setRate] = useState(1);
   const callbacks = useRef({ onPlaybackError }); callbacks.current = { onPlaybackError };
   const reportError = (message: string) => { setError(message); callbacks.current.onPlaybackError?.(message); };
   useEffect(() => {
     const controller = new AbortController();
-    setError(''); setPlaying(false); setTime(startAt); setDuration(0);
+    setError(''); setNotice(''); setPlaying(false); setTime(startAt); setDuration(0);
     if (!resolveSource) { setResolved(src); return; }
     setResolved('');
     void resolveSource(src, controller.signal).then(url => { if (!controller.signal.aborted) setResolved(url); }).catch(cause => { if (!controller.signal.aborted) reportError(cause instanceof Error ? cause.message : '视频暂时无法播放'); });
@@ -102,9 +103,10 @@ export function VideoPlayer({
 
   const fullscreen = async () => {
     try {
+      setNotice('');
       if (document.fullscreenElement === host.current) await document.exitFullscreen();
       else await host.current?.requestFullscreen?.();
-    } catch { reportError('暂时无法进入全屏，请重试'); }
+    } catch { setNotice('暂时无法进入全屏，请重试'); }
   };
 
   const seek = (next: number) => {
@@ -249,6 +251,7 @@ export function VideoPlayer({
           <Maximize size={16} />
         </button>
       </div>
+      {notice && <div className="fp-video-notice" role="status">{notice}</div>}
     </div>
   );
 }

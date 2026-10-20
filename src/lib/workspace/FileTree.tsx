@@ -58,6 +58,7 @@ export function FileTree({
   let [localExpanded, setExpanded] = useState(new Set(defaultExpanded));
   const expanded = expandedIds === undefined ? localExpanded : new Set(expandedIds);
   let host = useRef<HTMLDivElement>(null);
+  const contextEvent = useRef<MouseEvent | KeyboardEvent | null>(null);
   let [focus, setFocus] = useState<string | null>(null);
   let visible: FileTreeNode[] = [];
   function flatten(nodes: FileTreeNode[]) {
@@ -127,8 +128,8 @@ export function FileTree({
   }
   function render(nodes: FileTreeNode[], depth = 0) {
     return nodes.map((node) => (
-      <ContextMenu key={`${namespace}/${node.id}`} tabIndex={-1} label={`${node.name}的操作`} items={[
-        {id:'open',label:node.kind==='folder'?(expanded.has(node.id)?'收起文件夹':'展开文件夹'):'打开',onSelect:()=>{if(node.kind==='folder')toggle(node.id);else onSelect(node);}},
+      <ContextMenu key={`${namespace}/${node.id}`} tabIndex={-1} label={`${node.name}的操作`} onOpen={event=>{contextEvent.current=event;}} items={[
+        {id:'open',label:node.kind==='folder'?(expanded.has(node.id)?'收起文件夹':'展开文件夹'):'打开',onSelect:()=>{if(node.kind==='folder')toggle(node.id);else {onSelect(node);if(contextEvent.current)onOpen?.(node,contextEvent.current);}}},
         ...(node.kind==='folder'&&onCreate?[{id:'create',label:'新建文件',onSelect:()=>onCreate(node)}]:[]),
         ...(onRename?[{id:'rename',label:'重命名',onSelect:()=>onRename(node)}]:[]),
         ...(onRemove?[{id:'remove',label:'移除',danger:true,separator:true,onSelect:()=>onRemove(node)}]:[]),

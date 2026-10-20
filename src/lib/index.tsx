@@ -132,7 +132,7 @@ export function Switch({
   disabled?: boolean;
 }) {
   return (
-    <button
+    <button type="button"
       className="fp-switch-label"
       role="switch"
       aria-checked={checked}
@@ -365,6 +365,7 @@ export function Tabs({
       className="fp-tabs"
       role="tablist"
       onKeyDown={(e) => {
+        if (!items.length || e.altKey || e.ctrlKey || e.metaKey) return;
         let i = items.findIndex((x) => x.value === value);
         let n =
           e.key === "ArrowRight"
@@ -384,7 +385,7 @@ export function Tabs({
       }}
     >
       {items.map((i) => (
-        <button
+        <button type="button"
           role="tab"
           aria-selected={i.value === value}
           tabIndex={i.value === value ? 0 : -1}
@@ -814,7 +815,7 @@ export function Rating({
   return (
     <div className="fp-rating" role="group" aria-label="评价">
       {[1, 2, 3, 4, 5].map((i) => (
-        <button
+        <button type="button"
           key={i}
           aria-label={`${i} 星`}
           aria-pressed={i === value}
@@ -908,7 +909,7 @@ export function Navigation({
   return (
     <nav className="fp-navigation">
       {items.map((i) => (
-        <button
+        <button type="button"
           key={i.value}
           aria-current={value === i.value ? "page" : undefined}
           onClick={() => onChange(i.value)}
@@ -951,7 +952,7 @@ export function Citation({
   onClick?: () => void;
 }) {
   return (
-    <button className="fp-citation" onClick={onClick}>
+    <button type="button" className="fp-citation" onClick={onClick}>
       <span>↗</span>
       <span>
         <strong>{title}</strong>
@@ -1073,7 +1074,7 @@ export function FileCard({
   onOpen: () => void;
 }) {
   return (
-    <button className="fp-file-card" onClick={onOpen}>
+    <button type="button" className="fp-file-card" onClick={onOpen}>
       <span>▤</span>
       <span>
         <strong>{name}</strong>
@@ -1295,7 +1296,7 @@ export function Calendar({
         {Array.from({ length: days }, (_, i) => {
           let date = `${year}-${String(m + 1).padStart(2, "0")}-${String(i + 1).padStart(2, "0")}`;
           return (
-            <button
+            <button type="button"
               key={date}
               aria-label={date}
               aria-pressed={value === date}
@@ -1453,7 +1454,7 @@ export function CommandMenu({
         />
         <div className="fp-command-results">
           {filtered.map((i, n) => (
-            <button
+            <button type="button"
               key={i.label}
               className={n === active ? "is-active" : ""}
               onClick={() => {
@@ -1481,7 +1482,7 @@ export function NotificationList({
   return (
     <div className="fp-notifications">
       {items.map((i) => (
-        <button key={i.id} onClick={() => onRead(i.id)}>
+        <button type="button" key={i.id} onClick={() => onRead(i.id)}>
           <span className={cx("fp-notification-dot", !i.read && "is-unread")} />
           <span>
             <strong>{i.title}</strong>
@@ -1518,7 +1519,7 @@ export function ImagePreview({ src, alt }: { src: string; alt: string }) {
   let [open, setOpen] = useState(false);
   return (
     <>
-      <button
+      <button type="button"
         className="fp-image-button"
         onClick={() => setOpen(true)}
         aria-label={`放大${alt}`}

@@ -30,3 +30,10 @@ it('preserves control keys and supports opting out of shortcuts', () => {
   view.rerender(<VideoPlayer src="lesson.mp4" keyboardShortcuts={false}/>);
   fireEvent.keyDown(host,{key:'k'}); expect(play).toHaveBeenCalledTimes(1);
 });
+it('keeps fullscreen failures separate from playback failures',async()=>{
+  const error=vi.fn();render(<VideoPlayer src="lesson.mp4" onPlaybackError={error}/>);
+  const host=screen.getByRole('region');Object.defineProperty(host,'requestFullscreen',{value:vi.fn().mockRejectedValue(new Error('denied'))});
+  fireEvent.click(screen.getByRole('button',{name:'全屏'}));
+  expect(await screen.findByRole('status')).toHaveTextContent('暂时无法进入全屏');
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument();expect(error).not.toHaveBeenCalled();
+});

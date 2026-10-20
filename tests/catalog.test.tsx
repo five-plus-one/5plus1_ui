@@ -23,6 +23,11 @@ if (!HTMLDialogElement.prototype.showModal) {
 }
 
 describe("组件目录", () => {
+  it('每个示例的按钮都明确声明表单行为',()=>{
+    const failures:string[]=[];
+    for(const entry of entries){const {container,unmount}=render(<Demo name={entry.name} notify={()=>{}}/>);if(container.querySelector('button:not([type])'))failures.push(entry.name);unmount();}
+    expect(failures).toEqual([]);
+  });
   it("每个条目都属于已声明的分组", () => {
     const known = new Set(groups);
     const unknown = entries.filter((e) => !known.has(e.group));

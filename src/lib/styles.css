@@ -4178,6 +4178,7 @@ input[type="color"]::-webkit-color-swatch {
   background: #17181a;
   color: #e8eaed;
 }
+.fp-video-notice { padding:8px 12px; color:#e8eaed; background:#17181a; font-size:12px; }
 .fp-video-controls button {
   display: inline-flex;
   align-items: center;
@@ -4667,6 +4668,7 @@ input[type="color"]::-webkit-color-swatch {
 .fp-time-columns { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
 .fp-time-columns > div { display:grid; gap:4px; max-height:240px; overflow-y:auto; scrollbar-width:thin; }
 .fp-time-columns button[aria-pressed=true] { background:var(--fp-primary-soft); color:var(--fp-primary-ink); }
+.fp-time-columns button:disabled,.fp-calendar-grid > button:disabled { opacity:.4; cursor:not-allowed; }
 .fp-color-field { display:flex; align-items:center; gap:12px; }
 .fp-color-field .fp-popup-trigger { display:flex; align-items:center; gap:10px; }
 .fp-color-swatch { display:inline-block; width:20px; height:20px; border:1px solid var(--fp-line-strong); border-radius:5px; }
