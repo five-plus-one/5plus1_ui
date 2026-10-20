@@ -1,1715 +1,1712 @@
 {
-  "timestamp": "2026-10-19T11:35:23.598Z",
-  "total": 186,
+  "date": "2026-10-20",
+  "source": "KeZhan-notebook/components",
+  "total": 277,
   "categories": {
     "account": [
       {
         "name": "AccountCenter",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\AccountCenter.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 24
-      },
-      {
-        "name": "CloudSyncStatus",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\CloudSyncStatus.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 14
+        "path": "account/AccountCenter.tsx",
+        "lines": 61,
+        "importsServices": true
       },
       {
         "name": "CommerceManager",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\CommerceManager.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 20
+        "path": "account/CommerceManager.tsx",
+        "lines": 26,
+        "importsServices": true
       },
       {
         "name": "CreditsPanel",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\CreditsPanel.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 30
+        "path": "account/CreditsPanel.tsx",
+        "lines": 44,
+        "importsServices": true
       },
       {
         "name": "DirectoryManager",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\DirectoryManager.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 27
+        "path": "account/DirectoryManager.tsx",
+        "lines": 35,
+        "importsServices": true
       },
       {
         "name": "ImportLocalStudy",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\ImportLocalStudy.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 15
+        "path": "account/ImportLocalStudy.tsx",
+        "lines": 14,
+        "importsServices": false
+      },
+      {
+        "name": "LedgerView",
+        "path": "account/LedgerView.tsx",
+        "lines": 18,
+        "importsServices": true
+      },
+      {
+        "name": "LoginScreen",
+        "path": "account/LoginScreen.tsx",
+        "lines": 8,
+        "importsServices": false
       },
       {
         "name": "NotebookManager",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\NotebookManager.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 68
+        "path": "account/NotebookManager.tsx",
+        "lines": 67,
+        "importsServices": true
       },
       {
         "name": "ShareCurrentNotebook",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\ShareCurrentNotebook.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 11
+        "path": "account/ShareCurrentNotebook.tsx",
+        "lines": 10,
+        "importsServices": false
       },
       {
         "name": "ShareNotebook",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\ShareNotebook.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 35
+        "path": "account/ShareNotebook.tsx",
+        "lines": 9,
+        "importsServices": false
       },
       {
         "name": "UserCreditsEditor",
-        "category": "account",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\account\\UserCreditsEditor.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 10
+        "path": "account/UserCreditsEditor.tsx",
+        "lines": 15,
+        "importsServices": true
+      },
+      {
+        "name": "UserDetails",
+        "path": "account/UserDetails.tsx",
+        "lines": 30,
+        "importsServices": true
+      }
+    ],
+    "admin": [
+      {
+        "name": "AdminCenter",
+        "path": "admin/AdminCenter.tsx",
+        "lines": 45,
+        "importsServices": true
+      },
+      {
+        "name": "AdministratorManager",
+        "path": "admin/AdministratorManager.tsx",
+        "lines": 52,
+        "importsServices": true
+      },
+      {
+        "name": "CapacityManager",
+        "path": "admin/CapacityManager.tsx",
+        "lines": 11,
+        "importsServices": true
+      },
+      {
+        "name": "PlatformSettingsManager",
+        "path": "admin/PlatformSettingsManager.tsx",
+        "lines": 39,
+        "importsServices": true
+      },
+      {
+        "name": "SystemManager",
+        "path": "admin/SystemManager.tsx",
+        "lines": 34,
+        "importsServices": true
+      }
+    ],
+    "agent": [
+      {
+        "name": "AgentRunTrace",
+        "path": "agent/AgentRunTrace.tsx",
+        "lines": 51,
+        "importsServices": true
+      },
+      {
+        "name": "AgentWorkspace",
+        "path": "agent/AgentWorkspace.tsx",
+        "lines": 136,
+        "importsServices": true
       }
     ],
     "browser": [
       {
         "name": "BrowserSettingsButton",
-        "category": "browser",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\browser\\BrowserSettingsButton.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 180
+        "path": "browser/BrowserSettingsButton.tsx",
+        "lines": 179,
+        "importsServices": false
       },
       {
         "name": "BrowserTab",
-        "category": "browser",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\browser\\BrowserTab.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 379
+        "path": "browser/BrowserTab.tsx",
+        "lines": 378,
+        "importsServices": false
       },
       {
         "name": "EmbedFallback",
-        "category": "browser",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\browser\\EmbedFallback.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 58
+        "path": "browser/EmbedFallback.tsx",
+        "lines": 57,
+        "importsServices": false
       }
     ],
     "canvas": [
       {
         "name": "CanvasBlockRenderer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasBlockRenderer.tsx",
-        "props": "block: CanvasBlock;\r\n  revisionTopic?: string;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 31
+        "path": "canvas/CanvasBlockRenderer.tsx",
+        "lines": 30,
+        "importsServices": false
       },
       {
         "name": "CanvasControls",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasControls.tsx",
-        "props": "onReset?: () => void;\n  onZoomIn?: () => void;\n  onZoomOut?: () => void;\n  /** 「下载 HTML」；省略则不显示（仅 HTML 图层用）。 */\n  onDownload?: () => void;\n  /** 「新页面展开」；省略则不显示（仅 HTML 图层用）。 */\n  onOpenExternal?: () => void;\n  /** 进入/退出「放大查看」全屏；省略则不显示该键。 */\n  onMaximize?: () => void;\n  /** 当前是否全屏：决定 onMaximize 键显示 放大(Maximize2) 还是 退出(Minimize2)。 */\n  fullscreen?: boolean;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 75
+        "path": "canvas/CanvasControls.tsx",
+        "lines": 74,
+        "importsServices": false
       },
       {
         "name": "CanvasDiagnosticPanel",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasDiagnosticPanel.tsx",
-        "props": "diagnostic?: CanvasDiagnostic | null;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 18
+        "path": "canvas/CanvasDiagnosticPanel.tsx",
+        "lines": 17,
+        "importsServices": false
       },
       {
         "name": "CanvasDirective",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasDirective.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 144
+        "path": "canvas/CanvasDirective.tsx",
+        "lines": 143,
+        "importsServices": false
       },
       {
         "name": "CanvasFrame",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasFrame.tsx",
-        "props": "title?: string;\r\n  source?: string;\r\n  diagnostic?: CanvasDiagnostic | null;\r\n  controls?: React.ReactNode;\r\n  children: React.ReactNode;\r\n  className?: string;\r\n  style?: React.CSSProperties;\r\n  onPointerDown?: React.PointerEventHandler<HTMLDivElement>;\r\n  onPointerMove?: React.PointerEventHandler<HTMLDivElement>;\r\n  onPointerUp?: React.PointerEventHandler<HTMLDivElement>;\r\n  onPointerCancel?: React.PointerEventHandler<HTMLDivElement>;\r\n  onWheel?: React.WheelEventHandler<HTMLDivElement>;\r\n  revisionBlock?: CanvasBlock;\r\n  revisionTopic?: string;\r\n  revisionBusy?: boolean;\r\n  revisionError?: string | null;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 106
+        "path": "canvas/CanvasFrame.tsx",
+        "lines": 105,
+        "importsServices": false
       },
       {
         "name": "CanvasFullscreenPortal",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasFullscreenPortal.tsx",
-        "props": "open: boolean;\r\n  onExit: () => void;\r\n  children: React.ReactNode;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 39
+        "path": "canvas/CanvasFullscreenPortal.tsx",
+        "lines": 38,
+        "importsServices": false
       },
       {
         "name": "CanvasRevisionPanel",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\CanvasRevisionPanel.tsx",
-        "props": "block?: CanvasBlock;\r\n  topic?: string;\r\n  busy?: boolean;\r\n  error?: string | null;\r\n  onCancel: () => void;\r\n  onSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 98
+        "path": "canvas/CanvasRevisionPanel.tsx",
+        "lines": 97,
+        "importsServices": true
       },
       {
         "name": "DiagramCanvas",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\DiagramCanvas.tsx",
-        "props": "mode: DiagramMode;\r\n  /** 标签体：SVG 源 / SMILES / HTML（math 模式不用，函数从 attrs.fn 取）。 */\r\n  content: string;\r\n  title?: string;\r\n  width?: number;\r\n  height?: number;\r\n  /** 原始标签属性，math 模式透传给 PlotDirective（fn/xmin/xmax/label/grid…）。 */\r\n  attrs?: Record<string, unknown>;\r\n  repairContext?: {\r\n    modelId?: string;\r\n    topic?: string;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 62
+        "path": "canvas/DiagramCanvas.tsx",
+        "lines": 61,
+        "importsServices": false
       },
       {
         "name": "FunctionPlot",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\FunctionPlot.tsx",
-        "props": "/** Math expression in x, e.g. \"sin(x)/x\" */\n  fn: string;\n  xMin: number;\n  xMax: number;\n  yMin: number;\n  yMax: number;\n  /** Pixel bounds of the plot area (set by parent SvgCanvas) */\n  plotLeft: number;\n  plotTop: number;\n  plotWidth: number;\n  plotHeight: number;\n  /** Visual */\n  color?: string;\n  colorIndex?: number;\n  label?: string;\n  strokeWidth?: number;\n  samples?: number;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 85
+        "path": "canvas/FunctionPlot.tsx",
+        "lines": 84,
+        "importsServices": false
       },
       {
         "name": "PlotDirective",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\PlotDirective.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 103
+        "path": "canvas/PlotDirective.tsx",
+        "lines": 102,
+        "importsServices": false
       },
       {
         "name": "RawSvgViewer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\RawSvgViewer.tsx",
-        "props": "/** SVG markup, with or without an <svg> root. */\r\n  svg: string;\r\n  title?: string;\r\n  width?: number;\r\n  height?: number;\r\n  sourceSvg?: string;\r\n  topic?: string;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 44
+        "path": "canvas/RawSvgViewer.tsx",
+        "lines": 43,
+        "importsServices": false
       },
       {
         "name": "HtmlRenderer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\renderers\\HtmlRenderer.tsx",
-        "props": "block: HtmlCanvasBlock;\r\n  revisionTopic?: string;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 56
+        "path": "canvas/renderers/HtmlRenderer.tsx",
+        "lines": 55,
+        "importsServices": false
       },
       {
         "name": "MoleculeRenderer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\renderers\\MoleculeRenderer.tsx",
-        "props": "block: MoleculeCanvasBlock;\r\n  revisionTopic?: string;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 108
+        "path": "canvas/renderers/MoleculeRenderer.tsx",
+        "lines": 107,
+        "importsServices": false
       },
       {
         "name": "MultiPlotRenderer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\renderers\\MultiPlotRenderer.tsx",
-        "props": "block: MultiPlotCanvasBlock;\r\n  revisionTopic?: string;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 75
+        "path": "canvas/renderers/MultiPlotRenderer.tsx",
+        "lines": 74,
+        "importsServices": false
       },
       {
         "name": "PlotRenderer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\renderers\\PlotRenderer.tsx",
-        "props": "block: PlotCanvasBlock;\r\n  revisionTopic?: string;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 65
+        "path": "canvas/renderers/PlotRenderer.tsx",
+        "lines": 64,
+        "importsServices": false
       },
       {
         "name": "RawSvgRenderer",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\renderers\\RawSvgRenderer.tsx",
-        "props": "block: RawSvgCanvasBlock;\r\n  revisionBlock?: CanvasBlock;\r\n  revisionTopic?: string;\r\n  onRevisionSubmit?: (instruction: string) => void | Promise<void>;\r\n  onRevisionAccepted?: (block: CanvasBlock) => void;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 143
+        "path": "canvas/renderers/RawSvgRenderer.tsx",
+        "lines": 142,
+        "importsServices": false
       },
       {
         "name": "SvgCanvas",
-        "category": "canvas",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\canvas\\SvgCanvas.tsx",
-        "props": "width?: number;\r\n  height?: number;\r\n  /** Math-space bounds: [xMin, xMax, yMin, yMax] */\r\n  xMin?: number;\r\n  xMax?: number;\r\n  yMin?: number;\r\n  yMax?: number;\r\n  showGrid?: boolean;\r\n  showAxes?: boolean;\r\n  axisLabels?: { x?: string; y?: string",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 298
+        "path": "canvas/SvgCanvas.tsx",
+        "lines": 297,
+        "importsServices": false
       }
     ],
     "chat": [
       {
         "name": "AgentFoldHeader",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\AgentFoldHeader.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 47
+        "path": "chat/AgentFoldHeader.tsx",
+        "lines": 46,
+        "importsServices": false
       },
       {
         "name": "AgentTrace",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\AgentTrace.tsx",
-        "props": "trace: AgentTraceModel;\r\n  isStreaming?: boolean;\r\n  durationMs?: number;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 149
+        "path": "chat/AgentTrace.tsx",
+        "lines": 149,
+        "importsServices": false
       },
       {
         "name": "AgentTraceStep",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\AgentTraceStep.tsx",
-        "props": "id: string;\r\n  kind: 'reasoning' | 'text' | 'tool';\r\n  title: string;\r\n  summary: string;\r\n  status: TraceStatus;\r\n  icon: React.ReactNode;\r\n  children: React.ReactNode;\r\n  /** Narrative can unfold live; tool details remain opt-in to keep the log compact. */\r\n  expandWhileRunning?: boolean;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 79
+        "path": "chat/AgentTraceStep.tsx",
+        "lines": 78,
+        "importsServices": false
       },
       {
         "name": "ArtifactCard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ArtifactCard.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 391
+        "path": "chat/ArtifactCard.tsx",
+        "lines": 390,
+        "importsServices": true
       },
       {
         "name": "ArtifactViewer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ArtifactViewer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 168
+        "path": "chat/ArtifactViewer.tsx",
+        "lines": 164,
+        "importsServices": false
       },
       {
         "name": "AttachmentThumbnails",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\AttachmentThumbnails.tsx",
-        "props": "/** 前端预览列表（含 blob URL），用于输入区可删除的缩略图。 */\n  previews?: AttachmentPreview[];\n  /** 删除回调（仅输入模式可用）。 */\n  onRemove?: (idx: number) => void;\n  /** 已发送消息的附件，用于聊天历史只读展示。 */\n  readonlyAttachments?: StoredChatAttachment[];\n  /** 缩略图尺寸（px）。 */\n  size?: number;\n  /** 是否可点击放大。 */\n  clickable?: boolean;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 170
+        "path": "chat/AttachmentThumbnails.tsx",
+        "lines": 169,
+        "importsServices": false
       },
       {
         "name": "BillingDashboard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\BillingDashboard.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 12
+        "path": "chat/BillingDashboard.tsx",
+        "lines": 11,
+        "importsServices": false
       },
       {
         "name": "ChatEmptyState",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatEmptyState.tsx",
-        "props": "topic: string;\n  subjectName: string;\n  onFollowUpClick: (question: string) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 45
+        "path": "chat/ChatEmptyState.tsx",
+        "lines": 55,
+        "importsServices": false
       },
       {
         "name": "ChatHistoryOverlay",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatHistoryOverlay.tsx",
-        "props": "/** 「对话」栏行点击：切换主对话会话。 */\n  onSelectMain: (sessionId: string) => void;\n  /** 「划词」栏行点击：还原（重开）该划词浮窗。 */\n  onRestoreFloating: (sessionId: string) => void;\n  onClose: () => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 223
+        "path": "chat/ChatHistoryOverlay.tsx",
+        "lines": 238,
+        "importsServices": false
       },
       {
         "name": "ChatImage",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatImage.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 50
+        "path": "chat/ChatImage.tsx",
+        "lines": 49,
+        "importsServices": false
       },
       {
         "name": "ChatInput",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatInput.tsx",
-        "props": "onSend: (content: string, options?: {\n    quotedText?: string;\n    enableThinking?: boolean;\n    thinkingEffort?: ThinkingEffort;\n    enableSearch?: boolean;\n    attachments?: ChatAttachment[];",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 320
+        "path": "chat/ChatInput.tsx",
+        "lines": 370,
+        "importsServices": false
       },
       {
         "name": "ChatMessage",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatMessage.tsx",
-        "props": "message: ChatMessageType;\r\n  onFollowUpSelect: (question: string) => void;\r\n  isStreaming?: boolean;\r\n  sessionId?: string;\r\n  repairModelId?: string;\r\n  topic?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 259
+        "path": "chat/ChatMessage.tsx",
+        "lines": 306,
+        "importsServices": false
       },
       {
         "name": "ChatMessageVisualizations",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatMessageVisualizations.tsx",
-        "props": "tagName: string;\r\n  props: Record<string, unknown>;\r\n  childrenText: string;\r\n  repairContext?: {\r\n    sessionId?: string;\r\n    messageId?: string;\r\n    blockIndex?: number;\r\n    modelId?: string;\r\n    topic?: string;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 172
+        "path": "chat/ChatMessageVisualizations.tsx",
+        "lines": 171,
+        "importsServices": false
       },
       {
         "name": "ChatPanel",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatPanel.tsx",
-        "props": "chatContext: ChatContext;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 211
+        "path": "chat/ChatPanel.tsx",
+        "lines": 308,
+        "importsServices": true
       },
       {
         "name": "ChatPanelHeader",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatPanelHeader.tsx",
-        "props": "topic: string;\n  onOpenSettings: () => void;\n  onOpenHistory: () => void;\n  onNewChat: () => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 45
+        "path": "chat/ChatPanelHeader.tsx",
+        "lines": 47,
+        "importsServices": false
       },
       {
         "name": "ChatQuizCard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatQuizCard.tsx",
-        "props": "title: string;\n  questions: Q[];\n  intent?: string;\n  droppedCount?: number;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 154
+        "path": "chat/ChatQuizCard.tsx",
+        "lines": 153,
+        "importsServices": false
       },
       {
         "name": "ChatSettings",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatSettings.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 1621
+        "path": "chat/ChatSettings.tsx",
+        "lines": 1621,
+        "importsServices": false
       },
       {
         "name": "ChatThread",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ChatThread.tsx",
-        "props": "messages: ChatMessageType[];\n  isLoading: boolean;\n  error: string | null;\n  onClearError: () => void;\n  /** 非持久化的本次请求提示，例如备用端点切换；每个面板独立。 */\n  info?: string | null;\n  onClearInfo?: () => void;\n  onFollowUpClick: (question: string) => void;\n  /** IndexedDB 水合完成标志；false 时显示加载占位。默认 true。 */\n  hydrated?: boolean;\n  /** 水合后消息为空时展示（主面板传 ChatEmptyState；划词浮窗传简短提示）。 */\n  emptyState?: React.ReactNode;\n  /** 对话字号缩放（写入 --chat-fs）。默认 1。 */\n  fontScale?: number;\n  /** 浮动输入区实际占用高度，包含工具栏、附件/引用和安全间距。 */\n  bottomInset?: number;\n  /** 外部滚动容器 ref（主面板传入，供 SelectionPopover 绑定划词选区）。 */\n  scrollContainerRef?: React.RefObject<HTMLDivElement | null>;\n  sessionId?: string;\n  repairModelId?: string;\n  topic?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 246
+        "path": "chat/ChatThread.tsx",
+        "lines": 250,
+        "importsServices": false
       },
       {
         "name": "DocumentCard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\DocumentCard.tsx",
-        "props": "documentId: string;\n  spec: DocumentSpec;\n  modelId?: string;\n  unsupportedReason?: string;\n  autoStart?: boolean;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 233
+        "path": "chat/DocumentCard.tsx",
+        "lines": 232,
+        "importsServices": true
       },
       {
         "name": "DocumentViewer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\DocumentViewer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 184
+        "path": "chat/DocumentViewer.tsx",
+        "lines": 183,
+        "importsServices": false
       },
       {
         "name": "FloatingChatBody",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\FloatingChatBody.tsx",
-        "props": "win: FloatingWin;\n  chatContext: ChatContext;\n  onModelChange: (modelId: string) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 112
+        "path": "chat/FloatingChatBody.tsx",
+        "lines": 110,
+        "importsServices": false
       },
       {
         "name": "FloatingChatLayer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\FloatingChatLayer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 17
+        "path": "chat/FloatingChatLayer.tsx",
+        "lines": 16,
+        "importsServices": false
       },
       {
         "name": "FloatingChatWindow",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\FloatingChatWindow.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 197
+        "path": "chat/FloatingChatWindow.tsx",
+        "lines": 196,
+        "importsServices": false
       },
       {
         "name": "FollowUpQuestions",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\FollowUpQuestions.tsx",
-        "props": "questions: string[];\r\n  onSelect: (question: string) => void;\r\n  title?: string;\r\n  sources?: TraceSource[];",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 57
+        "path": "chat/FollowUpQuestions.tsx",
+        "lines": 56,
+        "importsServices": false
       },
       {
         "name": "ImageGenCard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ImageGenCard.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 198
+        "path": "chat/ImageGenCard.tsx",
+        "lines": 197,
+        "importsServices": true
       },
       {
         "name": "ImageGenViewer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ImageGenViewer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 536
+        "path": "chat/ImageGenViewer.tsx",
+        "lines": 535,
+        "importsServices": true
       },
       {
         "name": "ImageStrip",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ImageStrip.tsx",
-        "props": "children: ReactNode;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 71
+        "path": "chat/ImageStrip.tsx",
+        "lines": 70,
+        "importsServices": false
       },
       {
         "name": "MessageContent",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\MessageContent.tsx",
-        "props": "content: string;\r\n  enableVisualizations?: boolean;\r\n  onFollowUpSelect?: (question: string) => void;\r\n  /** 聊天体文本（用户输入/思考过程/生成依据）启用软换行：段内单 \\n 渲染为 <br>。 */\r\n  preserveLineBreaks?: boolean;\r\n  sessionId?: string;\r\n  messageId?: string;\r\n  repairModelId?: string;\r\n  topic?: string;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 299
+        "path": "chat/MessageContent.tsx",
+        "lines": 398,
+        "importsServices": false
       },
       {
         "name": "ModelMenu",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ModelMenu.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 440
+        "path": "chat/ModelMenu.tsx",
+        "lines": 439,
+        "importsServices": false
       },
       {
         "name": "NoteCitationCard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\NoteCitationCard.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 59
+        "path": "chat/NoteCitationCard.tsx",
+        "lines": 58,
+        "importsServices": false
       },
       {
         "name": "NoteCitationViewer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\NoteCitationViewer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 240
+        "path": "chat/NoteCitationViewer.tsx",
+        "lines": 239,
+        "importsServices": true
       },
       {
         "name": "NoteImageGallery",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\NoteImageGallery.tsx",
-        "props": "images: NoteImageHit[];\n  query?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 46
+        "path": "chat/NoteImageGallery.tsx",
+        "lines": 45,
+        "importsServices": false
       },
       {
         "name": "ProcessingSteps",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ProcessingSteps.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 14
+        "path": "chat/ProcessingSteps.tsx",
+        "lines": 13,
+        "importsServices": false
       },
       {
         "name": "ReasoningTraceStep",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ReasoningTraceStep.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 43
+        "path": "chat/ReasoningTraceStep.tsx",
+        "lines": 42,
+        "importsServices": false
       },
       {
         "name": "SkillsManager",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\SkillsManager.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 163
+        "path": "chat/SkillsManager.tsx",
+        "lines": 162,
+        "importsServices": false
       },
       {
         "name": "SourcePreviewViewer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\SourcePreviewViewer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 189
+        "path": "chat/SourcePreviewViewer.tsx",
+        "lines": 188,
+        "importsServices": false
       },
       {
         "name": "SourceTraceViewer",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\SourceTraceViewer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 175
+        "path": "chat/SourceTraceViewer.tsx",
+        "lines": 174,
+        "importsServices": false
       },
       {
         "name": "ThinkingMenu",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ThinkingMenu.tsx",
-        "props": "enabled: boolean;\n  effort: ThinkingEffort;\n  onChange: (next: { enabled: boolean; effort: ThinkingEffort",
-        "hasDefault": true,
-        "hasNamed": true,
-        "lines": 231
+        "path": "chat/ThinkingMenu.tsx",
+        "lines": 228,
+        "importsServices": false
       },
       {
         "name": "TokenDashboard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\TokenDashboard.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 10
+        "path": "chat/TokenDashboard.tsx",
+        "lines": 9,
+        "importsServices": true
       },
       {
         "name": "ToolCallDashboard",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ToolCallDashboard.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 33
+        "path": "chat/ToolCallDashboard.tsx",
+        "lines": 32,
+        "importsServices": false
       },
       {
         "name": "ToolTraceStep",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\ToolTraceStep.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 64
+        "path": "chat/ToolTraceStep.tsx",
+        "lines": 60,
+        "importsServices": false
       },
       {
         "name": "VizErrorBoundary",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\VizErrorBoundary.tsx",
-        "props": "/** 渲染失败时提示卡的标题，如「图形」「分子结构」。 */\r\n  label?: string;\r\n  /** 可选：失败时允许展开查看的原始内容（SVG/HTML/SMILES 源码）。 */\r\n  source?: string;\r\n  children: React.ReactNode;",
-        "hasDefault": false,
-        "hasNamed": false,
-        "lines": 73
+        "path": "chat/VizErrorBoundary.tsx",
+        "lines": 72,
+        "importsServices": false
       },
       {
         "name": "VizFold",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\VizFold.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 31
+        "path": "chat/VizFold.tsx",
+        "lines": 30,
+        "importsServices": false
       },
       {
         "name": "WebSourceFold",
-        "category": "chat",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\chat\\WebSourceFold.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 54
+        "path": "chat/WebSourceFold.tsx",
+        "lines": 53,
+        "importsServices": false
       }
     ],
     "examples": [
       {
         "name": "ExampleTab",
-        "category": "examples",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\examples\\ExampleTab.tsx",
-        "props": "initialExamples: ExampleDetail[];\n  sectionId: string;\n  subjectId: string;\n  chapterId: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 220
+        "path": "examples/ExampleTab.tsx",
+        "lines": 219,
+        "importsServices": true
       }
     ],
     "icons": [
       {
         "name": "AgentIcons",
-        "category": "icons",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\icons\\AgentIcons.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 131
+        "path": "icons/AgentIcons.tsx",
+        "lines": 130,
+        "importsServices": false
       },
       {
         "name": "ModelBrandIcons",
-        "category": "icons",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\icons\\ModelBrandIcons.tsx",
-        "props": "size?: number;\n  className?: string;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 168
+        "path": "icons/ModelBrandIcons.tsx",
+        "lines": 167,
+        "importsServices": false
       },
       {
         "name": "PencilSparklesIcon",
-        "category": "icons",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\icons\\PencilSparklesIcon.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 33
+        "path": "icons/PencilSparklesIcon.tsx",
+        "lines": 32,
+        "importsServices": false
       }
     ],
     "interactives": [
       {
+        "name": "BondPolarityExplorer",
+        "path": "interactives/chemistry/ch01/BondPolarityExplorer.tsx",
+        "lines": 341,
+        "importsServices": false
+      },
+      {
+        "name": "IUPACNamingPractice",
+        "path": "interactives/chemistry/ch02/IUPACNamingPractice.tsx",
+        "lines": 306,
+        "importsServices": false
+      },
+      {
+        "name": "BoilingPointComparator",
+        "path": "interactives/chemistry/ch03/BoilingPointComparator.tsx",
+        "lines": 363,
+        "importsServices": false
+      },
+      {
+        "name": "ChairFlip",
+        "path": "interactives/chemistry/ch04/ChairFlip.tsx",
+        "lines": 244,
+        "importsServices": false
+      },
+      {
+        "name": "NewmanProjection",
+        "path": "interactives/chemistry/ch04/NewmanProjection.tsx",
+        "lines": 481,
+        "importsServices": false
+      },
+      {
+        "name": "CarbocationStability",
+        "path": "interactives/chemistry/ch05/CarbocationStability.tsx",
+        "lines": 378,
+        "importsServices": false
+      },
+      {
+        "name": "MarkovnikovPredictor",
+        "path": "interactives/chemistry/ch06/MarkovnikovPredictor.tsx",
+        "lines": 405,
+        "importsServices": false
+      },
+      {
+        "name": "DieneAddition",
+        "path": "interactives/chemistry/ch07/DieneAddition.tsx",
+        "lines": 317,
+        "importsServices": false
+      },
+      {
+        "name": "DirectingEffect",
+        "path": "interactives/chemistry/ch08/DirectingEffect.tsx",
+        "lines": 331,
+        "importsServices": false
+      },
+      {
+        "name": "ChiralityMirror",
+        "path": "interactives/chemistry/ch09/ChiralityMirror.tsx",
+        "lines": 271,
+        "importsServices": false
+      },
+      {
+        "name": "RSConfigPractice",
+        "path": "interactives/chemistry/ch09/RSConfigPractice.tsx",
+        "lines": 515,
+        "importsServices": false
+      },
+      {
+        "name": "EliminationZaitsev",
+        "path": "interactives/chemistry/ch10/EliminationZaitsev.tsx",
+        "lines": 368,
+        "importsServices": false
+      },
+      {
+        "name": "SN1SN2Compare",
+        "path": "interactives/chemistry/ch10/SN1SN2Compare.tsx",
+        "lines": 333,
+        "importsServices": false
+      },
+      {
+        "name": "EpoxideOpening",
+        "path": "interactives/chemistry/ch11/EpoxideOpening.tsx",
+        "lines": 253,
+        "importsServices": false
+      },
+      {
+        "name": "CarbonylAddition",
+        "path": "interactives/chemistry/ch12/CarbonylAddition.tsx",
+        "lines": 248,
+        "importsServices": false
+      },
+      {
+        "name": "AcylReactivity",
+        "path": "interactives/chemistry/ch13/AcylReactivity.tsx",
+        "lines": 226,
+        "importsServices": false
+      },
+      {
+        "name": "AmineBasicity",
+        "path": "interactives/chemistry/ch14/AmineBasicity.tsx",
+        "lines": 227,
+        "importsServices": false
+      },
+      {
+        "name": "DiazoniumNetwork",
+        "path": "interactives/chemistry/ch14/DiazoniumNetwork.tsx",
+        "lines": 361,
+        "importsServices": false
+      },
+      {
+        "name": "CustomInteractive",
+        "path": "interactives/CustomInteractive.tsx",
+        "lines": 34,
+        "importsServices": true
+      },
+      {
+        "name": "LogicRelationsLabs",
+        "path": "interactives/discrete-math/LogicRelationsLabs.tsx",
+        "lines": 92,
+        "importsServices": false
+      },
+      {
+        "name": "StructureLabs",
+        "path": "interactives/discrete-math/StructureLabs.tsx",
+        "lines": 71,
+        "importsServices": false
+      },
+      {
+        "name": "InteractivePlatform",
+        "path": "interactives/InteractivePlatform.tsx",
+        "lines": 10,
+        "importsServices": false
+      },
+      {
+        "name": "InteractiveStudio",
+        "path": "interactives/InteractiveStudio.tsx",
+        "lines": 19,
+        "importsServices": false
+      },
+      {
         "name": "InteractiveTab",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\InteractiveTab.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 57
+        "path": "interactives/InteractiveTab.tsx",
+        "lines": 58,
+        "importsServices": false
+      },
+      {
+        "name": "LabWorkbench",
+        "path": "interactives/LabWorkbench.tsx",
+        "lines": 83,
+        "importsServices": true
       },
       {
         "name": "ExtensionLabs",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\numerical-methods\\ExtensionLabs.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 68
+        "path": "interactives/numerical-methods/ExtensionLabs.tsx",
+        "lines": 67,
+        "importsServices": false
+      },
+      {
+        "name": "FactorizationLabs",
+        "path": "interactives/numerical-methods/FactorizationLabs.tsx",
+        "lines": 47,
+        "importsServices": false
       },
       {
         "name": "Labs",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\numerical-methods\\Labs.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 46
+        "path": "interactives/numerical-methods/Labs.tsx",
+        "lines": 45,
+        "importsServices": false
       },
       {
         "name": "RecordingPlayer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\numerical-methods\\RecordingPlayer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 28
+        "path": "interactives/numerical-methods/RecordingPlayer.tsx",
+        "lines": 28,
+        "importsServices": true
       },
       {
         "name": "SourceViewer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\numerical-methods\\SourceViewer.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 32
+        "path": "interactives/numerical-methods/SourceViewer.tsx",
+        "lines": 32,
+        "importsServices": true
+      },
+      {
+        "name": "ElectrostaticsLab",
+        "path": "interactives/physics/ElectrostaticsLab.tsx",
+        "lines": 16,
+        "importsServices": false
       },
       {
         "name": "BayesExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch01\\BayesExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  onChange: (v: number) => void;\n  color?: string;\n  note?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 416
+        "path": "interactives/probability/ch01/BayesExplorer.tsx",
+        "lines": 415,
+        "importsServices": false
       },
       {
         "name": "ClassicalProbLab",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch01\\ClassicalProbLab.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 585
+        "path": "interactives/probability/ch01/ClassicalProbLab.tsx",
+        "lines": 584,
+        "importsServices": false
       },
       {
         "name": "FrequencyConvergence",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch01\\FrequencyConvergence.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 97
+        "path": "interactives/probability/ch01/FrequencyConvergence.tsx",
+        "lines": 96,
+        "importsServices": false
       },
       {
         "name": "ReliabilityExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch01\\ReliabilityExplorer.tsx",
-        "props": "components: Component[];\n  sysOk: boolean | null;\n  compOk: boolean[] | null;\n  mode: Mode;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 533
+        "path": "interactives/probability/ch01/ReliabilityExplorer.tsx",
+        "lines": 532,
+        "importsServices": false
       },
       {
         "name": "SampleSpaceBuilder",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch01\\SampleSpaceBuilder.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 520
+        "path": "interactives/probability/ch01/SampleSpaceBuilder.tsx",
+        "lines": 519,
+        "importsServices": false
       },
       {
         "name": "VennPlayground",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch01\\VennPlayground.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 61
+        "path": "interactives/probability/ch01/VennPlayground.tsx",
+        "lines": 60,
+        "importsServices": false
       },
       {
         "name": "BinomialExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch02\\BinomialExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  displayValue: string;\n  color: string;\n  bgColor: string;\n  onChange: (v: number) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 592
+        "path": "interactives/probability/ch02/BinomialExplorer.tsx",
+        "lines": 591,
+        "importsServices": false
       },
       {
         "name": "CDFVisualizer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch02\\CDFVisualizer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 999
+        "path": "interactives/probability/ch02/CDFVisualizer.tsx",
+        "lines": 998,
+        "importsServices": false
       },
       {
         "name": "FuncDistDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch02\\FuncDistDemo.tsx",
-        "props": "title: string;\n  xLabel: string;\n  pdfFn: (v: number) => number;\n  xMin: number;\n  xMax: number;\n  color: string;\n  histBins?: HistBin[];\n  histColor?: string;\n  pdfMaxY?: number;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 685
+        "path": "interactives/probability/ch02/FuncDistDemo.tsx",
+        "lines": 684,
+        "importsServices": false
       },
       {
         "name": "PDFExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch02\\PDFExplorer.tsx",
-        "props": "label: string;\r\n  value: number;\r\n  min: number;\r\n  max: number;\r\n  step: number;\r\n  onChange: (v: number) => void;\r\n  fmt?: (v: number) => string;\r\n  color?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 614
+        "path": "interactives/probability/ch02/PDFExplorer.tsx",
+        "lines": 613,
+        "importsServices": false
       },
       {
         "name": "RVMapper",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch02\\RVMapper.tsx",
-        "props": "face: number;\n  selected: boolean;\n  onClick: () => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 620
+        "path": "interactives/probability/ch02/RVMapper.tsx",
+        "lines": 619,
+        "importsServices": false
       },
       {
         "name": "ConditionalExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch03\\ConditionalExplorer.tsx",
-        "props": "values: [number, number, number];\n  color: string;\n  label: string;\n  xLabels: [string, string, string];",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 527
+        "path": "interactives/probability/ch03/ConditionalExplorer.tsx",
+        "lines": 526,
+        "importsServices": false
       },
       {
         "name": "ConvolutionDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch03\\ConvolutionDemo.tsx",
-        "props": "label: string;\n  color: string;\n  dist: DistParams;\n  onChange: (d: DistParams) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 797
+        "path": "interactives/probability/ch03/ConvolutionDemo.tsx",
+        "lines": 796,
+        "importsServices": false
       },
       {
         "name": "IndependenceChecker",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch03\\IndependenceChecker.tsx",
-        "props": "value: number;\n  dev: number;\n  maxDev: number;\n  isSelected: boolean;\n  onClick: () => void;\n  onChange: (v: number) => void;\n  row: number;\n  col: number;\n  independent: number;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 693
+        "path": "interactives/probability/ch03/IndependenceChecker.tsx",
+        "lines": 692,
+        "importsServices": false
       },
       {
         "name": "JointDistExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch03\\JointDistExplorer.tsx",
-        "props": "p: number[][];\n  pX: number[];\n  pY: number[];\n  maxP: number;\n  hoveredCell: [number, number] | null;\n  setHoveredCell: (cell: [number, number] | null) => void;\n  hovered: { i: number; j: number; val: number",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 626
+        "path": "interactives/probability/ch03/JointDistExplorer.tsx",
+        "lines": 625,
+        "importsServices": false
       },
       {
         "name": "MarginalExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch03\\MarginalExplorer.tsx",
-        "props": "values: number[];\n  labels: string[];\n  color: string;\n  lightColor: string;\n  highlightIdx: number | null;\n  direction: \"horizontal\" | \"vertical\";",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 919
+        "path": "interactives/probability/ch03/MarginalExplorer.tsx",
+        "lines": 918,
+        "importsServices": false
       },
       {
         "name": "CorrelationExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch04\\CorrelationExplorer.tsx",
-        "props": "value: number;\n  onChange: (v: number) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 544
+        "path": "interactives/probability/ch04/CorrelationExplorer.tsx",
+        "lines": 543,
+        "importsServices": false
       },
       {
         "name": "CovMatrixDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch04\\CovMatrixDemo.tsx",
-        "props": "label: string;\n  symbol: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  onChange: (v: number) => void;\n  color?: string;\n  fmt?: (v: number) => string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 640
+        "path": "interactives/probability/ch04/CovMatrixDemo.tsx",
+        "lines": 639,
+        "importsServices": false
       },
       {
         "name": "ExpectationExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch04\\ExpectationExplorer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 604
+        "path": "interactives/probability/ch04/ExpectationExplorer.tsx",
+        "lines": 603,
+        "importsServices": false
       },
       {
         "name": "VarianceExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch04\\VarianceExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  display: string;\n  onChange: (v: number) => void;\n  color: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 567
+        "path": "interactives/probability/ch04/VarianceExplorer.tsx",
+        "lines": 566,
+        "importsServices": false
       },
       {
         "name": "ChebyshevDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch05\\ChebyshevDemo.tsx",
-        "props": "label: string;\n  sub: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  display: string;\n  color: string;\n  onChange: (v: number) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 561
+        "path": "interactives/probability/ch05/ChebyshevDemo.tsx",
+        "lines": 560,
+        "importsServices": false
       },
       {
         "name": "CLTSimulator",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch05\\CLTSimulator.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  fmt: (v: number) => string;\n  onChange: (v: number) => void;\n  color?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 680
+        "path": "interactives/probability/ch05/CLTSimulator.tsx",
+        "lines": 679,
+        "importsServices": false
       },
       {
         "name": "LLNSimulator",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch05\\LLNSimulator.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  fmt: (v: number) => string;\n  onChange: (v: number) => void;\n  color?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 591
+        "path": "interactives/probability/ch05/LLNSimulator.tsx",
+        "lines": 590,
+        "importsServices": false
       },
       {
         "name": "NormalSamplingDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch06\\NormalSamplingDemo.tsx",
-        "props": "title: string;\n  subtitle: string;\n  data: number[];\n  nBins: number;\n  xMin: number;\n  xMax: number;\n  color: string;\n  colorLight: string;\n  pdfFn: (x: number) => number;\n  ksPValue: number;\n  nSamples: number;\n  xLabel?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 753
+        "path": "interactives/probability/ch06/NormalSamplingDemo.tsx",
+        "lines": 752,
+        "importsServices": false
       },
       {
         "name": "QuantileExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch06\\QuantileExplorer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 648
+        "path": "interactives/probability/ch06/QuantileExplorer.tsx",
+        "lines": 647,
+        "importsServices": false
       },
       {
         "name": "SamplingDistExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch06\\SamplingDistExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  color: string;\n  bg: string;\n  onChange: (v: number) => void;\n  format?: (v: number) => string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 921
+        "path": "interactives/probability/ch06/SamplingDistExplorer.tsx",
+        "lines": 920,
+        "importsServices": false
       },
       {
         "name": "StatisticCalculator",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch06\\StatisticCalculator.tsx",
-        "props": "data: number[];\n  mean: number;\n  stdN1: number;\n  useBiased: boolean;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 591
+        "path": "interactives/probability/ch06/StatisticCalculator.tsx",
+        "lines": 590,
+        "importsServices": false
       },
       {
         "name": "ConfidenceIntervalExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch07\\ConfidenceIntervalExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  display: string;\n  min: number;\n  max: number;\n  step: number;\n  onChange: (v: number) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 583
+        "path": "interactives/probability/ch07/ConfidenceIntervalExplorer.tsx",
+        "lines": 582,
+        "importsServices": false
       },
       {
         "name": "EstimatorComparator",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch07\\EstimatorComparator.tsx",
-        "props": "data: BoxData;\n  vMin: number;\n  vMax: number;\n  cx: number;     // 中心 x（分数）\n  halfW: number;  // 半宽（分数）",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 646
+        "path": "interactives/probability/ch07/EstimatorComparator.tsx",
+        "lines": 645,
+        "importsServices": false
       },
       {
         "name": "MLEExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch07\\MLEExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  fmt_fn: (v: number) => string;\n  onChange: (v: number) => void;\n  color?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 753
+        "path": "interactives/probability/ch07/MLEExplorer.tsx",
+        "lines": 752,
+        "importsServices": false
       },
       {
         "name": "MomentEstimator",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch07\\MomentEstimator.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  onChange: (v: number) => void;\n  color: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 882
+        "path": "interactives/probability/ch07/MomentEstimator.tsx",
+        "lines": 881,
+        "importsServices": false
       },
       {
         "name": "ErrorTypeDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch08\\ErrorTypeDemo.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  display: string;\n  color: string;\n  onChange: (v: number) => void;\n  hint?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 565
+        "path": "interactives/probability/ch08/ErrorTypeDemo.tsx",
+        "lines": 564,
+        "importsServices": false
       },
       {
         "name": "HypTestDemo",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch08\\HypTestDemo.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 637
+        "path": "interactives/probability/ch08/HypTestDemo.tsx",
+        "lines": 636,
+        "importsServices": false
       },
       {
         "name": "MeanTestExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch08\\MeanTestExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  onChange: (v: number) => void;\n  unit?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 931
+        "path": "interactives/probability/ch08/MeanTestExplorer.tsx",
+        "lines": 930,
+        "importsServices": false
       },
       {
         "name": "VarianceTestExplorer",
-        "category": "interactives",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\interactives\\probability\\ch08\\VarianceTestExplorer.tsx",
-        "props": "label: string;\n  value: number;\n  min: number;\n  max: number;\n  step: number;\n  onChange: (v: number) => void;\n  unit?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 917
+        "path": "interactives/probability/ch08/VarianceTestExplorer.tsx",
+        "lines": 916,
+        "importsServices": false
+      },
+      {
+        "name": "ReviewLabs",
+        "path": "interactives/probability/ReviewLabs.tsx",
+        "lines": 83,
+        "importsServices": false
+      },
+      {
+        "name": "SaveInteractiveButton",
+        "path": "interactives/SaveInteractiveButton.tsx",
+        "lines": 14,
+        "importsServices": false
       }
     ],
     "keyboard": [
       {
         "name": "KeyboardShortcutProvider",
-        "category": "keyboard",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\keyboard\\KeyboardShortcutProvider.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 95
+        "path": "keyboard/KeyboardShortcutProvider.tsx",
+        "lines": 94,
+        "importsServices": false
       },
       {
         "name": "ShortcutHelpOverlay",
-        "category": "keyboard",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\keyboard\\ShortcutHelpOverlay.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 86
+        "path": "keyboard/ShortcutHelpOverlay.tsx",
+        "lines": 85,
+        "importsServices": false
       }
     ],
     "layout": [
       {
         "name": "AcademicYearSwitcher",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\AcademicYearSwitcher.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 210
+        "path": "layout/AcademicYearSwitcher.tsx",
+        "lines": 209,
+        "importsServices": false
       },
       {
         "name": "AccessContext",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\AccessContext.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 34
+        "path": "layout/AccessContext.tsx",
+        "lines": 47,
+        "importsServices": true
       },
       {
         "name": "AppearanceSettingsControls",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\AppearanceSettingsControls.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": true,
-        "lines": 184
+        "path": "layout/AppearanceSettingsControls.tsx",
+        "lines": 187,
+        "importsServices": false
       },
       {
         "name": "AppShell",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\AppShell.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 372
+        "path": "layout/AppShell.tsx",
+        "lines": 617,
+        "importsServices": true
       },
       {
         "name": "BookshelfFilter",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\BookshelfFilter.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 69
+        "path": "layout/BookshelfFilter.tsx",
+        "lines": 83,
+        "importsServices": true
       },
       {
         "name": "BrandLogo",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\BrandLogo.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 155
+        "path": "layout/BrandLogo.tsx",
+        "lines": 154,
+        "importsServices": false
       },
       {
         "name": "FileTree",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\FileTree.tsx",
-        "props": "items: ContentItem[];\n  depth?: number;\n  /** 当前子树所属科目，用于构造命名空间化的选中/展开键，避免跨学科 id 碰撞 */\n  subjectId: string;\n  /** 当前子树所属分类 */\n  categoryId: string;\n  selectedId: string | null;\n  onItemSelect: (subjectId: string, categoryId: string, item: ContentItem) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 72
+        "path": "layout/FileTree.tsx",
+        "lines": 110,
+        "importsServices": false
       },
       {
         "name": "FileTreeItem",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\FileTreeItem.tsx",
-        "props": "item: ContentItem;\n  depth: number;\n  /** 命名空间化的展开/选中键 */\n  nsKey: string;\n  subjectId: string;\n  categoryId: string;\n  isExpanded: boolean;\n  isSelected: boolean;\n  onToggle: (nsKey: string) => void;\n  onSelect: (subjectId: string, categoryId: string, item: ContentItem) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 147
+        "path": "layout/FileTreeItem.tsx",
+        "lines": 150,
+        "importsServices": false
       },
       {
         "name": "GlobalSettings",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\GlobalSettings.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 432
+        "path": "layout/GlobalSettings.tsx",
+        "lines": 429,
+        "importsServices": false
       },
       {
         "name": "HomeBookshelf",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\HomeBookshelf.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 198
+        "path": "layout/HomeBookshelf.tsx",
+        "lines": 228,
+        "importsServices": true
       },
       {
         "name": "KeyboardShortcutsSettings",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\KeyboardShortcutsSettings.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 109
+        "path": "layout/KeyboardShortcutsSettings.tsx",
+        "lines": 108,
+        "importsServices": false
       },
       {
         "name": "MobileBottomNav",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\MobileBottomNav.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 59
+        "path": "layout/MobileBottomNav.tsx",
+        "lines": 2,
+        "importsServices": false
       },
       {
         "name": "MobileChapterPicker",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\MobileChapterPicker.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 310
+        "path": "layout/MobileChapterPicker.tsx",
+        "lines": 312,
+        "importsServices": false
+      },
+      {
+        "name": "MobileProductNav",
+        "path": "layout/MobileProductNav.tsx",
+        "lines": 50,
+        "importsServices": false
       },
       {
         "name": "MobileTopBar",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\MobileTopBar.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 73
+        "path": "layout/MobileTopBar.tsx",
+        "lines": 95,
+        "importsServices": false
+      },
+      {
+        "name": "MobileViewport",
+        "path": "layout/MobileViewport.tsx",
+        "lines": 50,
+        "importsServices": false
+      },
+      {
+        "name": "NewTabPlaceholder",
+        "path": "layout/NewTabPlaceholder.tsx",
+        "lines": 27,
+        "importsServices": false
+      },
+      {
+        "name": "NotePane",
+        "path": "layout/NotePane.tsx",
+        "lines": 67,
+        "importsServices": true
+      },
+      {
+        "name": "NoteSplitPane",
+        "path": "layout/NoteSplitPane.tsx",
+        "lines": 120,
+        "importsServices": true
+      },
+      {
+        "name": "NoteTabStrip",
+        "path": "layout/NoteTabStrip.tsx",
+        "lines": 189,
+        "importsServices": false
+      },
+      {
+        "name": "ProductSwitcher",
+        "path": "layout/ProductSwitcher.tsx",
+        "lines": 37,
+        "importsServices": false
       },
       {
         "name": "RightPanel",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\RightPanel.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 239
+        "path": "layout/RightPanel.tsx",
+        "lines": 300,
+        "importsServices": false
       },
       {
         "name": "RuntimeCatalogProvider",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\RuntimeCatalogProvider.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 10
+        "path": "layout/RuntimeCatalogProvider.tsx",
+        "lines": 26,
+        "importsServices": false
       },
       {
         "name": "SettingsSection",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\SettingsSection.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 71
+        "path": "layout/SettingsSection.tsx",
+        "lines": 70,
+        "importsServices": false
+      },
+      {
+        "name": "SharedNoteToolbar",
+        "path": "layout/SharedNoteToolbar.tsx",
+        "lines": 43,
+        "importsServices": false
       },
       {
         "name": "SiblingFilesPanel",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\SiblingFilesPanel.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 313
+        "path": "layout/SiblingFilesPanel.tsx",
+        "lines": 312,
+        "importsServices": false
       },
       {
         "name": "SubjectSidebar",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\SubjectSidebar.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 405
+        "path": "layout/SubjectSidebar.tsx",
+        "lines": 509,
+        "importsServices": false
       },
       {
         "name": "TocTree",
-        "category": "layout",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\layout\\TocTree.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 209
+        "path": "layout/TocTree.tsx",
+        "lines": 208,
+        "importsServices": false
+      },
+      {
+        "name": "WorkspaceActivity",
+        "path": "layout/WorkspaceActivity.tsx",
+        "lines": 9,
+        "importsServices": false
+      },
+      {
+        "name": "WorkspaceTreeContextMenu",
+        "path": "layout/WorkspaceTreeContextMenu.tsx",
+        "lines": 213,
+        "importsServices": true
       }
     ],
     "notes": [
       {
+        "name": "AnimatedInlineCard",
+        "path": "notes/AnimatedInlineCard.tsx",
+        "lines": 19,
+        "importsServices": false
+      },
+      {
+        "name": "AttachmentPicker",
+        "path": "notes/AttachmentPicker.tsx",
+        "lines": 25,
+        "importsServices": true
+      },
+      {
+        "name": "AttachmentView",
+        "path": "notes/AttachmentView.tsx",
+        "lines": 14,
+        "importsServices": false
+      },
+      {
+        "name": "BacklinksPanel",
+        "path": "notes/BacklinksPanel.tsx",
+        "lines": 65,
+        "importsServices": true
+      },
+      {
+        "name": "CodeBlockLanguageSelect",
+        "path": "notes/CodeBlockLanguageSelect.tsx",
+        "lines": 39,
+        "importsServices": false
+      },
+      {
+        "name": "ContentPageClient",
+        "path": "notes/ContentPageClient.tsx",
+        "lines": 475,
+        "importsServices": true
+      },
+      {
+        "name": "DirectiveBlockView",
+        "path": "notes/DirectiveBlockView.tsx",
+        "lines": 92,
+        "importsServices": false
+      },
+      {
         "name": "DynamicRecording",
-        "category": "notes",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\notes\\DynamicRecording.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 12
+        "path": "notes/DynamicRecording.tsx",
+        "lines": 12,
+        "importsServices": true
+      },
+      {
+        "name": "GraphView",
+        "path": "notes/GraphView.tsx",
+        "lines": 285,
+        "importsServices": true
+      },
+      {
+        "name": "ImageConversionView",
+        "path": "notes/ImageConversionView.tsx",
+        "lines": 39,
+        "importsServices": false
+      },
+      {
+        "name": "ImagePasteDialog",
+        "path": "notes/ImagePasteDialog.tsx",
+        "lines": 61,
+        "importsServices": true
+      },
+      {
+        "name": "ImportVaultDialog",
+        "path": "notes/ImportVaultDialog.tsx",
+        "lines": 331,
+        "importsServices": true
+      },
+      {
+        "name": "MathEditor",
+        "path": "notes/MathEditor.tsx",
+        "lines": 320,
+        "importsServices": false
+      },
+      {
+        "name": "MathShortcutSettings",
+        "path": "notes/MathShortcutSettings.tsx",
+        "lines": 23,
+        "importsServices": false
+      },
+      {
+        "name": "MathSymbolPalette",
+        "path": "notes/MathSymbolPalette.tsx",
+        "lines": 59,
+        "importsServices": false
+      },
+      {
+        "name": "MemberSearch",
+        "path": "notes/MemberSearch.tsx",
+        "lines": 12,
+        "importsServices": true
+      },
+      {
+        "name": "MermaidCodeBlockView",
+        "path": "notes/MermaidCodeBlockView.tsx",
+        "lines": 51,
+        "importsServices": false
+      },
+      {
+        "name": "MermaidEditor",
+        "path": "notes/MermaidEditor.tsx",
+        "lines": 82,
+        "importsServices": false
+      },
+      {
+        "name": "NoteAttachmentCard",
+        "path": "notes/NoteAttachmentCard.tsx",
+        "lines": 72,
+        "importsServices": false
+      },
+      {
+        "name": "NoteLink",
+        "path": "notes/NoteLink.tsx",
+        "lines": 35,
+        "importsServices": false
       },
       {
         "name": "NoteRenderer",
-        "category": "notes",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\notes\\NoteRenderer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 25
+        "path": "notes/NoteRenderer.tsx",
+        "lines": 24,
+        "importsServices": false
       },
       {
         "name": "NoteRendererServer",
-        "category": "notes",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\notes\\NoteRendererServer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 26
+        "path": "notes/NoteRendererServer.tsx",
+        "lines": 25,
+        "importsServices": false
       },
       {
         "name": "NoteSkeleton",
-        "category": "notes",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\notes\\NoteSkeleton.tsx",
-        "props": "width?: string | number;\n  height?: number;\n  className?: string;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 95
+        "path": "notes/NoteSkeleton.tsx",
+        "lines": 94,
+        "importsServices": false
+      },
+      {
+        "name": "NoteToolbar",
+        "path": "notes/NoteToolbar.tsx",
+        "lines": 175,
+        "importsServices": false
+      },
+      {
+        "name": "NoteWorkspaceActions",
+        "path": "notes/NoteWorkspaceActions.tsx",
+        "lines": 256,
+        "importsServices": true
+      },
+      {
+        "name": "ProgressiveNoteRenderer",
+        "path": "notes/ProgressiveNoteRenderer.tsx",
+        "lines": 59,
+        "importsServices": false
       },
       {
         "name": "SelectionPopover",
-        "category": "notes",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\notes\\SelectionPopover.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 270
+        "path": "notes/SelectionPopover.tsx",
+        "lines": 301,
+        "importsServices": false
+      },
+      {
+        "name": "ToolbarColorPicker",
+        "path": "notes/ToolbarColorPicker.tsx",
+        "lines": 141,
+        "importsServices": false
+      },
+      {
+        "name": "UploadPlaceholderView",
+        "path": "notes/UploadPlaceholderView.tsx",
+        "lines": 40,
+        "importsServices": false
+      },
+      {
+        "name": "UploadQueue",
+        "path": "notes/UploadQueue.tsx",
+        "lines": 11,
+        "importsServices": false
+      },
+      {
+        "name": "VisualNoteEditor",
+        "path": "notes/VisualNoteEditor.tsx",
+        "lines": 981,
+        "importsServices": true
       }
     ],
     "quiz": [
       {
         "name": "QuizMarkdown",
-        "category": "quiz",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\quiz\\QuizMarkdown.tsx",
-        "props": "children: string;\n  /** 行内渲染：把段落降级为 span，避免选项/题干内出现块级换行。 */\n  inline?: boolean;\n  className?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 94
+        "path": "quiz/QuizMarkdown.tsx",
+        "lines": 93,
+        "importsServices": false
       },
       {
         "name": "QuizQuestion",
-        "category": "quiz",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\quiz\\QuizQuestion.tsx",
-        "props": "question: Q;\r\n  index: number;\r\n  total: number;\r\n  mode: \"answer\" | \"review\";\r\n  answer: UserAnswer;\r\n  onChange?: (a: UserAnswer) => void;\r\n  result?: QuestionResult;\r\n  /** 可选：外部控制提示状态；未提供时使用全局 quiz store。 */\r\n  hintsUsed?: string[];\r\n  onUseHint?: (id: string) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 903
+        "path": "quiz/QuizQuestion.tsx",
+        "lines": 902,
+        "importsServices": false
       },
       {
         "name": "QuizScoring",
-        "category": "quiz",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\quiz\\QuizScoring.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 176
+        "path": "quiz/QuizScoring.tsx",
+        "lines": 175,
+        "importsServices": false
       },
       {
         "name": "QuizSummary",
-        "category": "quiz",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\quiz\\QuizSummary.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 246
+        "path": "quiz/QuizSummary.tsx",
+        "lines": 245,
+        "importsServices": false
       },
       {
         "name": "QuizTab",
-        "category": "quiz",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\quiz\\QuizTab.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 394
+        "path": "quiz/QuizTab.tsx",
+        "lines": 393,
+        "importsServices": false
+      }
+    ],
+    "resources": [
+      {
+        "name": "ResourceCenter",
+        "path": "resources/ResourceCenter.tsx",
+        "lines": 127,
+        "importsServices": true
+      },
+      {
+        "name": "ResourcePreview",
+        "path": "resources/ResourcePreview.tsx",
+        "lines": 18,
+        "importsServices": true
       }
     ],
     "review": [
       {
         "name": "CollapsibleSection",
-        "category": "review",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\review\\CollapsibleSection.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 62
+        "path": "review/CollapsibleSection.tsx",
+        "lines": 61,
+        "importsServices": false
       },
       {
         "name": "FlipCard",
-        "category": "review",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\review\\FlipCard.tsx",
-        "props": "card: FlipCardCard;\n  flipped: boolean;\n  onFlip: () => void;\n  className?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 192
+        "path": "review/FlipCard.tsx",
+        "lines": 191,
+        "importsServices": false
       },
       {
         "name": "RecordPreviewLayer",
-        "category": "review",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\review\\RecordPreviewLayer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 17
+        "path": "review/RecordPreviewLayer.tsx",
+        "lines": 16,
+        "importsServices": false
       },
       {
         "name": "RecordPreviewWindow",
-        "category": "review",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\review\\RecordPreviewWindow.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 698
+        "path": "review/RecordPreviewWindow.tsx",
+        "lines": 697,
+        "importsServices": false
+      },
+      {
+        "name": "ReviewPage",
+        "path": "review/ReviewPage.tsx",
+        "lines": 509,
+        "importsServices": false
       }
     ],
     "search": [
       {
         "name": "GlobalSearchButton",
-        "category": "search",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\search\\GlobalSearchButton.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 148
+        "path": "search/GlobalSearchButton.tsx",
+        "lines": 168,
+        "importsServices": true
+      }
+    ],
+    "setup": [
+      {
+        "name": "SetupWizard",
+        "path": "setup/SetupWizard.tsx",
+        "lines": 57,
+        "importsServices": true
       }
     ],
     "shared": [
       {
+        "name": "ChoiceMenu",
+        "path": "shared/ChoiceMenu.tsx",
+        "lines": 7,
+        "importsServices": false
+      },
+      {
         "name": "CodeBlock",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\CodeBlock.tsx",
-        "props": "className?: string;\n  children?: React.ReactNode;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 48
+        "path": "shared/CodeBlock.tsx",
+        "lines": 67,
+        "importsServices": false
       },
       {
         "name": "ContentImage",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\ContentImage.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 50
+        "path": "shared/ContentImage.tsx",
+        "lines": 50,
+        "importsServices": false
       },
       {
         "name": "Callout",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\Callout.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 24
+        "path": "shared/directives/Callout.tsx",
+        "lines": 37,
+        "importsServices": false
       },
       {
         "name": "CauseEffect",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\CauseEffect.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 73
+        "path": "shared/directives/CauseEffect.tsx",
+        "lines": 72,
+        "importsServices": false
       },
       {
         "name": "CompareTable",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\CompareTable.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 20
+        "path": "shared/directives/CompareTable.tsx",
+        "lines": 19,
+        "importsServices": false
       },
       {
         "name": "ConceptCard",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\ConceptCard.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 40
+        "path": "shared/directives/ConceptCard.tsx",
+        "lines": 39,
+        "importsServices": false
       },
       {
         "name": "Derivation",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\Derivation.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 17
+        "path": "shared/directives/Derivation.tsx",
+        "lines": 16,
+        "importsServices": false
       },
       {
         "name": "EventCard",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\EventCard.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 63
+        "path": "shared/directives/EventCard.tsx",
+        "lines": 62,
+        "importsServices": false
       },
       {
         "name": "Figure",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\Figure.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 40
+        "path": "shared/directives/Figure.tsx",
+        "lines": 40,
+        "importsServices": false
       },
       {
         "name": "HistoryMap",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\HistoryMap.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 58
+        "path": "shared/directives/HistoryMap.tsx",
+        "lines": 57,
+        "importsServices": false
       },
       {
         "name": "KeyPoint",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\KeyPoint.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 20
+        "path": "shared/directives/KeyPoint.tsx",
+        "lines": 19,
+        "importsServices": false
+      },
+      {
+        "name": "LearningAnimation",
+        "path": "shared/directives/LearningAnimation.tsx",
+        "lines": 20,
+        "importsServices": true
       },
       {
         "name": "MediaEmbed",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\MediaEmbed.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 108
+        "path": "shared/directives/MediaEmbed.tsx",
+        "lines": 110,
+        "importsServices": false
       },
       {
         "name": "MemoryCard",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\MemoryCard.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 239
+        "path": "shared/directives/MemoryCard.tsx",
+        "lines": 238,
+        "importsServices": false
       },
       {
         "name": "Timeline",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\directives\\Timeline.tsx",
-        "props": "node?: { properties?: Record<string, unknown>",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 70
+        "path": "shared/directives/Timeline.tsx",
+        "lines": 69,
+        "importsServices": false
+      },
+      {
+        "name": "FloatingPanel",
+        "path": "shared/FloatingPanel.tsx",
+        "lines": 8,
+        "importsServices": false
+      },
+      {
+        "name": "HorizontalScrollbar",
+        "path": "shared/HorizontalScrollbar.tsx",
+        "lines": 32,
+        "importsServices": false
       },
       {
         "name": "ImageLightbox",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\ImageLightbox.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 140
+        "path": "shared/ImageLightbox.tsx",
+        "lines": 140,
+        "importsServices": false
+      },
+      {
+        "name": "MermaidBlock",
+        "path": "shared/MermaidBlock.tsx",
+        "lines": 56,
+        "importsServices": false
       },
       {
         "name": "MessageContextMenu",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\MessageContextMenu.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 132
+        "path": "shared/MessageContextMenu.tsx",
+        "lines": 143,
+        "importsServices": false
+      },
+      {
+        "name": "PdfPreview",
+        "path": "shared/PdfPreview.tsx",
+        "lines": 158,
+        "importsServices": true
       },
       {
         "name": "ResizeLoader",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\ResizeLoader.tsx",
-        "props": "",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 63
+        "path": "shared/ResizeLoader.tsx",
+        "lines": 62,
+        "importsServices": false
       },
       {
         "name": "SubjectIcon",
-        "category": "shared",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\shared\\SubjectIcon.tsx",
-        "props": "/** 学科 id；与 iconName 二选一，同时给时 iconName 优先。 */\n  subjectId?: string;\n  /** 直接指定 lucide 图标名（如 manifest / navTree 已带 icon 字段时）。 */\n  iconName?: string;\n  size?: number;\n  className?: string;\n  style?: React.CSSProperties;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 21
+        "path": "shared/SubjectIcon.tsx",
+        "lines": 20,
+        "importsServices": false
+      },
+      {
+        "name": "SurfaceBoundary",
+        "path": "shared/SurfaceBoundary.tsx",
+        "lines": 22,
+        "importsServices": false
+      },
+      {
+        "name": "TaskDialog",
+        "path": "shared/TaskDialog.tsx",
+        "lines": 25,
+        "importsServices": false
+      },
+      {
+        "name": "TreeDisclosure",
+        "path": "shared/TreeDisclosure.tsx",
+        "lines": 7,
+        "importsServices": false
+      },
+      {
+        "name": "WorkspaceLoading",
+        "path": "shared/WorkspaceLoading.tsx",
+        "lines": 4,
+        "importsServices": false
       }
     ],
     "ui": [
       {
         "name": "AnimatedCollapse",
-        "category": "ui",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\ui\\AnimatedCollapse.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 80
+        "path": "ui/AnimatedCollapse.tsx",
+        "lines": 79,
+        "importsServices": false
       },
       {
         "name": "LazyVisible",
-        "category": "ui",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\ui\\LazyVisible.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 57
+        "path": "ui/LazyVisible.tsx",
+        "lines": 56,
+        "importsServices": false
+      },
+      {
+        "name": "Tip",
+        "path": "ui/Tip.tsx",
+        "lines": 55,
+        "importsServices": false
       },
       {
         "name": "Tooltip",
-        "category": "ui",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\ui\\Tooltip.tsx",
-        "props": "children: React.ReactNode;\n  content: React.ReactNode;\n  placement?: 'top' | 'bottom' | 'left' | 'right';\n  gap?: number;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 104
+        "path": "ui/Tooltip.tsx",
+        "lines": 103,
+        "importsServices": false
       }
     ],
     "video": [
       {
+        "name": "ClassroomProgress",
+        "path": "video/ClassroomProgress.tsx",
+        "lines": 27,
+        "importsServices": true
+      },
+      {
         "name": "InlinePlayer",
-        "category": "video",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\video\\InlinePlayer.tsx",
-        "props": "video: VideoEntry;\n  /** 切换到小窗播放时回调，传递当前播放位置 */\n  onPip?: (currentTime: number) => void;\n  /** 从小窗切回时的续播位置（秒） */\n  startTime?: number;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 99
+        "path": "video/InlinePlayer.tsx",
+        "lines": 98,
+        "importsServices": false
+      },
+      {
+        "name": "LectureDock",
+        "path": "video/LectureDock.tsx",
+        "lines": 53,
+        "importsServices": true
+      },
+      {
+        "name": "LecturePlayer",
+        "path": "video/LecturePlayer.tsx",
+        "lines": 115,
+        "importsServices": true
       },
       {
         "name": "PipPlayer",
-        "category": "video",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\video\\PipPlayer.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 219
+        "path": "video/PipPlayer.tsx",
+        "lines": 218,
+        "importsServices": false
       },
       {
         "name": "VideoTab",
-        "category": "video",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\video\\VideoTab.tsx",
-        "props": "",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 182
+        "path": "video/VideoTab.tsx",
+        "lines": 181,
+        "importsServices": true
       }
     ],
     "visualizations": [
       {
         "name": "DistributionChart",
-        "category": "visualizations",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\visualizations\\primitives\\DistributionChart.tsx",
-        "props": "type: 'normal' | 'binomial' | 'poisson';\r\n  params?: {\r\n    /** normal: 均值，默认 0 */\r\n    mu?: number;\r\n    /** normal: 标准差，默认 1 */\r\n    sigma?: number;\r\n    /** binomial: 试验次数，默认 10 */\r\n    n?: number;\r\n    /** binomial: 成功概率，默认 0.5 */\r\n    p?: number;\r\n    /** poisson: 参数，默认 3 */\r\n    lambda?: number;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 426
+        "path": "visualizations/primitives/DistributionChart.tsx",
+        "lines": 425,
+        "importsServices": false
       },
       {
         "name": "FormulaSteps",
-        "category": "visualizations",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\visualizations\\primitives\\FormulaSteps.tsx",
-        "props": "/** 每个元素是一步（可能含 LaTeX，使用 $...$ 或 $$...$$） */\r\n  steps: string[];\r\n  /** 默认 false（静态模式：展示完整列表） */\r\n  interactive?: boolean;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 257
+        "path": "visualizations/primitives/FormulaSteps.tsx",
+        "lines": 256,
+        "importsServices": false
       },
       {
         "name": "VennDiagram",
-        "category": "visualizations",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\visualizations\\primitives\\VennDiagram.tsx",
-        "props": "/** P(A)，默认 0.6 */\r\n  a?: number;\r\n  /** P(B)，默认 0.5 */\r\n  b?: number;\r\n  /** P(A∩B)，默认 0.2 */\r\n  ab?: number;\r\n  /** 默认 false（静态模式） */\r\n  interactive?: boolean;\r\n  /** 当交互模式下数值变化时回调 */\r\n  onChange?: (a: number, b: number, ab: number) => void;\r\n  /** 高亮模式预设；与 highlightRegions 二选一 */\r\n  highlightMode?: VennHighlightMode;\r\n  /** 显式指定高亮区域（优先于 highlightMode） */\r\n  highlightRegions?: VennRegion[];",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 435
+        "path": "visualizations/primitives/VennDiagram.tsx",
+        "lines": 434,
+        "importsServices": false
       },
       {
         "name": "VideoPlayer",
-        "category": "visualizations",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\visualizations\\primitives\\VideoPlayer.tsx",
-        "props": "src: string;\r\n  title?: string;\r\n  poster?: string;\r\n  subjectId?: SubjectId;",
-        "hasDefault": false,
-        "hasNamed": true,
-        "lines": 119
+        "path": "visualizations/primitives/VideoPlayer.tsx",
+        "lines": 118,
+        "importsServices": false
       }
     ],
     "window": [
       {
         "name": "OverflowMenu",
-        "category": "window",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\window\\OverflowMenu.tsx",
-        "props": "windows: ManagedWindow[];\n  onToggle: (id: string) => void;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 99
+        "path": "window/OverflowMenu.tsx",
+        "lines": 98,
+        "importsServices": false
       },
       {
         "name": "WindowChrome",
-        "category": "window",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\window\\WindowChrome.tsx",
-        "props": "title: string;\n  icon?: ReactNode;\n  onClose: () => void;\n  onMinimize: () => void;\n  onFullscreen: () => void;\n  isFullscreen: boolean;\n  isMinimized?: boolean;\n  children: ReactNode;\n  onDragStart?: (event: React.PointerEvent) => void;\n  showExternalLink?: boolean;\n  externalLinkLabel?: string;\n  onExternalLink?: () => void;\n  actions?: ReactNode;\n  className?: string;\n  bodyClassName?: string;",
-        "hasDefault": true,
-        "hasNamed": false,
-        "lines": 122
+        "path": "window/WindowChrome.tsx",
+        "lines": 123,
+        "importsServices": false
       },
       {
         "name": "WindowTaskbar",
-        "category": "window",
-        "filePath": "D:\\5plus1\\DEV\\KeZhan\\KeZhan-notebook\\KeZhan-notebook\\.work\\server-7-clean\\components\\window\\WindowTaskbar.tsx",
-        "props": "host: \"topbar\" | \"content-tab\";",
-        "hasDefault": true,
-        "hasNamed": true,
-        "lines": 154
+        "path": "window/WindowTaskbar.tsx",
+        "lines": 153,
+        "importsServices": false
       }
     ]
   }
