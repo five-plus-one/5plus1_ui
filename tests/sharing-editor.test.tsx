@@ -90,3 +90,14 @@ it('provides table commands from the editor context menu while preserving the se
  fireEvent.click(screen.getByRole('menuitem',{name:'向下插入行'}));
  expect(editor.getJSON().content?.[0].content).toHaveLength(3);
 });
+
+it('keeps modified Home and End navigation within the active editor document',async()=>{
+ let editor!:Editor;render(<div contentEditable suppressContentEditableWarning><div contentEditable={false}><MarkdownEditor markdown={'第一段\n\n最后一段'} onReady={instance=>{editor=instance;}}/></div></div>);
+ await waitFor(()=>expect(editor).toBeDefined());
+ act(()=>editor.commands.focus('start'));
+ fireEvent.keyDown(editor.view.dom,{key:'End',ctrlKey:true});
+ expect(editor.state.selection.head).toBe(editor.state.doc.content.size-1);
+ fireEvent.keyDown(editor.view.dom,{key:'Home',ctrlKey:true,shiftKey:true});
+ expect(editor.state.selection.head).toBe(1);expect(editor.state.selection.anchor).toBe(editor.state.doc.content.size-1);
+ fireEvent.keyDown(editor.view.dom,{key:'Home',metaKey:true});expect(editor.state.selection.empty).toBe(true);expect(editor.state.selection.head).toBe(1);
+});
