@@ -28,6 +28,9 @@ export interface ExplorerResource {
   thumbnailUrl?: string;
 }
 export interface ResourceExplorerProps {
+  availableActions?: ("download" | "share" | "rename" | "delete")[];
+  query?: string;
+  onQueryChange?: (query: string) => void;
   items: ExplorerResource[];
   folderId?: string | null;
   onFolderChange: (id: string | null) => void;
@@ -54,6 +57,9 @@ const bytes = (n?: number) =>
         : `${(n / 1048576).toFixed(1)} MB`;
 /** Controlled resource navigation and selection; storage and permissions belong to the host. */
 export function ResourceExplorer({
+  availableActions = ["download", "share", "rename", "delete"],
+  query: controlledQuery,
+  onQueryChange,
   items,
   folderId = null,
   onFolderChange,
@@ -79,8 +85,10 @@ export function ResourceExplorer({
   } | null>(null);
   const [columns, setColumns] = useState(1);
   const [view, setView] = useState<"grid" | "list">("list"),
-    [query, setQuery] = useState(""),
+    [localQuery, setLocalQuery] = useState(""),
     [sort, setSort] = useState("name");
+  const query = controlledQuery ?? localQuery;
+  const setQuery = (next: string) => { setLocalQuery(next); onQueryChange?.(next); };
   const folder = items.find((i) => i.id === folderId),
     selected = items.filter((i) => selectedIds.includes(i.id));
   const ancestors: ExplorerResource[] = [];
@@ -202,7 +210,7 @@ export function ResourceExplorer({
             danger: true,
             separator: true,
           },
-        ].map((a) => ({
+        ].filter(a => availableActions.includes(a.id as "download" | "share" | "rename" | "delete")).map((a) => ({
           ...a,
           onSelect: () =>
             onAction(
@@ -391,7 +399,7 @@ export function ResourceExplorer({
                 onSelectionChange(visible.map((i) => i.id));
               }
               if (e.key === "Escape") onSelectionChange([]);
-              if (e.key === "Delete" && selected.length && onAction) {
+              if (e.key === "Delete" && selected.length && onAction && availableActions.includes("delete")) {
                 e.preventDefault();
                 onAction("delete", selected);
               }

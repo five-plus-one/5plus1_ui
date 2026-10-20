@@ -79,7 +79,7 @@ it("filters review records before beginning the selected review session", () => 
       onPreview={() => {}}
     />,
   );
-  fireEvent.click(screen.getByRole("button", { name: "复习范围" }));
+  fireEvent.click(screen.getByRole("combobox", { name: "复习范围" }));
   fireEvent.click(screen.getByRole("option", { name: "定期复习" }));
   fireEvent.click(screen.getByRole("button", { name: "开始复习" }));
   expect(begin).toHaveBeenCalledWith(["b"]);

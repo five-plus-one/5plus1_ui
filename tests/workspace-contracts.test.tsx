@@ -64,7 +64,7 @@ it("retains an invitation on failure and delegates controlled permissions", asyn
     />,
   );
   expect(screen.queryByLabelText("所有者的权限")).not.toBeInTheDocument();
-  fireEvent.click(screen.getByRole("button", { name: "小林的权限" }));
+  fireEvent.click(screen.getByRole("combobox", { name: "小林的权限" }));
   fireEvent.click(screen.getByRole("option", { name: "可编辑" }));
   expect(role).toHaveBeenCalledWith("reader", "edit");
   fireEvent.change(screen.getByLabelText("邀请成员"), {

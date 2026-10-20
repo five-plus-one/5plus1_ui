@@ -1,9 +1,13 @@
-import { useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { useLayoutEffect, useRef, useState, type ReactNode, type RefObject, type CSSProperties } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { ArrowDown } from 'lucide-react';
 
 export interface Message { id: string; role: 'user' | 'assistant' | 'system'; content: string; timestamp?: Date }
 export interface MessageListProps<T extends { id: string } = Message> {
+  footer?: ReactNode;
+  loadingIndicator?: ReactNode;
+  className?: string;
+  style?: CSSProperties;
   messages: T[];
   isLoading?: boolean;
   error?: string | null;
@@ -24,7 +28,7 @@ export interface MessageListProps<T extends { id: string } = Message> {
   estimateSize?: number;
 }
 
-export function MessageList<T extends { id: string } = Message>({ messages, isLoading = false, error, onClearError, onFollowUpClick, followUpQuestions = [], bottomInset = 0, renderMessage, emptyState, hydrated = true, sessionId = 'default', scrollContainerRef, hasOlder, loadingOlder, onLoadOlder, virtualize = messages.length > 30, estimateSize = 100 }: MessageListProps<T>) {
+export function MessageList<T extends { id: string } = Message>({ messages, isLoading = false, error, onClearError, onFollowUpClick, followUpQuestions = [], bottomInset = 0, renderMessage, emptyState, hydrated = true, sessionId = 'default', scrollContainerRef, hasOlder, loadingOlder, onLoadOlder, virtualize = messages.length > 30, estimateSize = 100, footer, loadingIndicator, className = '', style }: MessageListProps<T>) {
   const internalRef = useRef<HTMLDivElement>(null);
   const scrollRef = scrollContainerRef || internalRef;
   const contentRef = useRef<HTMLDivElement>(null);
@@ -78,7 +82,7 @@ export function MessageList<T extends { id: string } = Message>({ messages, isLo
     return () => { observer.disconnect(); cancelAnimationFrame(frame); };
   }, [scrollRef]);
   const render = (message: T) => renderMessage ? renderMessage(message) : <MessageBubble message={message as unknown as Message} />;
-  return <div className="fp-message-list-container">
+  return <div className={`fp-message-list-container ${className}`} style={style}>
     <div ref={scrollRef} className="fp-message-list" role="region" aria-label="对话记录" tabIndex={0}
       onScroll={() => { const el = scrollRef.current!; pinned.current = el.scrollHeight - el.scrollTop - el.clientHeight < 48; setShowLatest(!pinned.current); previous.current.top = el.scrollTop; previous.current.height = el.scrollHeight; positions.current.set(sessionId, { top: el.scrollTop, pinned: pinned.current }); }}>
       <div ref={contentRef} className="fp-message-list-content" style={{ paddingBottom: Math.max(0, Number.isFinite(bottomInset) ? bottomInset : 0), overflowAnchor: 'none' }}>
@@ -86,7 +90,8 @@ export function MessageList<T extends { id: string } = Message>({ messages, isLo
         {!hydrated ? <p role="status">正在打开对话…</p> : messages.length === 0 ? emptyState : virtualize ? <div style={{ height: virtualizer.getTotalSize(), position: 'relative' }}>
           {virtualizer.getVirtualItems().map(row => <div key={row.key} data-index={row.index} ref={virtualizer.measureElement} style={{ position: 'absolute', top: 0, left: 0, width: '100%', transform: `translateY(${row.start}px)` }}><div className="fp-message-row">{render(messages[row.index])}</div></div>)}
         </div> : messages.map(message => <div className="fp-message-row" key={message.id}>{render(message)}</div>)}
-        {isLoading && <div className="fp-message-loading" role="status">正在回复…</div>}
+        {isLoading && (loadingIndicator === undefined ? <div className="fp-message-loading" role="status">正在回复…</div> : loadingIndicator)}
+        {footer}
         {followUpQuestions.length > 0 && <div className="fp-follow-ups" aria-label="继续提问">{followUpQuestions.map(question => <button type="button" key={question} onClick={() => onFollowUpClick?.(question)}>{question}</button>)}</div>}
       </div>
     </div>

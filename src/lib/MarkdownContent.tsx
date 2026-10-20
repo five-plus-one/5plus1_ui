@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import type { PluggableList } from "unified";
 import { ChevronDown } from "lucide-react";
 import { CollapseTransition } from "./CollapseTransition";
 import ReactMarkdown, { type Components } from "react-markdown";
@@ -86,6 +87,9 @@ export interface RenderDirectiveProps {
   source?: string;
 }
 export interface MarkdownContentProps {
+  components?: Components;
+  remarkPlugins?: PluggableList;
+  rehypePlugins?: PluggableList;
   markdown: string;
   resolveResourceUrl?: (url: string) => string;
   renderDirective?: (props: RenderDirectiveProps) => ReactNode;
@@ -151,6 +155,9 @@ export function MarkdownContent({
   renderDirective,
   onOpenResource,
   onOpenLink,
+  components: hostComponents,
+  remarkPlugins: hostRemarkPlugins,
+  rehypePlugins: hostRehypePlugins,
 }: MarkdownContentProps) {
   const resolve = (url: string) => safeUrl(resolveResourceUrl?.(url) ?? url);
   const render = ({
@@ -407,14 +414,14 @@ export function MarkdownContent({
   return (
     <article className="fp-markdown-content">
       <ReactMarkdown
-        remarkPlugins={[
+        remarkPlugins={hostRemarkPlugins || [
           remarkGfm,
           remarkMath,
           remarkDirective,
           remarkCalloutSoftBreaks,
           directiveNodes,
         ]}
-        rehypePlugins={[
+        rehypePlugins={hostRehypePlugins || [
           rehypeRaw,
           readingStyles,
           [rehypeSanitize, readingSchema],
@@ -425,7 +432,7 @@ export function MarkdownContent({
           ],
           readingHeadingIds,
         ]}
-        components={components}
+        components={{...components, ...hostComponents}}
       >
         {normalizeDirectiveLabels(markdown)}
       </ReactMarkdown>

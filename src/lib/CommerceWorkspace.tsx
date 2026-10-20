@@ -177,6 +177,12 @@ export function CommerceWorkspace({
                       value={draft.costMultiplier ?? 1}
                       onChange={(v) => change("costMultiplier", Number(v))}
                     />
+                    <WorkspaceField
+                      label="单次回复积分"
+                      numeric
+                      value={draft.replyCredits ?? 0}
+                      onChange={(v) => change("replyCredits", Number(v))}
+                    />
                   </div>
                 </WorkspaceSection>
                 <WorkspaceSection

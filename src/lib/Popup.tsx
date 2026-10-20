@@ -12,6 +12,8 @@ import { usePortalTheme } from "./usePortalTheme";
 
 export interface PopupProps {
   label: string;
+  triggerRole?: "combobox";
+  triggerId?: string;
   children: (close: () => void) => ReactNode;
   menu?: boolean;
   icon?: ReactNode;
@@ -24,6 +26,7 @@ export interface PopupProps {
 /** Anchored surface with dismissal, keyboard navigation and viewport bounds. */
 export function Popup({
   label,
+  triggerRole, triggerId,
   children,
   menu = false,
   icon,
@@ -168,6 +171,8 @@ export function Popup({
       <button
         type="button"
         ref={trigger}
+          role={triggerRole}
+          id={triggerId}
         disabled={disabled}
         aria-label={label}
         aria-expanded={open}

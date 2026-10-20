@@ -14,6 +14,9 @@ export interface VideoPlayerProps {
   title?: string;
   /** 初始播放位置（秒） */
   startAt?: number;
+  autoPlay?: boolean;
+  onReady?: (video: HTMLVideoElement) => void;
+  onWindowPlayback?: (time: number) => void;
   onTimeUpdate?: (time: number) => void;
   onEnded?: () => void;
   resolveSource?: (src: string, signal: AbortSignal) => Promise<string>;
@@ -39,6 +42,7 @@ export function VideoPlayer({
   poster,
   title,
   startAt = 0,
+  autoPlay = false, onReady, onWindowPlayback,
   onTimeUpdate,
   onEnded,
   resolveSource,
@@ -52,6 +56,7 @@ export function VideoPlayer({
   const host = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const resume = useRef(startAt), sourceId = useRef(src);
+  const startedSource = useRef<string | null>(null);
   const [caption, setCaption] = useState(tracks.findIndex(track => track.default));
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(startAt);
@@ -154,6 +159,7 @@ export function VideoPlayer({
           poster={poster}
           playsInline
           preload="metadata"
+          onCanPlay={event => { const element = event.currentTarget; onReady?.(element); if (autoPlay && startedSource.current !== src) { startedSource.current = src; void element.play().catch(() => {}); } }}
           onClick={() => { host.current?.focus({ preventScroll: true }); toggle(); }}
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
@@ -246,7 +252,7 @@ export function VideoPlayer({
             if (video.current) video.current.volume = next;
           }}
         />
-        <button type="button" aria-label="画中画" disabled={typeof document !== "undefined" && !document.pictureInPictureEnabled} onClick={pip}>
+        <button type="button" aria-label={onWindowPlayback ? "小窗播放" : "画中画"} disabled={!onWindowPlayback && typeof document !== "undefined" && !document.pictureInPictureEnabled} onClick={onWindowPlayback ? () => onWindowPlayback(video.current?.currentTime || 0) : pip}>
           <PictureInPicture size={16} />
         </button>
         <button

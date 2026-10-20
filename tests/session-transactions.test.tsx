@@ -279,10 +279,10 @@ it("keeps a parent anchored surface open while choosing in a nested menu", async
   }
   render(<Sample />);
   fireEvent.click(screen.getByRole("button", { name: "打开面板" }));
-  fireEvent.click(screen.getByRole("button", { name: "阅读偏好" }));
+  fireEvent.click(screen.getByRole("combobox", { name: "阅读偏好" }));
   fireEvent.click(screen.getByRole("option", { name: "舒展" }));
   expect(screen.getByRole("dialog", { name: "面板" })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: "阅读偏好" })).toHaveTextContent(
+  expect(screen.getByRole("combobox", { name: "阅读偏好" })).toHaveTextContent(
     "舒展",
   );
 });

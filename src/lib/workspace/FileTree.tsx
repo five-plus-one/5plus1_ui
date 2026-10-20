@@ -1,4 +1,4 @@
-import { useState, useRef, type KeyboardEvent, type MouseEvent, type DragEvent } from "react";
+import { useState, useRef, type KeyboardEvent, type MouseEvent, type DragEvent, type ReactNode } from "react";
 import {
   ChevronRight,
   Folder,
@@ -17,6 +17,7 @@ export type FileTreeNode = {
   detail?: string;
 };
 export type FileTreeProps = {
+  renderRow?: (node: FileTreeNode, row: ReactNode) => ReactNode;
   items: FileTreeNode[];
   selectedId?: string;
   onSelect: (item: FileTreeNode) => void;
@@ -37,6 +38,7 @@ export type FileTreeProps = {
   label?: string;
 };
 export function FileTree({
+  renderRow,
   items,
   selectedId,
   onSelect,
@@ -133,7 +135,7 @@ export function FileTree({
         ...(node.kind==='folder'&&onCreate?[{id:'create',label:'新建文件',onSelect:()=>onCreate(node)}]:[]),
         ...(onRename?[{id:'rename',label:'重命名',onSelect:()=>onRename(node)}]:[]),
         ...(onRemove?[{id:'remove',label:'移除',danger:true,separator:true,onSelect:()=>onRemove(node)}]:[]),
-      ]}><div role="none">
+      ]}><div role="none"><FileTreeRowSlot node={node} renderRow={renderRow}>
         <div
           role="treeitem"
           aria-level={depth + 1}
@@ -212,7 +214,7 @@ export function FileTree({
             </span>
           )}
         </div>
-        {node.kind === "folder" && (
+        </FileTreeRowSlot>{node.kind === "folder" && (
           <CollapseTransition isOpen={expanded.has(node.id)}><div role="group">{render(node.children || [], depth + 1)}</div></CollapseTransition>
         )}
       </div></ContextMenu>
@@ -225,3 +227,4 @@ export function FileTree({
     </div>
   );
 }
+function FileTreeRowSlot({node,renderRow,children}:{node:FileTreeNode;renderRow?:FileTreeProps["renderRow"];children:ReactNode}) { return <>{renderRow ? renderRow(node,children) : children}</>; }

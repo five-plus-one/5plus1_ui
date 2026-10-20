@@ -82,7 +82,7 @@ it("directs invalid select validation to its themed trigger", () => {
     />,
   );
   fireEvent.invalid(container.querySelector("select")!);
-  expect(screen.getByRole("button", { name: "课程" })).toHaveFocus();
+  expect(screen.getByRole("combobox", { name: "课程" })).toHaveFocus();
   expect(screen.getByRole("alert")).toBeInTheDocument();
   expect(container.querySelector("select")).toHaveAttribute("hidden");
 });

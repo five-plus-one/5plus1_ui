@@ -41,7 +41,7 @@ it('keeps HEX input synchronized with controlled color updates',()=>{
 });
 it('focuses selection search and chooses a matching enabled result with Enter',async()=>{
  const change=vi.fn();render(<SelectField label="卡片类型" value="a" searchable options={[{value:'a',label:'说明'},{value:'b',label:'概念',disabled:true},{value:'c',label:'概念比较'}]} onChange={change}/>);
- fireEvent.click(screen.getByRole('button',{name:'卡片类型'}));const search=screen.getByRole('textbox',{name:'搜索选项'});
+ fireEvent.click(screen.getByRole('combobox',{name:'卡片类型'}));const search=screen.getByRole('textbox',{name:'搜索选项'});
  await waitFor(()=>expect(search).toHaveFocus());
  fireEvent.change(search,{target:{value:'概念'}});fireEvent.keyDown(search,{key:'Enter'});
  expect(change).toHaveBeenCalledWith('c');expect(screen.queryByRole('listbox')).not.toBeInTheDocument();

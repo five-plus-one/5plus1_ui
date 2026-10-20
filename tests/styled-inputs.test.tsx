@@ -19,7 +19,7 @@ it('selects time without opening the device picker',()=>{
 });
 it('retains the select form value and change event contract',async()=>{
   const change=vi.fn();const {container}=render(<form><Select name="access" aria-label="权限" options={[{value:'read',label:'阅读'},{value:'edit',label:'编辑'}]} defaultValue="read" onChange={event=>change(event.target.value)}/></form>);
-  fireEvent.click(screen.getByRole('button',{name:'权限'}));fireEvent.click(screen.getByRole('option',{name:'编辑'}));
+  fireEvent.click(screen.getByRole('combobox',{name:'权限'}));fireEvent.click(screen.getByRole('option',{name:'编辑'}));
   await waitFor(()=>expect(change).toHaveBeenCalledWith('edit'));
   expect(new FormData(container.querySelector('form')!).get('access')).toBe('edit');
   expect(container.querySelector('select')).not.toBeVisible();

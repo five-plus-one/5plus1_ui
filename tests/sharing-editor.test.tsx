@@ -32,7 +32,7 @@ it('bounds upload progress and exposes actions for the task state', () => {
 });
 it('selects themed options by keyboard and restores focus', async () => {
   const change=vi.fn();render(<SelectField label="权限" value="read" onChange={change} options={[{value:'read',label:'可阅读'},{value:'edit',label:'可编辑'}]} />);
-  const trigger=screen.getByRole('button',{name:'权限'});fireEvent.click(trigger);
+  const trigger=screen.getByRole('combobox',{name:'权限'});fireEvent.click(trigger);
   await waitFor(()=>expect(screen.getByRole('option',{name:'可阅读'})).toHaveFocus());
   fireEvent.keyDown(screen.getByRole('option',{name:'可阅读'}),{key:'ArrowDown'});
   expect(screen.getByRole('option',{name:'可编辑'})).toHaveFocus();fireEvent.click(screen.getByRole('option',{name:'可编辑'}));
@@ -71,11 +71,11 @@ it('changes a directive type through the searchable menu and retains its title',
  let editor!:Editor;
  render(<MarkdownEditor markdown={':::note{label="学习提示"}\n保留正文\n:::\n'} onReady={instance=>{editor=instance;}}/>);
  await waitFor(()=>expect(editor).toBeDefined());
- fireEvent.click(screen.getByRole('button',{name:'卡片类型'}));
+ fireEvent.click(screen.getByRole('combobox',{name:'卡片类型'}));
  fireEvent.change(screen.getByRole('textbox',{name:'搜索选项'}),{target:{value:'概念'}});
  fireEvent.click(screen.getByRole('option',{name:'概念'}));
  await waitFor(()=>expect(editor.getJSON().content?.find(n=>n.type==='directiveBlock')?.attrs?.name).toBe('concept'));
- expect(screen.getByRole('button',{name:'卡片类型'})).toHaveTextContent('概念');
+ expect(screen.getByRole('combobox',{name:'卡片类型'})).toHaveTextContent('概念');
  fireEvent.click(screen.getByRole('button',{name:'编辑卡片内容'}));
  expect(screen.getByRole('textbox',{name:'卡片标题'})).toHaveValue('学习提示');
 });

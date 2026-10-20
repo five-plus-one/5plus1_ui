@@ -1704,6 +1704,12 @@ export * from "./ShareLink";
 export * from "./AttachmentPicker";
 export * from "./UploadQueue";
 export * from "./editor/MarkdownEditor";
+export * from "./editor/MarkdownEditorSurface";
+export * from "./ConversationViewport";
+export { default as NoteToolbar } from "./editor/NoteToolbar";
+export { createLazyMathExtensions, type MathNodeHost } from "./editor/LazyMathExtensions";
+export { VisualCodeBlock } from "./editor/VisualCodeBlock";
+export { insertMermaidCard } from "./editor/mermaid";
 export {
   markdownToDocument,
   documentToMarkdown,
@@ -1868,7 +1874,7 @@ export {
   setDirectiveAttribute,
 } from "./editor/DirectiveFields";
 
-export { useMathEditor } from "./editor/MathEditor";
+export { useMathEditor, bindNestedMathEditor, openActiveMathEditor } from "./editor/MathEditor";
 
 import './canvas/canvas-base.css';
 import './canvas/canvas-theme.css';

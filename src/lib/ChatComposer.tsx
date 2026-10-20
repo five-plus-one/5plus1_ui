@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode, type Ref, type TextareaHTMLAttributes } from "react";
 import {
   ArrowUp,
   Square,
@@ -17,6 +17,11 @@ export interface ComposerAttachment {
   error?: string;
 }
 export interface ChatComposerProps {
+  inputProps?: Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange" | "ref" | "disabled">;
+  sendIcon?: ReactNode;
+  stopIcon?: ReactNode;
+  attachmentIcon?: ReactNode;
+  inputRef?: Ref<HTMLTextAreaElement>;
   value: string;
   onChange: (value: string) => void;
   onSend: (value: string) => void | Promise<void>;
@@ -39,6 +44,8 @@ export interface ChatComposerProps {
 }
 /** Controlled draft and upload state allow each workspace to retain its own input. */
 export function ChatComposer({
+  inputProps, sendIcon, stopIcon, attachmentIcon,
+  inputRef,
   value,
   onChange,
   onSend,
@@ -190,7 +197,8 @@ export function ChatComposer({
           </ul>
         )}
         <textarea
-          ref={textarea}
+          {...inputProps}
+          ref={node => { textarea.current = node; if (typeof inputRef === "function") inputRef(node); else if (inputRef) inputRef.current = node; }}
           value={value}
           disabled={disabled}
           aria-label="消息"
@@ -204,7 +212,9 @@ export function ChatComposer({
             composing.current = false;
           }}
           onPaste={(e) => {
-            const files = Array.from(e.clipboardData.files);
+            inputProps?.onPaste?.(e);
+            if (e.defaultPrevented) return;
+            const files = Array.from(e.clipboardData?.files || []);
             if (files.length && onFiles && !disabled) {
               e.preventDefault();
               onFiles(files);
@@ -244,10 +254,11 @@ export function ChatComposer({
                   type="button"
                   className="fp-composer-icon"
                   aria-label="添加附件"
+                  title="添加附件"
                   disabled={disabled}
                   onClick={() => fileInput.current?.click()}
                 >
-                  <Paperclip size={17} />
+                  {attachmentIcon || <Paperclip size={17} />}
                 </button>
               </>
             )}
@@ -258,22 +269,24 @@ export function ChatComposer({
               type="button"
               className="fp-composer-send"
               aria-label="停止回复"
+              title="停止"
               onClick={onStop}
             >
-              <Square size={14} fill="currentColor" />
+              {stopIcon || <Square size={14} fill="currentColor" />}
             </button>
           ) : (
             <button
               type="button"
               className="fp-composer-send"
               aria-label="发送消息"
+              title="发送"
               disabled={!canSend}
               onClick={() => void send()}
             >
               {pending ? (
                 <LoaderCircle size={16} className="fp-spin" />
               ) : (
-                <ArrowUp size={18} />
+                sendIcon || <ArrowUp size={18} />
               )}
             </button>
           )}
