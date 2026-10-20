@@ -4174,6 +4174,7 @@ select.fp-input {
 
 /* ---------- VideoPlayer ---------- */
 .fp-video {
+  container-type: inline-size;
   display: grid;
   gap: 0;
   border: 1px solid var(--fp-line);
@@ -4277,6 +4278,20 @@ select.fp-input {
   font-size: var(--fp-text-2xs);
   font-variant-numeric: tabular-nums;
   color: rgb(255 255 255 / 70%);
+}
+.fp-video-controls .fp-select-field .fp-popup-trigger {
+  width: auto;
+  min-height: 30px;
+  padding: 4px 8px;
+  border-color: rgb(255 255 255 / 20%);
+  background: #292b30;
+  color: #e8eaed;
+}
+@container (max-width: 560px) {
+  .fp-video-controls { flex-wrap: wrap; gap: 6px; }
+  .fp-video-progress { order: -1; flex: 1 0 100%; margin: 4px 0 8px; }
+  .fp-video-time { margin-right: auto; }
+  .fp-video-volume { display: none; }
 }
 
 /* ---------- ShortcutHelp ---------- */
