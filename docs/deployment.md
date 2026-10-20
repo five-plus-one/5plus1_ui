@@ -1,13 +1,13 @@
 # 设计站部署
 
-设计站地址：https://ui.five-plus-one.com ，版本 0.3.1。
+设计站地址：https://ui.five-plus-one.com ，版本 0.3.2。
 
 ## 网关静态站点
 
 - 1Panel 网站 ID：49，类型：static。
 - 网关：114.66.58.250；站点别名：ui.five-plus-one.com。
 - 网站目录：`/opt/1panel/www/sites/ui.five-plus-one.com/index`。
-- 当前发布目录：`/opt/1panel/www/sites/ui.five-plus-one.com/releases/20261020-06`。
+- 当前发布目录：`/opt/1panel/www/sites/ui.five-plus-one.com/releases/20261020-08`。
 - HTTP 自动跳转 HTTPS，使用网关已有的域名证书。
 - 网站使用静态资源与 hash 路由；无需 Node 常驻进程。
 
@@ -25,4 +25,4 @@
 
 ## 验收记录
 
-2026-10-20：42 项自动检查通过；组件包与类型声明构建成功。线上入口文件与本地构建一致，全部构建资源通过 HTTPS 返回成功。浏览器验证编辑器、Mermaid、主题选择和成员搜索。
+2026-10-20：45 项自动检查通过；组件包与类型声明构建成功。线上入口文件与本地构建一致，全部构建资源通过 HTTPS 返回成功。浏览器验证编辑器、Mermaid、主题选择和成员搜索。

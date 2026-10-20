@@ -4,7 +4,7 @@
 
 设计站：[ui.five-plus-one.com](https://ui.five-plus-one.com)。
 
-组件目录包含 124 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
+组件目录包含 126 项基础及业务组件，以及课栈、阅卷、账号与个人主页示例。设计网站提供交互演示、属性说明和可复制代码；组件包支持 React 19 与 TypeScript。
 
 - [UI UX 设计调研](docs/research/ui-ux-research-2026-10-19.md)
 
@@ -19,7 +19,7 @@ npm run dev
 
 访问 http://127.0.0.1:5178/ 。`npm run build` 构建设计网站和带类型声明的组件包；`npm test` 执行回归测试。
 
-在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.3.1.tgz`：
+在本项目执行 `npm run build` 和 `npm pack`，然后在其他项目安装生成的 `fiveplusone-ui-0.3.2.tgz`：
 
 ```tsx
 import { Button, Card } from '@fiveplusone/ui';
