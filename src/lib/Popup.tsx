@@ -22,6 +22,7 @@ export interface PopupProps {
   className?: string;
   role?: "menu" | "dialog" | "listbox";
   onOpenChange?: (open: boolean) => void;
+  density?: "comfortable" | "compact";
 }
 /** Anchored surface with dismissal, keyboard navigation and viewport bounds. */
 export function Popup({
@@ -35,6 +36,7 @@ export function Popup({
   className = "",
   role: suppliedRole,
   onOpenChange,
+  density = "comfortable",
 }: PopupProps) {
   const [open, setOpen] = useState(false),
     [exiting, setExiting] = useState(false);
@@ -215,7 +217,7 @@ export function Popup({
             aria-hidden={exiting || undefined}
             inert={exiting}
             data-exiting={exiting || undefined}
-            className={`fp-popup-panel ${role === "menu" ? "fp-popup-menu" : role === "listbox" ? "fp-popup-listbox" : "fp-popover-content"} ${className}`}
+            className={`fp-popup-panel ${role === "menu" ? "fp-popup-menu" : role === "listbox" ? "fp-popup-listbox" : "fp-popover-content"} ${density === "compact" ? "fp-popup-compact" : ""} ${className}`}
             style={{
               ...theme,
               position: "fixed",

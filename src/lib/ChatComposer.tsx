@@ -38,6 +38,8 @@ export interface ChatComposerProps {
   accept?: string;
   /** Model, thinking, search, context usage and product actions. */
   tools?: ReactNode;
+  /** Model and account information, kept separate from message actions. */
+  footer?: ReactNode;
   notice?: ReactNode;
   onComposerInsetChange?: (height: number) => void;
   sendOnEnter?: boolean;
@@ -61,6 +63,7 @@ export function ChatComposer({
   onFiles,
   accept,
   tools,
+  footer,
   notice,
   onComposerInsetChange,
   sendOnEnter = true,
@@ -291,6 +294,7 @@ export function ChatComposer({
             </button>
           )}
         </div>
+        {footer && <div className="fp-composer-footer">{footer}</div>}
       </div>
       {(error || disabledReason) && (
         <p

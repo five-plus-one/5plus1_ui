@@ -1,5 +1,10 @@
 import { useCallback, useRef, useState } from "react";
 import * as U from "./lib";
+const graphSubjects = ["线性代数", "概率统计", "数值计算", "物理"];
+const graphTopics = ["基本概念", "重要定理", "典型例题", "推导过程", "课堂提问", "方法比较", "复习整理", "拓展阅读", "易错分析", "综合应用", "知识联系", "练习记录"];
+const graphDemoNodes = graphSubjects.flatMap((kind, group) => graphTopics.map((topic, index) => ({ id: `g${group}-${index}`, label: `${kind} · ${topic}`, kind })));
+const graphDemoEdges = graphSubjects.flatMap((_, group) => graphTopics.flatMap((_, index) => [1, 3].map(offset => ({ source: `g${group}-${index}`, target: `g${group}-${(index + offset) % graphTopics.length}` }))));
+function GraphExample() { const [selected, setSelected] = useState(""); return <U.GraphView nodes={graphDemoNodes} edges={graphDemoEdges} selectedId={selected} onSelect={setSelected}/>; }
 function RecoverableContent() {
   const [failed, setFailed] = useState(false);
   if (failed) throw new Error("Content unavailable");
@@ -415,7 +420,7 @@ export const patternDefinitions: Record<
   GraphView: [
     "笔记关系图",
     "业务模式",
-    "查看笔记之间的联系并选择关联内容。",
+    "拖动笔记节点，观察关联牵引与自动排布。",
     "nodes；edges；selectedId；onSelect",
   ],
   CanvasWorkbench: [
@@ -1305,17 +1310,7 @@ export function PatternDemo({
         onToggle={(_id, value) => setEnabled(value)}
       />
     ),
-    GraphView: () => (
-      <U.GraphView
-        nodes={nodes}
-        edges={[
-          { source: "a", target: "b" },
-          { source: "b", target: "c" },
-        ]}
-        selectedId={selected}
-        onSelect={setSelected}
-      />
-    ),
+    GraphView: () => <GraphExample />,
     CanvasWorkbench: () => (
       <U.CanvasWorkbench
         title="几何工作台"

@@ -1861,6 +1861,7 @@ export * from "./themes";
 import "./workspace/preview.css";
 import "./workspace/workspace.css";
 import "./workspace/controls.css";
+import "./graph-view.css";
 import "./editor/editor.css";
 import "./product-themes.css";
 import "./content-rhythm.css";
@@ -1868,6 +1869,8 @@ import "./content-rhythm.css";
 export * from "./AnimatedSize";
 
 export * from "./ContextMenu";
+export * from "./MediaControls";
+export * from "./NavigationCard";
 export * from "./ResourceExplorer";
 
 export * from "./TaskViews";

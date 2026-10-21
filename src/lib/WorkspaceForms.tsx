@@ -186,16 +186,18 @@ export function SettingsTabs({
   value,
   onChange,
   items,
+  density = "comfortable",
 }: {
   label: string;
   value: string;
   onChange: (id: string) => void;
   items: { id: string; label: string }[];
+  density?: "comfortable" | "compact";
 }) {
   const id = useId(),
     reduced = useReducedMotion();
   return (
-    <div className="fp-settings-tabs" role="tablist" aria-label={label}>
+    <div className="fp-settings-tabs" data-density={density} role="tablist" aria-label={label}>
       {items.map((item) => (
         <button
           type="button"

@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useRef, useState, type Ref } from "react";
+import { MediaControls, MediaSlider } from "./MediaControls";
 import { SelectField } from "./SelectField";
 import { Play, Pause, Volume2, VolumeX, Maximize, PictureInPicture } from "lucide-react";
 
@@ -192,21 +193,9 @@ export function VideoPlayer({
           </button>
         )}
       </div>
-      <div className="fp-video-controls">
-        {tracks.length > 0 && <SelectField label="字幕" value={String(caption)} options={[{value:"-1",label:"关闭字幕"},...tracks.map((track,index)=>({value:String(index),label:track.label}))]} onChange={value=>{ const index=Number(value);setCaption(index);if(video.current)Array.from(video.current.textTracks).forEach((track,i)=>{track.mode=i===index?"showing":"disabled";}); }} />}
-        <SelectField label="播放速度" value={String(rate)} onChange={value=>{if(video.current)video.current.playbackRate=Number(value);}} options={[.5,.75,1,1.25,1.5,2].map(speed=>({value:String(speed),label:`${speed}×`}))} />
-        <button
-          type="button"
-          aria-label={playing ? "暂停" : "播放"}
-          title="播放／暂停（空格或 K）"
-          onClick={toggle}
-        >
-          {playing ? <Pause size={16} /> : <Play size={16} />}
-        </button>
-        <input
+      <MediaControls progress={<MediaSlider
           type="range"
-          className="fp-video-progress"
-          min={0}
+                    min={0}
           max={duration || 0}
           step={0.1}
           value={time}
@@ -216,15 +205,20 @@ export function VideoPlayer({
             setTime(next);
             if (video.current) video.current.currentTime = next;
           }}
-          style={{
-            ["--fp-video-fill" as string]: `${
-              duration ? (time / duration) * 100 : 0
-            }%`,
-          }}
-        />
-        <span className="fp-video-time">
+        />}>
+        <button
+          type="button"
+          aria-label={playing ? "暂停" : "播放"}
+          title="播放／暂停（空格或 K）"
+          onClick={toggle}
+        >
+          {playing ? <Pause size={16} /> : <Play size={16} />}
+        </button>
+        <span className="fp-media-time">
           {formatTime(time)} / {formatTime(duration)}
         </span>
+        {tracks.length > 0 && <SelectField label="字幕" value={String(caption)} options={[{value:"-1",label:"关闭字幕"},...tracks.map((track,index)=>({value:String(index),label:track.label}))]} onChange={value=>{ const index=Number(value);setCaption(index);if(video.current)Array.from(video.current.textTracks).forEach((track,i)=>{track.mode=i===index?"showing":"disabled";}); }} />}
+        <SelectField label="播放速度" value={String(rate)} onChange={value=>{if(video.current)video.current.playbackRate=Number(value);}} options={[.5,.75,1,1.25,1.5,2].map(speed=>({value:String(speed),label:`${speed}×`}))} />
         <button
           type="button"
           aria-label={muted ? "取消静音" : "静音"}
@@ -238,9 +232,8 @@ export function VideoPlayer({
         >
           {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
         </button>
-        <input
-          type="range"
-          className="fp-video-volume"
+        <MediaSlider
+          className="fp-media-volume"
           min={0}
           max={1}
           step={0.05}
@@ -263,7 +256,7 @@ export function VideoPlayer({
         >
           <Maximize size={16} />
         </button>
-      </div>
+      </MediaControls>
       {notice && <div className="fp-video-notice" role="status">{notice}</div>}
     </div>
   );
