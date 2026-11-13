@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>嵌入式界面 · 五加一组件库</title>
+<style>
+/* Representative host defaults, deliberately kept outside the component boundary. */
+button{width:100%;padding:12px 60px;background:#009688;color:#fff;border:0;letter-spacing:1px}
+:root{font:15px/1.7 system-ui,sans-serif;--fp-bg:#f5f7f9;--fp-surface:#fff;--fp-surface-muted:#edf2f5;--fp-ink:#172033;--fp-line:#dce1e8;--fp-primary:#13795b;background:var(--fp-bg);color:var(--fp-ink)}
+:root[data-theme=dark]{--fp-bg:#14181f;--fp-surface:#20252d;--fp-surface-muted:#2e3642;--fp-ink:#edf0f5;--fp-line:#4c5665;--fp-primary:#71dab5;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0}main{max-width:1000px;margin:auto;padding:32px 20px}header{display:flex;align-items:center;justify-content:space-between;gap:16px}h1{font-size:28px;margin:8px 0}h2{font-size:20px;margin-top:0}p{margin:8px 0 20px}.muted{opacity:.7}section{padding:24px;background:var(--fp-surface);border:1px solid var(--fp-line);border-radius:14px;margin:20px 0}a{color:var(--fp-primary)}
+#catalog button{border:1px solid var(--fp-line);border-radius:7px;background:var(--fp-surface);color:var(--fp-ink);padding:7px 12px;min-height:36px;font:inherit}
+#catalog button:hover,#catalog button:focus-visible{outline:2px solid var(--fp-primary);outline-offset:2px}label{display:flex;align-items:center;gap:12px;margin-bottom:16px}input[type=range]{width:220px;max-width:65vw}.toolbar{display:flex;gap:6px;padding:8px;border:1px solid var(--fp-line);border-radius:9px;width:100%;color:var(--fp-ink);background:var(--fp-surface)}.toolbar button{flex-shrink:0}.frame{max-width:100%;min-width:0}.status{min-height:30px;margin:14px 0 0}.example{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;border-radius:8px;background:var(--fp-bg);font:13px/1.7 ui-monospace,monospace}.catalog{display:flex;gap:16px;flex-wrap:wrap}.catalog a{white-space:nowrap}
+@media(max-width:500px){main{padding:20px 12px}section{padding:18px}h1{font-size:23px}header{align-items:flex-start}}
+</style>
+<main id="catalog"><header><div><a href="/">五加一组件库</a><h1>嵌入式界面</h1><p class="muted">0.1.0 · 3 项组件</p></div><button id="theme" data-fp-tooltip="切换深浅主题">切换主题</button></header>
+<nav class="catalog" aria-label="组件目录"><a href="#boundary">样式边界</a><a href="#toolbar">自适应操作栏</a><a href="#tooltip">即时提示</a></nav>
+<section id="boundary"><h2>样式边界</h2><p>嵌入其他网站时，按钮与输入控件保持组件自己的尺寸和外观。</p><button data-fp-tooltip="打开参考答案">编辑参考答案</button></section>
+<section id="toolbar"><h2>自适应操作栏</h2><p>调整容器宽度，常用操作按原顺序展开，其余收进“更多”。</p><label>容器宽度 <input id="width" aria-label="容器宽度" type="range" min="160" max="880" value="880"></label><div class="frame"><div class="toolbar" aria-label="编辑工具栏"></div></div><p class="status" role="status" id="status">选择一个编辑操作。</p></section>
+<section id="tooltip"><h2>即时提示</h2><p>鼠标进入或键盘聚焦即可查看操作说明。触屏保留清晰标签。</p><button data-fp-tooltip="保存参考答案 · Ctrl+Enter">保存参考答案</button></section>
+<section><h2>接入示例</h2><pre class="example" id="code">const roots = ['#my-panel'];
+FivePlusOneEmbeddedUI.installBoundary(document, roots);
+const disposeTips = FivePlusOneEmbeddedUI.installTooltips(document, roots);
+const toolbar = FivePlusOneEmbeddedUI.enhanceToolbar(bar, {
+  onAction: handleToolbarClick,
+});
+// 关闭时释放组件。
+toolbar.destroy();
+disposeTips();</pre><button id="copy" data-fp-tooltip="复制接入代码">复制代码</button> <a href="./fiveplusone-embedded-ui-0.1.0.tgz">下载 0.1.0 组件包</a></section></main>
+<script src="./embedded-ui.js"></script><script>
+FivePlusOneEmbeddedUI.installBoundary(document,['#catalog']);
+FivePlusOneEmbeddedUI.installTooltips(document,['#catalog']);
+const bar=document.querySelector('.toolbar'),status=document.getElementById('status');
+for(const [icon,label] of [['B','加粗 · Ctrl+B'],['I','斜体 · Ctrl+I'],['H','标题'],['≡','列表'],['↗','链接'],['∑','公式'],['▧','图片'],['❞','引用'],['—','分隔线']]){
+ const button=document.createElement('button');button.textContent=icon;button.dataset.fpTooltip=label;button.setAttribute('aria-label',label);bar.append(button);
+}
+const controls=FivePlusOneEmbeddedUI.enhanceToolbar(bar,{onAction:action});
+function action(event){const button=event.target.closest('button');if(button&&!button.classList.contains('fp-embedded-more'))status.textContent='已选择：'+button.getAttribute('aria-label');}
+bar.addEventListener('click',action);
+document.getElementById('width').oninput=e=>{document.querySelector('.frame').style.width=e.target.value+'px';};
+document.getElementById('theme').onclick=()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';};
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(document.getElementById('code').textContent);document.getElementById('copy').textContent='已复制';}catch{document.getElementById('copy').textContent='请选择上方代码复制';}};
+</script></html>
